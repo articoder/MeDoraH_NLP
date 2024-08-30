@@ -8,7 +8,7 @@ Some general KG construction workflows: [Workflow Diagram](Workflows/README.md)
 
 Experiements:
 
-1. Keyword extraction using several different algorithms (TF-IDF, RAKE, YAKE)
+1. Based on Marco's initial experiment on TF-IDF keyword extraction, I added two other different algorithms (RAKE, YAKE) to give a different view of the keywords.
 2. Topic Modelling using LDA and BERTopic
 
 
