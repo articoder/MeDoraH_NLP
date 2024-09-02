@@ -4,7 +4,7 @@ This repository is used to managing and sharing the workflow, experiments, and r
 
 
 
-Some general KG construction workflows: [Workflow Diagram](Workflows/README.md)
+Some general KG construction workflows: [README](Workflows/README.md)
 
 Experiements:
 

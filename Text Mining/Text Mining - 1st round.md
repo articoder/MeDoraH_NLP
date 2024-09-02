@@ -44,18 +44,18 @@ Coherence: This metric measures the semantic similarity between the top words in
 Perplexity: This is a measure of how well a probabilistic model predicts a sample. For LDA, it reflects how well the model predicts the distribution of words in unseen documents. Lower perplexity generally indicates a better model fit, but it doesn’t always correlate with human interpretability of the topics.
 ```
 
+![](images/coherence_and_perplexity.png)
 
 
 
-
-![[coherence_and_perplexity.png]]
 * Technical detail of LDA
 
 ```
 * Randomly assign each word in each document to one of the K topics.
 * For each document:
-    - Calculate the proportion of words assigned to each topic.
-- For each word:
+    - Calculate the proportion of words assigned to each topic
+    - 
+* For each word:
 	- Calculate the proportion of words in the current topic that are the current word.
 	- Reassign the word to a new topic based on these proportions.
 ```
@@ -85,8 +85,8 @@ Visualisations: three word cloud figures based on:
    * LDA (5 topic and 17 topic) (document topic distribution heatmap, hierarchical topic tree)
    * BERTopic
 
-![[hierarchical_topic_tree.png]]
 
+![](images/hierarchical_topic_tree.png)
 
 Some interpretation on the hierarchical topic modelling results from LDA:
 
