@@ -35,7 +35,6 @@ As this it the initial explorative text analysis, we tend to use the unsupervise
 
 
 ## Topic level
-
 ### Latent Dirichlet Allocation （LDA）
 * Need to Define the number of topics (K), therefore I use coherence and perplexity values to automatically find out the optimal number of topics.
 ```
