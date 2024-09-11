@@ -1,17 +1,27 @@
 ## Some thought about using the interview structure:
 While I'm exploring the interview text, I was very curious about whether we can take account into the turn-taking nature of the dialogues in the interviews when analysing  the text. 
 
-> Julianne's comment: That is an excellent idea and very important in the context of oral history. There are various things we could think about, that are frameworks in sociology that we could draw on for analysing things like turn taking, interruptions, length of time talking.
+==Julianne's comment: That is an excellent idea and very important in the context of oral history. There are various things we could think about, that are frameworks in sociology that we could draw on for analysing things like turn taking, interruptions, length of time talking. 
+
+> Jiajie's answer: Thank you so much for your encouragement! I think this is an exciting area for us to look at using the text mining based methods. As I don't have a sufficient background of sociology, this would take some time for us to research and experiment, perhaps I need to discuss with Andreas and Marco, firstly to make sure I can deliver what the Andreas expected on time. Then move on the planning and research on this topic.
 
 
 In our current text analysis of oral history interviews, we're processing the transcripts as continuous text. However, given the dialogic nature of interviews, could we enhance our analysis strategically by separately processing questions and answers? How might this approach improve our keyword extraction, topic modelling, and overall understanding of the interview dynamics?
 
-> Julianne's comment: yes so segmentation of the interviews into questions and answers will be crucial
+==Julianne's comment: yes so segmentation of the interviews into questions and answers will be crucial
+
+> Jiajie's answer: Yes, for this task I will need to either manually segment the questions and answers or develop a method to automatically segment them. With a method to validate the integrity of all the segmentations, this is to make sure no information is missing after segmentation. Also come up with a robust plan for these experiments. Some initial ideas like:
+- apply separate keyword extraction and topic modelling to questions and answers. This could potentially reveal differences in response between interviewees; and the shift of topic within the conversation.
 
 
 As this it the initial explorative text analysis, we tend to use the unsupervised methods:
 
-> Julianne's comment: Great, can I briefly discuss with you why that is, is it because supervised methods will presume that we have an annotated corpus to work with?
+==Julianne's comment: Great, can I briefly discuss with you why that is, is it because supervised methods will presume that we have an annotated corpus to work with?
+
+> Jiajie's answer: Yes, you are right about the need of annotated corpus to use supervised methods. The supervised method often requires large amount of annotated data to run. For example the customised named entity recognition or document classification.  
+> But in the early stage of text mining, using the unsupervised methods is to gain an overall understanding of the corpus, it is more of a "let the data speak for itself".
+> We also have a goal of extracting the terms to enrich the list of controlled vocabulary, which could be used to describe the field "Keywords" and "Topic" in File Schema, therefore these unsupervised keyword extraction and topic modelling methods are used in this stage.
+
 ## Keyword Level
 1. **TF-IDF**:
    A few changes are made based on Marco’s implementation:
@@ -19,7 +29,8 @@ As this it the initial explorative text analysis, we tend to use the unsupervise
    * Add customised stopwords to exclude the names and their abbreviations of interviewer and interviewee
    * Change max_df from 0.5 to 0.8 (Ignores terms appearing in more than 80% of the documents, filtering out very common terms.)
 2. **RAKE** (Rapid Automatic Keyword Extraction) to extract keywords
-   * It extract meaningful phrases by identifying sequences of words that frequently co-occur and are not stopwords
+   * RAKE rely on his hypothesis that stopwords are often the borders of the keywords, by using the stopwords it can generate a list of candidate
+   * The choice of stopword should be particularly careful
    * works well on small single document
    * Cannot capture the how unusual/unique the keyword is among the set of documents as TF-IDF
 3. **YAKE** (Yet Another Keyword Extractor)
@@ -28,11 +39,14 @@ As this it the initial explorative text analysis, we tend to use the unsupervise
 4. TextRank
 	- TODO
 
+==Julianne's comment: 1. Excellent - there was also some issues with ngrams that need to be kept together and not treated as single words, mostly entities e.g. Atlas Computer Lab , Can we talk about this?
 
-> 1. Excellent - there was also some issues with ngrams that need to be kept together and not treated as single words, mostly entities e.g. Atlas Computer Lab , Can we talk about this?
-> 2. Is there also an approach that could help us to detect highly unusual co-occurring words in the context of an interview or interview corpus?
+> Jiajie's answer: Yes, as we discussed in the last meeting it is much better to have an accurate form of extracted entities, there are several solutions could be used to help us generate a more accurate keyword: 1. Use Frieda's coding and apply the rule-based method, change "Atlas Computer Lab" to "Atlas_Computer_Lab". 2. Create custom NER model, using Frieda's coding as training data.
 
+==Julianne's comment: 2.Is there also an approach that could help us to detect highly unusual co-occurring words in the context of an interview or interview corpus?
 
+>  Jiajie's answer: This is a very good question. This might be related to the 'The Long Tail' issue in statistic and many other data related area, which refers to the rarely seen data points but with great value. I will certainly need further research on this. 
+>  some initial ideas: 1. Using Mutual Information (MI) and Pointwise Mutual Information (PMI) to calculate the degree of association between word pairs. 2. Create a word co-occurrence network where nodes are words and edges represent co-occurrence strength
 
 ## Topic level
 ### Latent Dirichlet Allocation （LDA）
@@ -59,9 +73,9 @@ Perplexity: This is a measure of how well a probabilistic model predicts a sampl
 	- Reassign the word to a new topic based on these proportions.
 ```
 
-> This i think i need to ask you about as well
+==Julianne's comment: This i think i need to ask you about as well
 
-
+> Perhaps you can be more specific here?
 
 ### BERTopic
 How it works:
@@ -98,9 +112,9 @@ Some interpretation on the hierarchical topic modelling results from LDA:
 "lab apple faculty" & "tei antonio discussion":
 - Possible Broader Topic: Collaborative Digital Projects and Scholarly Networks
 
-> so this is an example of where I think we need to look at the encoding of entities, this is almost certainly antonio zampolli-
+==Julianne's comment: so this is an example of where I think we need to look at the encoding of entities, this is almost certainly antonio zampolli-
 
-
+> Yes, as we discussed in the above question. I will refine the experiments and produce keywords in a more accurate form.
 
 
 Comparing Keyword VS Topic:
