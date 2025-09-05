@@ -1,0 +1,441 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MeDoraH - International Digital Oral History Lab</title>
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+<style type="text/css">
+/* CSS Reset and Variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Typography */
+    --font-primary: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-secondary: 'Instrument Serif', Georgia, serif;
+    
+    /* Colors - MeDoraH Brand Identity */
+    --color-bg: #F4F6F8;
+    --color-bg-card: #FFFFFF;
+    --color-text-primary: #1A1A1A;
+    --color-text-secondary: #4A4A4A;
+    --color-text-muted: #6B6B6B;
+    --color-accent-primary: #2E7D8F;    /* Deep teal - primary brand color */
+    --color-accent-secondary: #5BA0B4;  /* Lighter teal */
+    --color-accent-tertiary: #8BC34A;   /* Fresh green - innovation accent */
+    --color-gradient-start: #2E7D8F;
+    --color-gradient-end: #5BA0B4;
+    --color-border: #E1E8ED;
+    
+    /* Spacing */
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-2xl: 4rem;
+    --space-3xl: 6rem;
+    
+    /* Typography Scale */
+    --text-base: 1.125rem;
+    --text-lg: 1.25rem;
+    --text-xl: 1.5rem;
+    --text-2xl: 2rem;
+    --text-3xl: 2.5rem;
+    --text-4xl: 3.5rem;
+    
+    /* Border Radius */
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+}
+
+/* Header Section */
+.project-header {
+    padding: var(--space-3xl) 0 var(--space-2xl);
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.project-label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent-primary);
+    margin-bottom: var(--space-sm);
+    font-weight: 500;
+    background: linear-gradient(90deg, var(--color-accent-primary), var(--color-accent-secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.project-title {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--color-accent-primary) 0%, var(--color-accent-secondary) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: var(--space-md);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    text-shadow: 0 2px 4px rgba(46, 125, 143, 0.1);
+}
+
+.project-subtitle {
+    font-size: var(--text-xl);
+    color: var(--color-text-secondary);
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    max-width: 800px;
+    margin: 0 auto var(--space-lg);
+    font-style: italic;
+}
+
+/* Main Content */
+.main-content {
+    padding: var(--space-2xl) 0;
+}
+
+.content-section {
+    background-color: var(--color-bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+    margin-bottom: var(--space-xl);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.content-section h2 {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-lg);
+    font-family: var(--font-secondary);
+}
+
+.content-section p {
+    font-size: var(--text-base);
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.content-section p:last-child {
+    margin-bottom: 0;
+}
+
+.highlight-text {
+    color: var(--color-accent-primary);
+    font-weight: 600;
+    background: linear-gradient(90deg, var(--color-accent-primary), var(--color-accent-secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Innovation Highlight */
+.innovation-highlight {
+    background: linear-gradient(135deg, rgba(46, 125, 143, 0.08), rgba(139, 195, 74, 0.06));
+    border-left: 4px solid var(--color-accent-primary);
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+    margin: var(--space-lg) 0;
+    position: relative;
+overflow: hidden;
+}
+
+.innovation-highlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--color-accent-tertiary), transparent);
+    border-radius: 0 0 0 30px;
+    opacity: 0.3;
+}
+
+/* Resources Grid */
+.resources-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: var(--space-lg) !important;
+    margin-top: var(--space-xl) !important;
+    width: 100% !important;
+    align-items: stretch !important;
+}
+
+/* Fallback for very small screens */
+@media (max-width: 900px) {
+    .resources-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .resources-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+.resource-card {
+    background: linear-gradient(135deg, rgba(46, 125, 143, 0.04), rgba(91, 160, 180, 0.03)) !important;
+    border: 1px solid rgba(46, 125, 143, 0.15) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-xl) !important;
+    text-align: center !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+.resource-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary), var(--color-accent-tertiary));
+    border-radius: var(--radius-lg);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.resource-card:hover::before {
+    opacity: 0.1;
+}
+
+.resource-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(46, 125, 143, 0.15);
+    border-color: var(--color-accent-secondary);
+}
+
+.resource-card h3 {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+    font-family: var(--font-secondary);
+}
+
+.resource-card p {
+    font-size: var(--text-base) !important;
+    color: var(--color-text-secondary) !important;
+    margin-bottom: var(--space-lg) !important;
+    line-height: 1.6 !important;
+    flex-grow: 1 !important;
+}
+
+.resource-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: var(--space-sm) !important;
+    background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end)) !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: var(--space-sm) var(--space-lg) !important;
+    border-radius: var(--radius-md) !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 3px 12px rgba(46, 125, 143, 0.25) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    margin-top: auto !important;
+    min-height: 44px !important;
+    width: auto !important;
+}
+
+.resource-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.resource-link:hover::before {
+    left: 100%;
+}
+
+.resource-link:hover {
+    background: linear-gradient(135deg, var(--color-accent-secondary), var(--color-accent-tertiary));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 125, 143, 0.35);
+}
+
+.resource-link::after {
+    content: '→';
+    font-size: var(--text-lg);
+    transition: transform 0.2s ease;
+}
+
+.resource-link:hover::after {
+    transform: translateX(2px);
+}
+
+/* Footer */
+.project-footer {
+    padding: var(--space-2xl) 0;
+    text-align: center;
+    border-top: 1px solid var(--color-border);
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    transition: color 0.2s ease;
+    font-size: var(--text-base);
+}
+
+.back-link:hover {
+    color: var(--color-accent-primary);
+}
+
+.back-link::before {
+    content: '←';
+    font-size: var(--text-lg);
+}
+
+/* Override any Omeka-S conflicting styles */
+.content-section * {
+    box-sizing: border-box !important;
+}
+
+.content-section .resources-grid {
+    display: grid !important;
+}
+
+.content-section .resource-card {
+    display: flex !important;
+    flex-direction: column !important;
+    float: none !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .project-title {
+        font-size: var(--text-3xl);
+    }
+    
+    .project-subtitle {
+        font-size: var(--text-lg);
+    }
+    
+    .content-section {
+        padding: var(--space-lg);
+    }
+    
+    .container {
+        padding: 0 var(--space-md);
+    }
+}
+</style>
+
+<div class="container">
+    <header class="project-header">
+        <div class="project-label">A Digital Oral History Lab Project</div>
+        <h1 class="project-title">MeDoraH</h1>
+        <p class="project-subtitle">Advancing digital humanities research methodology through semantic web technologies and computational oral history analysis</p>
+    </header>
+
+    <main class="main-content">
+        <section class="content-section">
+            <h2>About MeDoraH</h2>
+            <p>Building upon <span class="highlight-text">Hidden Histories' foundational work</span>, MeDoraH represents an innovative advancement in digital humanities research methodology. This collaborative venture between University College London and TU Darmstadt introduces cutting-edge semantic web technologies and digital methods to oral history research.</p>
+            
+            <p>MeDoraH enriches the existing Hidden Histories interview corpus by incorporating <span class="highlight-text">ten new German-language interviews</span>, broadening our understanding beyond the Anglophone world.</p>
+        </section>
+
+        <section class="content-section">
+            <div class="innovation-highlight">
+                <p><strong>Methodological Innovation:</strong> The project pioneers a novel methodological framework combining traditional oral history approaches with advanced computational techniques, enabled by a comprehensive knowledge graph and specialized ontologies.</p>
+            </div>
+            
+            <p>Through innovative natural language processing across English and German sources, MeDoraH creates <span class="highlight-text">structured representations</span> of oral history interviews adhering to FAIR data principles.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Technical Infrastructure & Impact</h2>
+            <p>This technical infrastructure supports sophisticated analyses while preserving the nuanced nature of oral history research. Our interactive portal enables researchers, digital humanists, and oral historians to explore this enhanced interview corpus, facilitating novel investigations into the <span class="highlight-text">formation and evolution of digital humanities</span> as a field.</p>
+            
+            <p>Project outputs include semantically enriched interview transcriptions, a pioneering oral history ontology, and new methodological frameworks for <span class="highlight-text">digital oral history research</span>.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Project Resources</h2>
+            <p>Explore MeDoraH's comprehensive resources and methodological contributions to digital oral history research:</p>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h3>Metadata Structure</h3>
+                    <p>Discover the comprehensive metadata framework underpinning MeDoraH's approach to oral history data.</p>
+                    <a href="https://hiddenhistories.net/s/medorah/page/metadata" class="resource-link" target="_blank" rel="noopener noreferrer">
+                        View Metadata
+                    </a>
+                </div>
+                
+                <div class="resource-card">
+                    <h3>FAIR Data Principles</h3>
+                    <p>Access structured representations of oral history interviews following FAIR data principles for enhanced discoverability.</p>
+                    <a href="https://hiddenhistories.net/s/medorah/page/OralHistory" class="resource-link" target="_blank" rel="noopener noreferrer">
+                        Access Data
+                    </a>
+                </div>
+                
+                <div class="resource-card">
+                    <h3>Publications & Outputs</h3>
+                    <p>Browse publications, research outputs, and scholarly contributions from the MeDoraH project.</p>
+                    <a href="https://hiddenhistories.net/s/digital-oral-history-lab/page/resources-publications" class="resource-link" target="_blank" rel="noopener noreferrer">
+                        View Publications
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="project-footer">
+        <a href="https://hiddenhistories.net/s/digital-oral-history-lab/page/home" class="back-link">Return to International Digital Oral History Lab</a>
+    </footer>
+</div>

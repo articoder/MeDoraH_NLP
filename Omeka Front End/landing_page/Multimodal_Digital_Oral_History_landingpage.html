@@ -1,0 +1,544 @@
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet" />
+<style type="text/css">/* CSS Reset and Variables */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        /* Typography */
+        --font-primary: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        --font-secondary: 'Instrument Serif', Georgia, serif;
+
+        /* MDOH Color Palette */
+        --color-bg: #F7F5F2;
+        --color-bg-card: #FFFFFF;
+        --color-text-primary: #1A1A1A;
+        --color-text-secondary: #4A4A4A;
+        --color-accent-blue: #004b6e;
+        --color-accent-sage: #8B9A7B;
+        --color-accent-lavender: #9B8BB4;
+        --color-border: #E5E5E5;
+
+        /* Spacing */
+        --space-sm: 1rem;
+        --space-md: 1.5rem;
+        --space-lg: 2rem;
+        --space-xl: 3rem;
+        --space-2xl: 4rem;
+        --space-3xl: 6rem;
+        
+        /* Typography Scale */
+        --text-base: 1.125rem;
+        --text-lg: 1.25rem;
+        --text-xl: 1.5rem;
+        --text-2xl: 2rem;
+        --text-4xl: 3.5rem;
+
+        /* Border Radius */
+        --radius-lg: 1rem;
+        --radius-md: 0.75rem;
+    }
+
+    /* Base Styles */
+    body {
+        font-family: var(--font-primary);
+        background-color: var(--color-bg);
+        color: var(--color-text-primary);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 var(--space-lg);
+    }
+
+    /* Header Section */
+    .project-header {
+        padding: var(--space-3xl) 0 var(--space-2xl);
+        text-align: center;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .project-label {
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--color-accent-blue);
+        margin-bottom: var(--space-sm);
+        font-weight: 500;
+    }
+
+    .project-title {
+        font-size: var(--text-4xl);
+        font-weight: 600;
+        margin-bottom: var(--space-md);
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+    }
+
+    .project-subtitle {
+        font-size: var(--text-xl);
+        color: var(--color-text-secondary);
+        font-family: var(--font-secondary);
+        max-width: 800px;
+        margin: 0 auto var(--space-lg);
+        font-style: italic;
+    }
+
+    /* Main Content */
+    .main-content {
+        padding: var(--space-2xl) 0;
+    }
+
+    .content-section {
+        background-color: var(--color-bg-card);
+        border-radius: var(--radius-lg);
+        padding: var(--space-2xl);
+        margin-bottom: var(--space-xl);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .content-section h2 {
+        font-size: var(--text-2xl);
+        font-weight: 600;
+        margin-bottom: var(--space-lg);
+        font-family: var(--font-secondary);
+    }
+
+    .content-section p {
+        font-size: var(--text-base);
+        line-height: 1.7;
+        color: var(--color-text-secondary);
+        margin-bottom: var(--space-md);
+    }
+
+    .content-section p:last-child {
+        margin-bottom: 0;
+    }
+
+    .highlight-text {
+        color: var(--color-accent-blue);
+        font-weight: 500;
+    }
+
+    /* Interactive Research Card */
+    .research-preview-card {
+        display: block;
+        background: linear-gradient(135deg, rgba(0, 75, 110, 0.04), rgba(0, 75, 110, 0.02));
+        border: 1px solid rgba(0, 75, 110, 0.12);
+        border-radius: var(--radius-lg);
+        padding: var(--space-lg) var(--space-xl);
+        margin: var(--space-xl) 0;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .research-preview-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(180deg, var(--color-accent-blue), rgba(0, 75, 110, 0.6));
+        transform: scaleY(0);
+        transform-origin: bottom;
+        transition: transform 0.3s ease;
+    }
+
+    .research-preview-card:hover::before {
+        transform: scaleY(1);
+    }
+
+    .research-preview-card:hover {
+        transform: translateY(-2px);
+        background: linear-gradient(135deg, rgba(0, 75, 110, 0.06), rgba(0, 75, 110, 0.03));
+        border-color: rgba(0, 75, 110, 0.2);
+        box-shadow: 0 8px 25px rgba(0, 75, 110, 0.08);
+    }
+
+    .research-preview-card:active {
+        transform: translateY(0);
+        transition: transform 0.1s ease;
+    }
+
+    .research-preview-card__inner {
+        display: flex;
+        align-items: center;
+        gap: var(--space-md);
+        pointer-events: none;
+    }
+
+
+    .research-icon {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        background: rgba(0, 75, 110, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-accent-blue);
+        transition: all 0.3s ease;
+    }
+
+    .research-preview-card:hover .research-icon {
+        background: rgba(0, 75, 110, 0.15);
+        transform: scale(1.05);
+    }
+
+    .research-content {
+        flex: 1;
+    }
+
+    .research-content h3 {
+        font-size: var(--text-lg);
+        font-weight: 600;
+        color: var(--color-text-primary);
+        margin: 0 0 0.25rem 0;
+        font-family: var(--font-secondary);
+    }
+
+    .research-content p {
+        font-size: var(--text-base);
+        color: var(--color-text-secondary);
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    .research-arrow {
+        flex-shrink: 0;
+        color: var(--color-accent-blue);
+        opacity: 0.7;
+        transition: all 0.3s ease;
+    }
+
+    .research-preview-card:hover .research-arrow {
+        opacity: 1;
+        transform: translateX(4px);
+    }
+
+    /* Workflow Illustration */
+    .workflow-section {
+        background-color: var(--color-bg-card);
+        border-radius: var(--radius-lg);
+        padding: var(--space-2xl);
+        margin-bottom: var(--space-xl);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        border: 1px solid rgba(0, 0, 0, 0.03);
+        text-align: center;
+    }
+
+    .workflow-section h2 {
+        font-size: var(--text-2xl);
+        font-weight: 600;
+        margin-bottom: var(--space-lg);
+        font-family: var(--font-secondary);
+    }
+
+    .workflow-figure {
+        margin: var(--space-lg) 0;
+        text-align: center;
+    }
+
+    .workflow-figure img {
+        max-width: 100%;
+        height: auto;
+        border-radius: var(--radius-md);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .workflow-figure figcaption {
+        margin-top: var(--space-sm);
+        font-size: 0.9rem;
+        color: var(--color-text-secondary);
+        font-style: italic;
+        text-align: center;
+    }
+
+    .development-note {
+        font-size: 0.875rem;
+        color: var(--color-text-secondary);
+        margin-top: var(--space-md);
+        opacity: 0.8;
+        text-align: center;
+    }
+
+    /* Publications Section */
+    .publications-section {
+        background: linear-gradient(135deg, rgba(0, 75, 110, 0.03), rgba(139, 154, 123, 0.03));
+        border: 1px solid rgba(0, 75, 110, 0.1);
+        border-radius: var(--radius-lg);
+        padding: var(--space-2xl);
+        margin-bottom: var(--space-xl);
+    }
+
+    .publications-section h3 {
+        font-size: var(--text-xl);
+        font-weight: 600;
+        margin-bottom: var(--space-lg);
+        font-family: var(--font-secondary);
+    }
+
+    .publication-item {
+        background-color: var(--color-bg-card);
+        border-radius: var(--radius-md);
+        padding: var(--space-lg);
+        margin-bottom: var(--space-lg);
+        border: 1px solid rgba(0, 75, 110, 0.1);
+    }
+
+    .publication-item:last-child {
+        margin-bottom: var(--space-lg);
+    }
+
+    .publication-item h4 {
+        font-size: var(--text-lg);
+        font-weight: 600;
+        margin-bottom: var(--space-sm);
+        color: var(--color-text-primary);
+    }
+
+    .publication-item p {
+        font-size: var(--text-base);
+        color: var(--color-text-secondary);
+        margin-bottom: var(--space-sm);
+        line-height: 1.6;
+    }
+
+    .publication-link, .resources-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--color-accent-blue);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.2s ease;
+    }
+
+    .publication-link:hover, .resources-link:hover {
+        color: var(--color-accent-sage);
+        transform: translateX(2px);
+    }
+
+    .resources-link {
+        background-color: var(--color-accent-blue);
+        color: white;
+        padding: 0.8rem var(--space-lg);
+        border-radius: var(--radius-md);
+        box-shadow: 0 2px 8px rgba(0, 75, 110, 0.2);
+        margin-top: var(--space-md);
+    }
+
+    .resources-link:hover {
+        background-color: var(--color-accent-sage);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(139, 154, 123, 0.3);
+        color: white;
+    }
+
+
+    /* Footer */
+    .project-footer {
+        padding: var(--space-2xl) 0;
+        text-align: center;
+        border-top: 1px solid var(--color-border);
+    }
+
+    .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: var(--color-text-secondary);
+        font-weight: 500;
+        transition: color 0.2s ease;
+    }
+
+    .back-link:hover {
+        color: var(--color-accent-blue);
+    }
+    
+    .back-link::before {
+        content: '←';
+        font-size: 1.2em;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .project-title { font-size: 2.5rem; }
+        .project-subtitle { font-size: var(--text-lg); }
+        .content-section { padding: var(--space-lg); }
+        .container { padding: 0 var(--space-md); }
+
+        .research-preview-card__inner {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        
+        .research-preview-card {
+                padding: var(--space-lg);
+        }
+
+        .research-arrow {
+            transform: rotate(90deg);
+            margin-top: var(--space-sm);
+        }
+
+        .research-preview-card:hover .research-arrow {
+            transform: rotate(90deg) translateX(4px);
+        }
+
+
+        .publications-section {
+            padding: var(--space-lg);
+        }
+
+        .publication-item {
+            padding: var(--space-md);
+        }
+    }
+</style>
+<div class="container">
+<header class="project-header">
+<div class="project-label">International Digital Oral History Lab Project</div>
+
+<h1 class="project-title">Multimodal Digital Oral History</h1>
+
+<p class="project-subtitle">Developing methodology and technical workflows for active engagement with the oral, aural and sonic affordances of digital oral history collections</p>
+</header>
+
+<main class="main-content">
+<section class="content-section">
+<h2>About the Project</h2>
+
+<p>The <span class="highlight-text">Multimodal Digital Oral History project</span> is developing a methodology and technical workflow for active engagement with the oral, aural and sonic affordances of both retro-digitised and born-digital oral history collections, across modalities including <span class="highlight-text">transcript, sound, waveform,&nbsp;speсtrogram and metadata </span>.</p>
+
+<p>At present, we are working on the detection of laughter in oral history interviews using AI tools, in combination with non-digital approaches. Laughter provides a compelling example of elementssuch as <span class="highlight-text">hesitations, vocal quirks, and pacing</span>typically omitted from manual transcripts.</p>
+</section>
+
+<section class="content-section">
+<h2>Methodology</h2>
+
+<p>Our approach encompasses multiple modalities of engagement with oral history materials, moving beyond traditional text-based analysis to incorporate the full spectrum of <span class="highlight-text">sonic and multimodal information</span> contained within digital oral history collections.</p>
+
+<p>We work across <span class="highlight-text">transcript, sound, waveform and metadata</span> to develop comprehensive methodologies that preserve and analyze the rich, multidimensional nature of oral historical records. This multimodal approach enables new forms of scholarship that honor both the content and the form of oral historical testimony.</p>
+</section>
+
+<section class="content-section">
+<h2>Technical Innovation</h2>
+
+<p>AI routines enable the study of vocal features at the level of individual interviews and across larger collections. By combining computational approaches with traditional oral history methodologies, we can identify and analyze patterns that would be impossible to detect through manual transcription alone.</p>
+
+<p>This work represents a significant advancement in <span class="highlight-text">digital humanities methodology</span>, opening new possibilities for understanding the full communicative richness of oral historical materials.</p>
+
+<div aria-label="Explore AI-based Laughter Detection Research - Click to learn more" class="research-preview-card" data-href="#" role="link" tabindex="0">
+<div class="research-preview-card__inner">
+<div class="research-icon"><svg fill="none" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"> <path d="M10 2C8.07 2 6.5 3.57 6.5 5.5V10.5C6.5 12.43 8.07 14 10 14S13.5 12.43 13.5 10.5V5.5C13.5 3.57 11.93 2 10 2ZM10 12C9.17 12 8.5 11.33 8.5 10.5V5.5C8.5 4.67 9.17 4 10 4S11.5 4.67 11.5 5.5V10.5C11.5 11.33 10.83 12 10 12Z" fill="currentColor"></path> <path d="M16 10.5C16 13.54 13.54 16 10.5 16H9.5C6.46 16 4 13.54 4 10.5" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path> <path d="M10 16V18M10 18H7M10 18H13" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path> </svg></div>
+
+<div class="research-content">
+<h3>AI-Based Laughter Detection</h3>
+
+<p>Exploring the detection of laughter in oral history interviews using AI tools, revealing vocal elements typically omitted from manual transcripts</p>
+</div>
+</div>
+</div>
+
+<figure class="workflow-figure"><img alt="Pipeline from WAV audio through WhisperX, waveform, and laughter detection to TransVisEd and outputs (.json and .docx)" src="https://hiddenhistories.net/files/asset/6f3d885240577730c12861bbc18e71135f7520c5.png" />
+<figcaption>Workflow illustration (editor forthcoming)</figcaption>
+</figure>
+
+<p class="development-note">The transcript visualizer &amp; editor is under active development.</p>
+</section>
+
+<section class="publications-section">
+<h3>Key Publication &amp; Resources</h3>
+
+<div class="publication-item">
+<p>The intellectual basis of our work is set out in this article:</p>
+
+<p><strong>Smyth, H., Nyhan, J., Flinn A.</strong> (2023). &quot;Exploring the possibilities of Thomson&#39;s Fourth Paradigm Transformation  the case for a Multimodal approach to Digital Oral History.&quot; <em>Digital Scholarship in the Humanities</em>.</p>
+<a class="publication-link" href="https://academic.oup.com/dsh/article/38/2/720/6967121?searchresult=1&amp;login=false" rel="noopener noreferrer" target="_blank">Read Article</a></div>
+
+<p>Other outputs and publications of the project are available through our dedicated resources page.</p>
+<a class="resources-link" href="https://hiddenhistories.net/s/digital-oral-history-lab/page/resources-publications" rel="noopener noreferrer" target="_blank">View All Publications</a></section>
+</main>
+
+<footer class="project-footer"><a class="back-link" href="https://hiddenhistories.net/s/digital-oral-history-lab/page/home">Return to International Digital Oral History Lab</a></footer>
+</div>
+<!-- JavaScript for handling interactive elements --><script>
+    // IIFE to avoid global scope pollution
+    (function() {
+        'use strict';
+        
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Find all research preview cards
+            const researchCards = document.querySelectorAll('.research-preview-card[data-href]');
+            
+            researchCards.forEach(function(card) {
+                const url = card.getAttribute('data-href');
+                
+                if (url && url !== '#') {
+                    // Handle click events
+                    card.addEventListener('click', function(e) {
+                        // Prevent any default behavior
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Open in new tab/window
+                        window.open(url, '_blank', 'noopener,noreferrer');
+                    });
+                    
+                    // Handle keyboard accessibility (Enter key)
+                    card.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.keyCode === 13) {
+                            e.preventDefault();
+                            window.open(url, '_blank', 'noopener,noreferrer');
+                        }
+                    });
+                }
+            });
+            
+            // Debug: Log successful initialization
+            console.log('MDOH: Research cards initialized successfully');
+        });
+        
+        // Fallback: Also attach to window load event
+        window.addEventListener('load', function() {
+            // Double-check cards are clickable after all resources loaded
+            const cards = document.querySelectorAll('.research-preview-card[data-href]');
+            if (cards.length > 0 && !cards[0].onclick) {
+                console.log('MDOH: Applying fallback click handlers');
+                cards.forEach(function(card) {
+                    const url = card.getAttribute('data-href');
+                    if (url && url !== '#' && !card.onclick) {
+                        card.onclick = function(e) {
+                            e.preventDefault();
+                            window.open(url, '_blank', 'noopener,noreferrer');
+                            return false;
+                        };
+                    }
+                });
+            }
+        });
+        
+    })();
+</script>

@@ -16,9 +16,9 @@
             --fg-secondary: #5F6368;
             --fg-on-accent: #FFFFFF;
             --accent: #5951f6ff;
-            --accent-secondary: #005454b3;
+            --accent-secondary: #E87900;
             /* For less frequent entities */
-            --accent-tertiary: #23231f80;
+            --accent-tertiary: #65787d;
             /* For rare entities */
             --border-primary: #EAEBEB;
             --border-secondary: #CBD6E4;
@@ -94,9 +94,7 @@
             box-sizing: border-box;
             min-height: var(--app-bar-height);
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: var(--sp-2);
         }
         .app-bar-content {
             width: min(calc(100% - 160px), 160rem);
@@ -117,22 +115,6 @@
             margin-bottom: 0;
             background-color: var(--bg-secondary);
         }
-        .app-bar-filters {
-            width: min(calc(100% - 160px), 160rem);
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        /* Inline filter status presentation inside app bar */
-        #filter-status.filter-status-inline { width: 100%; display: none; margin: 0; }
-        #filter-status.filter-status-inline > div { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--sp-4); width: 100%; }
-        #filter-status.filter-status-inline #filter-status-content { display: flex; flex-wrap: wrap; gap: var(--sp-4); }
-        #filter-status.filter-status-inline h4 { font-size: var(--fs-xs); color: var(--fg-secondary); margin: 0; }
-        #filter-status.filter-status-inline code { font-family: var(--font-mono); }
-        #filter-status.filter-status-inline #type-filter-tags { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
-        #filter-status.filter-status-inline #relation-filter-tags { display: inline-flex; align-items: center; gap: var(--sp-2); }
-        #filter-status.filter-status-inline #clear-all-filters-btn { margin-left: auto; }
         #back-to-top-btn {
             background-color: var(--accent);
             color: var(--fg-on-accent);
@@ -314,7 +296,8 @@
  }
         .filterable-badge:hover { transform: translateY(-2px);
  }
-        .filterable-badge.selected { border: 2px solid var(--fg-primary); transform: scale(1.08) translateY(-2px); box-shadow: 0 2px 8px rgba(var(--shadow-color-rgb), 0.12); }
+        .filterable-badge.selected { box-shadow: 0 0 0 2px var(--fg-primary), 0 0 0 5px var(--accent-bg-subtle);
+ transform: scale(1.05) translateY(-2px); }
         .patterns-column li.active-filter { background-color: var(--accent-bg-subtle); border-radius: var(--radius-inline);
  }
         .patterns-column li:not(.active-filter):hover { background-color: var(--bg-secondary); border-radius: var(--radius-inline);
@@ -323,8 +306,8 @@
  }
         .badge-container { display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-3);
  }
-        .entity-type-badge { display: inline-block; color: var(--fg-on-accent); padding: calc(var(--sp-1) - 1px) var(--sp-2); border-radius: var(--radius-pill);
- font-size: 0.75rem; font-weight: 500; white-space: nowrap; }
+        .entity-type-badge { display: inline-block; color: var(--fg-on-accent); padding: var(--sp-1) var(--sp-3); border-radius: var(--radius-pill);
+ font-size: var(--fs-xs); font-weight: 500; white-space: nowrap; }
         .badge-freq-high { background-color: var(--accent);
  }
         .badge-freq-medium { background-color: var(--accent-secondary);
@@ -359,7 +342,7 @@
         .speaker-turn { margin-bottom: var(--sp-6);
  }
         .turn-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--sp-6); padding-bottom: var(--sp-4);
- border-bottom: 1px solid var(--border-primary); }
+ border-bottom: 1.4px solid var(--fg-primary); }
         .turn-speaker-name { font-size: var(--fs-xl); font-weight: 700;
  }
         .turn-meta { font-size: var(--fs-sm); color: var(--fg-secondary);
@@ -434,31 +417,6 @@
             <h1 class="app-bar-title">{{ report_title }}</h1>
             <input type="search" id="entity-search-input" placeholder="Search entity names..." class="text-search-input">
             <button id="back-to-top-btn" title="Back to Top">Back to Top</button>
-        </div>
-        <div class="app-bar-content app-bar-filters">
-            <div id="filter-status" class="filter-status-inline">
-                <div>
-                    <div id="filter-status-content">
-                        <div id="search-filter-display" style="display: none;">
-                            <h4>Searching for:</h4>
-                            <span id="search-filter-text"></span>
-                        </div>
-                        <div id="type-filter-display" style="display: none;">
-                            <h4>Filtering by Type(s):</h4>
-                            <div class="badge-container" id="type-filter-tags"></div>
-                        </div>
-                        <div id="relation-filter-display" style="display: none;">
-                            <h4>Filtering by Relation:</h4>
-                            <div id="relation-filter-tags"></div>
-                        </div>
-                        <div id="pattern-filter-display" style="display: none;">
-                            <h4>Filtering by Pattern:</h4>
-                            <span id="pattern-filter-text"></span>
-                        </div>
-                    </div>
-                    <button id="clear-all-filters-btn">Clear All</button>
-                </div>
-            </div>
         </div>
     </header>
 
@@ -536,8 +494,32 @@
             </div>
 
             <aside class="sidebar-column" id="sidebar">
+                <div id="filter-status" class="sidebar-panel">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div id="filter-status-content">
+                            <div id="search-filter-display" style="display: none;">
+                                <h4>Searching for:</h4>
+                                <span id="search-filter-text"></span>
+                            </div>
+                            <div id="type-filter-display" style="display: none;">
+                                <h4>Filtering by Type(s):</h4>
+                                <div class="badge-container" id="type-filter-tags"></div>
+                            </div>
+                            <div id="relation-filter-display" style="display: none;">
+                                <h4>Filtering by Relation:</h4>
+                                <div id="relation-filter-tags"></div>
+                            </div>
+                            <div id="pattern-filter-display" style="display: none;">
+                                <h4>Filtering by Pattern:</h4>
+                                <span id="pattern-filter-text"></span>
+                            </div>
+                        </div>
+                        <button id="clear-all-filters-btn">Clear All</button>
+                    </div>
+                </div>
+
                 <div class="sidebar-panel" id="filter-and-search-panel">
-                    <h2>Entity Types</h2>
+                    <h2>Filters</h2>
                     
                     {% if all_entity_types %}
                     <div>
@@ -553,58 +535,17 @@
                             <div class="legend-item"><div class="legend-color-box" style="background-color: var(--accent-secondary);"></div><span>2-3 Utterances</span></div>
                             <div class="legend-item"><div class="legend-color-box" style="background-color: var(--accent-tertiary);"></div><span>1 Utterance</span></div>
                         </div>
-                        <div id="entity-type-filter-container">
-                            {% if entity_types_high_freq %}
-                            <div class="entity-type-section">
-                                <h4>More than 3 Utterances ({{ entity_types_high_freq|length }})</h4>
-                                <div class="badge-container">
-                                    {% for type_info in entity_types_high_freq %}
-                                    <span class="entity-type-badge filterable-badge badge-freq-high"
-                                          data-entity-type="{{ type_info.name }}"
-                                          data-total-count="{{ type_info.count }}"
-                                          data-utterance-count="{{ type_info.utterance_count }}">
-                                          {{ type_info.name }} [{{ type_info.count }}]
-                                    </span>
-                                    {% endfor %}
-                                </div>
-                                <button class="toggle-button entity-group-toggle" style="display: none;">Show More</button>
-                            </div>
-                            {% endif %}
-
-                            {% if entity_types_medium_freq %}
-                            <div class="entity-type-section">
-                                <h4>2-3 Utterances ({{ entity_types_medium_freq|length }})</h4>
-                                <div class="badge-container">
-                                    {% for type_info in entity_types_medium_freq %}
-                                    <span class="entity-type-badge filterable-badge badge-freq-medium"
-                                          data-entity-type="{{ type_info.name }}"
-                                          data-total-count="{{ type_info.count }}"
-                                          data-utterance-count="{{ type_info.utterance_count }}">
-                                          {{ type_info.name }} [{{ type_info.count }}]
-                                    </span>
-                                    {% endfor %}
-                                </div>
-                                <button class="toggle-button entity-group-toggle" style="display: none;">Show More</button>
-                            </div>
-                            {% endif %}
-
-                            {% if entity_types_low_freq %}
-                            <div class="entity-type-section">
-                                <h4>1 Utterance ({{ entity_types_low_freq|length }})</h4>
-                                <div class="badge-container">
-                                    {% for type_info in entity_types_low_freq %}
-                                    <span class="entity-type-badge filterable-badge badge-freq-low"
-                                          data-entity-type="{{ type_info.name }}"
-                                          data-total-count="{{ type_info.count }}"
-                                          data-utterance-count="{{ type_info.utterance_count }}">
-                                          {{ type_info.name }} [{{ type_info.count }}]
-                                    </span>
-                                    {% endfor %}
-                                </div>
-                                <button class="toggle-button entity-group-toggle" style="display: none;">Show More</button>
-                            </div>
-                            {% endif %}
+                        <div class="badge-container" id="entity-type-filter-container">
+                            {% for type_info in all_entity_types %}
+                            <span class="entity-type-badge filterable-badge {% if type_info.utterance_count > 3 %}badge-freq-high{% elif type_info.utterance_count >= 2 %}badge-freq-medium{% else %}badge-freq-low{% endif %}" 
+                                  data-entity-type="{{ type_info.name }}"
+                                  data-total-count="{{ type_info.count }}"
+                                  data-utterance-count="{{ type_info.utterance_count }}">
+                                  {{ type_info.name }} [{{ type_info.count }}]
+                            </span>
+                            {% endfor %}
                         </div>
+                        <button id="toggle-entity-types-btn" class="toggle-button" style="display: none;">Show More</button>
                     </div>
                     {% endif %}
                 </div>
@@ -650,36 +591,15 @@
                         <div class="collapsible-content">
                             <h4>One-to-One (by Type)</h4>
                             <ul class="stats-list">
-                                {% for rel, patterns in one_to_one_relations_sorted %}
-                                <li>
-                                    <code class="pattern-rel filterable-relation" data-relation-form="{{ rel }}">{{ rel }}</code>
-                                    <span>{{ relation_frequency_map.get(rel, 0) }} occurrence(s) • {{ patterns|length }} pattern(s){% if patterns %}, e.g., ({{ patterns[0][0] }}){% endif %}</span>
-                                </li>
-                                {% else %}
-                                <li class="empty-state">No self-relations (e.g., PERSON &rarr; PERSON) found.</li>
-                                {% endfor %}
+                                {% for rel, patterns in one_to_one_relations.items() %}<li><code class="pattern-rel filterable-relation" data-relation-form="{{ rel }}">{{ rel }}</code><span>{{ patterns|length }} pattern(s), e.g., ({{ patterns[0][0] }})</span></li>{% else %}<li class="empty-state">No self-relations (e.g., PERSON &rarr; PERSON) found.</li>{% endfor %}
                             </ul>
                             <h4>One-to-Many Relations</h4>
                             <ul class="stats-list">
-                                {% for rel in one_to_many_relations_sorted %}
-                                <li>
-                                    <code class="pattern-rel filterable-relation" data-relation-form="{{ rel }}">{{ rel }}</code>
-                                    <span>{{ relation_frequency_map.get(rel, 0) }} occurrence(s) (1:N Cardinality)</span>
-                                </li>
-                                {% else %}
-                                <li class="empty-state" style="justify-content: flex-start;">None found.</li>
-                                {% endfor %}
+                                {% for rel in one_to_many_relations %}<li><code class="pattern-rel filterable-relation" data-relation-form="{{ rel }}">{{ rel }}</code><span>(1:N Cardinality)</span></li>{% else %}<li class="empty-state" style="justify-content: flex-start;">None found.</li>{% endfor %}
                             </ul>
                             <h4>Many-to-One Relations</h4>
                             <ul class="stats-list">
-                                {% for rel in many_to_one_relations_sorted %}
-                                <li>
-                                    <code class="pattern-rel filterable-relation" data-relation-form="{{ rel }}">{{ rel }}</code>
-                                    <span>{{ relation_frequency_map.get(rel, 0) }} occurrence(s) (N:1 Cardinality)</span>
-                                </li>
-                                {% else %}
-                                <li class="empty-state" style="justify-content: flex-start;">None found.</li>
-                                {% endfor %}
+                                {% for rel in many_to_one_relations %}<li><code class="pattern-rel filterable-relation" data-relation-form="{{ rel }}">{{ rel }}</code><span>(N:1 Cardinality)</span></li>{% else %}<li class="empty-state" style="justify-content: flex-start;">None found.</li>{% endfor %}
                             </ul>
                             <h4>Top {{ top_diverse_relations|length }} Relations by Domain/Range Diversity</h4>
                             <ul class="stats-list">
@@ -890,17 +810,6 @@
                 }
             });
         }
-        // Also handle clicks in the header filter status bar
-        const headerFilterStatus = document.getElementById('filter-status');
-        if (headerFilterStatus) {
-            headerFilterStatus.addEventListener('click', (event) => {
-                const target = event.target;
-                if (target.matches('.remove-filter')) {
-                    if(target.dataset.filterType === 'relation') { activeRelationFilter = null; }
-                    masterUpdate();
-                }
-            });
-        }
         
         patternLists.forEach(list => {
             list.addEventListener('click', (event) => {
@@ -938,23 +847,19 @@
         });
 
         if (typeFilterContainer) {
-            const groupSections = typeFilterContainer.querySelectorAll('.entity-type-section');
-            const limitPerGroup = 15;
-            groupSections.forEach(section => {
-                const badges = section.querySelectorAll('.filterable-badge');
-                const btn = section.querySelector('.entity-group-toggle');
-                if (!btn) return;
-                if (badges.length > limitPerGroup) {
-                    btn.style.display = 'block';
-                    btn.textContent = `Show All ${badges.length}`;
-                    for (let i = limitPerGroup; i < badges.length; i++) { badges[i].style.display = 'none'; }
-                    btn.addEventListener('click', () => {
-                        const isExpanded = section.classList.toggle('expanded');
-                        for (let i = limitPerGroup; i < badges.length; i++) { badges[i].style.display = isExpanded ? 'inline-block' : 'none'; }
-                        btn.textContent = isExpanded ? `Show Less (Top ${limitPerGroup})` : `Show All ${badges.length}`;
-                    });
-                }
-            });
+            const toggleBtn = document.getElementById('toggle-entity-types-btn');
+            const allBadges = typeFilterContainer.querySelectorAll('.filterable-badge');
+            const limit = 30;
+            if (allBadges.length > limit) {
+                toggleBtn.style.display = 'block';
+                toggleBtn.textContent = `Show All ${allBadges.length}`;
+                for (let i = limit; i < allBadges.length; i++) { allBadges[i].style.display = 'none'; }
+                toggleBtn.addEventListener('click', () => {
+                    const isExpanded = !toggleBtn.classList.toggle('expanded');
+                    for (let i = limit; i < allBadges.length; i++) { allBadges[i].style.display = isExpanded ? 'inline-block' : 'none'; }
+                    toggleBtn.textContent = isExpanded ? `Show Less (Top ${limit})` : `Show All ${allBadges.length}`;
+                });
+            }
         }
         
         document.querySelectorAll('.toggle-button[data-target]').forEach(button => {

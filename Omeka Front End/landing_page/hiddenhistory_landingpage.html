@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Histories Project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset and Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Typography */
+            --font-primary: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-secondary: 'Instrument Serif', Georgia, serif;
+
+            /* Colors */
+            --color-bg: #F7F5F2;
+            --color-bg-card: #FFFFFF;
+            --color-text-primary: #1A1A1A;
+            --color-text-secondary: #4A4A4A;
+            --color-accent-coral: #E4725B;
+            --color-border: #E5E5E5;
+
+            /* Spacing */
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            
+            /* Typography Scale */
+            --text-base: 1.125rem;
+            --text-lg: 1.25rem;
+            --text-xl: 1.5rem;
+            --text-2xl: 2rem;
+            --text-4xl: 3.5rem;
+
+            /* Border Radius */
+            --radius-lg: 1rem;
+            --radius-md: 0.75rem;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-bg);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        /* Header Section */
+        .project-header {
+            padding: var(--space-3xl) 0 var(--space-2xl);
+            text-align: center;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .project-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-accent-coral);
+            margin-bottom: var(--space-sm);
+            font-weight: 500;
+        }
+
+        .project-title {
+            font-size: var(--text-4xl);
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .project-subtitle {
+            font-size: var(--text-xl);
+            color: var(--color-text-secondary);
+            font-family: var(--font-secondary);
+            max-width: 700px;
+            margin: 0 auto var(--space-lg);
+            font-style: italic;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: var(--space-2xl) 0;
+        }
+
+        .content-section {
+            background-color: var(--color-bg-card);
+            border-radius: var(--radius-lg);
+            padding: var(--space-2xl);
+            margin-bottom: var(--space-xl);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .content-section h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            margin-bottom: var(--space-lg);
+            font-family: var(--font-secondary);
+        }
+
+        .content-section p {
+            font-size: var(--text-base);
+            line-height: 1.7;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .content-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-text {
+            color: var(--color-accent-coral);
+            font-weight: 500;
+        }
+
+        /* ✨ MODIFIED: Changed from <a> to <div> for better CMS compatibility ✨ */
+        .interview-preview-card {
+            display: block;
+            background: linear-gradient(135deg, rgba(228, 114, 91, 0.04), rgba(228, 114, 91, 0.02));
+            border: 1px solid rgba(228, 114, 91, 0.12);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl);
+            margin: var(--space-xl) 0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer; /* Important: shows it's clickable */
+            user-select: none; /* Prevents text selection on click */
+        }
+
+        .interview-preview-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--color-accent-coral), rgba(228, 114, 91, 0.6));
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.3s ease;
+        }
+
+        .interview-preview-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .interview-preview-card:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, rgba(228, 114, 91, 0.06), rgba(228, 114, 91, 0.03));
+            border-color: rgba(228, 114, 91, 0.2);
+            box-shadow: 0 8px 25px rgba(228, 114, 91, 0.08);
+        }
+
+        /* Active state for better UX feedback */
+        .interview-preview-card:active {
+            transform: translateY(0);
+            transition: transform 0.1s ease;
+        }
+
+        .interview-preview-card__inner {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            pointer-events: none; /* Prevents child elements from interfering with click */
+        }
+
+        .interview-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            background: rgba(228, 114, 91, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-accent-coral);
+            transition: all 0.3s ease;
+        }
+
+        .interview-preview-card:hover .interview-icon {
+            background: rgba(228, 114, 91, 0.15);
+            transform: scale(1.05);
+        }
+
+        .interview-content {
+            flex: 1;
+        }
+
+        .interview-content h3 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin: 0 0 0.25rem 0;
+            font-family: var(--font-secondary);
+        }
+
+        .interview-content p {
+            font-size: var(--text-base);
+            color: var(--color-text-secondary);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .interview-arrow {
+            flex-shrink: 0;
+            color: var(--color-accent-coral);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .interview-preview-card:hover .interview-arrow {
+            opacity: 1;
+            transform: translateX(4px);
+        }
+        
+        /* Publications Section */
+        .publications-section {
+            background: linear-gradient(135deg, rgba(228, 114, 91, 0.03), rgba(74, 85, 104, 0.03));
+            border: 1px solid rgba(228, 114, 91, 0.1);
+            border-radius: var(--radius-lg);
+            padding: var(--space-2xl);
+            margin-bottom: var(--space-xl);
+            text-align: center;
+        }
+
+        .publications-section h3 {
+            font-size: var(--text-xl);
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            font-family: var(--font-secondary);
+        }
+
+        .publications-section p {
+            font-size: var(--text-base);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-lg);
+        }
+
+        .publications-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--color-accent-coral);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem var(--space-lg);
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(228, 114, 91, 0.2);
+        }
+
+        .publications-link:hover {
+            background-color: #d85a43;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(228, 114, 91, 0.3);
+        }
+        
+        .publications-link::after {
+            content: '→';
+            font-size: var(--text-lg);
+            transition: transform 0.2s ease;
+        }
+
+        .publications-link:hover::after {
+            transform: translateX(3px);
+        }
+        
+        /* Footer */
+        .project-footer {
+            padding: var(--space-2xl) 0;
+            text-align: center;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--color-accent-coral);
+        }
+        
+        .back-link::before {
+            content: '←';
+            font-size: 1.2em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .project-title { font-size: 2.5rem; }
+            .project-subtitle { font-size: var(--text-lg); }
+            .content-section { padding: var(--space-lg); }
+            .container { padding: 0 var(--space-md); }
+
+            .interview-preview-card__inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .interview-preview-card {
+                 padding: var(--space-lg);
+            }
+
+            .interview-arrow {
+                transform: rotate(90deg);
+                margin-top: var(--space-sm);
+            }
+
+            .interview-preview-card:hover .interview-arrow {
+                transform: rotate(90deg) translateX(4px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="project-header">
+            <div class="project-label">International Digital Oral History Lab Project</div>
+            <h1 class="project-title">Hidden Histories</h1>
+            <p class="project-subtitle">Uncovering the social, intellectual and cultural contexts that shaped early computing in the humanities</p>
+        </header>
+
+        <main class="main-content">
+            <section class="content-section">
+                <h2>About the Project</h2>
+                <p>Hidden Histories is a research project investigating the application of computational methods to the humanities during the period from <span class="highlight-text">1949 to the present</span>. The project conducts, collects and disseminates interviews with scholars and practitioners who were active during this period.</p>
+                
+                <!-- MODIFIED: Changed from <a> to <div> with data attribute -->
+                <div class="interview-preview-card" 
+                     data-href="https://hiddenhistories.net/s/medorah/page/OralHistory" 
+                     role="link" 
+                     tabindex="0"
+                     aria-label="Explore Our Interview Archive - Click to open in new tab">
+                    <div class="interview-preview-card__inner">
+                        <div class="interview-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M6.5 4.5C6.5 3.67 7.34 3.14 8.04 3.54L15.04 7.54C15.67 7.9 15.67 8.84 15.04 9.2L8.04 13.2C7.34 13.6 6.5 13.07 6.5 12.24V4.5Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="interview-content">
+                            <h3>Explore Our Interview Archive</h3>
+                            <p>Listen to pioneering scholars share their groundbreaking work and precious memories in digital humanities</p>
+                        </div>
+                        <div class="interview-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>Combining interviews with archival data, we gain new insight into the emergence of the field known today as <span class="highlight-text">digital humanities</span>.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>Historical Context</h2>
+                <p>It is widely accepted that the application of computational methods to the humanities can be traced back to at least <span class="highlight-text">1949</span>, when Roberto Busa envisaged an index variorum of some 11 million words of medieval Latin in the works of Thomas Aquinas and related authors. Notes and contributions towards a history of computing in the humanities have appeared in recent years; however, our understanding of such developments remains incomplete and largely unexplored.</p>
+            </section>
+            
+            <section class="content-section">
+                <h2>Our Approach</h2>
+                <p>This project gathers and makes available sources that enable the investigation of the social, intellectual and cultural context that shaped the earliest applications of computing to the humanities. It is from this context that the title <span class="highlight-text">'Hidden Histories'</span> derives—because, for the most part, such information cannot be gleaned from extant documentation.</p>
+                <p>The project is <span class="highlight-text">interdisciplinary</span> in its methodology and draws on oral history, digital humanities and cultural studies. With the aim of capturing memories, observations and insights that are rarely recorded in the scholarly literature, we conduct interviews with scholars and practitioners who applied computational methods to the humanities from the age of mainframe computing to the present day.</p>
+            </section>
+
+            <section class="publications-section">
+                <h3>Publications &amp; Resources</h3>
+                <p>Publications and other outputs from this project can be accessed through our dedicated resources page.</p>
+                <a class="publications-link" href="https://hiddenhistories.net/s/digital-oral-history-lab/page/resources-publications" target="_blank" rel="noopener noreferrer">View Publications</a>
+            </section>
+        </main>
+        
+        <footer class="project-footer">
+            <a class="back-link" href="http://hiddenhistories.net/">Return to International Digital Oral History Lab</a>
+        </footer>
+    </div>
+
+    <!-- JavaScript for handling click events -->
+    <script>
+        // IIFE to avoid global scope pollution
+        (function() {
+            'use strict';
+            
+            // Wait for DOM to be fully loaded
+            document.addEventListener('DOMContentLoaded', function() {
+                
+                // Find all interview preview cards
+                const interviewCards = document.querySelectorAll('.interview-preview-card[data-href]');
+                
+                interviewCards.forEach(function(card) {
+                    const url = card.getAttribute('data-href');
+                    
+                    if (url) {
+                        // Handle click events
+                        card.addEventListener('click', function(e) {
+                            // Prevent any default behavior
+                            e.preventDefault();
+                            e.stopPropagation();
+                            
+                            // Open in new tab/window
+                            window.open(url, '_blank', 'noopener,noreferrer');
+                        });
+                        
+                        // Handle keyboard accessibility (Enter key)
+                        card.addEventListener('keydown', function(e) {
+                            if (e.key === 'Enter' || e.keyCode === 13) {
+                                e.preventDefault();
+                                window.open(url, '_blank', 'noopener,noreferrer');
+                            }
+                        });
+                    }
+                });
+                
+                // Debug: Log successful initialization
+                console.log('Hidden Histories: Interview cards initialized successfully');
+            });
+            
+            // Fallback: Also attach to window load event
+            window.addEventListener('load', function() {
+                // Double-check cards are clickable after all resources loaded
+                const cards = document.querySelectorAll('.interview-preview-card[data-href]');
+                if (cards.length > 0 && !cards[0].onclick) {
+                    console.log('Hidden Histories: Applying fallback click handlers');
+                    cards.forEach(function(card) {
+                        const url = card.getAttribute('data-href');
+                        if (url && !card.onclick) {
+                            card.onclick = function(e) {
+                                e.preventDefault();
+                                window.open(url, '_blank', 'noopener,noreferrer');
+                                return false;
+                            };
+                        }
+                    });
+                }
+            });
+            
+        })();
+    </script>
+
+</body>
+</html>
