@@ -1,0 +1,216 @@
+网络可视化（vis-network）现代化美学与流畅度优化方案
+（基于当前代码深度分析，保持现有架构与接口不变）
+
+一、目标与原则
+- 目标：显著提升 network visualization 的视觉美观、交互顺滑、可读性与可扩展性，使之符合现代、简洁、专业的 UI 风格，同时保持上手与操作的易用性。
+- 原则：
+  - 不改变数据与模板渲染的主流程（Jinja2 → HTML → JS 初始化），仅在模板内 CSS/JS 层按模块化增强。
+  - 渐进增强（Progressive Enhancement）：先做“风格与可读性”的低风险改进，再引入“交互与性能”的可选增强，最后加入“可扩展与无障碍”的高级能力。
+  - 自适应规模：小图聚焦细节，大图强调结构；参数随节点规模自动调优。
+  - 与现有三类组件无缝集成：FilterTracker、NetworkRenderer、ModalManager。
+
+二、现状与机会点（代码与样式深度分析）
+- 代码入口与架构：
+  - 模板文件：template_modern.html.j2（核心 CSS/JS、模态弹窗、按钮等）。
+  - 可视化类：
+    - FilterTracker：集中管理过滤条件（类型、关系、结构模式、搜索）。
+    - NetworkRenderer：构建 vis.DataSet，创建 vis.Network，含物理参数、尺寸修正、双阶段 redraw/fit、稳定后关闭物理等。
+    - ModalManager：控制显示/隐藏、延时生成网络、防抖加载与错误反馈。
+- 主要实现细节（关键片段）：
+  - 模态容器与网络区域：template_modern.html.j2:960 起，CSS 定义 .network-modal、.network-container、#network-graph（560–640 行）。
+  - NetworkRenderer 核心：template_modern.html.j2:1080–1399 附近，含数据加工、颜色映射、节点/边样式、物理参数（BarnesHut）、双阶段 fit 与 stabilize 后关闭物理。
+  - 过滤同步：masterUpdate 中通过 window.networkComponents.filterTracker.updateFilters(...) 与网络数据同步；点击“Visualise”时才实际生成网络。
+- 已有优点：
+  - 完整的错误防护和容器尺寸兜底（offsetWidth/Height 为 0 的处理）。
+  - 稳定后关闭 physics，减少漂移；信息面板显示过滤后统计。
+  - vis.js CDN 回退、延时生成网络，提升稳定性。
+- 主要可提升点：
+  - 视觉风格：节点/边/标签为默认风格，色彩未结合主题变量，标签密集时会显得杂乱。
+  - 交互体验：缺少“邻域高亮、标签开关、物理切换、布局预设、搜索定位”等现代图工具常见交互。
+  - 性能/规模：重复边未聚合；大图时边平滑/标签始终开启影响帧率；缺少自动聚类/降噪策略。
+  - 自适应：当前参数固定，未随节点规模调整；没有基于缩放的渐进绘制策略（例如缩放后再显示标签）。
+  - 可达性/对比度：色板与浅色背景对比度不够强，缺少色形冗余编码（色+形）以提升辨识度与无障碍性。
+
+三、视觉系统与风格优化（低风险优先）
+- 主题变量（新增/复用 CSS 变量）
+  - 新增网络专用变量：
+    - --net-bg、--net-node-label、--net-edge、--net-edge-label、--net-highlight、--net-selected、--net-shadow。
+    - 依据现有 --accent、--bg-primary/secondary、--fg-primary/secondary 推导，保证与整体主题一致。
+  - 支持暗色模式（可选）：基于 prefers-color-scheme 切换上述变量，保持高对比度。
+- 节点设计（高对比、现代）
+  - shape: 'dot'（或按类型映射不同形状 dot/square/triangle，提升色形冗余）；
+  - border：细边 + 选中加粗；hover/selected 采用 --net-highlight/--net-selected；
+  - 标签字体使用 Inter，label 背景透明，避免遮挡；
+  - 尺寸映射：使用对数/平方根缩放，避免“超级节点”过大（例如 size = clamp(10, 6 + 4*sqrt(degree), 28)）。
+- 边设计（减少视觉噪声）
+  - 默认更浅（--net-edge）且细；hover/selected 增加不透明度与宽度；
+  - 关系标签默认隐藏或在低缩放时隐藏、放大后显示；
+  - 平滑策略：小图 continuous，大图关闭 smooth（提升性能并减少弯曲重叠）。
+- 标签策略（提升可读性）
+  - vis 的 scaling.label：设置 drawThreshold/visibleMin/visibleMax，基于 zoom 动态显示；
+  - 边标签：启用“仅在 hover/选中边时显示”或“高缩放时显示”；
+  - 节点标签溢出截断并提供完整 title 提示。
+- 信息与引导
+  - 模态头部右侧加入小型 Legend（类型颜色与形状对照）与轻量提示（“滚轮缩放、拖动画布、点击节点查看邻域”）。
+
+四、交互增强（现代网络图常规能力）
+- 邻域高亮
+  - interaction.hoverConnectedEdges = true；
+  - 使用 chosen/node/edge 回调对 hover/selected 设置强调样式；
+  - 点击节点时高亮其 1/2 距离邻接节点（可选层级）。
+- 控制面板（轻量工具条，置于模态右上角）
+  - 开关项：
+    - 显示/隐藏边标签
+    - 开启/关闭物理（physics）
+    - 标签大小滑块 / 节点最小尺寸滑块
+    - 自动居中（fit）/ 重置视图
+    - 布局预设（见下一节）
+  - 样式：小圆角卡片、半透明背景、阴影、与整体风格一致。
+- 搜索与聚焦（与现有搜索输入联动）
+  - 在模态内增加“定位到实体”输入（或复用顶部搜索值）：
+    - 找到匹配节点 → network.focus(nodeId, {scale:..., animation:true}); 并 selectNodes([nodeId])。
+  - 清除定位后恢复上一次视图（缓存上次视口）。
+- 过滤同步（实时更新）
+  - 若模态打开，FilterTracker 更新后触发 NetworkRenderer.updateData(...) 增量更新 DataSet，而非销毁重建；
+  - 仅在数据量很大时退回“重建”的简单路径（更稳但帧率低）。
+
+五、布局与物理（流畅与稳定并重）
+- 自适应策略（按节点数 N）
+  - N ≤ 150：BarnesHut（现有），springLength 降到 180–220 区间；smooth: 'continuous'；
+  - 150 < N ≤ 600：ForceAtlas2Based（布局更紧凑），适度减少 iterations（100–200），关闭边平滑；
+  - N > 600：ForceAtlas2Based + cluster/降噪（见“性能”），标签默认最小化，边标签关闭；
+- 分层/层级布局（可选预设）
+  - hierarchical.enabled: true；direction:'UD' 或 'LR'；
+  - 分层依据：entity_type 或“入度-出度”差（subject-heavy 在上游、object-heavy 在下游）。
+- 稳定过程优化
+  - stabilization：iterations 自适应（N/2~N 的线性区间）；
+  - stabilizationProgress 回调更新 Loading 文案（“布局优化中… 60%”）。
+  - 稳定后 physics:false，并在缩放/窗口 resize 后短暂启用 physics 进行微调（100–300ms），再关闭。
+
+六、性能与可扩展（大图友好）
+- 数据层优化
+  - 边聚合：相同 (from, to, relation) 累加权重，边标签显示“relation × count”；边宽或透明度映射 count；
+  - 去重节点：已做；另外可合并大小写差异、前后空格等异常；
+- 绘制层优化
+  - 大图默认：edges.smooth=false、interaction.hoverDelay 调高、hideEdgesOnDrag=true、hideEdgesOnZoom=true；
+  - 缩放阈值：监听 zoom 事件，scale<阈值时隐藏边标签与次要标签；
+  - 使用 requestAnimationFrame 包裹 redraw/fit（替代 setTimeout 固定时延），在可见且尺寸稳定时执行；
+- 聚类与降噪
+  - clusterByType：按 entity_type 聚类，点击聚类节点可展开/收起；
+  - clusterByHubsize：N 很大时优先聚类高连接节点；
+  - 提供“聚类级别”滑块（0=无聚类，1=按类型，2=按 hubsize）。
+
+七、无障碍与可读性
+- 颜色对比：节点/边/标签颜色满足 WCAG AA（文本与背景对比度 ≥ 4.5:1）；
+- 色形冗余：为色盲用户提供形状区分（如类型 A=dot，B=square，C=triangle）；选中状态加内外双描边；
+- 键盘与提示：
+  - 已启用 keyboard:true；补充快捷键：P(physics)、L(labels)、F(fit)、C(cluster)；
+  - Tooltip 结构化、可滚动，截断长文本，提供“更多”链接（如展开 evidence）。
+
+八、与现有类（FilterTracker/NetworkRenderer/ModalManager）的对接改造点
+- FilterTracker
+  - 保持接口不变；补充导出 getActiveFilters() 供 UI 控件显示（类型 chips、关系 tag 等已存在）。
+- NetworkRenderer（保持现有入口 renderNetwork(triples)）
+  - 拆分为：
+    - buildDatasets(triples)：聚合边、构建 DataSet；
+    - applyOptionsByScale(N, E)：根据规模返回 options（物理、交互、平滑、scaling.label 等）。
+    - updateData(newTriples)：在 modal 打开状态下进行增量更新（this.network.setData）。
+  - 视觉：
+    - nodes: {shape, scaling:{min,max,label:{enabled:true,drawThreshold:…}}, chosen 回调}；
+    - edges: {width, opacity, arrows, selectionWidth, hoverWidth, font:{size:…}}；
+  - 交互：在 zoom/dragStart/dragEnd 事件里动态隐藏/恢复标签与边，优化帧率。
+- ModalManager
+  - 可替换 setTimeout(800) 为 waitForVisibleContainer：基于 rAF/ResizeObserver 直到容器尺寸>0 且 CSS 完全渲染，再生成网络；
+  - show/hide：
+    - show 时：显示 Loading → 初始化 → stabilize → 隐藏 Loading；
+    - hide 时：保留或销毁网络可由开关决定（保留可加速二次打开，销毁可释放内存）。
+
+九、UI 控件与微交互（示意）
+- 模态头部右侧：
+  - Legend：色块+形状说明；
+  - 控件组：
+    - Physics [toggle]
+    - Labels [toggle]
+    - Layout [select: Default/ForceAtlas2/Hierarchical]
+    - Fit [button]
+    - Export [button: PNG/SVG/JSON]
+- 微交互：
+  - 悬浮按钮动效（轻微缩放/阴影），保持与现有按钮一致的圆角和节奏；
+  - 点击节点出现信息气泡（名称、类型、连接度、Top-K 关系），右上角关闭；
+  - 长按空白处显示“快捷键提示”。
+
+十、具体参数建议（首版默认）
+- 小规模（N ≤ 150）
+  - physics.solver: 'barnesHut'
+  - barnesHut: { gravitationalConstant: -7000, springLength: 200, springConstant: 0.05, avoidOverlap: 0.2 }
+  - edges.smooth: { type: 'continuous' }
+  - nodes.scaling: { min: 10, max: 26, label:{enabled:true, drawThreshold: 0.6} }
+- 中规模（150 < N ≤ 600）
+  - physics.solver: 'forceAtlas2Based'
+  - forceAtlas2Based: { gravitationalConstant: -50, centralGravity: 0.02, springLength: 170, springConstant: 0.05, damping: 0.4, avoidOverlap: 0.2 }
+  - edges.smooth: false
+  - nodes.scaling.label.drawThreshold: 0.8
+- 大规模（N > 600）
+  - 同中规模 + clusterByHubsize/Type + 关闭边标签，zoom>1.1 时再逐步开启
+  - interaction: { hoverDelay: 200, tooltipDelay: 300, hideEdgesOnDrag: true, hideEdgesOnZoom: true }
+
+十一、导出与保存（可选增强）
+- 导出当前视图：
+  - PNG：使用 canvas 快照（vis 提供 canvas 渲染，或通过 HTML2Canvas）；
+  - JSON：导出 nodes/edges DataSet + 当前 options；
+  - 将导出按钮加入模态控件组。
+
+十二、实施步骤与里程碑
+- Phase 1（样式即插即用，1–2 天）
+  - 新增网络主题变量，优化节点/边/标签默认样式；
+  - 标签缩放策略、边标签缩放隐藏；
+  - Legend 与提示文案；
+  - 验证小/中图视觉效果。
+- Phase 2（交互与布局，2–3 天）
+  - 控制面板（physics/labels/layout/fit/export）；
+  - 邻域高亮、选择态优化、搜索聚焦；
+  - 自适应物理/布局；
+  - waitForVisibleContainer 替代固定延时；
+  - 模态打开状态下的增量更新。
+- Phase 3（性能与大图，2–4 天）
+  - 边聚合、缩放阈值、标签/边按需显示；
+  - 聚类（type/hubsize）、隐藏次要要素；
+  - FPS/稳定时间基准测试与参数微调。
+- Phase 4（无障碍与导出，1–2 天）
+  - 色形冗余、对比度校验；
+  - 快捷键；
+  - 导出 PNG/JSON；
+
+十三、验收指标（可量化）
+- 美观与一致性
+  - 主题一致：按钮、Legend、标签字体与整体仪表盘一致；
+  - 标签可读：中等密度下标签不互相遮挡；
+- 流畅度
+  - 中图（~300 节点、~600 边）稳定化 ≤ 1.5s，交互无明显掉帧；
+  - 大图（~800 节点、~1500 边）在默认聚类与降噪下可交互、FPS ≥ 25；
+- 易用性
+  - 1 次点击定位到节点（搜索/聚焦）；
+  - 3 步内完成常用操作（过滤→可视化→导出）。
+
+十四、与现有代码的映射（修改点清单，保持接口）
+- template_modern.html.j2（不改变已存在结构，仅增强）
+  - CSS：新增网络主题变量、.network-controls（工具条）、Legend 样式；
+  - JS：
+    - NetworkRenderer：拆分 buildDatasets/applyOptionsByScale/updateData；增加 zoom 监听与动态标签策略；
+    - ModalManager：引入 waitForVisibleContainer（rAF/ResizeObserver），可选持久化 network 实例；
+    - 初始化：在 initializeNetworkComponents 后，挂载控件事件到 window.networkComponents（filterTracker/networkRenderer/modalManager）。
+
+十五、后续扩展（可选）
+- 社区检测（Louvain/Label Propagation）在后端预计算并传入，以颜色/分组呈现（不增加前端负担）。
+- 语义颜色：关系按语义类别分色（例如“因果”“组成”“时序”），边样式区分（虚线/箭头头形）。
+- 布局记忆：缓存用户上一次的布局与缩放，二次打开快速恢复。
+
+十六、风险与回滚
+- 风险：大图仍可能在弱机上性能不足；聚类/增量更新逻辑复杂度提升；
+- 降级：提供“性能模式”开关（关闭标签/平滑/边），一键降噪；保留现有“关闭 physics”策略作为安全兜底。
+
+十七、总结
+- 本方案在不改变现有数据流与主要类接口的前提下，通过主题变量、节点/边/标签视觉规范化、交互控件与物理/布局自适应、聚类与缩放阈值等策略，系统性提升网络可视化的现代感与流畅度；
+- 方案分阶段实施、可逐步落地，并以可量化指标进行验收；
+- 未来可与后端统计/社区检测协同，进一步提升洞察力与表达力。
+

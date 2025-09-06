@@ -1,0 +1,174 @@
+按钮优化计划
+===============
+
+基于对当前代码的分析，制定以下详细优化计划：
+
+## 1. 颜色更新
+- 将 Visualise 和 Back to Top 按钮的背景色从 `#2C2C30` 改为 `#4D4E54`
+- 将悬停颜色从 `#3C3C40` 改为 `#5D5E64`
+- 影响的按钮：Visualise, Back to Top, Clear All
+
+具体修改：
+```css
+/* 查找并替换 */
+background-color: #2C2C30;  →  background-color: #4D4E54;
+background-color: #3C3C40;  →  background-color: #5D5E64;
+```
+
+## 2. 按钮对齐方案
+
+### 当前布局分析：
+- `.app-bar-content` 和 `.container` 都使用 `width: min(calc(100% - 160px), 160rem)`
+- 这意味着主要内容区域左右各有80px的边距
+- Entity type panel位于sidebar中，遵循相同的容器宽度
+
+### 对齐策略：
+- 改变按钮定位方式，从固定的 `right: 50px` 改为与内容区域右边缘对齐
+- 计算公式：`right: 80px` (与主容器的右边距保持一致)
+- 在移动端 (<1024px) 调整为 `right: 1rem` 以匹配移动端容器边距
+
+具体修改：
+```css
+.fixed-buttons-container {
+    position: fixed;
+    top: 12px;
+    right: 80px;  /* 从 50px 改为 80px，与主容器右边距对齐 */
+    z-index: 1001;
+    display: flex;
+    gap: var(--sp-3);
+    align-items: center;
+}
+```
+
+## 3. Visualise按钮hover动画增强
+
+添加以下hover效果：
+- **缩放动画**: `transform: translateY(-2px) scale(1.05)`
+- **阴影增强**: `box-shadow: 0 4px 12px rgba(77, 78, 84, 0.3)`
+- **图标旋转**: SVG图标轻微旋转效果 `rotate(5deg)`
+- **过渡动画**: `transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1)`
+
+具体修改：
+```css
+#visualise-btn {
+    background-color: #4D4E54;
+    color: #F9F9F7;
+    border: none;
+    border-radius: var(--radius-interactive);
+    padding: var(--sp-2) var(--sp-4);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);  /* 增强过渡动画 */
+    font-weight: 600;
+    font-size: var(--fs-sm);
+    white-space: nowrap;
+    box-shadow: var(--shadow-md);
+    flex-shrink: 0;
+}
+
+#visualise-btn:hover {
+    background-color: #5D5E64;
+    transform: translateY(-2px) scale(1.05);  /* 增强hover动画 */
+    box-shadow: 0 4px 12px rgba(77, 78, 84, 0.3);  /* 增强阴影 */
+}
+
+/* 图标旋转效果 */
+#visualise-btn:hover svg {
+    transform: rotate(5deg);
+    transition: transform 0.3s ease;
+}
+
+#visualise-btn svg {
+    transition: transform 0.3s ease;
+}
+```
+
+## 4. 响应式适配
+
+更新媒体查询中的按钮位置：
+
+```css
+@media (max-width: 1024px) {
+    .fixed-buttons-container {
+        right: 1rem;  /* 匹配移动端容器边距 */
+    }
+}
+
+@media (max-width: 768px) {
+    .app-bar .text-search-input {
+        max-width: 220px;
+    }
+    #visualise-btn {
+        font-size: var(--fs-xs);
+        padding: var(--sp-1) var(--sp-3);
+    }
+    .fixed-buttons-container {
+        right: 1rem;  /* 保持移动端对齐 */
+    }
+    .network-modal-content {
+        margin: 1% auto;
+        width: 98%;
+        height: 98%;
+    }
+}
+```
+
+## 5. Clear All按钮对齐
+
+确保Clear All按钮也与其他按钮保持一致的样式：
+
+```css
+#clear-all-filters-btn { 
+    font-weight: 600; 
+    color: #F9F9F7;  /* 改为白色文字 */
+    background: #4D4E54;  /* 改为统一背景色 */
+    border: 1px solid #4D4E54;  /* 边框色匹配 */
+    border-radius: var(--radius-interactive); 
+    padding: var(--sp-2) var(--sp-4); 
+    cursor: pointer; 
+    font-size: var(--fs-sm); 
+    transition: all 0.2s ease;
+}
+
+#clear-all-filters-btn:hover { 
+    background-color: #5D5E64; 
+    border-color: #5D5E64;
+    transform: translateY(-1px);  /* 轻微hover效果 */
+}
+```
+
+## 6. 实施步骤
+
+1. **颜色替换**：
+   - 查找所有 `#2C2C30` 替换为 `#4D4E54`
+   - 查找所有 `#3C3C40` 替换为 `#5D5E64`
+
+2. **按钮定位修改**：
+   - 修改 `.fixed-buttons-container` 的 `right` 值从 `50px` 到 `80px`
+   - 更新响应式媒体查询中的 `right` 值
+
+3. **动画增强**：
+   - 为 `#visualise-btn` 添加增强的hover动画效果
+   - 添加SVG图标的旋转动画
+
+4. **Clear All按钮样式统一**：
+   - 更新 `#clear-all-filters-btn` 的背景色和文字色
+   - 添加hover动画效果
+
+5. **测试验证**：
+   - 生成新的HTML报告
+   - 验证按钮对齐效果
+   - 测试hover动画表现
+   - 检查响应式布局在不同屏幕尺寸下的表现
+
+## 预期效果
+
+完成这些修改后，将实现：
+- ✅ 所有按钮采用统一的 `#4D4E54` 色调
+- ✅ Visualise, Back to Top, Clear All 三个按钮与entity type panel右侧完美对齐
+- ✅ Visualise按钮具有流畅的hover动画效果（缩放、阴影、图标旋转）
+- ✅ 在所有设备尺寸下保持良好的对齐和视觉效果
+- ✅ 整体UI风格更加统一和现代化

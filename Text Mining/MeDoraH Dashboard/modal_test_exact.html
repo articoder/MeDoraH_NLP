@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exact Modal Structure Test</title>
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; }
+        
+        /* Exact CSS from template */
+        .network-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(4px);
+        }
+        .network-modal-content {
+            position: relative;
+            margin: 2% auto;
+            width: 96%;
+            height: 96%;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .network-modal-header {
+            padding: 20px 30px;
+            border-bottom: 1px solid #ddd;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .network-modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+        }
+        .network-modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+            padding: 8px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            line-height: 1;
+        }
+        .network-modal-close:hover {
+            background-color: #eee;
+            color: #333;
+        }
+        .network-container {
+            flex: 1;
+            position: relative;
+            background-color: white;
+            min-height: 500px;
+        }
+        #network-graph {
+            width: 100% !important;
+            height: 100% !important;
+            min-height: 500px !important;
+        }
+        .network-info {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border-radius: 4px;
+            padding: 12px 16px;
+            font-size: 0.875rem;
+            color: #666;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .test-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        .debug-log {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            max-height: 200px;
+            overflow-y: auto;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 12px;
+            font-family: monospace;
+            z-index: 1001;
+        }
+    </style>
+</head>
+<body>
+    <h1>Testing Network Modal with Exact Template Structure</h1>
+    <p>This test replicates the exact modal structure from template_modern.html.j2</p>
+    
+    <button class="test-btn" onclick="showModal()">Show Modal + Network</button>
+    
+    <div id="debug-log" class="debug-log">
+        <strong>Debug Log:</strong><br>
+        <div id="log-content">Ready...</div>
+    </div>
+
+    <!-- Exact modal structure from template -->
+    <div id="network-modal" class="network-modal">
+        <div class="network-modal-content">
+            <div class="network-modal-header">
+                <h2 class="network-modal-title">Network Visualization</h2>
+                <button class="network-modal-close" onclick="hideModal()">&times;</button>
+            </div>
+            <div class="network-container">
+                <div id="network-graph"></div>
+                <div id="network-info" class="network-info" style="display: none;">
+                    Entities: <span id="filtered-stats">0 entities, 0 relationships</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Exact test data from template debugging
+        const testTriples = [
+            {
+                subject_entity: {name: "Judy Malloy", entity_type: "PERSON"},
+                relation: {semantic_form: "GRADUATED_WITH", surface_form: "graduated with"},
+                object_entity: {name: "degree in English", entity_type: "ACADEMIC_DEGREE"},
+                evidence_text: "I graduated with a degree in English"
+            },
+            {
+                subject_entity: {name: "Judy Malloy", entity_type: "PERSON"},
+                relation: {semantic_form: "HAD_FIRST_JOB_AT", surface_form: "first job at"},
+                object_entity: {name: "Library of Congress", entity_type: "ORGANISATION"},
+                evidence_text: "My first job was at the Library of Congress"
+            },
+            {
+                subject_entity: {name: "Library of Congress", entity_type: "ORGANISATION"},
+                relation: {semantic_form: "IS_LOCATED_IN", surface_form: "in"},
+                object_entity: {name: "Washington DC", entity_type: "LOCATION"},
+                evidence_text: "Library of Congress in Washington DC"
+            }
+        ];
+
+        function log(message) {
+            console.log(message);
+            const logContent = document.getElementById('log-content');
+            const timestamp = new Date().toLocaleTimeString();
+            logContent.innerHTML = `[${timestamp}] ${message}<br>` + logContent.innerHTML;
+        }
+
+        function showModal() {
+            log('🚀 Starting modal test...');
+            
+            // Check vis.js
+            if (typeof vis === 'undefined') {
+                log('❌ vis.js not loaded!');
+                return;
+            }
+            log('✅ vis.js available');
+            
+            // Show modal
+            const modal = document.getElementById('network-modal');
+            modal.style.display = 'block';
+            log('✅ Modal displayed');
+            
+            // Wait for modal to render, then create network
+            setTimeout(() => {
+                createNetwork();
+            }, 500);
+        }
+
+        function hideModal() {
+            document.getElementById('network-modal').style.display = 'none';
+            log('Modal hidden');
+        }
+
+        function createNetwork() {
+            log('🎨 Creating network...');
+            
+            const container = document.getElementById('network-graph');
+            if (!container) {
+                log('❌ Container not found!');
+                return;
+            }
+            
+            log(`📏 Container dimensions: ${container.offsetWidth}x${container.offsetHeight}`);
+            log(`📏 Container client dimensions: ${container.clientWidth}x${container.clientHeight}`);
+            log(`📏 Container parent dimensions: ${container.parentElement.offsetWidth}x${container.parentElement.offsetHeight}`);
+            
+            // Clear container
+            container.innerHTML = '';
+            
+            // Force dimensions if zero
+            if (container.offsetWidth === 0 || container.offsetHeight === 0) {
+                log('⚠️ Zero dimensions detected, forcing size...');
+                container.style.width = '100%';
+                container.style.height = '500px';
+                container.style.minHeight = '500px';
+                
+                // Re-check dimensions
+                setTimeout(() => {
+                    log(`📏 After force: ${container.offsetWidth}x${container.offsetHeight}`);
+                    actuallyCreateNetwork(container);
+                }, 100);
+            } else {
+                actuallyCreateNetwork(container);
+            }
+        }
+
+        function actuallyCreateNetwork(container) {
+            log('🔧 Processing data...');
+            
+            // Process triples into nodes and edges (exact logic from template)
+            const nodes = new Map();
+            const edges = [];
+            const colorPalette = ['#E69F00', '#56B4E9', '#009E73', '#F0E442', '#0072B2', '#D55E00', '#CC79A7'];
+            const entityTypes = new Set();
+            
+            testTriples.forEach(triple => {
+                const subjName = triple.subject_entity.name;
+                const subjType = triple.subject_entity.entity_type;
+                const objName = triple.object_entity.name;
+                const objType = triple.object_entity.entity_type;
+                const relation = triple.relation.semantic_form;
+                
+                entityTypes.add(subjType);
+                entityTypes.add(objType);
+                
+                // Add subject node
+                if (!nodes.has(subjName)) {
+                    nodes.set(subjName, {
+                        id: subjName,
+                        label: subjName,
+                        type: subjType,
+                        degree: 0
+                    });
+                }
+                nodes.get(subjName).degree++;
+                
+                // Add object node
+                if (!nodes.has(objName)) {
+                    nodes.set(objName, {
+                        id: objName,
+                        label: objName,
+                        type: objType,
+                        degree: 0
+                    });
+                }
+                nodes.get(objName).degree++;
+                
+                // Add edge
+                edges.push({
+                    from: subjName,
+                    to: objName,
+                    label: relation,
+                    arrows: 'to',
+                    title: `${triple.relation.surface_form}: "${triple.evidence_text}"`
+                });
+            });
+            
+            // Create color mapping for entity types
+            const typeArray = Array.from(entityTypes).sort();
+            const colorMap = {};
+            typeArray.forEach((type, index) => {
+                colorMap[type] = colorPalette[index % colorPalette.length];
+            });
+            
+            // Convert to vis.js format
+            const visNodes = Array.from(nodes.values()).map(node => ({
+                id: node.id,
+                label: node.label,
+                title: `Entity: ${node.label}\\nType: ${node.type}\\nConnections: ${node.degree}`,
+                color: colorMap[node.type] || '#999999',
+                size: Math.max(15, Math.min(30, node.degree * 5))
+            }));
+            
+            log(`📊 Data ready: ${visNodes.length} nodes, ${edges.length} edges`);
+            
+            // Create vis.js datasets
+            const data = {
+                nodes: new vis.DataSet(visNodes),
+                edges: new vis.DataSet(edges)
+            };
+            
+            // Network options
+            const options = {
+                nodes: {
+                    font: { size: 16, color: '#343434' },
+                    borderWidth: 2,
+                    shadow: true
+                },
+                edges: {
+                    font: { size: 12, color: '#343434' },
+                    color: { color: '#848484', opacity: 0.8 },
+                    arrows: { to: { enabled: true } }
+                },
+                physics: {
+                    enabled: true,
+                    stabilization: { iterations: 100 }
+                },
+                layout: {
+                    randomSeed: 2
+                }
+            };
+            
+            try {
+                log('🌟 Creating vis.Network...');
+                const network = new vis.Network(container, data, options);
+                log('✅ Network object created successfully!');
+                
+                // Update info panel immediately
+                const infoPanel = document.getElementById('network-info');
+                const statsSpan = document.getElementById('filtered-stats');
+                if (infoPanel && statsSpan) {
+                    statsSpan.textContent = `${visNodes.length} entities, ${edges.length} relationships`;
+                    infoPanel.style.display = 'block';
+                    log('✅ Info panel updated');
+                }
+                
+                // Force resize after short delay
+                setTimeout(() => {
+                    log('🔄 Resizing network...');
+                    network.redraw();
+                    network.fit();
+                    log('✅ Network resized and fitted');
+                }, 200);
+                
+                network.on('stabilizationIterationsDone', () => {
+                    log('✅ Network stabilization complete');
+                    network.setOptions({ physics: false });
+                });
+                
+                network.on('click', (params) => {
+                    log(`Node clicked: ${params.nodes[0] || 'none'}`);
+                });
+                
+            } catch (error) {
+                log(`❌ Network creation failed: ${error.message}`);
+                console.error('Network creation error:', error, error.stack);
+                container.innerHTML = `<div style="padding: 20px; text-align: center; color: red;">Error: ${error.message}</div>`;
+            }
+        }
+
+        // Test vis.js loading on page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                if (typeof vis !== 'undefined') {
+                    log('✅ Page loaded, vis.js available');
+                    log(`vis.js version: ${vis.version || 'unknown'}`);
+                } else {
+                    log('❌ Page loaded, but vis.js NOT available');
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>
