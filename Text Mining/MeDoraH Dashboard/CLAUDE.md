@@ -210,6 +210,32 @@ Successfully integrated interactive network visualization functionality into the
 - Enhanced error handling with user-friendly feedback
 - Stabilized network rendering with proper resize sequences
 
+### Advanced Network Controls (2025-09)
+Enhanced network visualization with sophisticated dropdown controls and multi-hop filtering:
+
+**Labels Dropdown System:**
+- **Node Labels Toggle**: Independent control for node label visibility
+- **Edge Labels Toggle**: Separate control for edge/relation label display
+- **Default Settings**: Node labels enabled by default, edge labels disabled
+- **UI Integration**: Dropdown menu replaces simple Labels button
+
+**Multi-Hop Filtering System:**
+- **Hops Dropdown**: 0/+1/+2 hop distance selection
+- **BFS Algorithm**: Breadth-First Search for multi-hop neighbor discovery
+- **Dynamic Filtering**: Real-time network regeneration based on hop distance
+- **Performance Optimized**: Efficient adjacency graph construction and traversal
+
+**Technical Enhancements:**
+- **FilterTracker Updates**: Added `hopDistance` property and `setHopDistance()` method
+- **NetworkRenderer Separation**: Split `toggleLabels()` into `toggleNodeLabels()` and `toggleEdgeLabels()`
+- **Network Regeneration**: New `regenerateNetwork()` method for dynamic content updates
+- **Event Management**: Enhanced `setupControlButtons()` with dropdown event listeners
+
+**Font and Design Updates:**
+- **PT Sans Narrow**: All network text (nodes, edges, controls) uses PT Sans Narrow font
+- **Circular Nodes**: All nodes use dot/circle shape with degree-based sizing
+- **Consistent Styling**: Dropdown menus match existing Export dropdown design
+
 **Files Modified:**
 - `template_modern.html.j2`: Added network visualization UI components and JavaScript classes
 - Maintained backward compatibility with existing dashboard functionality
@@ -218,4 +244,6 @@ Successfully integrated interactive network visualization functionality into the
 ```bash
 python3 generate_report_modern.py -i extracted_data.json -o network_report.html
 # Click "Visualise" button in generated report to access network view
+# Use Labels dropdown to toggle node/edge labels independently
+# Use Hops dropdown to set filter expansion distance (0, +1, +2 hops)
 ```

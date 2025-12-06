@@ -461,6 +461,7 @@
         .extraction-card { background-color: var(--bg-primary); border: 1px solid var(--border-primary); border-radius: var(--radius-main); margin-bottom: var(--sp-6);
  padding: var(--sp-6); box-shadow: var(--shadow-sm); transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
  }
+        hr.triple-divider { border: 0; border-top: 1px solid var(--border-primary); margin: var(--sp-4) 0; }
         .extraction-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md);
  }
         .sro-triple { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); margin-bottom: var(--sp-6);
@@ -618,11 +619,15 @@
             border-color: var(--accent);
             box-shadow: var(--shadow-focus-ring);
         }
-        .network-export-dropdown {
+        .network-export-dropdown,
+        .network-labels-dropdown,
+        .network-hops-dropdown {
             position: relative;
             display: inline-block;
         }
-        .export-menu {
+        .export-menu,
+        .labels-menu,
+        .hops-menu {
             display: none;
             position: absolute;
             top: 100%;
@@ -634,10 +639,14 @@
             min-width: 120px;
             z-index: 1000;
         }
-        .export-menu.show {
+        .export-menu.show,
+        .labels-menu.show,
+        .hops-menu.show {
             display: block;
         }
-        .export-menu button {
+        .export-menu button,
+        .labels-menu button,
+        .hops-menu button {
             display: block;
             width: 100%;
             padding: var(--sp-2) var(--sp-3);
@@ -646,16 +655,38 @@
             text-align: left;
             cursor: pointer;
             font-size: var(--fs-xs);
-            font-family: var(--font-primary);
+            font-family: 'PT Sans Narrow', sans-serif;
             transition: background-color 0.2s ease;
+            position: relative;
         }
-        .export-menu button:hover {
+        .export-menu button:hover,
+        .labels-menu button:hover,
+        .hops-menu button:hover {
             background: var(--bg-secondary);
         }
-        .export-menu button:first-child {
+        .export-menu button.active,
+        .labels-menu button.active,
+        .hops-menu button.active {
+            background: var(--accent-bg-subtle);
+            font-weight: 600;
+        }
+        .export-menu button.active::before,
+        .labels-menu button.active::before,
+        .hops-menu button.active::before {
+            content: "✓";
+            position: absolute;
+            right: var(--sp-2);
+            color: var(--accent);
+            font-weight: bold;
+        }
+        .export-menu button:first-child,
+        .labels-menu button:first-child,
+        .hops-menu button:first-child {
             border-radius: var(--radius-interactive) var(--radius-interactive) 0 0;
         }
-        .export-menu button:last-child {
+        .export-menu button:last-child,
+        .labels-menu button:last-child,
+        .hops-menu button:last-child {
             border-radius: 0 0 var(--radius-interactive) var(--radius-interactive);
         }
         .network-modal-close {
@@ -857,15 +888,33 @@
                         <span class="turn-speaker-name">{{ turn.speaker_name }}</span>
                         <span class="turn-meta">{{ turn.role }} | Utterance #{{ turn.utterance_order }} | {{ turn.extraction_count }} Extractions</span>
                     </div>
-                    
-                    {% for extraction in turn.extractions %}
-                    <div class="extraction-card" 
-                         data-subject-type="{{ extraction.subject_entity.entity_type }}"
-                         data-subject-name="{{ extraction.subject_entity.name | lower }}"
-                         data-relation-form="{{ extraction.relation.semantic_form }}"
-                         data-object-type="{{ extraction.object_entity.entity_type }}"
-                         data-object-name="{{ extraction.object_entity.name | lower }}">
 
+                    {# Group extractions by evidence (same sentence) #}
+                    {% for group in turn.extractions | groupby('evidence_text') %}
+                    {% set group_list = group.list %}
+                    {% set first = group_list[0] %}
+
+                    {# Build aggregated data attributes for filtering across all triples in the card #}
+                    {% set subj_types_join = group_list | map(attribute='subject_entity') | map(attribute='entity_type') | join('|') %}
+                    {% set obj_types_join = group_list | map(attribute='object_entity') | map(attribute='entity_type') | join('|') %}
+                    {% set rel_forms_join = group_list | map(attribute='relation') | map(attribute='semantic_form') | join('|') %}
+                    {% set subj_names_join = group_list | map(attribute='subject_entity') | map(attribute='name') | map('lower') | join('|') %}
+                    {% set obj_names_join = group_list | map(attribute='object_entity') | map(attribute='name') | map('lower') | join('|') %}
+                    {% set patterns_join = '' %}
+                    {% for ex in group_list %}
+                        {% set patterns_join = patterns_join + (patterns_join and '|' or '') + (ex.subject_entity.entity_type ~ '::' ~ ex.relation.semantic_form ~ '::' ~ ex.object_entity.entity_type) %}
+                    {% endfor %}
+
+                    <div class="extraction-card"
+                         data-subject-types="{{ subj_types_join }}"
+                         data-subject-names="{{ subj_names_join }}"
+                         data-relation-forms="{{ rel_forms_join }}"
+                         data-object-types="{{ obj_types_join }}"
+                         data-object-names="{{ obj_names_join }}"
+                         data-patterns="{{ patterns_join }}">
+
+                        {# Render each triple within the group, separated by a divider #}
+                        {% for extraction in group_list %}
                         <div class="sro-triple">
                             <div class="entity-box subject">
                                 <span class="entity-name">{{ extraction.subject_entity.name }}</span>
@@ -884,10 +933,13 @@
                             </div>
                         </div>
                         <div class="relation-details">Surface Form: <code>"{{ extraction.relation.surface_form }}"</code></div>
+                        {% if not loop.last %}<hr class="triple-divider">{% endif %}
+                        {% endfor %}
+
                         <div class="evidence-section">
                             <h3>Evidence Source</h3>
-                            <blockquote class="evidence-text">{{ extraction.evidence_text }}</blockquote>
-                            <div class="evidence-sources">{% for source_id in extraction.evidence_sources %}<span class="evidence-id-tag">{{ source_id }}</span>{% endfor %}</div>
+                            <blockquote class="evidence-text">{{ group.grouper }}</blockquote>
+                            <div class="evidence-sources">{% for source_id in first.evidence_sources %}<span class="evidence-id-tag">{{ source_id }}</span>{% endfor %}</div>
                         </div>
                     </div>
                     {% else %}
@@ -974,7 +1026,13 @@
                 </div>
 
                 <div id="analytics-panel">
-                    <h2>Pattern Analytics</h2>
+                    <div class="section-header-with-actions">
+                        <h2>Pattern Analytics</h2>
+                        <button id="export-all-csv-btn" class="export-csv-btn" title="Export all pattern analytics as CSVs">
+                            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Export All
+                        </button>
+                    </div>
                     <div class="summary-section collapsible collapsed">
                         <div class="collapsible-header">
                             <h3>Entity Type Patterns</h3>
@@ -1056,13 +1114,7 @@
                     <div class="summary-section patterns-column collapsible collapsed">
                         <div class="collapsible-header section-header-with-actions">
                             <h3>Frequent Structural Patterns</h3>
-                            <div style="display: flex; align-items: center; gap: 0.5rem;">
-                               <button id="export-patterns-csv-btn" class="export-csv-btn" title="Export all structural patterns as CSV">
-                                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                                    Export All
-                                </button>
-                                <span class="chevron"></span>
-                            </div>
+                            <span class="chevron"></span>
                         </div>
                         <div class="collapsible-content">
                             <div class="patterns-container">
@@ -1102,7 +1154,21 @@
                 <div class="network-controls">
                     <input type="search" id="network-search" placeholder="Search nodes..." class="network-search-input" title="Search for nodes by name">
                     <button class="network-control-btn" id="physics-toggle" title="Toggle Physics (P)">Physics</button>
-                    <button class="network-control-btn active" id="labels-toggle" title="Toggle Node Labels (L)">Labels</button>
+                    <div class="network-labels-dropdown">
+                        <button class="network-control-btn" id="labels-btn" title="Toggle Labels (L)">Labels ▼</button>
+                        <div class="labels-menu" id="labels-menu">
+                            <button id="toggle-node-labels" class="active">Node Labels</button>
+                            <button id="toggle-edge-labels">Edge Labels</button>
+                        </div>
+                    </div>
+                    <div class="network-hops-dropdown">
+                        <button class="network-control-btn" id="hops-btn" title="Set Hop Distance">Hops: +1 ▼</button>
+                        <div class="hops-menu" id="hops-menu">
+                            <button id="hops-0" data-hops="0">0 (Exact)</button>
+                            <button id="hops-1" data-hops="1" class="active">+1 Hop</button>
+                            <button id="hops-2" data-hops="2">+2 Hops</button>
+                        </div>
+                    </div>
                     <button class="network-control-btn" id="fit-network" title="Fit Network to View (F)">Fit</button>
                     <button class="network-control-btn" id="cluster-toggle" title="Toggle Clustering (C)">Cluster</button>
                     <div class="network-export-dropdown">
@@ -1143,6 +1209,7 @@
                 this.patternFilter = null;
                 this.relationFilter = null;
                 this.searchTerm = '';
+                this.hopDistance = 1; // Default to +1 hop
             }
             
             updateFilters(typeFilters, patternFilter, relationFilter, searchTerm) {
@@ -1152,13 +1219,62 @@
                 this.searchTerm = searchTerm;
             }
             
+            setHopDistance(hops) {
+                this.hopDistance = hops;
+                console.log('🔗 Hop distance set to:', hops);
+            }
+            
+            // Build adjacency graph from triples for hop calculations
+            buildAdjacencyGraph(triples) {
+                const graph = new Map();
+                triples.forEach(triple => {
+                    const subjName = triple.subject_entity.name;
+                    const objName = triple.object_entity.name;
+                    
+                    // Add both directions for undirected graph
+                    if (!graph.has(subjName)) graph.set(subjName, new Set());
+                    if (!graph.has(objName)) graph.set(objName, new Set());
+                    
+                    graph.get(subjName).add(objName);
+                    graph.get(objName).add(subjName);
+                });
+                return graph;
+            }
+            
+            // Get nodes within specified hop distance from seed nodes
+            getNodesWithinHops(seedNodes, hops, allTriples) {
+                if (hops === 0) return new Set(seedNodes);
+                
+                const nodeGraph = this.buildAdjacencyGraph(allTriples);
+                const result = new Set(seedNodes);
+                let currentLevel = new Set(seedNodes);
+                
+                for (let i = 0; i < hops; i++) {
+                    const nextLevel = new Set();
+                    for (const nodeId of currentLevel) {
+                        const neighbors = nodeGraph.get(nodeId) || new Set();
+                        neighbors.forEach(neighbor => {
+                            if (!result.has(neighbor)) {
+                                nextLevel.add(neighbor);
+                                result.add(neighbor);
+                            }
+                        });
+                    }
+                    currentLevel = nextLevel;
+                    if (currentLevel.size === 0) break;
+                }
+                
+                return result;
+            }
+            
             getFilteredData() {
                 console.log('Getting filtered data...');
                 console.log('Current filters:', {
                     typeFilters: Array.from(this.typeFilters),
                     patternFilter: this.patternFilter,
                     relationFilter: this.relationFilter,
-                    searchTerm: this.searchTerm
+                    searchTerm: this.searchTerm,
+                    hopDistance: this.hopDistance
                 });
                 
                 if (!window.rawTripleData || !Array.isArray(window.rawTripleData)) {
@@ -1166,7 +1282,9 @@
                     return [];
                 }
                 
+                // First, collect all triples to build the complete graph
                 const allTriples = [];
+                const allExtractions = [];
                 
                 window.rawTripleData.forEach(turn => {
                     if (!turn.extractions || !Array.isArray(turn.extractions)) {
@@ -1175,51 +1293,84 @@
                     }
                     
                     turn.extractions.forEach(extraction => {
-                        let isVisible = true;
-                        
                         // Validate extraction structure
                         if (!extraction.subject_entity || !extraction.object_entity || !extraction.relation) {
                             console.warn('Invalid extraction structure:', extraction);
                             return;
                         }
                         
-                        // Search filter
-                        if (isVisible && this.searchTerm) {
-                            const subjName = (extraction.subject_entity.name || '').toLowerCase();
-                            const objName = (extraction.object_entity.name || '').toLowerCase();
-                            if (!subjName.includes(this.searchTerm) && !objName.includes(this.searchTerm)) {
-                                isVisible = false;
-                            }
-                        }
-                        
-                        // Type filters
-                        if (isVisible && this.typeFilters.size > 0) {
-                            if (!this.typeFilters.has(extraction.subject_entity.entity_type) && 
-                                !this.typeFilters.has(extraction.object_entity.entity_type)) {
-                                isVisible = false;
-                            }
-                        }
-                        
-                        // Relation filter
-                        if (isVisible && this.relationFilter) {
-                            if (extraction.relation.semantic_form !== this.relationFilter) {
-                                isVisible = false;
-                            }
-                        }
-                        
-                        // Pattern filter
-                        if (isVisible && this.patternFilter) {
-                            if (!(extraction.subject_entity.entity_type === this.patternFilter.s_type && 
-                                  extraction.relation.semantic_form === this.patternFilter.r_form && 
-                                  extraction.object_entity.entity_type === this.patternFilter.o_type)) {
-                                isVisible = false;
-                            }
-                        }
-                        
-                        if (isVisible) {
-                            allTriples.push(extraction);
-                        }
+                        allExtractions.push(extraction);
                     });
+                });
+                
+                // Find seed nodes that match the primary filters (no hop expansion yet)
+                const seedNodes = new Set();
+                
+                allExtractions.forEach(extraction => {
+                    let matchesFilter = false;
+                    
+                    // Search filter
+                    if (this.searchTerm) {
+                        const subjName = (extraction.subject_entity.name || '').toLowerCase();
+                        const objName = (extraction.object_entity.name || '').toLowerCase();
+                        if (subjName.includes(this.searchTerm) || objName.includes(this.searchTerm)) {
+                            matchesFilter = true;
+                            seedNodes.add(extraction.subject_entity.name);
+                            seedNodes.add(extraction.object_entity.name);
+                        }
+                    }
+                    
+                    // Type filters
+                    if (this.typeFilters.size > 0) {
+                        if (this.typeFilters.has(extraction.subject_entity.entity_type) || 
+                            this.typeFilters.has(extraction.object_entity.entity_type)) {
+                            matchesFilter = true;
+                            if (this.typeFilters.has(extraction.subject_entity.entity_type)) {
+                                seedNodes.add(extraction.subject_entity.name);
+                            }
+                            if (this.typeFilters.has(extraction.object_entity.entity_type)) {
+                                seedNodes.add(extraction.object_entity.name);
+                            }
+                        }
+                    }
+                    
+                    // Relation filter
+                    if (this.relationFilter) {
+                        if (extraction.relation.semantic_form === this.relationFilter) {
+                            matchesFilter = true;
+                            seedNodes.add(extraction.subject_entity.name);
+                            seedNodes.add(extraction.object_entity.name);
+                        }
+                    }
+                    
+                    // Pattern filter
+                    if (this.patternFilter) {
+                        if (extraction.subject_entity.entity_type === this.patternFilter.s_type && 
+                            extraction.relation.semantic_form === this.patternFilter.r_form && 
+                            extraction.object_entity.entity_type === this.patternFilter.o_type) {
+                            matchesFilter = true;
+                            seedNodes.add(extraction.subject_entity.name);
+                            seedNodes.add(extraction.object_entity.name);
+                        }
+                    }
+                    
+                    // If no specific filters are applied, include all
+                    if (this.typeFilters.size === 0 && !this.relationFilter && !this.patternFilter && !this.searchTerm) {
+                        matchesFilter = true;
+                        seedNodes.add(extraction.subject_entity.name);
+                        seedNodes.add(extraction.object_entity.name);
+                    }
+                });
+                
+                // Apply hop distance to expand the node set
+                const targetNodes = this.getNodesWithinHops(Array.from(seedNodes), this.hopDistance, allExtractions);
+                console.log(`🔗 Expanded from ${seedNodes.size} seed nodes to ${targetNodes.size} target nodes with ${this.hopDistance} hops`);
+                
+                // Now filter triples to include only those involving target nodes
+                allExtractions.forEach(extraction => {
+                    if (targetNodes.has(extraction.subject_entity.name) || targetNodes.has(extraction.object_entity.name)) {
+                        allTriples.push(extraction);
+                    }
                 });
                 
                 console.log('Filtered data result:', allTriples.length, 'triples');
@@ -1237,7 +1388,8 @@ class NetworkRenderer {
         this.nodes = null;
         this.edges = null;
         this.physicsEnabled = true;
-        this.labelsEnabled = true;
+        this.nodeLabelsEnabled = true;
+        this.edgeLabelsEnabled = false;
         this.clustered = false;
         this.clusterLevel = 0;
         this.lastRenderedData = null; // Cache for incremental updates
@@ -1271,7 +1423,7 @@ class NetworkRenderer {
     }
     
     shouldShowEdgeLabels(nodeCount) {
-        return nodeCount <= 100;
+        return this.edgeLabelsEnabled && nodeCount <= 100;
     }
     
     getSmoothSettings(nodeCount, edgeCount) {
@@ -1486,8 +1638,8 @@ class NetworkRenderer {
         const showLabels = scale > 0.8;
         const showEdgeLabels = scale > 1.2;
         
-        if (showLabels !== this.labelsEnabled) {
-            this.toggleLabels(showLabels);
+        if (showLabels !== this.nodeLabelsEnabled) {
+            this.toggleNodeLabels(showLabels);
         }
     }
     
@@ -1503,18 +1655,34 @@ class NetworkRenderer {
         }
     }
     
-    toggleLabels(forceState = null) {
-        this.labelsEnabled = forceState !== null ? forceState : !this.labelsEnabled;
+    toggleNodeLabels(forceState = null) {
+        this.nodeLabelsEnabled = forceState !== null ? forceState : !this.nodeLabelsEnabled;
         if (this.network && this.nodes) {
             const updates = this.nodes.get().map(node => ({
                 ...node,
-                label: this.labelsEnabled ? node.title.split('\\n')[0].replace('Entity: ', '') : ''
+                label: this.nodeLabelsEnabled ? node.title.split('\\n')[0].replace('Entity: ', '') : ''
             }));
             this.nodes.update(updates);
             
-            const btn = document.getElementById('labels-toggle');
+            const btn = document.getElementById('toggle-node-labels');
             if (btn) {
-                btn.classList.toggle('active', this.labelsEnabled);
+                btn.classList.toggle('active', this.nodeLabelsEnabled);
+            }
+        }
+    }
+    
+    toggleEdgeLabels(forceState = null) {
+        this.edgeLabelsEnabled = forceState !== null ? forceState : !this.edgeLabelsEnabled;
+        if (this.network && this.edges) {
+            const updates = this.edges.get().map(edge => ({
+                ...edge,
+                label: this.edgeLabelsEnabled ? edge.title.split('\\n')[0].replace('Relation: ', '') : ''
+            }));
+            this.edges.update(updates);
+            
+            const btn = document.getElementById('toggle-edge-labels');
+            if (btn) {
+                btn.classList.toggle('active', this.edgeLabelsEnabled);
             }
         }
     }
@@ -1847,7 +2015,10 @@ class NetworkRenderer {
     getExportableOptions() {
         return {
             physics: { enabled: this.physicsEnabled },
-            labels: { enabled: this.labelsEnabled },
+            labels: { 
+                nodeLabels: this.nodeLabelsEnabled, 
+                edgeLabels: this.edgeLabelsEnabled 
+            },
             clustering: { enabled: this.clustered, level: this.clusterLevel }
         };
     }
@@ -2013,7 +2184,7 @@ class NetworkRenderer {
                 const size = this.calculateNodeSize(node.degree, nodes.size);
                 return {
                     id: node.id,
-                    label: this.labelsEnabled ? node.label : '',
+                    label: this.nodeLabelsEnabled ? node.label : '',
                     title: `Entity: ${node.label}\\nType: ${node.type}\\nConnections: ${node.degree}`,
                     color: {
                         background: colorMap[node.type] || '#999999',
@@ -2045,7 +2216,7 @@ class NetworkRenderer {
                     },
                     scaling: {
                         label: {
-                            enabled: this.labelsEnabled,
+                            enabled: this.nodeLabelsEnabled,
                             drawThreshold: this.getDrawThreshold(nodes.size),
                             maxVisible: Math.max(20, Math.min(100, nodes.size / 2))
                         }
@@ -2158,6 +2329,24 @@ class NetworkRenderer {
             `;
         }
     }
+    
+    regenerateNetwork() {
+        console.log('🔄 Regenerating network with updated filters and settings...');
+        
+        if (window.networkComponents && window.networkComponents.filterTracker) {
+            // Get current filtered data from FilterTracker
+            const filteredTriples = window.networkComponents.filterTracker.getFilteredData(window.allTriples);
+            console.log(`🎯 Regenerating network with ${filteredTriples.length} filtered triples`);
+            
+            // Re-render network with new data
+            this.renderNetwork(filteredTriples);
+        } else {
+            console.warn('⚠️ FilterTracker not available, using original data');
+            if (this.lastRenderedData) {
+                this.renderNetwork(this.lastRenderedData);
+            }
+        }
+    }
 }
         
         class ModalManager {
@@ -2211,7 +2400,12 @@ class NetworkRenderer {
                                 break;
                             case 'l':
                                 if (window.networkComponents && window.networkComponents.networkRenderer) {
-                                    window.networkComponents.networkRenderer.toggleLabels();
+                                    // Toggle node labels by default
+                                    window.networkComponents.networkRenderer.toggleNodeLabels();
+                                    const nodeLabelsBtn = document.getElementById('toggle-node-labels');
+                                    if (nodeLabelsBtn) {
+                                        nodeLabelsBtn.classList.toggle('active');
+                                    }
                                 }
                                 e.preventDefault();
                                 break;
@@ -2234,12 +2428,24 @@ class NetworkRenderer {
             
             setupControlButtons() {
                 const physicsBtn = document.getElementById('physics-toggle');
-                const labelsBtn = document.getElementById('labels-toggle');
                 const fitBtn = document.getElementById('fit-network');
                 const clusterBtn = document.getElementById('cluster-toggle');
                 const searchInput = document.getElementById('network-search');
                 const exportBtn = document.getElementById('export-btn');
                 const exportMenu = document.getElementById('export-menu');
+                
+                // Labels dropdown elements
+                const labelsBtn = document.getElementById('labels-btn');
+                const labelsMenu = document.getElementById('labels-menu');
+                const nodeLabelsBtn = document.getElementById('toggle-node-labels');
+                const edgeLabelsBtn = document.getElementById('toggle-edge-labels');
+                
+                // Hops dropdown elements
+                const hopsBtn = document.getElementById('hops-btn');
+                const hopsMenu = document.getElementById('hops-menu');
+                const hops0Btn = document.getElementById('hops-0');
+                const hops1Btn = document.getElementById('hops-1');
+                const hops2Btn = document.getElementById('hops-2');
                 
                 if (physicsBtn) {
                     physicsBtn.addEventListener('click', () => {
@@ -2249,10 +2455,83 @@ class NetworkRenderer {
                     });
                 }
                 
-                if (labelsBtn) {
-                    labelsBtn.addEventListener('click', () => {
-                        if (window.networkComponents && window.networkComponents.networkRenderer) {
-                            window.networkComponents.networkRenderer.toggleLabels();
+                // Labels dropdown functionality
+                if (labelsBtn && labelsMenu) {
+                    labelsBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        labelsMenu.classList.toggle('show');
+                        // Close hops menu if open
+                        if (hopsMenu) hopsMenu.classList.remove('show');
+                    });
+                    
+                    // Close dropdown when clicking outside
+                    document.addEventListener('click', () => {
+                        labelsMenu.classList.remove('show');
+                    });
+                    
+                    // Node labels toggle
+                    if (nodeLabelsBtn) {
+                        nodeLabelsBtn.addEventListener('click', () => {
+                            if (window.networkComponents && window.networkComponents.networkRenderer) {
+                                window.networkComponents.networkRenderer.toggleNodeLabels();
+                                nodeLabelsBtn.classList.toggle('active');
+                            }
+                            labelsMenu.classList.remove('show');
+                        });
+                    }
+                    
+                    // Edge labels toggle
+                    if (edgeLabelsBtn) {
+                        edgeLabelsBtn.addEventListener('click', () => {
+                            if (window.networkComponents && window.networkComponents.networkRenderer) {
+                                window.networkComponents.networkRenderer.toggleEdgeLabels();
+                                edgeLabelsBtn.classList.toggle('active');
+                            }
+                            labelsMenu.classList.remove('show');
+                        });
+                    }
+                }
+                
+                // Hops dropdown functionality
+                if (hopsBtn && hopsMenu) {
+                    hopsBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        hopsMenu.classList.toggle('show');
+                        // Close labels menu if open
+                        if (labelsMenu) labelsMenu.classList.remove('show');
+                    });
+                    
+                    // Close dropdown when clicking outside
+                    document.addEventListener('click', () => {
+                        hopsMenu.classList.remove('show');
+                    });
+                    
+                    // Hops selection handlers
+                    [hops0Btn, hops1Btn, hops2Btn].forEach(btn => {
+                        if (btn) {
+                            btn.addEventListener('click', () => {
+                                const hopDistance = parseInt(btn.dataset.hops);
+                                
+                                // Update FilterTracker
+                                if (window.networkComponents && window.networkComponents.filterTracker) {
+                                    window.networkComponents.filterTracker.setHopDistance(hopDistance);
+                                }
+                                
+                                // Update button states
+                                [hops0Btn, hops1Btn, hops2Btn].forEach(b => b?.classList.remove('active'));
+                                btn.classList.add('active');
+                                
+                                // Update button text
+                                const hopsText = hopDistance === 0 ? '0' : `+${hopDistance}`;
+                                hopsBtn.textContent = `Hops: ${hopsText} ▼`;
+                                
+                                // Regenerate network with new hop distance
+                                if (window.networkComponents && window.networkComponents.networkRenderer) {
+                                    window.networkComponents.networkRenderer.regenerateNetwork();
+                                }
+                                
+                                hopsMenu.classList.remove('show');
+                            });
                         }
                     });
                 }
@@ -2471,7 +2750,7 @@ class NetworkRenderer {
         let activeRelationFilter = null; 
         let activeSearchTerm = '';
 
-        const allCards = document.querySelectorAll('.extraction-card[data-subject-type]');
+        const allCards = document.querySelectorAll('.extraction-card');
         const allTurns = document.querySelectorAll('.speaker-turn');
         const allPatternItems = document.querySelectorAll('.patterns-column li');
         const sidebar = document.getElementById('sidebar');
@@ -2561,36 +2840,45 @@ class NetworkRenderer {
  }
 
 
-            // Main Filtering Logic
+            // Main Filtering Logic (supports grouped cards with multiple triples)
             allCards.forEach(card => {
                 let isVisible = true;
-                
+
+                // Build helper accessors for aggregated datasets (pipe-separated lists)
+                const splitList = (s) => (s ? String(s).split('|').filter(Boolean) : []);
+                const subjectNames = splitList(card.dataset.subjectNames || card.dataset.subjectName);
+                const objectNames = splitList(card.dataset.objectNames || card.dataset.objectName);
+                const subjectTypes = new Set(splitList(card.dataset.subjectTypes || card.dataset.subjectType));
+                const objectTypes = new Set(splitList(card.dataset.objectTypes || card.dataset.objectType));
+                const relationForms = new Set(splitList(card.dataset.relationForms || card.dataset.relationForm));
+                const patterns = new Set(splitList(card.dataset.patterns)); // entries like "S::R::O"
+
+                // Search across any subject/object name
                 if (isVisible && activeSearchTerm) {
-                    const subjName = card.dataset.subjectName || '';
-                    const objName = card.dataset.objectName || '';
-                    if (!subjName.includes(activeSearchTerm) && !objName.includes(activeSearchTerm)) {
-                        isVisible = false;
-                    }
+                    const nameMatch = subjectNames.some(n => n.includes(activeSearchTerm)) || objectNames.some(n => n.includes(activeSearchTerm));
+                    if (!nameMatch) isVisible = false;
                 }
-                
+
+                // Type filter: any match in either subject/object types
                 if (isVisible && activeTypeFilters.size > 0) {
-                    if (!activeTypeFilters.has(card.dataset.subjectType) && !activeTypeFilters.has(card.dataset.objectType)) {
-                        isVisible = false;
+                    let match = false;
+                    for (const t of activeTypeFilters) {
+                        if (subjectTypes.has(t) || objectTypes.has(t)) { match = true; break; }
                     }
+                    if (!match) isVisible = false;
                 }
 
+                // Relation filter: any relation match
                 if (isVisible && activeRelationFilter) {
-                    if (card.dataset.relationForm !== activeRelationFilter) {
-                        isVisible = false;
-                    }
+                    if (!relationForms.has(activeRelationFilter)) isVisible = false;
                 }
 
+                // Pattern filter: requires exact S::R::O presence
                 if (isVisible && activePatternFilter) {
-                    if (!(card.dataset.subjectType === activePatternFilter.s_type && card.dataset.relationForm === activePatternFilter.r_form && card.dataset.objectType === activePatternFilter.o_type)) {
-                        isVisible = false;
-                    }
+                    const key = `${activePatternFilter.s_type}::${activePatternFilter.r_form}::${activePatternFilter.o_type}`;
+                    if (!patterns.has(key)) isVisible = false;
                 }
-                
+
                 card.classList.toggle('hidden-by-filter', !isVisible);
             });
 
@@ -2736,6 +3024,21 @@ class NetworkRenderer {
             });
         }
 
+        // Helper for CSV download
+        function downloadCSV(csvContent, filename) {
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', filename);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        }
+
+        // Export: Frequent Structural Patterns (standalone trigger kept if present)
         const exportPatternsCSVBtn = document.getElementById('export-patterns-csv-btn');
         if (exportPatternsCSVBtn) {
             exportPatternsCSVBtn.addEventListener('click', () => {
@@ -2747,18 +3050,89 @@ class NetworkRenderer {
                     const patternString = `"${patternTuple[0]} -> ${patternTuple[1]} -> ${patternTuple[2]}"`;
                     return [patternString, count];
                 });
-                
-                const csvContent = [csvHeaders.join(','), ...csvRows.map(row => row.join(','))].join('\\n');
-                const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-                const link = document.createElement('a');
-                const url = URL.createObjectURL(blob);
-                link.setAttribute('href', url);
-                link.setAttribute('download', 'structural_pattern_statistics.csv');
-                link.style.visibility = 'hidden';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                URL.revokeObjectURL(url);
+                const csvContent = [csvHeaders.join(','), ...csvRows.map(row => row.join(','))].join('\n');
+                downloadCSV(csvContent, 'structural_pattern_statistics.csv');
+            });
+        }
+
+        // Export All (Pattern Analytics header):
+        const exportAllBtn = document.getElementById('export-all-csv-btn');
+        if (exportAllBtn) {
+            exportAllBtn.addEventListener('click', () => {
+                // 1) Entity Type Patterns: Multi-Typed Entities -> Types
+                try {
+                    const multiTyped = {{ multi_typed_entities | tojson }};
+                    const header1 = 'Multi-Typed Entities,Types';
+                    const rows1 = Object.entries(multiTyped).map(([name, types]) => {
+                        const safeName = `"${String(name).replace(/"/g, '""')}"`;
+                        const joinedTypes = `"${(types || []).join(', ').replace(/"/g, '""')}"`;
+                        return `${safeName},${joinedTypes}`;
+                    });
+                    const content1 = [header1, ...rows1].join('\n');
+                    downloadCSV(content1, 'entity_type_patterns.csv');
+                } catch (e) { console.error('Export multi-typed entities failed', e); }
+
+                // 2) Relation Cardinality Patterns
+                try {
+                    const oneToOne = {{ one_to_one_relations_sorted | tojson }}; // [ [rel, patterns], ... ]
+                    const oneToMany = {{ one_to_many_relations_sorted | tojson }}; // [ rel, ... ]
+                    const manyToOne = {{ many_to_one_relations_sorted | tojson }}; // [ rel, ... ]
+                    const relFreq = {{ relation_frequency_map | tojson }}; // { rel: count }
+                    const topDiverse = {{ top_diverse_relations | tojson }}; // [ {rel, domain_size, range_size}, ... ]
+
+                    const lines = [];
+                    // One-to-One (by Type)
+                    lines.push('One-to-One (by Type),Occurence');
+                    oneToOne.forEach(([rel, patterns]) => {
+                        const occ = Array.isArray(patterns) ? patterns.length : 0;
+                        const safeRel = `"${String(rel).replace(/"/g, '""')}"`;
+                        lines.push(`${safeRel},${occ}`);
+                    });
+                    lines.push('');
+
+                    // One-to-Many
+                    lines.push('One-to-Many Relations,Occurence');
+                    oneToMany.forEach(rel => {
+                        const cnt = relFreq && rel in relFreq ? relFreq[rel] : 0;
+                        const safeRel = `"${String(rel).replace(/"/g, '""')}"`;
+                        lines.push(`${safeRel},${cnt}`);
+                    });
+                    lines.push('');
+
+                    // Many-to-One
+                    lines.push('Many-to-One Relations,Occurence');
+                    manyToOne.forEach(rel => {
+                        const cnt = relFreq && rel in relFreq ? relFreq[rel] : 0;
+                        const safeRel = `"${String(rel).replace(/"/g, '""')}"`;
+                        lines.push(`${safeRel},${cnt}`);
+                    });
+                    lines.push('');
+
+                    // Top N by Domain/Range Diversity
+                    const topN = Array.isArray(topDiverse) ? topDiverse.length : 0;
+                    lines.push(`Top ${topN} Relations by Domain/Range Diversity`);
+                    lines.push('Relation,Domain Types,Range Types');
+                    (topDiverse || []).forEach(item => {
+                        const safeRel = `"${String(item.rel).replace(/"/g, '""')}"`;
+                        lines.push(`${safeRel},${item.domain_size},${item.range_size}`);
+                    });
+
+                    downloadCSV(lines.join('\n'), 'relation_cardinality_patterns.csv');
+                } catch (e) { console.error('Export relation cardinality patterns failed', e); }
+
+                // 3) Frequent Structural Patterns (all)
+                try {
+                    const allPatternsData = {{ all_structural_patterns | tojson }};
+                    const csvHeaders = ['structural_pattern', 'frequency'];
+                    const csvRows = allPatternsData.map(item => {
+                        const patternTuple = item[0];
+                        const count = item[1];
+                        const patternString = `"${patternTuple[0]} -> ${patternTuple[1]} -> ${patternTuple[2]}"`;
+                        return [patternString, count];
+                    });
+                    const csvContent = [csvHeaders.join(','), ...csvRows.map(row => row.join(','))].join('\n');
+                    downloadCSV(csvContent, 'structural_pattern_statistics.csv');
+                } catch (e) { console.error('Export structural patterns failed', e); }
             });
         }
     });

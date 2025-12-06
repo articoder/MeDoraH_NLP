@@ -376,25 +376,6 @@
     },
     {
       "subject_entity": {
-        "name": "Judy Malloy",
-        "entity_type": "PERSON"
-      },
-      "relation": {
-        "surface_form": "went to work for... It was around 1967",
-        "semantic_form": "BEGAN_WORK_IN"
-      },
-      "object_entity": {
-        "name": "circa 1967",
-        "entity_type": "TIME"
-      },
-      "evidence_sources": [
-        "4-2",
-        "4-3"
-      ],
-      "evidence_text": "A few years later, following an interval of camping around Europe and doing some writing, I went to work for, I think it was, the J. Walter Thompson Company, who had a contract with the Goddard Space Flight Center. It was around 1967 and the Goddard Space Flight Center was computerising their library."
-    },
-    {
-      "subject_entity": {
         "name": "Goddard Space Flight Center",
         "entity_type": "ORGANISATION"
       },

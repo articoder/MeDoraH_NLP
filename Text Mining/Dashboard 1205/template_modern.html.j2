@@ -1,0 +1,3434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ report_title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500&family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js" onerror="console.error('Failed to load vis-network from CDN')"></script>
+    <script>
+        // Check if vis.js loaded and provide fallback
+        window.addEventListener('load', function() {
+            if (typeof vis === 'undefined') {
+                console.error('vis.js failed to load from CDN, trying alternative CDN...');
+                const script = document.createElement('script');
+                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/standalone/umd/vis-network.min.js';
+                script.onload = function() {
+                    console.log('vis.js loaded from alternative CDN');
+                };
+                script.onerror = function() {
+                    console.error('vis.js failed to load from alternative CDN too');
+                };
+                document.head.appendChild(script);
+            } else {
+                console.log('vis.js loaded successfully from primary CDN');
+            }
+        });
+    </script>
+    <style>
+        :root {
+            /* 1. Design Tokens: Color Palette */
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F7F7F8;
+            --fg-primary: #1D2029;
+            --fg-secondary: #5F6368;
+            --fg-on-accent: #FFFFFF;
+            --accent: #4d78aaff;
+            --accent-secondary: #035c5cbe;
+            /* For less frequent entities */
+            --accent-tertiary: #23231f80;
+            /* For rare entities */
+            --border-primary: #EAEBEB;
+            --border-secondary: #CBD6E4;
+            --accent-bg-subtle: #EEF2FF;
+            --shadow-color-rgb: 95, 99, 104;
+            --app-bar-height: 68px; /* Approximate height for calculations */
+
+            /* 2. Design Tokens: Typography */
+            --font-primary: 'Inter', sans-serif;
+            --font-mono: 'Source Code Pro', monospace;
+            --fs-xs: 0.8rem;
+            --fs-sm: 0.9rem;
+            --fs-base: 1rem;
+            --fs-md: 1.1rem;
+            --fs-lg: 1.25rem;
+            --fs-xl: 1.5rem;
+            --fs-display: 2.25rem;
+
+            /* 3. Design Tokens: Spacing & Sizing */
+            --sp-1: 0.25rem;
+            /* 4px */
+            --sp-2: 0.5rem;
+            /* 8px */
+            --sp-3: 0.75rem;
+            /* 12px */
+            --sp-4: 1rem;
+            /* 16px */
+            --sp-5: 1.25rem;
+            /* 20px */
+            --sp-6: 1.5rem;
+            /* 24px */
+            --sp-8: 2rem;
+            /* 32px */
+            --sp-12: 3rem;
+            /* 48px */
+
+            /* 4. Design Tokens: Borders & Shadows (NEW RADIUS SCALE) */
+            --radius-main: 12px;
+            /* Main containers/cards */
+            --radius-interactive: 10px;
+            /* Form controls/buttons */
+            --radius-inline: 6px;
+            /* Inline tags/code blocks */
+            --radius-swatch: 3px;
+            /* Legend color swatches */
+            --radius-pill: 999px;
+            /* Capsule/chip shapes */
+            --shadow-sm: 0 1px 2px rgba(var(--shadow-color-rgb), 0.05);
+            --shadow-md: 0 4px 6px rgba(var(--shadow-color-rgb), 0.06), 0 1px 3px rgba(var(--shadow-color-rgb), 0.08);
+            --shadow-focus-ring: 0 0 0 3px var(--accent-bg-subtle);
+
+            /* 5. Network Visualization Theme Variables */
+            --net-bg: #FDFCF9;
+            --net-node-label: var(--fg-primary);
+            --net-edge: #C5C5C580;
+            --net-edge-label: var(--fg-secondary);
+            --net-highlight: #FFE066;
+            --net-selected: var(--accent);
+            --net-shadow: rgba(var(--shadow-color-rgb), 0.15);
+            --net-cluster-1: #E69F00;
+            --net-cluster-2: #56B4E9;
+            --net-cluster-3: #009E73;
+            --net-cluster-4: #F0E442;
+            --net-cluster-5: #0072B2;
+            --net-cluster-6: #D55E00;
+            --net-cluster-7: #CC79A7;
+            --net-cluster-8: #999999;
+        }
+        html {
+             scroll-behavior: smooth;
+        }
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--bg-primary);
+            color: var(--fg-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            margin: 0;
+        }
+        .app-bar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: saturate(180%) blur(8px);
+            -webkit-backdrop-filter: saturate(180%) blur(8px);
+            border-bottom: 1px solid var(--border-primary);
+            padding: var(--sp-3) var(--sp-8);
+            width: 100%;
+            box-sizing: border-box;
+            min-height: var(--app-bar-height);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--sp-2);
+        }
+        .app-bar-content {
+            width: min(calc(100% - 160px), 160rem);
+            /* Align with new container width */
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: var(--sp-4);
+        }
+        .app-bar-content > * {
+            flex-shrink: 0;
+        }
+        .app-bar-content > .text-search-input {
+            flex: 1;
+        }
+        .app-bar-title {
+            font-size: var(--fs-lg);
+            font-weight: 600;
+            margin: 0;
+            flex-shrink: 0;
+        }
+        .app-bar .text-search-input {
+            flex: 1;
+            max-width: 350px;
+            margin-bottom: 0;
+            background-color: var(--bg-secondary);
+        }
+        .app-bar-filters {
+            width: min(calc(100% - 160px), 160rem);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        /* Inline filter status presentation inside app bar */
+        #filter-status.filter-status-inline { width: 100%; display: none; margin: 0; }
+        #filter-status.filter-status-inline > div { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--sp-4); width: 100%; }
+        #filter-status.filter-status-inline #filter-status-content { display: flex; flex-wrap: wrap; gap: var(--sp-4); }
+        #filter-status.filter-status-inline h4 { font-size: var(--fs-xs); color: var(--fg-secondary); margin: 0; }
+        #filter-status.filter-status-inline code { font-family: var(--font-mono); }
+        #filter-status.filter-status-inline #type-filter-tags { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+        #filter-status.filter-status-inline #relation-filter-tags { display: inline-flex; align-items: center; gap: var(--sp-2); }
+        #filter-status.filter-status-inline #clear-all-filters-btn { margin-left: auto; }
+        #visualise-btn {
+            background-color: #4D4E54;
+            color: #F9F9F7;
+            border: none;
+            border-radius: var(--radius-interactive);
+            padding: var(--sp-2) var(--sp-4);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--sp-2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 600;
+            font-size: var(--fs-sm);
+            white-space: nowrap;
+            box-shadow: var(--shadow-md);
+            flex-shrink: 0;
+        }
+        #visualise-btn:hover {
+            background-color: #5D5E64;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 4px 12px rgba(77, 78, 84, 0.3);
+        }
+        
+        /* Icon rotation effect */
+        #visualise-btn svg {
+            transition: transform 0.3s ease;
+        }
+        #visualise-btn:hover svg {
+            transform: rotate(5deg);
+        }
+        #back-to-top-btn {
+            position: fixed;
+            top: 12px;
+            right: 20px;
+            z-index: 1001;
+            background-color: #4D4E54;
+            color: #F9F9F7;
+            border: none;
+            border-radius: var(--radius-interactive);
+            padding: var(--sp-2) var(--sp-4);
+            cursor: pointer;
+            display: none;
+            /* JS toggles this */
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            font-weight: 600;
+            font-size: var(--fs-sm);
+            white-space: nowrap;
+            box-shadow: var(--shadow-md);
+        }
+        #back-to-top-btn:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+        }
+
+        .container {
+            width: min(calc(100% - 160px), 160rem);
+            /* 80px side gutters */
+            margin: 0 auto;
+            padding: var(--sp-8) 0;
+        }
+
+        h2 {
+            font-size: var(--fs-lg);
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: var(--sp-4);
+        }
+        h3 {
+            font-size: var(--fs-md);
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: var(--sp-4);
+        }
+        h4 {
+            font-size: var(--fs-base);
+            font-weight: 600;
+            margin: var(--sp-6) 0 var(--sp-4) 0;
+            padding-bottom: var(--sp-3);
+            border-bottom: 1px solid var(--border-primary);
+        }
+        /* ▼▼▼ UPDATED GLOBAL SUMMARY STYLES ▼▼▼ */
+        .global-summary-card {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: var(--sp-6);
+            margin-bottom: var(--sp-8);
+        }
+        .global-summary-card .stat-item {
+            text-align: center;
+            background-color: transparent;
+            padding: var(--sp-4) var(--sp-5);
+            border-radius: var(--radius-main);
+            border: 1px solid var(--border-primary);
+            transition: border-color 0.2s ease;
+        }
+        .global-summary-card .stat-item:hover {
+            border-color: var(--border-secondary);
+        }
+        .stat-item .value {
+            font-size: 1.75rem; /* 28px */
+            font-weight: 600;
+            line-height: 1.2;
+            color: #3A3B3F;
+            letter-spacing: -0.02em;
+        }
+        .stat-item .label {
+            font-size: 0.7rem; /* 11px */
+            font-weight: 500;
+            color: var(--fg-secondary);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-top: var(--sp-1);
+        }
+        /* ▲▲▲ END GLOBAL SUMMARY STYLES ▲▲▲ */
+        .sidebar-panel, .summary-section {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-main);
+            padding: var(--sp-5) var(--sp-6);
+            margin-bottom: var(--sp-6);
+        }
+        #analytics-panel {
+             background-color: transparent;
+             border: none;
+             padding: 0;
+        }
+        .text-search-input {
+            width: 100%;
+            padding: var(--sp-2) var(--sp-3);
+            font-size: var(--fs-base);
+            border-radius: var(--radius-interactive);
+            border: 1px solid var(--border-secondary);
+            font-family: var(--font-primary);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        #filter-and-search-panel .text-search-input {
+             margin-bottom: var(--sp-6);
+        }
+        .text-search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: var(--shadow-focus-ring);
+        }
+        #filter-status-content h4 {
+            font-size: var(--fs-sm);
+            margin: 0 0 var(--sp-2) 0;
+            padding: 0;
+            border: none;
+        }
+        .stats-list { padding-left: 0;
+ margin: 0; list-style: none; font-size: var(--fs-sm); max-height: 250px; overflow-y: auto;
+ }
+        .stats-list li { display: flex; justify-content: space-between; padding: var(--sp-2) var(--sp-2); border-radius: var(--radius-inline);
+ margin-bottom: var(--sp-1); align-items: center; }
+        .stats-list li:nth-child(odd) { background-color: var(--bg-primary);
+ }
+        .stats-list code, .stats-list .code { font-family: var(--font-mono); background: var(--border-primary); color: var(--fg-primary);
+ padding: 2px 6px; border-radius: var(--radius-inline); font-size: var(--fs-xs); }
+        .stats-list .pattern-rel { color: var(--accent);
+ font-weight: 500; }
+        .empty-state { color: var(--fg-secondary); font-style: italic; font-size: var(--fs-sm);
+ }
+        
+        .two-column-layout { 
+            display: flex;
+ align-items: flex-start; 
+            gap: var(--sp-8);
+        }
+        .main-content-column {
+            flex: 4;
+            /* 4:3 Ratio */
+            min-width: 0;
+        }
+        .sidebar-column { 
+            flex: 3;
+            /* 4:3 Ratio */
+            min-width: 320px;
+            /* Prevent sidebar from becoming too narrow */
+            position: sticky;
+ top: calc(var(--app-bar-height) + var(--sp-4));
+            max-height: calc(100vh - var(--app-bar-height) - var(--sp-8));
+            overflow-y: auto;
+        }
+        @media (max-width: 1024px) { 
+            .container {
+                width: min(100% - 2rem, 160rem);
+            }
+            .fixed-buttons-container {
+                right: 1rem;
+            }
+            .two-column-layout { 
+                flex-direction: column;
+            }
+            .sidebar-column {
+                width: 100%;
+ position: static;
+                max-height: none;
+                order: -1;
+                min-width: 0;
+             }
+            .app-bar { 
+                padding: var(--sp-3) var(--sp-4);
+            }
+            .app-bar-content {
+                width: 100%;
+            }
+        }
+
+        .hidden-by-filter { display: none !important;
+ }
+        #filter-status { display: none; margin-bottom: var(--sp-6);
+ }
+        #filter-status-content > div:not(:last-child) { margin-bottom: var(--sp-4);
+ }
+        #clear-all-filters-btn { 
+            font-weight: 600; 
+            color: #F9F9F7;
+            background: #4D4E54;
+            border: 1px solid #4D4E54;
+            border-radius: var(--radius-interactive); 
+            padding: var(--sp-2) var(--sp-4); 
+            cursor: pointer; 
+            font-size: var(--fs-sm); 
+            transition: all 0.2s ease;
+        }
+        #clear-all-filters-btn:hover { 
+            background-color: #5D5E64; 
+            border-color: #5D5E64;
+            transform: translateY(-1px);
+        }
+        .filterable-badge { cursor: pointer; transition: all 0.2s ease;
+ }
+        .filterable-badge:hover { transform: translateY(-2px);
+ }
+        .filterable-badge.selected { border: 2px solid var(--fg-primary); transform: scale(1.08) translateY(-2px); box-shadow: 0 2px 8px rgba(var(--shadow-color-rgb), 0.12); }
+        .patterns-column li.active-filter { background-color: var(--accent-bg-subtle); border-radius: var(--radius-inline);
+ }
+        .patterns-column li:not(.active-filter):hover { background-color: var(--bg-secondary); border-radius: var(--radius-inline);
+ }
+        .patterns-column li { cursor: pointer;
+ }
+        .badge-container { display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-3);
+ }
+        .entity-type-badge { display: inline-block; color: var(--fg-on-accent); padding: calc(var(--sp-1) - 1px) var(--sp-2); border-radius: var(--radius-pill);
+ font-size: 0.75rem; font-weight: 500; white-space: nowrap; }
+        .badge-freq-high { background-color: var(--accent);
+ }
+        .badge-freq-medium { background-color: var(--accent-secondary);
+ }
+        .badge-freq-low { background-color: var(--accent-tertiary);
+ }
+        .legend-container { display: flex; flex-wrap: wrap; gap: var(--sp-4); margin-bottom: var(--sp-5); padding-bottom: var(--sp-5);
+ border-bottom: 1px solid var(--border-primary); font-size: var(--fs-xs); align-items: center; }
+        .legend-item { display: flex;
+ align-items: center; gap: var(--sp-2); color: var(--fg-secondary); font-weight: 500; }
+        .legend-color-box { width: 14px;
+ height: 14px; border-radius: var(--radius-swatch); }
+        .patterns-container { display: flex; gap: var(--sp-8); align-items: flex-start;
+ }
+        .patterns-column ol { margin: 0; padding-left: 0; list-style: none; font-size: var(--fs-sm);
+ }
+        .patterns-column li { margin-bottom: var(--sp-2); color: var(--fg-secondary); display: flex; justify-content: space-between;
+ align-items: baseline; gap: var(--sp-4); padding: var(--sp-1) var(--sp-2); }
+        .patterns-column li .rank { font-weight: 600;
+ color: var(--fg-secondary); min-width: 1.5rem; text-align: right; margin-right: var(--sp-2); }
+        .patterns-column li .pattern { font-family: var(--font-mono);
+ color: var(--fg-primary); }
+        .patterns-column li .count { font-weight: 600; background: var(--border-primary);
+ padding: 1px 6px; border-radius: var(--radius-inline); font-size: var(--fs-xs); }
+        .patterns-column .pattern-rel { color: var(--accent);
+ font-weight: 500; }
+        .toggle-button { display: block; width: 100%; margin-top: var(--sp-4); padding: var(--sp-2);
+ font-family: var(--font-primary); font-size: var(--fs-sm); font-weight: 500; background: none; border: 1px solid var(--border-primary); border-radius: var(--radius-interactive); cursor: pointer; transition: all 0.2s ease;
+ }
+        .toggle-button:hover { background-color: var(--bg-secondary); border-color: var(--fg-secondary);
+ }
+        .speaker-turn { margin-bottom: var(--sp-6);
+ }
+        .turn-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--sp-6); padding-bottom: var(--sp-4);
+ border-bottom: 1px solid var(--border-primary); }
+        .turn-speaker-name { font-size: var(--fs-xl); font-weight: 700;
+ }
+        .turn-meta { font-size: var(--fs-sm); color: var(--fg-secondary);
+ }
+        .extraction-card { background-color: var(--bg-primary); border: 1px solid var(--border-primary); border-radius: var(--radius-main); margin-bottom: var(--sp-6);
+ padding: var(--sp-6); box-shadow: var(--shadow-sm); transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+ }
+        hr.triple-divider { border: 0; border-top: 1px solid var(--border-primary); margin: var(--sp-4) 0; }
+        .extraction-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md);
+ }
+        .sro-triple { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); margin-bottom: var(--sp-6);
+ }
+        .entity-box { border: 1px solid var(--border-secondary); border-radius: var(--radius-main); padding: var(--sp-4) var(--sp-5);
+ flex-grow: 1; flex-basis: 0; background-color: var(--bg-secondary); display: flex; justify-content: center; align-items: baseline; gap: var(--sp-2);
+ }
+        .entity-name { font-size: var(--fs-md); font-weight: 600;
+ }
+        .relation-link { display: flex; flex-direction: column; align-items: center; text-align: center; flex-shrink: 0;
+ color: var(--fg-secondary); padding: 0 var(--sp-2); }
+        .relation-semantic-form { font-size: var(--fs-xs); margin-bottom: var(--sp-1);
+ }
+        .relation-arrow { font-size: var(--fs-xl); font-weight: bold; color: var(--accent);
+ }
+        .relation-details { margin-bottom: var(--sp-6); font-size: var(--fs-sm); color: var(--fg-secondary);
+ }
+        .relation-details code { font-family: var(--font-mono); background: var(--bg-secondary); border: 1px solid var(--border-primary);
+ color: var(--fg-primary); padding: 2px 5px; border-radius: var(--radius-inline); font-size: var(--fs-xs); }
+        .evidence-section { border-top: 1px solid var(--border-primary);
+ padding-top: var(--sp-6); }
+        .evidence-text { border-left: 3px solid var(--accent); padding: var(--sp-1) var(--sp-5);
+ margin: 0 0 var(--sp-4) 0; font-style: italic; color: var(--fg-secondary); }
+        .evidence-sources { text-align: right;
+ }
+        .evidence-id-tag { display: inline-block; font-size: var(--fs-xs); font-style: normal; background-color: var(--bg-secondary); color: var(--fg-secondary);
+ border: 1px solid var(--border-primary); padding: var(--sp-1) var(--sp-2); margin-left: var(--sp-2); border-radius: var(--radius-inline); transition: all 0.2s ease;
+ }
+        .evidence-id-tag:hover { background-color: var(--accent); border-color: var(--accent); color: var(--fg-on-accent); cursor: pointer;
+ }
+        .section-header-with-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--sp-4);
+ }
+        .export-csv-btn { font-size: var(--fs-xs); font-weight: 500; color: var(--fg-secondary); background: var(--bg-primary);
+ border: 1px solid var(--border-primary); border-radius: var(--radius-interactive); padding: var(--sp-1) var(--sp-3); cursor: pointer; transition: all 0.2s ease; display: inline-flex; align-items: center;
+ gap: var(--sp-2); }
+        .export-csv-btn:hover { background-color: var(--bg-secondary); border-color: var(--fg-secondary); color: var(--fg-primary);
+ }
+        .export-csv-btn svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2;
+ fill: none; }
+        .export-options-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--sp-2);
+            font-size: var(--fs-sm);
+            color: var(--fg-secondary);
+        }
+        .export-option {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-2);
+        }
+        .collapsible-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer;
+ }
+        .collapsible-header h3 { margin-bottom: 0;
+ }
+        .collapsible-content { max-height: 1500px; overflow: hidden;
+ transition: max-height 0.4s ease-in-out, margin-top 0.4s ease-in-out, opacity 0.3s ease-in-out; margin-top: var(--sp-5); opacity: 1;
+ }
+        .collapsible.collapsed .collapsible-content { max-height: 0; margin-top: 0; opacity: 0;
+ }
+        .chevron { border-color: var(--fg-secondary); border-style: solid; border-width: 0 2px 2px 0;
+ display: inline-block; padding: 3px; transform: rotate(45deg); transition: transform 0.3s ease-in-out;
+ }
+        .collapsible.collapsed .chevron { transform: rotate(-135deg);
+ }
+        .filterable-relation { cursor: pointer; transition: all 0.2s ease; display: inline-block;
+ }
+        .filterable-relation:hover { background-color: var(--accent-bg-subtle);
+ }
+        .filterable-relation.selected { box-shadow: 0 0 0 2px var(--fg-primary), 0 0 0 4px var(--accent-bg-subtle);
+ transform: scale(1.05); background-color: var(--bg-primary); }
+        
+        /* Network Visualization Modal */
+        .network-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(4px);
+        }
+        .network-modal-content {
+            position: relative;
+            margin: 2% auto;
+            width: 96%;
+            height: 96%;
+            background-color: var(--net-bg);
+            border-radius: var(--radius-main);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .network-modal-header {
+            padding: var(--sp-4) var(--sp-6);
+            border-bottom: 1px solid var(--border-primary);
+            background-color: var(--bg-secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .network-modal-title {
+            font-size: var(--fs-lg);
+            font-weight: 600;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: var(--sp-3);
+        }
+        .network-legend {
+            display: flex;
+            gap: var(--sp-4);
+            align-items: center;
+            font-size: var(--fs-xs);
+        }
+        .network-legend-item {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-1);
+        }
+        .network-legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 1px solid var(--border-secondary);
+        }
+        .network-controls {
+            display: flex;
+            gap: var(--sp-2);
+            align-items: center;
+        }
+        .network-control-btn {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-interactive);
+            padding: var(--sp-1) var(--sp-3);
+            font-size: var(--fs-xs);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--fg-primary);
+            font-family: var(--font-primary);
+        }
+        .network-control-btn:hover {
+            background: var(--bg-secondary);
+            border-color: var(--accent);
+        }
+        .network-control-btn.active {
+            background: var(--accent);
+            color: var(--fg-on-accent);
+            border-color: var(--accent);
+        }
+        .network-search-input {
+            padding: var(--sp-1) var(--sp-3);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-interactive);
+            font-size: var(--fs-xs);
+            font-family: var(--font-primary);
+            width: 140px;
+            transition: all 0.2s ease;
+        }
+        .network-search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: var(--shadow-focus-ring);
+        }
+        .network-export-dropdown,
+        .network-labels-dropdown,
+        .network-hops-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .export-menu,
+        .labels-menu,
+        .hops-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-interactive);
+            box-shadow: var(--shadow-md);
+            min-width: 120px;
+            z-index: 1000;
+        }
+        .export-menu.show,
+        .labels-menu.show,
+        .hops-menu.show {
+            display: block;
+        }
+        .export-menu button,
+        .labels-menu button,
+        .hops-menu button {
+            display: block;
+            width: 100%;
+            padding: var(--sp-2) var(--sp-3);
+            border: none;
+            background: none;
+            text-align: left;
+            cursor: pointer;
+            font-size: var(--fs-xs);
+            font-family: 'PT Sans Narrow', sans-serif;
+            transition: background-color 0.2s ease;
+            position: relative;
+        }
+        .export-menu button:hover,
+        .labels-menu button:hover,
+        .hops-menu button:hover {
+            background: var(--bg-secondary);
+        }
+        .export-menu button.active,
+        .labels-menu button.active,
+        .hops-menu button.active {
+            background: var(--accent-bg-subtle);
+            font-weight: 600;
+        }
+        .export-menu button.active::before,
+        .labels-menu button.active::before,
+        .hops-menu button.active::before {
+            content: "✓";
+            position: absolute;
+            right: var(--sp-2);
+            color: var(--accent);
+            font-weight: bold;
+        }
+        .export-menu button:first-child,
+        .labels-menu button:first-child,
+        .hops-menu button:first-child {
+            border-radius: var(--radius-interactive) var(--radius-interactive) 0 0;
+        }
+        .export-menu button:last-child,
+        .labels-menu button:last-child,
+        .hops-menu button:last-child {
+            border-radius: 0 0 var(--radius-interactive) var(--radius-interactive);
+        }
+        .network-modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--fg-secondary);
+            padding: var(--sp-2);
+            border-radius: var(--radius-interactive);
+            transition: all 0.2s ease;
+            line-height: 1;
+        }
+        .network-modal-close:hover {
+            background-color: var(--border-primary);
+            color: var(--fg-primary);
+        }
+        .network-container {
+            flex: 1;
+            position: relative;
+            background-color: var(--net-bg);
+            min-height: 500px;
+        }
+        #network-graph {
+            width: 100% !important;
+            height: 100% !important;
+            min-height: 500px !important;
+        }
+        .network-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--fg-secondary);
+        }
+        .loading-spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--border-primary);
+            border-radius: 50%;
+            border-top-color: var(--accent);
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: var(--sp-4);
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .network-info {
+            position: absolute;
+            top: var(--sp-4);
+            left: var(--sp-4);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-radius: var(--radius-interactive);
+            padding: var(--sp-3) var(--sp-4);
+            font-size: var(--fs-sm);
+            font-weight: 600;
+            box-shadow: var(--shadow-md);
+            transition: all 0.2s ease;
+            border: 1px solid var(--border-primary);
+        }
+        .network-tips {
+            position: absolute;
+            bottom: var(--sp-4);
+            right: var(--sp-4);
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border-radius: var(--radius-interactive);
+            padding: var(--sp-2) var(--sp-3);
+            font-size: var(--fs-xs);
+            color: var(--fg-secondary);
+            max-width: 250px;
+            line-height: 1.3;
+            border: 1px solid var(--border-primary);
+        }
+        #back-to-top-btn:hover {
+            background-color: #5D5E64;
+            transform: translateY(-1px);
+        }
+        
+        /* Fixed button container for top-right actions */
+        .fixed-buttons-container {
+            position: fixed;
+            top: 12px;
+            right: 80px;
+            z-index: 1001;
+            display: flex;
+            gap: var(--sp-3);
+            align-items: center;
+        }
+        
+        .fixed-buttons-container #visualise-btn {
+            position: static;
+        }
+        
+        .fixed-buttons-container #back-to-top-btn {
+            position: static;
+        }
+        @media (max-width: 768px) {
+            .app-bar .text-search-input {
+                max-width: 220px;
+            }
+            #visualise-btn {
+                font-size: var(--fs-xs);
+                padding: var(--sp-1) var(--sp-3);
+            }
+            .fixed-buttons-container {
+                right: 1rem;
+            }
+            .network-modal-content {
+                margin: 1% auto;
+                width: 98%;
+                height: 98%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="app-bar">
+        <div class="app-bar-content">
+            <h1 class="app-bar-title">{{ report_title }}</h1>
+            <input type="search" id="entity-search-input" placeholder="Search entities, types, relations, evidence..." class="text-search-input">
+            <!-- Buttons moved to fixed container outside app-bar -->
+        </div>
+        <div class="app-bar-content app-bar-filters">
+            <div id="filter-status" class="filter-status-inline">
+                <div>
+                    <div id="filter-status-content">
+                        <div id="search-filter-display" style="display: none;">
+                            <h4>Searching for:</h4>
+                            <span id="search-filter-text"></span>
+                        </div>
+                        <div id="type-filter-display" style="display: none;">
+                            <h4>Filtering by Type(s):</h4>
+                            <div class="badge-container" id="type-filter-tags"></div>
+                        </div>
+                        <div id="relation-filter-display" style="display: none;">
+                            <h4>Filtering by Relation:</h4>
+                            <div id="relation-filter-tags"></div>
+                        </div>
+                        <div id="pattern-filter-display" style="display: none;">
+                            <h4>Filtering by Pattern:</h4>
+                            <span id="pattern-filter-text"></span>
+                        </div>
+                    </div>
+                    <button id="clear-all-filters-btn">Clear All</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Fixed positioned buttons container -->
+    <div class="fixed-buttons-container">
+        <button id="visualise-btn" title="Visualize Network Graph">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"/>
+                <circle cx="12" cy="5" r="3"/>
+                <circle cx="12" cy="19" r="3"/>
+                <circle cx="5" cy="12" r="3"/>
+                <circle cx="19" cy="12" r="3"/>
+                <line x1="12" y1="9" x2="12" y2="15"/>
+                <line x1="9" y1="12" x2="15" y2="12"/>
+            </svg>
+            Visualise
+        </button>
+        <button id="back-to-top-btn" title="Back to Top">Back to Top</button>
+    </div>
+
+    <div class="container">
+        <main class="two-column-layout">
+            <div class="main-content-column">
+                <div class="global-summary-card">
+                    <div class="stat-item">
+                        <div class="value">{{ global_stats.total_extractions }}</div>
+                        <div class="label">Total Extractions</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="value">{{ global_stats.total_speaker_turns }}</div>
+                        <div class="label">Speaker Turns</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="value">{{ global_stats.unique_entity_names }}</div>
+                        <div class="label">Unique Entities</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="value">{{ global_stats.unique_entity_types }}</div>
+                        <div class="label">Unique Entity Types</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="value">{{ global_stats.unique_relations }}</div>
+                        <div class="label">Unique Relations</div>
+                    </div>
+                </div>
+                {% for turn in speaker_turns %}
+                <div class="speaker-turn"
+                     data-speaker-name="{{ turn.speaker_name }}"
+                     data-utterance-order="{{ turn.utterance_order }}">
+                    <div class="turn-header">
+                        <span class="turn-speaker-name">{{ turn.speaker_name }}</span>
+                        <span class="turn-meta">{{ turn.role }} | Utterance #{{ turn.utterance_order }} | {{ turn.extraction_count }} Extractions</span>
+                    </div>
+
+                    {# Group extractions by evidence (same sentence) #}
+                    {% for group in turn.extractions | groupby('evidence_text') %}
+                    {% set group_list = group.list %}
+                    {% set first = group_list[0] %}
+
+                    {# Build aggregated data attributes for filtering across all triples in the card #}
+                    {% set subj_types_join = group_list | map(attribute='subject_entity') | map(attribute='entity_type') | join('|') %}
+                    {% set obj_types_join = group_list | map(attribute='object_entity') | map(attribute='entity_type') | join('|') %}
+                    {% set rel_forms_join = group_list | map(attribute='relation') | map(attribute='semantic_form') | join('|') %}
+                    {% set rel_surfaces_join = group_list | map(attribute='relation') | map(attribute='surface_form') | join('|') %}
+                    {% set subj_names_join = group_list | map(attribute='subject_entity') | map(attribute='name') | map('lower') | join('|') %}
+                    {% set obj_names_join = group_list | map(attribute='object_entity') | map(attribute='name') | map('lower') | join('|') %}
+                    {% set patterns_join = '' %}
+                    {% for ex in group_list %}
+                        {% set patterns_join = patterns_join + (patterns_join and '|' or '') + (ex.subject_entity.entity_type ~ '::' ~ ex.relation.semantic_form ~ '::' ~ ex.object_entity.entity_type) %}
+                    {% endfor %}
+                    {% set evidence_sources_join = '' %}
+                    {% if first.evidence_sources %}
+                        {% set evidence_sources_join = first.evidence_sources | join('|') %}
+                    {% endif %}
+
+                    <div class="extraction-card"
+                         data-subject-types="{{ subj_types_join }}"
+                         data-subject-names="{{ subj_names_join }}"
+                         data-relation-forms="{{ rel_forms_join }}"
+                         data-relation-surfaces="{{ rel_surfaces_join }}"
+                         data-object-types="{{ obj_types_join }}"
+                         data-object-names="{{ obj_names_join }}"
+                         data-patterns="{{ patterns_join }}"
+                         data-evidence-text="{{ group.grouper }}"
+                         data-evidence-sources="{{ evidence_sources_join }}">
+
+                        {# Render each triple within the group, separated by a divider #}
+                        {% for extraction in group_list %}
+                        <div class="sro-triple">
+                            <div class="entity-box subject">
+                                <span class="entity-name">{{ extraction.subject_entity.name }}</span>
+                                {% set subj_utt_count = entity_utterance_counts_map.get(extraction.subject_entity.entity_type, 0) %}
+                                <span class="entity-type-badge {% if subj_utt_count > 3 %}badge-freq-high{% elif subj_utt_count >= 2 %}badge-freq-medium{% else %}badge-freq-low{% endif %}">
+                                    {{ extraction.subject_entity.entity_type }}
+                                </span>
+                            </div>
+                            <div class="relation-link"><span class="relation-semantic-form">{{ extraction.relation.semantic_form }}</span><span class="relation-arrow">&rarr;</span></div>
+                            <div class="entity-box object">
+                                <span class="entity-name">{{ extraction.object_entity.name }}</span>
+                                {% set obj_utt_count = entity_utterance_counts_map.get(extraction.object_entity.entity_type, 0) %}
+                                <span class="entity-type-badge {% if obj_utt_count > 3 %}badge-freq-high{% elif obj_utt_count >= 2 %}badge-freq-medium{% else %}badge-freq-low{% endif %}">
+                                    {{ extraction.object_entity.entity_type }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="relation-details">Surface Form: <code>"{{ extraction.relation.surface_form }}"</code></div>
+                        {% if not loop.last %}<hr class="triple-divider">{% endif %}
+                        {% endfor %}
+
+                        <div class="evidence-section">
+                            <h3>Evidence Source</h3>
+                            <blockquote class="evidence-text">{{ group.grouper }}</blockquote>
+                            <div class="evidence-sources">{% for source_id in first.evidence_sources %}<span class="evidence-id-tag">{{ source_id }}</span>{% endfor %}</div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="extraction-card" style="text-align: center; color: var(--fg-secondary);"><p>No extractions found for this utterance.</p></div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="extraction-card" style="text-align: center; color: var(--fg-secondary);"><p>No speaker turns found in the provided data.</p></div>
+                {% endfor %}
+            </div>
+
+            <aside class="sidebar-column" id="sidebar">
+                <div class="sidebar-panel" id="export-panel">
+                    <div class="section-header-with-actions">
+                        <h2>Export</h2>
+                    </div>
+                    <div class="export-options-list">
+                        <label class="export-option">
+                            <input type="checkbox" id="export-option-entities" checked>
+                            <span>Entity Types CSV</span>
+                        </label>
+                        <label class="export-option">
+                            <input type="checkbox" id="export-option-patterns" checked>
+                            <span>Pattern Analytics (Export All)</span>
+                        </label>
+                        <label class="export-option">
+                            <input type="checkbox" id="export-option-triples">
+                            <span>Filtered Triples (JSON)</span>
+                        </label>
+                    </div>
+                    <button id="export-selected-btn" class="export-csv-btn" title="Export selected data" style="margin-top: var(--sp-4);">
+                        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        Export Selected
+                    </button>
+                </div>
+                <div class="sidebar-panel" id="filter-and-search-panel">
+                    <h2>Entity Types</h2>
+                    
+                    {% if all_entity_types %}
+                    <div>
+                        <div class="section-header-with-actions">
+                            <h3>Entity Types (Click to Filter)</h3>
+                        </div>
+                        <div class="legend-container">
+                            <div class="legend-item"><div class="legend-color-box" style="background-color: var(--accent);"></div><span>&gt; 3 Utterances</span></div>
+                            <div class="legend-item"><div class="legend-color-box" style="background-color: var(--accent-secondary);"></div><span>2-3 Utterances</span></div>
+                            <div class="legend-item"><div class="legend-color-box" style="background-color: var(--accent-tertiary);"></div><span>1 Utterance</span></div>
+                        </div>
+                        <div id="entity-type-filter-container">
+                            {% if entity_types_high_freq %}
+                            <div class="entity-type-section">
+                                <h4>More than 3 Utterances ({{ entity_types_high_freq|length }})</h4>
+                                <div class="badge-container">
+                                    {% for type_info in entity_types_high_freq %}
+                                    <span class="entity-type-badge filterable-badge badge-freq-high"
+                                          data-entity-type="{{ type_info.name }}"
+                                          data-total-count="{{ type_info.count }}"
+                                          data-utterance-count="{{ type_info.utterance_count }}">
+                                          {{ type_info.name }} [{{ type_info.count }}]
+                                    </span>
+                                    {% endfor %}
+                                </div>
+                                <button class="toggle-button entity-group-toggle" style="display: none;">Show More</button>
+                            </div>
+                            {% endif %}
+
+                            {% if entity_types_medium_freq %}
+                            <div class="entity-type-section">
+                                <h4>2-3 Utterances ({{ entity_types_medium_freq|length }})</h4>
+                                <div class="badge-container">
+                                    {% for type_info in entity_types_medium_freq %}
+                                    <span class="entity-type-badge filterable-badge badge-freq-medium"
+                                          data-entity-type="{{ type_info.name }}"
+                                          data-total-count="{{ type_info.count }}"
+                                          data-utterance-count="{{ type_info.utterance_count }}">
+                                          {{ type_info.name }} [{{ type_info.count }}]
+                                    </span>
+                                    {% endfor %}
+                                </div>
+                                <button class="toggle-button entity-group-toggle" style="display: none;">Show More</button>
+                            </div>
+                            {% endif %}
+
+                            {% if entity_types_low_freq %}
+                            <div class="entity-type-section">
+                                <h4>1 Utterance ({{ entity_types_low_freq|length }})</h4>
+                                <div class="badge-container">
+                                    {% for type_info in entity_types_low_freq %}
+                                    <span class="entity-type-badge filterable-badge badge-freq-low"
+                                          data-entity-type="{{ type_info.name }}"
+                                          data-total-count="{{ type_info.count }}"
+                                          data-utterance-count="{{ type_info.utterance_count }}">
+                                          {{ type_info.name }} [{{ type_info.count }}]
+                                    </span>
+                                    {% endfor %}
+                                </div>
+                                <button class="toggle-button entity-group-toggle" style="display: none;">Show More</button>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div id="analytics-panel">
+                    <div class="section-header-with-actions">
+                        <h2>Pattern Analytics</h2>
+                    </div>
+                    <div class="summary-section collapsible collapsed">
+                        <div class="collapsible-header">
+                            <h3>Entity Type Patterns</h3>
+                            <span class="chevron"></span>
+                        </div>
+                        <div class="collapsible-content">
+                            <h4>Multi-Typed Entities ({{ multi_typed_entities|length }} found)</h4>
+                            <ul class="stats-list">
+                                {% for name, types in multi_typed_entities.items() %}
+                                <li>
+                                    <span>{{ name }}</span> 
+                                    <div class="badge-container">
+                                        {% for type in types %}
+                                            {% set utt_count = entity_utterance_counts_map.get(type, 0) %}
+                                            <span class="entity-type-badge {% if utt_count > 3 %}badge-freq-high{% elif utt_count >= 2 %}badge-freq-medium{% else %}badge-freq-low{% endif %}">{{ type }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </li>
+                                {% else %}<li class="empty-state" style="justify-content: flex-start;">None found.</li>{% endfor %}
+                            </ul>
+                            <h4>Subject-Only Entity Types ({{ subject_only_types|length }} types)</h4>
+                            <div class="badge-container">
+                                {% for type in subject_only_types %}{% set utt_count = entity_utterance_counts_map.get(type, 0) %}{% set total_count = entity_total_counts_map.get(type, 0) %}<span class="entity-type-badge filterable-badge {% if utt_count > 3 %}badge-freq-high{% elif utt_count >= 2 %}badge-freq-medium{% else %}badge-freq-low{% endif %}" data-entity-type="{{ type }}" data-total-count="{{ total_count }}" data-utterance-count="{{ utt_count }}">{{ type }} [{{ total_count }}]</span>{% else %}<span class="empty-state">None found.</span>{% endfor %}
+                            </div>
+                            <h4>Object-Only Entity Types ({{ object_only_types|length }} types)</h4>
+                            <div class="badge-container">
+                                {% for type in object_only_types %}{% set utt_count = entity_utterance_counts_map.get(type, 0) %}{% set total_count = entity_total_counts_map.get(type, 0) %}<span class="entity-type-badge filterable-badge {% if utt_count > 3 %}badge-freq-high{% elif utt_count >= 2 %}badge-freq-medium{% else %}badge-freq-low{% endif %}" data-entity-type="{{ type }}" data-total-count="{{ total_count }}" data-utterance-count="{{ utt_count }}">{{ type }} [{{ total_count }}]</span>{% else %}<span class="empty-state">None found.</span>{% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-section collapsible collapsed">
+                        <div class="collapsible-header">
+                            <h3>Relation Cardinality Patterns</h3>
+                            <span class="chevron"></span>
+                        </div>
+                        <div class="collapsible-content">
+                            <h4>One-to-One (by Type)</h4>
+                            <ul class="stats-list">
+                                {% for rel, patterns in one_to_one_relations_sorted %}
+                                <li>
+                                    <code class="pattern-rel filterable-relation" data-relation-form="{{ rel }}">{{ rel }}</code>
+                                    <span>{{ relation_frequency_map.get(rel, 0) }} occurrence(s) • {{ patterns|length }} pattern(s){% if patterns %}, e.g., ({{ patterns[0][0] }}){% endif %}</span>
+                                </li>
+                                {% else %}
+                                <li class="empty-state">No self-relations (e.g., PERSON &rarr; PERSON) found.</li>
+                                {% endfor %}
+                            </ul>
+                            <h4>One-to-Many Relations</h4>
+                            <ul class="stats-list">
+                                {% for rel in one_to_many_relations_sorted %}
+                                <li>
+                                    <code class="pattern-rel filterable-relation" data-relation-form="{{ rel }}">{{ rel }}</code>
+                                    <span>{{ relation_frequency_map.get(rel, 0) }} occurrence(s) (1:N Cardinality)</span>
+                                </li>
+                                {% else %}
+                                <li class="empty-state" style="justify-content: flex-start;">None found.</li>
+                                {% endfor %}
+                            </ul>
+                            <h4>Many-to-One Relations</h4>
+                            <ul class="stats-list">
+                                {% for rel in many_to_one_relations_sorted %}
+                                <li>
+                                    <code class="pattern-rel filterable-relation" data-relation-form="{{ rel }}">{{ rel }}</code>
+                                    <span>{{ relation_frequency_map.get(rel, 0) }} occurrence(s) (N:1 Cardinality)</span>
+                                </li>
+                                {% else %}
+                                <li class="empty-state" style="justify-content: flex-start;">None found.</li>
+                                {% endfor %}
+                            </ul>
+                            <h4>Top {{ top_diverse_relations|length }} Relations by Domain/Range Diversity</h4>
+                            <ul class="stats-list">
+                                {% for item in top_diverse_relations %}<li><code class="pattern-rel filterable-relation" data-relation-form="{{ item.rel }}">{{ item.rel }}</code> <span>{{ item.domain_size }} Subj Type(s) / {{ item.range_size }} Obj Type(s)</span></li>{% else %}<li class="empty-state">Not enough data to analyze diversity.</li>{% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+                    {% if most_frequent_patterns %}
+                    <div class="summary-section patterns-column collapsible collapsed">
+                        <div class="collapsible-header section-header-with-actions">
+                            <h3>Frequent Structural Patterns</h3>
+                            <span class="chevron"></span>
+                        </div>
+                        <div class="collapsible-content">
+                            <div class="patterns-container">
+                                <div>
+                                    <h4>Top 150 Most Frequent</h4>
+                                    <ol id="most-frequent-list">
+                                        {% for pattern, count in most_frequent_patterns %}<li data-filter-subject="{{ pattern[0] }}" data-filter-relation="{{ pattern[1] }}" data-filter-object="{{ pattern[2] }}"><span class="rank">{{ loop.index }}.</span><span class="pattern">{{ pattern[0] }} &rarr; <span class="pattern-rel">{{ pattern[1] }}</span> &rarr; {{ pattern[2] }}</span><span class="count">{{ count }}</span></li>{% endfor %}
+                                    </ol>
+                                    {% if most_frequent_patterns|length > 25 %}<button class="toggle-button" data-target="most-frequent-list">Show All</button>{% endif %}
+                                </div>
+                                <div>
+                                    <h4>Top 150 Least Frequent</h4>
+                                    <ol id="least-frequent-list">
+                                        {% for pattern, count in least_frequent_patterns %}<li data-filter-subject="{{ pattern[0] }}" data-filter-relation="{{ pattern[1] }}" data-filter-object="{{ pattern[2] }}"><span class="rank">{{ loop.index }}.</span><span class="pattern">{{ pattern[0] }} &rarr; <span class="pattern-rel">{{ pattern[1] }}</span> &rarr; {{ pattern[2] }}</span><span class="count">{{ count }}</span></li>{% endfor %}
+                                    </ol>
+                                    {% if least_frequent_patterns|length > 25 %}<button class="toggle-button" data-target="least-frequent-list">Show All</button>{% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <!-- Network Visualization Modal -->
+    <div id="network-modal" class="network-modal">
+        <div class="network-modal-content">
+            <div class="network-modal-header">
+                <div class="network-modal-title">
+                    <span>Network Visualization</span>
+                    <div class="network-legend" id="network-legend" style="display: none;">
+                        <!-- Legend items will be populated dynamically -->
+                    </div>
+                </div>
+                <div class="network-controls">
+                    <input type="search" id="network-search" placeholder="Search nodes..." class="network-search-input" title="Search for nodes by name">
+                    <button class="network-control-btn" id="physics-toggle" title="Toggle Physics (P)">Physics</button>
+                    <div class="network-labels-dropdown">
+                        <button class="network-control-btn" id="labels-btn" title="Toggle Labels (L)">Labels ▼</button>
+                        <div class="labels-menu" id="labels-menu">
+                            <button id="toggle-node-labels" class="active">Node Labels</button>
+                            <button id="toggle-edge-labels">Edge Labels</button>
+                        </div>
+                    </div>
+                    <div class="network-hops-dropdown">
+                        <button class="network-control-btn" id="hops-btn" title="Set Hop Distance">Hops: +1 ▼</button>
+                        <div class="hops-menu" id="hops-menu">
+                            <button id="hops-0" data-hops="0">0 (Exact)</button>
+                            <button id="hops-1" data-hops="1" class="active">+1 Hop</button>
+                            <button id="hops-2" data-hops="2">+2 Hops</button>
+                        </div>
+                    </div>
+                    <button class="network-control-btn" id="fit-network" title="Fit Network to View (F)">Fit</button>
+                    <button class="network-control-btn" id="cluster-toggle" title="Toggle Clustering (C)">Cluster</button>
+                    <div class="network-export-dropdown">
+                        <button class="network-control-btn" id="export-btn" title="Export Network">Export ▼</button>
+                        <div class="export-menu" id="export-menu">
+                            <button id="export-png">PNG Image</button>
+                            <button id="export-json">JSON Data</button>
+                            <button id="export-csv">CSV Edges</button>
+                        </div>
+                    </div>
+                    <button class="network-modal-close" id="network-modal-close">&times;</button>
+                </div>
+            </div>
+            <div class="network-container">
+                <div class="network-loading" id="network-loading">
+                    <div class="loading-spinner"></div>
+                    <p>Generating network visualization...</p>
+                </div>
+                <div class="network-info" id="network-info" style="display: none;">
+                    <strong>Filtered Network:</strong> <span id="filtered-stats"></span>
+                </div>
+                <div class="network-tips" id="network-tips">
+                    💡 <strong>Tips:</strong> Scroll to zoom • Drag to pan • Click nodes for details • Search above • Shortcuts: P(hysics) L(abels) F(it) C(luster)
+                </div>
+                <div id="network-graph" style="width: 100%; height: 100%;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Embed raw triple data for network visualization
+        window.rawTripleData = {{ speaker_turns | tojson }};
+        
+        // Network Visualization Classes
+        class FilterTracker {
+            constructor() {
+                this.typeFilters = new Set();
+                this.patternFilter = null;
+                this.relationFilter = null;
+                this.searchTerm = '';
+                this.hopDistance = 1; // Default to +1 hop
+            }
+            
+            updateFilters(typeFilters, patternFilter, relationFilter, searchTerm) {
+                this.typeFilters = new Set(typeFilters);
+                this.patternFilter = patternFilter;
+                this.relationFilter = relationFilter;
+                this.searchTerm = searchTerm;
+            }
+            
+            setHopDistance(hops) {
+                this.hopDistance = hops;
+                console.log('🔗 Hop distance set to:', hops);
+            }
+            
+            // Build adjacency graph from triples for hop calculations
+            buildAdjacencyGraph(triples) {
+                const graph = new Map();
+                triples.forEach(triple => {
+                    const subjName = triple.subject_entity.name;
+                    const objName = triple.object_entity.name;
+                    
+                    // Add both directions for undirected graph
+                    if (!graph.has(subjName)) graph.set(subjName, new Set());
+                    if (!graph.has(objName)) graph.set(objName, new Set());
+                    
+                    graph.get(subjName).add(objName);
+                    graph.get(objName).add(subjName);
+                });
+                return graph;
+            }
+            
+            // Get nodes within specified hop distance from seed nodes
+            getNodesWithinHops(seedNodes, hops, allTriples) {
+                if (hops === 0) return new Set(seedNodes);
+                
+                const nodeGraph = this.buildAdjacencyGraph(allTriples);
+                const result = new Set(seedNodes);
+                let currentLevel = new Set(seedNodes);
+                
+                for (let i = 0; i < hops; i++) {
+                    const nextLevel = new Set();
+                    for (const nodeId of currentLevel) {
+                        const neighbors = nodeGraph.get(nodeId) || new Set();
+                        neighbors.forEach(neighbor => {
+                            if (!result.has(neighbor)) {
+                                nextLevel.add(neighbor);
+                                result.add(neighbor);
+                            }
+                        });
+                    }
+                    currentLevel = nextLevel;
+                    if (currentLevel.size === 0) break;
+                }
+                
+                return result;
+            }
+            
+            getFilteredData() {
+                console.log('Getting filtered data...');
+                console.log('Current filters:', {
+                    typeFilters: Array.from(this.typeFilters),
+                    patternFilter: this.patternFilter,
+                    relationFilter: this.relationFilter,
+                    searchTerm: this.searchTerm,
+                    hopDistance: this.hopDistance
+                });
+                
+                if (!window.rawTripleData || !Array.isArray(window.rawTripleData)) {
+                    console.error('Raw triple data not available or invalid');
+                    return [];
+                }
+                
+                // First, collect all triples to build the complete graph
+                const allTriples = [];
+                const allExtractions = [];
+                
+                window.rawTripleData.forEach(turn => {
+                    if (!turn.extractions || !Array.isArray(turn.extractions)) {
+                        console.warn('Turn missing extractions:', turn);
+                        return;
+                    }
+                    
+                    turn.extractions.forEach(extraction => {
+                        // Validate extraction structure
+                        if (!extraction.subject_entity || !extraction.object_entity || !extraction.relation) {
+                            console.warn('Invalid extraction structure:', extraction);
+                            return;
+                        }
+                        
+                        allExtractions.push(extraction);
+                    });
+                });
+                
+                // Find seed nodes that match the primary filters (no hop expansion yet)
+                const seedNodes = new Set();
+                
+                allExtractions.forEach(extraction => {
+                    let matchesFilter = false;
+                    
+                    // Search filter
+                    if (this.searchTerm) {
+                        const term = this.searchTerm;
+                        const subjName = (extraction.subject_entity.name || '').toLowerCase();
+                        const objName = (extraction.object_entity.name || '').toLowerCase();
+                        const subjType = (extraction.subject_entity.entity_type || '').toLowerCase();
+                        const objType = (extraction.object_entity.entity_type || '').toLowerCase();
+                        const relSemantic = (extraction.relation.semantic_form || '').toLowerCase();
+                        const relSurface = (extraction.relation.surface_form || '').toLowerCase();
+                        const evidenceText = (extraction.evidence_text || '').toLowerCase();
+                        const evidenceSources = Array.isArray(extraction.evidence_sources)
+                            ? extraction.evidence_sources.map(s => String(s).toLowerCase())
+                            : [];
+
+                        const matchesSearch =
+                            subjName.includes(term) ||
+                            objName.includes(term) ||
+                            subjType.includes(term) ||
+                            objType.includes(term) ||
+                            relSemantic.includes(term) ||
+                            relSurface.includes(term) ||
+                            evidenceText.includes(term) ||
+                            evidenceSources.some(s => s.includes(term));
+
+                        if (matchesSearch) {
+                            matchesFilter = true;
+                            seedNodes.add(extraction.subject_entity.name);
+                            seedNodes.add(extraction.object_entity.name);
+                        }
+                    }
+                    
+                    // Type filters
+                    if (this.typeFilters.size > 0) {
+                        if (this.typeFilters.has(extraction.subject_entity.entity_type) || 
+                            this.typeFilters.has(extraction.object_entity.entity_type)) {
+                            matchesFilter = true;
+                            if (this.typeFilters.has(extraction.subject_entity.entity_type)) {
+                                seedNodes.add(extraction.subject_entity.name);
+                            }
+                            if (this.typeFilters.has(extraction.object_entity.entity_type)) {
+                                seedNodes.add(extraction.object_entity.name);
+                            }
+                        }
+                    }
+                    
+                    // Relation filter
+                    if (this.relationFilter) {
+                        if (extraction.relation.semantic_form === this.relationFilter) {
+                            matchesFilter = true;
+                            seedNodes.add(extraction.subject_entity.name);
+                            seedNodes.add(extraction.object_entity.name);
+                        }
+                    }
+                    
+                    // Pattern filter
+                    if (this.patternFilter) {
+                        if (extraction.subject_entity.entity_type === this.patternFilter.s_type && 
+                            extraction.relation.semantic_form === this.patternFilter.r_form && 
+                            extraction.object_entity.entity_type === this.patternFilter.o_type) {
+                            matchesFilter = true;
+                            seedNodes.add(extraction.subject_entity.name);
+                            seedNodes.add(extraction.object_entity.name);
+                        }
+                    }
+                    
+                    // If no specific filters are applied, include all
+                    if (this.typeFilters.size === 0 && !this.relationFilter && !this.patternFilter && !this.searchTerm) {
+                        matchesFilter = true;
+                        seedNodes.add(extraction.subject_entity.name);
+                        seedNodes.add(extraction.object_entity.name);
+                    }
+                });
+                
+                // Apply hop distance to expand the node set
+                const targetNodes = this.getNodesWithinHops(Array.from(seedNodes), this.hopDistance, allExtractions);
+                console.log(`🔗 Expanded from ${seedNodes.size} seed nodes to ${targetNodes.size} target nodes with ${this.hopDistance} hops`);
+                
+                // Now filter triples to include only those involving target nodes
+                allExtractions.forEach(extraction => {
+                    if (targetNodes.has(extraction.subject_entity.name) || targetNodes.has(extraction.object_entity.name)) {
+                        allTriples.push(extraction);
+                    }
+                });
+                
+                console.log('Filtered data result:', allTriples.length, 'triples');
+                return allTriples;
+            }
+        }
+        
+// Fixed NetworkRenderer class for template_modern.html.j2
+// This replaces lines 1015-1382 in the template
+
+class NetworkRenderer {
+    constructor(containerId) {
+        this.containerId = containerId;
+        this.network = null;
+        this.nodes = null;
+        this.edges = null;
+        this.physicsEnabled = true;
+        this.nodeLabelsEnabled = true;
+        this.edgeLabelsEnabled = false;
+        this.clustered = false;
+        this.clusterLevel = 0;
+        this.lastRenderedData = null; // Cache for incremental updates
+        
+        // Modern color palette with high contrast
+        this.colorPalette = ['#E69F00', '#56B4E9', '#009E73', '#F0E442', '#0072B2', '#D55E00', '#CC79A7', '#999999'];
+        
+        // Shape palette for accessibility (color + shape redundancy)  
+        this.shapePalette = ['dot', 'square', 'triangle', 'diamond', 'star', 'triangleDown', 'hexagon', 'ellipse'];
+    }
+    
+    // Helper methods for adaptive styling
+    calculateNodeSize(degree, totalNodes) {
+        // Logarithmic scaling to prevent super-nodes from becoming too large
+        const minSize = 10;
+        const maxSize = totalNodes > 300 ? 22 : 28;
+        const scaleFactor = totalNodes > 300 ? 3 : 4;
+        return Math.max(minSize, Math.min(maxSize, minSize + scaleFactor * Math.sqrt(degree)));
+    }
+    
+    calculateEdgeWidth(weight) {
+        return Math.max(1, Math.min(4, weight * 1.5));
+    }
+    
+    getDrawThreshold(nodeCount) {
+        // Dynamic label threshold based on node count
+        if (nodeCount <= 50) return 0.5;
+        if (nodeCount <= 150) return 0.7;
+        if (nodeCount <= 300) return 0.9;
+        return 1.2;
+    }
+    
+    shouldShowEdgeLabels(nodeCount) {
+        return this.edgeLabelsEnabled && nodeCount <= 100;
+    }
+    
+    getSmoothSettings(nodeCount, edgeCount) {
+        // Performance optimization: disable smooth edges for large networks
+        if (nodeCount > 300 || edgeCount > 500) {
+            return { enabled: false };
+        }
+        return { type: 'continuous', forceDirection: 'none' };
+    }
+    
+    getAdaptiveOptions(nodeCount, edgeCount) {
+        const isLargeNetwork = nodeCount > 300 || edgeCount > 600;
+        const isMediumNetwork = nodeCount > 150 || edgeCount > 300;
+        
+        let physicsOptions;
+        if (nodeCount <= 150) {
+            // Small networks: BarnesHut with fine-tuned parameters
+            physicsOptions = {
+                enabled: this.physicsEnabled,
+                barnesHut: {
+                    gravitationalConstant: -7000,
+                    springLength: 200,
+                    springConstant: 0.05,
+                    avoidOverlap: 0.2
+                },
+                stabilization: {
+                    enabled: true,
+                    iterations: Math.min(200, nodeCount * 2),
+                    fit: true
+                }
+            };
+        } else if (isMediumNetwork) {
+            // Medium networks: ForceAtlas2Based
+            physicsOptions = {
+                enabled: this.physicsEnabled,
+                forceAtlas2Based: {
+                    gravitationalConstant: -50,
+                    centralGravity: 0.02,
+                    springLength: 170,
+                    springConstant: 0.05,
+                    damping: 0.4,
+                    avoidOverlap: 0.2
+                },
+                stabilization: {
+                    enabled: true,
+                    iterations: Math.max(100, Math.min(300, nodeCount)),
+                    fit: true
+                }
+            };
+        } else {
+            // Large networks: optimized ForceAtlas2Based
+            physicsOptions = {
+                enabled: this.physicsEnabled,
+                forceAtlas2Based: {
+                    gravitationalConstant: -50,
+                    centralGravity: 0.02,
+                    springLength: 150,
+                    springConstant: 0.08,
+                    damping: 0.6,
+                    avoidOverlap: 0.3
+                },
+                stabilization: {
+                    enabled: true,
+                    iterations: Math.min(150, nodeCount / 2),
+                    fit: true
+                }
+            };
+        }
+        
+        return {
+            nodes: {
+                font: { 
+                    size: 14, 
+                    color: '#2D3748',
+                    face: 'PT Sans Narrow'
+                },
+                borderWidth: 1.5,
+                borderWidthSelected: 3,
+                shadow: true
+            },
+            edges: {
+                font: { 
+                    size: isLargeNetwork ? 8 : 10, 
+                    color: '#4A5568', 
+                    align: 'middle',
+                    face: 'PT Sans Narrow' 
+                },
+                smooth: this.getSmoothSettings(nodeCount, edgeCount)
+            },
+            physics: physicsOptions,
+            interaction: { 
+                hover: true,
+                hoverConnectedEdges: true,
+                selectConnectedEdges: true,
+                tooltipDelay: isLargeNetwork ? 300 : 200,
+                hideEdgesOnDrag: isLargeNetwork,
+                hideEdgesOnZoom: isLargeNetwork,
+                navigationButtons: true,
+                keyboard: true
+            },
+            layout: {
+                improvedLayout: !isLargeNetwork
+            }
+        };
+    }
+    
+    updateLegend(typeArray, colorMap, shapeMap) {
+        const legendEl = document.getElementById('network-legend');
+        if (!legendEl) return;
+        
+        legendEl.innerHTML = '';
+        typeArray.slice(0, 6).forEach(type => {
+            const item = document.createElement('div');
+            item.className = 'network-legend-item';
+            item.innerHTML = `
+                <div class="network-legend-color" style="background-color: ${colorMap[type]}; border-radius: 50%;"></div>
+                <span style="font-family: 'PT Sans Narrow', sans-serif;">${type}</span>
+            `;
+            legendEl.appendChild(item);
+        });
+        
+        if (typeArray.length > 6) {
+            const moreItem = document.createElement('div');
+            moreItem.className = 'network-legend-item';
+            moreItem.innerHTML = `<span style="font-family: 'PT Sans Narrow', sans-serif;">+${typeArray.length - 6} more types</span>`;
+            legendEl.appendChild(moreItem);
+        }
+        
+        legendEl.style.display = 'flex';
+    }
+    
+    setupNetworkEvents() {
+        if (!this.network) return;
+        
+        // Enhanced node selection with neighborhood highlighting
+        this.network.on('selectNode', (params) => {
+            if (params.nodes.length > 0) {
+                this.highlightNeighborhood(params.nodes[0]);
+            }
+        });
+        
+        this.network.on('deselectNode', () => {
+            this.resetHighlight();
+        });
+        
+        // Stabilization progress
+        this.network.on('stabilizationProgress', (params) => {
+            const progress = Math.round((params.iterations / params.total) * 100);
+            const loadingEl = document.getElementById('network-loading');
+            if (loadingEl && loadingEl.style.display !== 'none') {
+                const progressText = loadingEl.querySelector('p');
+                if (progressText) {
+                    progressText.textContent = `Optimizing layout... ${progress}%`;
+                }
+            }
+        });
+        
+        // Zoom-based label visibility
+        this.network.on('zoom', (params) => {
+            this.updateLabelsVisibility(params.scale);
+        });
+        
+        // Performance: hide edges during drag on large networks
+        if (this.nodes && this.nodes.length > 300) {
+            this.network.on('dragStart', () => {
+                this.edges.update(this.edges.map(edge => ({...edge, hidden: true})));
+            });
+            
+            this.network.on('dragEnd', () => {
+                this.edges.update(this.edges.map(edge => ({...edge, hidden: false})));
+            });
+        }
+    }
+    
+    highlightNeighborhood(nodeId) {
+        const connectedNodes = this.network.getConnectedNodes(nodeId);
+        const connectedEdges = this.network.getConnectedEdges(nodeId);
+        
+        // Dim non-connected elements
+        const allNodes = this.nodes.get();
+        const allEdges = this.edges.get();
+        
+        const updates = allNodes.map(node => {
+            if (node.id === nodeId || connectedNodes.includes(node.id)) {
+                return { ...node, opacity: 1.0 };
+            } else {
+                return { ...node, opacity: 0.1 };
+            }
+        });
+        
+        const edgeUpdates = allEdges.map(edge => {
+            if (connectedEdges.includes(edge.id)) {
+                return { ...edge, opacity: 1.0 };
+            } else {
+                return { ...edge, opacity: 0.1 };
+            }
+        });
+        
+        this.nodes.update(updates);
+        this.edges.update(edgeUpdates);
+    }
+    
+    resetHighlight() {
+        const allNodes = this.nodes.get().map(node => ({ ...node, opacity: 1.0 }));
+        const allEdges = this.edges.get().map(edge => ({ ...edge, opacity: 1.0 }));
+        
+        this.nodes.update(allNodes);
+        this.edges.update(allEdges);
+    }
+    
+    updateLabelsVisibility(scale) {
+        const showLabels = scale > 0.8;
+        const showEdgeLabels = scale > 1.2;
+        
+        if (showLabels !== this.nodeLabelsEnabled) {
+            this.toggleNodeLabels(showLabels);
+        }
+    }
+    
+    // Control methods for interactive buttons
+    togglePhysics() {
+        this.physicsEnabled = !this.physicsEnabled;
+        if (this.network) {
+            this.network.setOptions({ physics: { enabled: this.physicsEnabled } });
+            const btn = document.getElementById('physics-toggle');
+            if (btn) {
+                btn.classList.toggle('active', this.physicsEnabled);
+            }
+        }
+    }
+    
+    toggleNodeLabels(forceState = null) {
+        this.nodeLabelsEnabled = forceState !== null ? forceState : !this.nodeLabelsEnabled;
+        if (this.network && this.nodes) {
+            const updates = this.nodes.get().map(node => ({
+                ...node,
+                label: this.nodeLabelsEnabled ? node.title.split('\\n')[0].replace('Entity: ', '') : ''
+            }));
+            this.nodes.update(updates);
+            
+            const btn = document.getElementById('toggle-node-labels');
+            if (btn) {
+                btn.classList.toggle('active', this.nodeLabelsEnabled);
+            }
+        }
+    }
+    
+    toggleEdgeLabels(forceState = null) {
+        this.edgeLabelsEnabled = forceState !== null ? forceState : !this.edgeLabelsEnabled;
+        if (this.network && this.edges) {
+            const updates = this.edges.get().map(edge => ({
+                ...edge,
+                label: this.edgeLabelsEnabled ? edge.title.split('\\n')[0].replace('Relation: ', '') : ''
+            }));
+            this.edges.update(updates);
+            
+            const btn = document.getElementById('toggle-edge-labels');
+            if (btn) {
+                btn.classList.toggle('active', this.edgeLabelsEnabled);
+            }
+        }
+    }
+    
+    fitNetwork() {
+        if (this.network) {
+            this.network.fit({
+                animation: {
+                    duration: 1000,
+                    easingFunction: 'easeInOutQuad'
+                }
+            });
+        }
+    }
+    
+    toggleClustering() {
+        if (!this.network || !this.nodes) return;
+        
+        this.clustered = !this.clustered;
+        const btn = document.getElementById('cluster-toggle');
+        if (btn) {
+            btn.classList.toggle('active', this.clustered);
+        }
+        
+        if (this.clustered) {
+            this.clusterLevel = (this.clusterLevel + 1) % 3; // Cycle through cluster levels
+            this.applyClustering();
+        } else {
+            this.clusterLevel = 0;
+            this.network.setData({ nodes: this.nodes, edges: this.edges });
+        }
+    }
+    
+    applyClustering() {
+        if (!this.network) return;
+        
+        const nodeData = this.nodes.get();
+        
+        switch (this.clusterLevel) {
+            case 1:
+                this.clusterByType(nodeData);
+                break;
+            case 2:
+                this.clusterByHubSize(nodeData);
+                break;
+            default:
+                // Level 0: no clustering, already handled in toggleClustering
+                break;
+        }
+        
+        // Update button text to show current clustering level
+        const btn = document.getElementById('cluster-toggle');
+        if (btn) {
+            const levelNames = ['Off', 'By Type', 'By Hubs'];
+            btn.textContent = `Cluster: ${levelNames[this.clusterLevel]}`;
+        }
+    }
+    
+    clusterByType(nodeData) {
+        const typeGroups = {};
+        
+        nodeData.forEach(node => {
+            const type = node.title.split('\\n')[1].replace('Type: ', '');
+            if (!typeGroups[type]) {
+                typeGroups[type] = [];
+            }
+            typeGroups[type].push(node.id);
+        });
+        
+        // Cluster each type group
+        Object.entries(typeGroups).forEach(([type, nodeIds]) => {
+            if (nodeIds.length > 3) { // Only cluster if more than 3 nodes
+                const clusterOptions = {
+                    joinCondition: (childOptions) => {
+                        return nodeIds.includes(childOptions.id);
+                    },
+                    clusterNodeProperties: {
+                        id: `cluster_type_${type}`,
+                        label: `${type} (${nodeIds.length})`,
+                        color: '#E8E8E8',
+                        shape: 'database',
+                        size: Math.min(50, 20 + nodeIds.length * 2),
+                        font: { size: 14, face: 'PT Sans Narrow' }
+                    }
+                };
+                this.network.cluster(clusterOptions);
+            }
+        });
+    }
+    
+    clusterByHubSize(nodeData) {
+        // Sort nodes by degree (connection count) and cluster high-degree nodes
+        const sortedNodes = nodeData.sort((a, b) => {
+            const degreeA = this.getNodeDegree(a.id);
+            const degreeB = this.getNodeDegree(b.id);
+            return degreeB - degreeA;
+        });
+        
+        const averageDegree = sortedNodes.reduce((sum, node) => sum + this.getNodeDegree(node.id), 0) / sortedNodes.length;
+        const highDegreeNodes = sortedNodes.filter(node => this.getNodeDegree(node.id) > averageDegree * 2);
+        
+        if (highDegreeNodes.length > 4) {
+            // Group high-degree nodes into clusters of 4-6
+            const clusterSize = 5;
+            for (let i = 0; i < highDegreeNodes.length; i += clusterSize) {
+                const clusterNodes = highDegreeNodes.slice(i, i + clusterSize);
+                if (clusterNodes.length >= 3) {
+                    const clusterOptions = {
+                        joinCondition: (childOptions) => {
+                            return clusterNodes.some(node => node.id === childOptions.id);
+                        },
+                        clusterNodeProperties: {
+                            id: `cluster_hub_${i / clusterSize}`,
+                            label: `Hubs (${clusterNodes.length})`,
+                            color: '#FFB366',
+                            shape: 'star',
+                            size: Math.min(60, 30 + clusterNodes.length * 3),
+                            font: { size: 16, face: 'PT Sans Narrow' }
+                        }
+                    };
+                    this.network.cluster(clusterOptions);
+                }
+            }
+        }
+    }
+    
+    getNodeDegree(nodeId) {
+        if (!this.edges) return 0;
+        const edgeData = this.edges.get();
+        return edgeData.filter(edge => edge.from === nodeId || edge.to === nodeId).length;
+    }
+    
+    // Search and focus functionality
+    searchAndFocus(searchTerm) {
+        if (!this.network || !this.nodes || !searchTerm) {
+            this.resetHighlight();
+            return;
+        }
+        
+        const nodeData = this.nodes.get();
+        const matchingNodes = nodeData.filter(node => 
+            node.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            (node.label && node.label.toLowerCase().includes(searchTerm.toLowerCase()))
+        );
+        
+        if (matchingNodes.length > 0) {
+            // Focus on the first matching node
+            const targetNode = matchingNodes[0];
+            this.network.focus(targetNode.id, {
+                scale: 1.5,
+                offset: { x: 0, y: 0 },
+                animation: {
+                    duration: 1000,
+                    easingFunction: 'easeInOutQuad'
+                }
+            });
+            
+            // Select the node
+            this.network.selectNodes([targetNode.id]);
+            this.highlightNeighborhood(targetNode.id);
+            
+            // Update search input appearance to show success
+            const searchInput = document.getElementById('network-search');
+            if (searchInput) {
+                searchInput.style.borderColor = '#009E73';
+                setTimeout(() => {
+                    searchInput.style.borderColor = '';
+                }, 2000);
+            }
+        } else {
+            // No matches found - show feedback
+            const searchInput = document.getElementById('network-search');
+            if (searchInput) {
+                searchInput.style.borderColor = '#D55E00';
+                setTimeout(() => {
+                    searchInput.style.borderColor = '';
+                }, 2000);
+            }
+        }
+    }
+    
+    clearSearch() {
+        this.resetHighlight();
+        if (this.network) {
+            this.network.unselectAll();
+        }
+    }
+    
+    // Incremental update method for better performance when filters change
+    updateData(newTriples) {
+        if (!this.network || !this.nodes || !this.edges) {
+            // Fallback to full re-render if no existing network
+            this.renderNetwork(newTriples);
+            return;
+        }
+        
+        console.log('🔄 Performing incremental update with', newTriples.length, 'triples');
+        
+        // For large datasets, use incremental approach
+        if (newTriples.length > 300 && this.lastRenderedData && this.lastRenderedData.length > 300) {
+            const isSimilarData = this.compareTriplesData(this.lastRenderedData, newTriples);
+            if (isSimilarData > 0.8) { // 80% similarity threshold
+                this.performIncrementalUpdate(newTriples);
+                return;
+            }
+        }
+        
+        // For smaller datasets or significant changes, full re-render
+        this.renderNetwork(newTriples);
+    }
+    
+    compareTriplesData(oldTriples, newTriples) {
+        if (!oldTriples || oldTriples.length === 0) return 0;
+        
+        const oldKeys = new Set(oldTriples.map(t => `${t.subject_entity.name}|${t.relation.semantic_form}|${t.object_entity.name}`));
+        const newKeys = new Set(newTriples.map(t => `${t.subject_entity.name}|${t.relation.semantic_form}|${t.object_entity.name}`));
+        
+        const intersection = new Set([...oldKeys].filter(x => newKeys.has(x)));
+        const union = new Set([...oldKeys, ...newKeys]);
+        
+        return intersection.size / union.size; // Jaccard similarity
+    }
+    
+    performIncrementalUpdate(newTriples) {
+        // This is a simplified incremental update - in practice, you would
+        // compute the difference and only add/remove changed nodes/edges
+        console.log('📊 Performing smart incremental update');
+        
+        // For now, we'll do a controlled re-render with preserved positions
+        const positions = this.network.getPositions();
+        this.renderNetwork(newTriples);
+        
+        // Restore positions after a brief delay
+        setTimeout(() => {
+            if (this.network && positions) {
+                this.network.setPositions(positions);
+            }
+        }, 100);
+    }
+    
+    // Export functionality
+    exportToPNG() {
+        if (!this.network) {
+            console.error('No network available for export');
+            return;
+        }
+        
+        try {
+            const canvas = this.network.canvas.frame.canvas;
+            const link = document.createElement('a');
+            link.download = `network-visualization-${new Date().toISOString().slice(0, 10)}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            console.log('✅ PNG export completed');
+        } catch (error) {
+            console.error('❌ PNG export failed:', error);
+            this.showExportError('PNG export failed. Please try again.');
+        }
+    }
+    
+    exportToJSON() {
+        if (!this.nodes || !this.edges) {
+            console.error('No network data available for export');
+            return;
+        }
+        
+        try {
+            const exportData = {
+                metadata: {
+                    title: 'Network Visualization Data',
+                    exported: new Date().toISOString(),
+                    nodeCount: this.nodes.length,
+                    edgeCount: this.edges.length
+                },
+                nodes: this.nodes.get(),
+                edges: this.edges.get(),
+                options: this.getExportableOptions()
+            };
+            
+            const dataStr = JSON.stringify(exportData, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            const link = document.createElement('a');
+            link.setAttribute('href', dataUri);
+            link.setAttribute('download', `network-data-${new Date().toISOString().slice(0, 10)}.json`);
+            link.click();
+            console.log('✅ JSON export completed');
+        } catch (error) {
+            console.error('❌ JSON export failed:', error);
+            this.showExportError('JSON export failed. Please try again.');
+        }
+    }
+    
+    exportToCSV() {
+        if (!this.edges) {
+            console.error('No edge data available for export');
+            return;
+        }
+        
+        try {
+            const csvHeaders = ['from', 'to', 'label', 'weight', 'type'];
+            const edgeData = this.edges.get();
+            
+            const csvRows = edgeData.map(edge => [
+                `"${edge.from || ''}"`,
+                `"${edge.to || ''}"`,
+                `"${edge.label || ''}"`,
+                edge.weight || 1,
+                'directed'
+            ]);
+            
+            const csvContent = [
+                csvHeaders.join(','),
+                ...csvRows.map(row => row.join(','))
+            ].join('\\n');
+            
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', `network-edges-${new Date().toISOString().slice(0, 10)}.csv`);
+            link.click();
+            URL.revokeObjectURL(url);
+            console.log('✅ CSV export completed');
+        } catch (error) {
+            console.error('❌ CSV export failed:', error);
+            this.showExportError('CSV export failed. Please try again.');
+        }
+    }
+    
+    getExportableOptions() {
+        return {
+            physics: { enabled: this.physicsEnabled },
+            labels: { 
+                nodeLabels: this.nodeLabelsEnabled, 
+                edgeLabels: this.edgeLabelsEnabled 
+            },
+            clustering: { enabled: this.clustered, level: this.clusterLevel }
+        };
+    }
+    
+    showExportError(message) {
+        const container = document.getElementById(this.containerId);
+        if (container) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'export-error-message';
+            errorDiv.style.cssText = 'position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #ff6b6b; color: white; padding: 10px 20px; border-radius: 6px; z-index: 1000;';
+            errorDiv.textContent = message;
+            container.appendChild(errorDiv);
+            
+            setTimeout(() => {
+                if (errorDiv.parentNode) {
+                    errorDiv.parentNode.removeChild(errorDiv);
+                }
+            }, 3000);
+        }
+    }
+    
+    renderNetwork(triples) {
+        console.log('🎨 renderNetwork called with', triples.length, 'triples');
+        
+        // Store data for incremental updates
+        this.lastRenderedData = triples;
+        
+        const container = document.getElementById(this.containerId);
+        if (!container) {
+            console.error('❌ Network container not found:', this.containerId);
+            return;
+        }
+        
+        console.log('📦 Container found, clearing existing network');
+        
+        // Clear existing network
+        if (this.network) {
+            this.network.destroy();
+            this.network = null;
+        }
+        
+        // Clear container
+        container.innerHTML = '';
+        
+        // Check and fix container dimensions
+        console.log('📏 Checking container dimensions:', {
+            offsetWidth: container.offsetWidth,
+            offsetHeight: container.offsetHeight,
+            clientWidth: container.clientWidth,
+            clientHeight: container.clientHeight
+        });
+        
+        if (container.offsetWidth === 0 || container.offsetHeight === 0) {
+            console.warn('⚠️ Container has zero dimensions, applying fallback sizing');
+            
+            // Force container styling
+            container.style.display = 'block';
+            container.style.width = '100%';
+            container.style.height = '500px';
+            container.style.minHeight = '500px';
+            container.style.position = 'relative';
+            
+            // Wait for styling to take effect, then process
+            setTimeout(() => {
+                console.log('✅ After force sizing:', {
+                    offsetWidth: container.offsetWidth,
+                    offsetHeight: container.offsetHeight
+                });
+                this.processAndRenderNetwork(triples, container);
+            }, 200);
+        } else {
+            // Container has proper dimensions, proceed immediately
+            this.processAndRenderNetwork(triples, container);
+        }
+    }
+    
+    processAndRenderNetwork(triples, container) {
+        console.log('📊 Processing triple data...');
+        
+        try {
+            // Initialize data structures
+            const nodes = new Map();
+            const edgeMap = new Map(); // For aggregating duplicate edges
+            const entityTypes = new Set();
+            
+            // Process each triple with edge aggregation
+            triples.forEach(triple => {
+                const subjName = triple.subject_entity.name;
+                const subjType = triple.subject_entity.entity_type;
+                const objName = triple.object_entity.name;
+                const objType = triple.object_entity.entity_type;
+                const relation = triple.relation.semantic_form;
+                
+                entityTypes.add(subjType);
+                entityTypes.add(objType);
+                
+                // Add subject node
+                if (!nodes.has(subjName)) {
+                    nodes.set(subjName, {
+                        id: subjName,
+                        label: subjName,
+                        type: subjType,
+                        degree: 0
+                    });
+                }
+                nodes.get(subjName).degree++;
+                
+                // Add object node
+                if (!nodes.has(objName)) {
+                    nodes.set(objName, {
+                        id: objName,
+                        label: objName,
+                        type: objType,
+                        degree: 0
+                    });
+                }
+                nodes.get(objName).degree++;
+                
+                // Aggregate edges by (from, to, relation) combination
+                const edgeKey = `${subjName}|${objName}|${relation}`;
+                if (edgeMap.has(edgeKey)) {
+                    const existingEdge = edgeMap.get(edgeKey);
+                    existingEdge.weight++;
+                    existingEdge.evidences.push(triple.evidence_text.substring(0, 100));
+                    existingEdge.surfaceForms.add(triple.relation.surface_form);
+                } else {
+                    edgeMap.set(edgeKey, {
+                        from: subjName,
+                        to: objName,
+                        label: relation,
+                        weight: 1,
+                        evidences: [triple.evidence_text.substring(0, 100)],
+                        surfaceForms: new Set([triple.relation.surface_form]),
+                        title: `Relation: ${relation}\\nSurface Form: "${triple.relation.surface_form}"\\nEvidence: "${triple.evidence_text.substring(0, 100)}..."`
+                    });
+                }
+            });
+            
+            // Convert aggregated edges to array
+            const edges = Array.from(edgeMap.values()).map(edge => ({
+                ...edge,
+                label: edge.weight > 1 ? `${edge.label} (×${edge.weight})` : edge.label,
+                title: edge.weight > 1 ? 
+                    `Relation: ${edge.label}\\nOccurrences: ${edge.weight}\\nSurface Forms: ${Array.from(edge.surfaceForms).join(', ')}\\nSample Evidence: "${edge.evidences[0]}..."` :
+                    edge.title,
+                surfaceForms: undefined, // Clean up for vis.js
+                evidences: undefined // Clean up for vis.js
+            }));
+            
+            // Create color mapping for entity types (all nodes use circle shape)
+            const typeArray = Array.from(entityTypes).sort();
+            const colorMap = {};
+            typeArray.forEach((type, index) => {
+                const paletteIndex = index % this.colorPalette.length;
+                colorMap[type] = this.colorPalette[paletteIndex];
+            });
+            
+            // Generate legend
+            this.updateLegend(typeArray, colorMap, null);
+            
+            // Convert to vis.js format with enhanced styling
+            const visNodes = Array.from(nodes.values()).map(node => {
+                const size = this.calculateNodeSize(node.degree, nodes.size);
+                return {
+                    id: node.id,
+                    label: this.nodeLabelsEnabled ? node.label : '',
+                    title: `Entity: ${node.label}\\nType: ${node.type}\\nConnections: ${node.degree}`,
+                    color: {
+                        background: colorMap[node.type] || '#999999',
+                        border: '#333333',
+                        highlight: {
+                            background: '#FFE066',
+                            border: '#5951f6ff'
+                        },
+                        hover: {
+                            background: '#FFE066',
+                            border: '#5951f6ff'
+                        }
+                    },
+                    shape: 'dot',
+                    size: size,
+                    font: {
+                        size: Math.max(10, Math.min(16, size / 2)),
+                        color: '#1D2029',
+                        face: 'PT Sans Narrow'
+                    },
+                    borderWidth: 1.5,
+                    borderWidthSelected: 3,
+                    shadow: {
+                        enabled: true,
+                        color: 'rgba(95, 99, 104, 0.15)',
+                        size: 5,
+                        x: 2,
+                        y: 2
+                    },
+                    scaling: {
+                        label: {
+                            enabled: this.nodeLabelsEnabled,
+                            drawThreshold: this.getDrawThreshold(nodes.size),
+                            maxVisible: Math.max(20, Math.min(100, nodes.size / 2))
+                        }
+                    }
+                };
+            });
+            
+            const visEdges = edges.map((edge, index) => {
+                const width = this.calculateEdgeWidth(edge.weight || 1);
+                return {
+                    id: `edge_${index}`,
+                    from: edge.from,
+                    to: edge.to,
+                    label: this.shouldShowEdgeLabels(nodes.size) ? edge.label : '',
+                    title: edge.title,
+                    arrows: { to: { enabled: true, scaleFactor: 0.8 } },
+                    color: {
+                        color: '#C5C5C580',
+                        highlight: '#5951f6ff',
+                        hover: '#5951f6ff',
+                        opacity: 0.7
+                    },
+                    width: width,
+                    selectionWidth: width + 2,
+                    hoverWidth: width + 1,
+                    font: {
+                        size: Math.max(8, Math.min(12, 14 - Math.log10(nodes.size))),
+                        color: '#5F6368',
+                        face: 'PT Sans Narrow',
+                        align: 'middle'
+                    },
+                    smooth: this.getSmoothSettings(nodes.size, edges.length)
+                };
+            });
+            
+            console.log('🎨 Creating vis.Network with', visNodes.length, 'nodes and', visEdges.length, 'edges');
+            
+            // Validate data
+            if (visNodes.length === 0) {
+                console.error('❌ No nodes to display');
+                container.innerHTML = '<div style="display: flex; justify-content: center; align-items: center; height: 100%; color: #999; font-size: 1.2rem;">No entities found to visualize</div>';
+                return;
+            }
+            
+            // Adaptive network options based on size
+            const options = this.getAdaptiveOptions(nodes.size, visEdges.length);
+            
+            // Store data references for later manipulation
+            this.nodes = new vis.DataSet(visNodes);
+            this.edges = new vis.DataSet(visEdges);
+            
+            // Create the network with stored datasets
+            const data = { nodes: this.nodes, edges: this.edges };
+            this.network = new vis.Network(container, data, options);
+            
+            // Setup event handlers for enhanced interaction
+            this.setupNetworkEvents();
+            console.log('✅ Network created successfully');
+            
+            // Update info panel
+            const infoPanel = document.getElementById('network-info');
+            const statsSpan = document.getElementById('filtered-stats');
+            if (infoPanel && statsSpan) {
+                statsSpan.textContent = `${visNodes.length} entities, ${visEdges.length} relationships`;
+                infoPanel.style.display = 'block';
+                console.log('✅ Info panel updated');
+            }
+            
+            // Enhanced resize sequence
+            setTimeout(() => {
+                if (this.network) {
+                    console.log('🔄 First resize pass...');
+                    this.network.redraw();
+                    this.network.fit();
+                    console.log('✅ First resize completed');
+                }
+            }, 100);
+            
+            // Secondary resize after stabilization
+            setTimeout(() => {
+                if (this.network) {
+                    console.log('🔄 Second resize pass...');
+                    this.network.redraw();
+                    this.network.fit();
+                    console.log('✅ Final resize completed');
+                }
+            }, 500);
+            
+            // Disable physics after stabilization
+            this.network.on("stabilizationIterationsDone", () => {
+                console.log('✅ Network stabilization completed');
+                this.network.setOptions({ physics: false });
+                setTimeout(() => {
+                    if (this.network) {
+                        this.network.fit();
+                        console.log('✅ Post-stabilization fit completed');
+                    }
+                }, 100);
+            });
+            
+        } catch (error) {
+            console.error('❌ Network creation failed:', error);
+            console.error('Error stack:', error.stack);
+            container.innerHTML = `
+                <div style="display: flex; justify-content: center; align-items: center; height: 100%; color: #ff6b6b; font-size: 1.2rem; flex-direction: column; padding: 20px;">
+                    <div>❌ Network creation failed</div>
+                    <div style="font-size: 0.9rem; margin-top: 10px; text-align: center;">Error: ${error.message}</div>
+                    <div style="font-size: 0.8rem; margin-top: 10px; color: #999;">Check browser console for details</div>
+                </div>
+            `;
+        }
+    }
+    
+    regenerateNetwork() {
+        console.log('🔄 Regenerating network with updated filters and settings...');
+        
+        if (window.networkComponents && window.networkComponents.filterTracker) {
+            // Get current filtered data from FilterTracker
+            const filteredTriples = window.networkComponents.filterTracker.getFilteredData(window.allTriples);
+            console.log(`🎯 Regenerating network with ${filteredTriples.length} filtered triples`);
+            
+            // Re-render network with new data
+            this.renderNetwork(filteredTriples);
+        } else {
+            console.warn('⚠️ FilterTracker not available, using original data');
+            if (this.lastRenderedData) {
+                this.renderNetwork(this.lastRenderedData);
+            }
+        }
+    }
+}
+        
+        class ModalManager {
+            constructor(modalId, closeId, triggerId) {
+                this.modal = document.getElementById(modalId);
+                this.closeBtn = document.getElementById(closeId);
+                this.triggerBtn = document.getElementById(triggerId);
+                this.loadingEl = document.getElementById('network-loading');
+                
+                this.setupEventListeners();
+            }
+            
+            setupEventListeners() {
+                if (this.triggerBtn) {
+                    this.triggerBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        console.log('Visualise button clicked');
+                        this.show();
+                    });
+                }
+                
+                if (this.closeBtn) {
+                    this.closeBtn.addEventListener('click', () => this.hide());
+                }
+                
+                if (this.modal) {
+                    this.modal.addEventListener('click', (e) => {
+                        if (e.target === this.modal) {
+                            this.hide();
+                        }
+                    });
+                }
+                
+                // Setup network control buttons
+                this.setupControlButtons();
+                
+                // ESC key to close and keyboard shortcuts
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && this.isVisible()) {
+                        this.hide();
+                    }
+                    
+                    // Keyboard shortcuts when modal is visible
+                    if (this.isVisible()) {
+                        switch(e.key.toLowerCase()) {
+                            case 'p':
+                                if (window.networkComponents && window.networkComponents.networkRenderer) {
+                                    window.networkComponents.networkRenderer.togglePhysics();
+                                }
+                                e.preventDefault();
+                                break;
+                            case 'l':
+                                if (window.networkComponents && window.networkComponents.networkRenderer) {
+                                    // Toggle node labels by default
+                                    window.networkComponents.networkRenderer.toggleNodeLabels();
+                                    const nodeLabelsBtn = document.getElementById('toggle-node-labels');
+                                    if (nodeLabelsBtn) {
+                                        nodeLabelsBtn.classList.toggle('active');
+                                    }
+                                }
+                                e.preventDefault();
+                                break;
+                            case 'f':
+                                if (window.networkComponents && window.networkComponents.networkRenderer) {
+                                    window.networkComponents.networkRenderer.fitNetwork();
+                                }
+                                e.preventDefault();
+                                break;
+                            case 'c':
+                                if (window.networkComponents && window.networkComponents.networkRenderer) {
+                                    window.networkComponents.networkRenderer.toggleClustering();
+                                }
+                                e.preventDefault();
+                                break;
+                        }
+                    }
+                });
+            }
+            
+            setupControlButtons() {
+                const physicsBtn = document.getElementById('physics-toggle');
+                const fitBtn = document.getElementById('fit-network');
+                const clusterBtn = document.getElementById('cluster-toggle');
+                const searchInput = document.getElementById('network-search');
+                const exportBtn = document.getElementById('export-btn');
+                const exportMenu = document.getElementById('export-menu');
+                
+                // Labels dropdown elements
+                const labelsBtn = document.getElementById('labels-btn');
+                const labelsMenu = document.getElementById('labels-menu');
+                const nodeLabelsBtn = document.getElementById('toggle-node-labels');
+                const edgeLabelsBtn = document.getElementById('toggle-edge-labels');
+                
+                // Hops dropdown elements
+                const hopsBtn = document.getElementById('hops-btn');
+                const hopsMenu = document.getElementById('hops-menu');
+                const hops0Btn = document.getElementById('hops-0');
+                const hops1Btn = document.getElementById('hops-1');
+                const hops2Btn = document.getElementById('hops-2');
+                
+                if (physicsBtn) {
+                    physicsBtn.addEventListener('click', () => {
+                        if (window.networkComponents && window.networkComponents.networkRenderer) {
+                            window.networkComponents.networkRenderer.togglePhysics();
+                        }
+                    });
+                }
+                
+                // Labels dropdown functionality
+                if (labelsBtn && labelsMenu) {
+                    labelsBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        labelsMenu.classList.toggle('show');
+                        // Close hops menu if open
+                        if (hopsMenu) hopsMenu.classList.remove('show');
+                    });
+                    
+                    // Close dropdown when clicking outside
+                    document.addEventListener('click', () => {
+                        labelsMenu.classList.remove('show');
+                    });
+                    
+                    // Node labels toggle
+                    if (nodeLabelsBtn) {
+                        nodeLabelsBtn.addEventListener('click', () => {
+                            if (window.networkComponents && window.networkComponents.networkRenderer) {
+                                window.networkComponents.networkRenderer.toggleNodeLabels();
+                                nodeLabelsBtn.classList.toggle('active');
+                            }
+                            labelsMenu.classList.remove('show');
+                        });
+                    }
+                    
+                    // Edge labels toggle
+                    if (edgeLabelsBtn) {
+                        edgeLabelsBtn.addEventListener('click', () => {
+                            if (window.networkComponents && window.networkComponents.networkRenderer) {
+                                window.networkComponents.networkRenderer.toggleEdgeLabels();
+                                edgeLabelsBtn.classList.toggle('active');
+                            }
+                            labelsMenu.classList.remove('show');
+                        });
+                    }
+                }
+                
+                // Hops dropdown functionality
+                if (hopsBtn && hopsMenu) {
+                    hopsBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        hopsMenu.classList.toggle('show');
+                        // Close labels menu if open
+                        if (labelsMenu) labelsMenu.classList.remove('show');
+                    });
+                    
+                    // Close dropdown when clicking outside
+                    document.addEventListener('click', () => {
+                        hopsMenu.classList.remove('show');
+                    });
+                    
+                    // Hops selection handlers
+                    [hops0Btn, hops1Btn, hops2Btn].forEach(btn => {
+                        if (btn) {
+                            btn.addEventListener('click', () => {
+                                const hopDistance = parseInt(btn.dataset.hops);
+                                
+                                // Update FilterTracker
+                                if (window.networkComponents && window.networkComponents.filterTracker) {
+                                    window.networkComponents.filterTracker.setHopDistance(hopDistance);
+                                }
+                                
+                                // Update button states
+                                [hops0Btn, hops1Btn, hops2Btn].forEach(b => b?.classList.remove('active'));
+                                btn.classList.add('active');
+                                
+                                // Update button text
+                                const hopsText = hopDistance === 0 ? '0' : `+${hopDistance}`;
+                                hopsBtn.textContent = `Hops: ${hopsText} ▼`;
+                                
+                                // Regenerate network with new hop distance
+                                if (window.networkComponents && window.networkComponents.networkRenderer) {
+                                    window.networkComponents.networkRenderer.regenerateNetwork();
+                                }
+                                
+                                hopsMenu.classList.remove('show');
+                            });
+                        }
+                    });
+                }
+                
+                if (fitBtn) {
+                    fitBtn.addEventListener('click', () => {
+                        if (window.networkComponents && window.networkComponents.networkRenderer) {
+                            window.networkComponents.networkRenderer.fitNetwork();
+                        }
+                    });
+                }
+                
+                if (clusterBtn) {
+                    clusterBtn.addEventListener('click', () => {
+                        if (window.networkComponents && window.networkComponents.networkRenderer) {
+                            window.networkComponents.networkRenderer.toggleClustering();
+                        }
+                    });
+                }
+                
+                if (searchInput) {
+                    let searchTimeout;
+                    searchInput.addEventListener('input', (e) => {
+                        clearTimeout(searchTimeout);
+                        const searchTerm = e.target.value.trim();
+                        
+                        if (searchTerm) {
+                            searchTimeout = setTimeout(() => {
+                                if (window.networkComponents && window.networkComponents.networkRenderer) {
+                                    window.networkComponents.networkRenderer.searchAndFocus(searchTerm);
+                                }
+                            }, 300); // Debounce search
+                        } else {
+                            if (window.networkComponents && window.networkComponents.networkRenderer) {
+                                window.networkComponents.networkRenderer.clearSearch();
+                            }
+                        }
+                    });
+                    
+                    searchInput.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            const searchTerm = e.target.value.trim();
+                            if (searchTerm && window.networkComponents && window.networkComponents.networkRenderer) {
+                                window.networkComponents.networkRenderer.searchAndFocus(searchTerm);
+                            }
+                        }
+                    });
+                }
+                
+                // Export dropdown functionality
+                if (exportBtn && exportMenu) {
+                    exportBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        exportMenu.classList.toggle('show');
+                    });
+                    
+                    // Close dropdown when clicking outside
+                    document.addEventListener('click', () => {
+                        exportMenu.classList.remove('show');
+                    });
+                    
+                    // Export button handlers
+                    document.getElementById('export-png')?.addEventListener('click', () => {
+                        if (window.networkComponents && window.networkComponents.networkRenderer) {
+                            window.networkComponents.networkRenderer.exportToPNG();
+                        }
+                        exportMenu.classList.remove('show');
+                    });
+                    
+                    document.getElementById('export-json')?.addEventListener('click', () => {
+                        if (window.networkComponents && window.networkComponents.networkRenderer) {
+                            window.networkComponents.networkRenderer.exportToJSON();
+                        }
+                        exportMenu.classList.remove('show');
+                    });
+                    
+                    document.getElementById('export-csv')?.addEventListener('click', () => {
+                        if (window.networkComponents && window.networkComponents.networkRenderer) {
+                            window.networkComponents.networkRenderer.exportToCSV();
+                        }
+                        exportMenu.classList.remove('show');
+                    });
+                }
+            }
+            
+            show() {
+                if (this.modal) {
+                    console.log('Showing modal...');
+                    this.modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                    
+                    // Show loading first
+                    this.showLoading();
+                    
+                    // Wait for modal to be fully rendered and visible before creating network
+                    setTimeout(() => {
+                        console.log('Modal should be visible now, generating network...');
+                        this.generateNetwork();
+                    }, 800); // Further increased delay to ensure proper modal rendering
+                }
+            }
+            
+            generateNetwork() {
+                console.log('🎨 generateNetwork called');
+                try {
+                    console.log('vis object available:', typeof vis !== 'undefined');
+                    console.log('vis version:', vis?.version || 'unknown');
+                    
+                    if (typeof vis === 'undefined') {
+                        throw new Error('vis.js library not loaded');
+                    }
+                    
+                    const filteredTriples = window.networkComponents.filterTracker.getFilteredData();
+                    console.log('📊 Filtered triples:', filteredTriples.length);
+                    
+                    if (filteredTriples.length === 0) {
+                        console.log('⚠️ No data matches filters');
+                        this.hideLoading();
+                        const container = document.getElementById('network-graph');
+                        if (container) {
+                            container.innerHTML = '<div style="display: flex; justify-content: center; align-items: center; height: 100%; color: #999; font-size: 1.2rem;">No data matches current filters</div>';
+                        }
+                        return;
+                    }
+                    
+                    // Add container validation before network creation
+                    const container = document.getElementById('network-graph');
+                    if (!container) {
+                        throw new Error('Network container not found');
+                    }
+                    
+                    console.log('📏 Container validation before network creation:', {
+                        found: !!container,
+                        dimensions: `${container.offsetWidth}x${container.offsetHeight}`,
+                        visible: container.offsetParent !== null,
+                        display: getComputedStyle(container).display
+                    });
+                    
+                    console.log('🎨 Rendering network with', filteredTriples.length, 'triples');
+                    window.networkComponents.networkRenderer.renderNetwork(filteredTriples);
+                    this.hideLoading();
+                    console.log('✅ Network generation completed successfully');
+                    
+                } catch (error) {
+                    console.error('❌ Error generating network:', error);
+                    console.error('Full error details:', {
+                        message: error.message,
+                        stack: error.stack,
+                        name: error.name
+                    });
+                    this.hideLoading();
+                    const container = document.getElementById('network-graph');
+                    if (container) {
+                        container.innerHTML = '<div style="display: flex; justify-content: center; align-items: center; height: 100%; color: #ff6b6b; font-size: 1.2rem; flex-direction: column; padding: 20px;"><div>❌ Network Error</div><div style="font-size: 0.9rem; margin-top: 10px; text-align: center;">Error: ' + error.message + '</div><div style="font-size: 0.8rem; margin-top: 10px; color: #999;">Check browser console for details</div></div>';
+                    }
+                }
+            }
+            
+            hide() {
+                if (this.modal) {
+                    this.modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            }
+            
+            isVisible() {
+                return this.modal && this.modal.style.display === 'block';
+            }
+            
+            showLoading() {
+                if (this.loadingEl) {
+                    this.loadingEl.style.display = 'block';
+                }
+            }
+            
+            hideLoading() {
+                if (this.loadingEl) {
+                    this.loadingEl.style.display = 'none';
+                }
+            }
+        }
+        
+        // Initialize network visualization components after vis.js loads
+        function initializeNetworkComponents() {
+            console.log('Initializing network components...');
+            console.log('vis available:', typeof vis !== 'undefined');
+            
+            if (typeof vis === 'undefined') {
+                console.error('vis.js not loaded, retrying in 500ms...');
+                setTimeout(initializeNetworkComponents, 500);
+                return;
+            }
+            
+            window.networkComponents = {
+                filterTracker: new FilterTracker(),
+                networkRenderer: new NetworkRenderer('network-graph'),
+                modalManager: new ModalManager('network-modal', 'network-modal-close', 'visualise-btn')
+            };
+            
+            console.log('Network components initialized successfully');
+        }
+        
+        // Initialize when DOM and vis.js are ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeNetworkComponents);
+        } else {
+            initializeNetworkComponents();
+        }
+    </script>
+    <script>
+    // THE JAVASCRIPT SECTION REMAINS COMPLETELY UNCHANGED
+    document.addEventListener('DOMContentLoaded', () => {
+        let activeTypeFilters = new Set();
+        let activePatternFilter = null;
+        let activeRelationFilter = null; 
+        let activeSearchTerm = '';
+
+        const allCards = document.querySelectorAll('.extraction-card');
+        const allTurns = document.querySelectorAll('.speaker-turn');
+        const allPatternItems = document.querySelectorAll('.patterns-column li');
+        const sidebar = document.getElementById('sidebar');
+        const typeFilterContainer = document.getElementById('entity-type-filter-container');
+        const patternLists = document.querySelectorAll('.patterns-column ol');
+        const clearAllFiltersBtn = document.getElementById('clear-all-filters-btn');
+        const searchInput = document.getElementById('entity-search-input');
+        
+        const filterStatus = document.getElementById('filter-status');
+        const searchFilterDisplay = document.getElementById('search-filter-display');
+        const searchFilterText = document.getElementById('search-filter-text');
+        const typeFilterDisplay = document.getElementById('type-filter-display');
+        const typeFilterTags = document.getElementById('type-filter-tags');
+        const patternFilterDisplay = document.getElementById('pattern-filter-display');
+        const patternFilterText = document.getElementById('pattern-filter-text');
+        const relationFilterDisplay = document.getElementById('relation-filter-display');
+        const relationFilterTags = document.getElementById('relation-filter-tags');
+        const backToTopBtn = document.getElementById('back-to-top-btn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > window.innerHeight / 2) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        }, { passive: true });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        const masterUpdate = () => {
+            const hasActiveFilters = activeTypeFilters.size > 0 || activePatternFilter || activeRelationFilter || activeSearchTerm;
+            filterStatus.style.display = hasActiveFilters ? 'block' : 'none';
+
+            // Update network filter tracker
+            if (window.networkComponents && window.networkComponents.filterTracker) {
+                window.networkComponents.filterTracker.updateFilters(
+                    activeTypeFilters,
+                    activePatternFilter,
+                    activeRelationFilter,
+                    activeSearchTerm
+                );
+            }
+
+            document.querySelectorAll('.filterable-badge').forEach(b => b.classList.toggle('selected', activeTypeFilters.has(b.dataset.entityType)));
+            document.querySelectorAll('.filterable-relation').forEach(r => r.classList.toggle('selected', activeRelationFilter === r.dataset.relationForm));
+            
+            if (activeSearchTerm) {
+                searchFilterDisplay.style.display = 'block';
+                searchFilterText.innerHTML = `<code>${activeSearchTerm}</code>`;
+            } else {
+                searchFilterDisplay.style.display = 'none';
+            }
+
+            if (activeTypeFilters.size > 0) {
+                typeFilterDisplay.style.display = 'block';
+                typeFilterTags.innerHTML = '';
+                activeTypeFilters.forEach(type => {
+                    const originalBadge = typeFilterContainer.querySelector(`.filterable-badge[data-entity-type="${type}"]`);
+                    if (originalBadge) {
+                        const clone = originalBadge.cloneNode(true);
+                        clone.style.display = 'inline-block';
+                        clone.classList.remove('filterable-badge', 'selected');
+                        clone.style.cursor = 'pointer';
+                        clone.title = 'Click to remove this filter';
+                        clone.innerHTML += ' &times;';
+                        clone.addEventListener('click', () => {
+                            activeTypeFilters.delete(type);
+                            masterUpdate();
+                        });
+                        typeFilterTags.appendChild(clone);
+                    }
+                });
+            } else { typeFilterDisplay.style.display = 'none'; }
+
+            if (activeRelationFilter) {
+                relationFilterDisplay.style.display = 'block';
+                relationFilterTags.innerHTML = `<code>${activeRelationFilter}</code> <span class="remove-filter" data-filter-type="relation">&times;</span>`;
+            } else { relationFilterDisplay.style.display = 'none';
+ }
+
+            if (activePatternFilter) {
+                patternFilterDisplay.style.display = 'block';
+                patternFilterText.innerHTML = `<code>${activePatternFilter.s_type} &rarr; <span class="pattern-rel">${activePatternFilter.r_form}</span> &rarr; ${activePatternFilter.o_type}</code>`;
+            } else { patternFilterDisplay.style.display = 'none';
+ }
+
+
+            // Main Filtering Logic (supports grouped cards with multiple triples)
+            allCards.forEach(card => {
+                let isVisible = true;
+
+                // Build helper accessors for aggregated datasets (pipe-separated lists)
+                const splitList = (s) => (s ? String(s).split('|').filter(Boolean) : []);
+                const subjectNames = splitList(card.dataset.subjectNames || card.dataset.subjectName);
+                const objectNames = splitList(card.dataset.objectNames || card.dataset.objectName);
+                const subjectTypes = new Set(splitList(card.dataset.subjectTypes || card.dataset.subjectType));
+                const objectTypes = new Set(splitList(card.dataset.objectTypes || card.dataset.objectType));
+                const relationForms = new Set(splitList(card.dataset.relationForms || card.dataset.relationForm));
+                const patterns = new Set(splitList(card.dataset.patterns)); // entries like "S::R::O"
+                const relationSurfaces = splitList(card.dataset.relationSurfaces || '');
+                const evidenceSources = splitList(card.dataset.evidenceSources || '');
+                const evidenceText = (card.dataset.evidenceText || '').toLowerCase();
+
+                // Search across names, types, relations, surface forms, and evidence
+                if (isVisible && activeSearchTerm) {
+                    const term = activeSearchTerm;
+                    const nameMatch =
+                        subjectNames.some(n => n.includes(term)) ||
+                        objectNames.some(n => n.includes(term));
+                    const typeMatch =
+                        Array.from(subjectTypes).some(t => String(t).toLowerCase().includes(term)) ||
+                        Array.from(objectTypes).some(t => String(t).toLowerCase().includes(term));
+                    const relationMatch =
+                        Array.from(relationForms).some(r => String(r).toLowerCase().includes(term));
+                    const surfaceMatch =
+                        relationSurfaces.some(s => String(s).toLowerCase().includes(term));
+                    const evidenceSourceMatch =
+                        evidenceSources.some(s => String(s).toLowerCase().includes(term));
+                    const evidenceTextMatch = evidenceText.includes(term);
+
+                    if (
+                        !(
+                            nameMatch ||
+                            typeMatch ||
+                            relationMatch ||
+                            surfaceMatch ||
+                            evidenceSourceMatch ||
+                            evidenceTextMatch
+                        )
+                    ) {
+                        isVisible = false;
+                    }
+                }
+
+                // Type filter: any match in either subject/object types
+                if (isVisible && activeTypeFilters.size > 0) {
+                    let match = false;
+                    for (const t of activeTypeFilters) {
+                        if (subjectTypes.has(t) || objectTypes.has(t)) { match = true; break; }
+                    }
+                    if (!match) isVisible = false;
+                }
+
+                // Relation filter: any relation match
+                if (isVisible && activeRelationFilter) {
+                    if (!relationForms.has(activeRelationFilter)) isVisible = false;
+                }
+
+                // Pattern filter: requires exact S::R::O presence
+                if (isVisible && activePatternFilter) {
+                    const key = `${activePatternFilter.s_type}::${activePatternFilter.r_form}::${activePatternFilter.o_type}`;
+                    if (!patterns.has(key)) isVisible = false;
+                }
+
+                card.classList.toggle('hidden-by-filter', !isVisible);
+            });
+
+            allTurns.forEach(turn => {
+                const hasVisibleCard = turn.querySelector('.extraction-card:not(.hidden-by-filter)');
+                turn.classList.toggle('hidden-by-filter', !hasVisibleCard);
+            });
+            allPatternItems.forEach(item => {
+                if (activeTypeFilters.size === 0) { item.classList.remove('hidden-by-filter'); return; }
+                const isVisible = activeTypeFilters.has(item.dataset.filterSubject) || activeTypeFilters.has(item.dataset.filterObject);
+                item.classList.toggle('hidden-by-filter', !isVisible);
+            });
+        };
+        
+        if (sidebar) {
+            sidebar.addEventListener('click', (event) => {
+                const target = event.target;
+
+                const badge = target.closest('.filterable-badge');
+                if (badge) {
+                    const entityType = badge.dataset.entityType;
+                    activeTypeFilters.has(entityType) ? activeTypeFilters.delete(entityType) : activeTypeFilters.add(entityType);
+                    masterUpdate();
+                    return;
+                }
+
+                const relation = target.closest('.filterable-relation');
+                if (relation) {
+                    const relationForm = relation.dataset.relationForm;
+                    activeRelationFilter = activeRelationFilter === relationForm ? null : relationForm;
+                    masterUpdate();
+                    return;
+                }
+                
+                const collapsibleHeader = target.closest('.collapsible-header');
+                if (collapsibleHeader) {
+                    if (!target.closest('button')) {
+                        collapsibleHeader.closest('.collapsible')?.classList.toggle('collapsed');
+                    }
+                }
+                
+                if (target.matches('.remove-filter')) {
+                    if(target.dataset.filterType === 'relation') { activeRelationFilter = null; }
+                    masterUpdate();
+                }
+            });
+        }
+        // Also handle clicks in the header filter status bar
+        const headerFilterStatus = document.getElementById('filter-status');
+        if (headerFilterStatus) {
+            headerFilterStatus.addEventListener('click', (event) => {
+                const target = event.target;
+                if (target.matches('.remove-filter')) {
+                    if(target.dataset.filterType === 'relation') { activeRelationFilter = null; }
+                    masterUpdate();
+                }
+            });
+        }
+        
+        patternLists.forEach(list => {
+            list.addEventListener('click', (event) => {
+                const clickedLi = event.target.closest('li');
+                if (!clickedLi || !clickedLi.dataset.filterSubject) return;
+                
+                const s_type = clickedLi.dataset.filterSubject;
+                const r_form = clickedLi.dataset.filterRelation;
+                const o_type = clickedLi.dataset.filterObject;
+                const isAlreadyActive = activePatternFilter && activePatternFilter.s_type === s_type && activePatternFilter.r_form === r_form && activePatternFilter.o_type === o_type;
+
+                document.querySelectorAll('.active-filter').forEach(el => el.classList.remove('active-filter'));
+                
+                if (isAlreadyActive) {
+                    activePatternFilter = null;
+                } else {
+                    clickedLi.classList.add('active-filter');
+                    activePatternFilter = { s_type, r_form, o_type };
+                }
+                masterUpdate();
+            });
+        });
+        searchInput.addEventListener('input', () => {
+            activeSearchTerm = searchInput.value.trim().toLowerCase();
+            masterUpdate();
+        });
+        clearAllFiltersBtn.addEventListener('click', () => {
+            activeTypeFilters.clear();
+            activePatternFilter = null;
+            activeRelationFilter = null;
+            activeSearchTerm = '';
+            searchInput.value = '';
+            document.querySelectorAll('.active-filter').forEach(el => el.classList.remove('active-filter'));
+            masterUpdate();
+        });
+
+        if (typeFilterContainer) {
+            const groupSections = typeFilterContainer.querySelectorAll('.entity-type-section');
+            const limitPerGroup = 15;
+            groupSections.forEach(section => {
+                const badges = section.querySelectorAll('.filterable-badge');
+                const btn = section.querySelector('.entity-group-toggle');
+                if (!btn) return;
+                if (badges.length > limitPerGroup) {
+                    btn.style.display = 'block';
+                    btn.textContent = `Show All ${badges.length}`;
+                    for (let i = limitPerGroup; i < badges.length; i++) { badges[i].style.display = 'none'; }
+                    btn.addEventListener('click', () => {
+                        const isExpanded = section.classList.toggle('expanded');
+                        for (let i = limitPerGroup; i < badges.length; i++) { badges[i].style.display = isExpanded ? 'inline-block' : 'none'; }
+                        btn.textContent = isExpanded ? `Show Less (Top ${limitPerGroup})` : `Show All ${badges.length}`;
+                    });
+                }
+            });
+        }
+        
+        document.querySelectorAll('.toggle-button[data-target]').forEach(button => {
+             const list = document.getElementById(button.dataset.target);
+             if (!list || list.children.length <= 25) { button.style.display = 'none'; return; }
+             for (let i = 25; i < list.children.length; i++) { list.children[i].style.display = 'none'; }
+             button.textContent = `Show All ${list.children.length}`;
+             button.addEventListener('click', () => {
+                 const isExpanded = list.classList.toggle('expanded');
+                 for (let i = 25; i < list.children.length; i++) { list.children[i].style.display = isExpanded ? 'flex' : 'none'; }
+                 button.textContent = isExpanded ? 'Show Less (Top 25)' : `Show All ${list.children.length}`;
+             });
+        });
+        // Helper for CSV/JSON download
+        function downloadCSV(csvContent, filename) {
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', filename);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        }
+
+        function downloadJSON(jsonObject, filename) {
+            const jsonContent = JSON.stringify(jsonObject, null, 2);
+            const blob = new Blob([jsonContent], { type: 'application/json;charset=utf-8;' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', filename);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        }
+
+        // Collect triples for current filter state, preserving SpeakerTurn structure
+        function collectFilteredTriples() {
+            const resultTurns = [];
+
+            if (!Array.isArray(window.rawTripleData)) {
+                return resultTurns;
+            }
+
+            const hasActiveFilters =
+                activeTypeFilters.size > 0 ||
+                activePatternFilter ||
+                activeRelationFilter ||
+                activeSearchTerm;
+
+            // No filters -> all triples are visible
+            if (!hasActiveFilters) {
+                return window.rawTripleData;
+            }
+
+            window.rawTripleData.forEach(turn => {
+                if (!Array.isArray(turn.extractions) || turn.extractions.length === 0) {
+                    return;
+                }
+
+                // Group by evidence_text (mirrors Jinja groupby)
+                const groups = new Map();
+                turn.extractions.forEach(extraction => {
+                    const key = extraction.evidence_text || '';
+                    if (!groups.has(key)) {
+                        groups.set(key, []);
+                    }
+                    groups.get(key).push(extraction);
+                });
+
+                const filteredExtractions = [];
+
+                groups.forEach(groupList => {
+                    let isVisible = true;
+
+                    const subjectNames = groupList
+                        .map(ex => (ex.subject_entity && ex.subject_entity.name ? ex.subject_entity.name.toLowerCase() : ''))
+                        .filter(Boolean);
+                    const objectNames = groupList
+                        .map(ex => (ex.object_entity && ex.object_entity.name ? ex.object_entity.name.toLowerCase() : ''))
+                        .filter(Boolean);
+                    const subjectTypes = new Set(
+                        groupList
+                            .map(ex => ex.subject_entity && ex.subject_entity.entity_type)
+                            .filter(Boolean)
+                    );
+                    const objectTypes = new Set(
+                        groupList
+                            .map(ex => ex.object_entity && ex.object_entity.entity_type)
+                            .filter(Boolean)
+                    );
+                    const relationForms = new Set(
+                        groupList
+                            .map(ex => ex.relation && ex.relation.semantic_form)
+                            .filter(Boolean)
+                    );
+                    const relationSurfaces = new Set(
+                        groupList
+                            .map(ex => ex.relation && ex.relation.surface_form)
+                            .filter(Boolean)
+                    );
+                    const patterns = new Set(
+                        groupList
+                            .map(ex => {
+                                if (!ex.subject_entity || !ex.object_entity || !ex.relation) return null;
+                                return `${ex.subject_entity.entity_type}::${ex.relation.semantic_form}::${ex.object_entity.entity_type}`;
+                            })
+                            .filter(Boolean)
+                    );
+                    const evidenceSources = new Set();
+                    groupList.forEach(ex => {
+                        if (Array.isArray(ex.evidence_sources)) {
+                            ex.evidence_sources.forEach(src => {
+                                evidenceSources.add(String(src).toLowerCase());
+                            });
+                        }
+                    });
+                    const evidenceText = (groupList[0] && groupList[0].evidence_text
+                        ? String(groupList[0].evidence_text).toLowerCase()
+                        : '');
+
+                    // Search filter: subject/object name, type, relation, surface form, or evidence contains term
+                    if (isVisible && activeSearchTerm) {
+                        const term = activeSearchTerm;
+                        const nameMatch =
+                            subjectNames.some(n => n.includes(term)) ||
+                            objectNames.some(n => n.includes(term));
+                        const typeMatch =
+                            Array.from(subjectTypes).some(t => String(t).toLowerCase().includes(term)) ||
+                            Array.from(objectTypes).some(t => String(t).toLowerCase().includes(term));
+                        const relationMatch =
+                            Array.from(relationForms).some(r => String(r).toLowerCase().includes(term));
+                        const surfaceMatch =
+                            Array.from(relationSurfaces).some(s => String(s).toLowerCase().includes(term));
+                        const evidenceSourceMatch =
+                            Array.from(evidenceSources).some(s => s.includes(term));
+                        const evidenceTextMatch = evidenceText.includes(term);
+
+                        if (
+                            !(
+                                nameMatch ||
+                                typeMatch ||
+                                relationMatch ||
+                                surfaceMatch ||
+                                evidenceSourceMatch ||
+                                evidenceTextMatch
+                            )
+                        ) {
+                            isVisible = false;
+                        }
+                    }
+
+                    // Type filter: any subject/object type matches
+                    if (isVisible && activeTypeFilters.size > 0) {
+                        let match = false;
+                        for (const t of activeTypeFilters) {
+                            if (subjectTypes.has(t) || objectTypes.has(t)) {
+                                match = true;
+                                break;
+                            }
+                        }
+                        if (!match) isVisible = false;
+                    }
+
+                    // Relation filter: any relation matches
+                    if (isVisible && activeRelationFilter) {
+                        if (!relationForms.has(activeRelationFilter)) {
+                            isVisible = false;
+                        }
+                    }
+
+                    // Pattern filter: requires exact S::R::O presence
+                    if (isVisible && activePatternFilter) {
+                        const key = `${activePatternFilter.s_type}::${activePatternFilter.r_form}::${activePatternFilter.o_type}`;
+                        if (!patterns.has(key)) {
+                            isVisible = false;
+                        }
+                    }
+
+                    if (isVisible) {
+                        filteredExtractions.push(...groupList);
+                    }
+                });
+
+                if (filteredExtractions.length > 0) {
+                    resultTurns.push({
+                        ...turn,
+                        extractions: filteredExtractions
+                    });
+                }
+            });
+
+            return resultTurns;
+        }
+
+        // Individual export routines
+        function exportEntityTypesCSV() {
+            const entityData = {{ all_entity_types | tojson }};
+            const csvHeaders = ['entity_type', 'total_frequency', 'utterance_occurrences'];
+            const csvRows = entityData.map(row => [`"${row.name.replace(/"/g, '""')}"`, row.count, row.utterance_count]);
+            const csvContent = [csvHeaders.join(','), ...csvRows.map(row => row.join(','))].join('\\n');
+            downloadCSV(csvContent, 'entity_type_statistics.csv');
+        }
+
+        function exportPatternAnalyticsAll() {
+            // 1) Entity Type Patterns: Multi-Typed Entities -> Types
+            try {
+                const multiTyped = {{ multi_typed_entities | tojson }};
+                const header1 = 'Multi-Typed Entities,Types';
+                const rows1 = Object.entries(multiTyped).map(([name, types]) => {
+                    const safeName = `"${String(name).replace(/"/g, '""')}"`;
+                    const joinedTypes = `"${(types || []).join(', ').replace(/"/g, '""')}"`;
+                    return `${safeName},${joinedTypes}`;
+                });
+                const content1 = [header1, ...rows1].join('\n');
+                downloadCSV(content1, 'entity_type_patterns.csv');
+            } catch (e) { console.error('Export multi-typed entities failed', e); }
+
+            // 2) Relation Cardinality Patterns
+            try {
+                const oneToOne = {{ one_to_one_relations_sorted | tojson }}; // [ [rel, patterns], ... ]
+                const oneToMany = {{ one_to_many_relations_sorted | tojson }}; // [ rel, ... ]
+                const manyToOne = {{ many_to_one_relations_sorted | tojson }}; // [ rel, ... ]
+                const relFreq = {{ relation_frequency_map | tojson }}; // { rel: count }
+                const topDiverse = {{ top_diverse_relations | tojson }}; // [ {rel, domain_size, range_size}, ... ]
+
+                const lines = [];
+                // One-to-One (by Type)
+                lines.push('One-to-One (by Type),Occurence');
+                oneToOne.forEach(([rel, patterns]) => {
+                    const occ = Array.isArray(patterns) ? patterns.length : 0;
+                    const safeRel = `"${String(rel).replace(/"/g, '""')}"`;
+                    lines.push(`${safeRel},${occ}`);
+                });
+                lines.push('');
+
+                // One-to-Many
+                lines.push('One-to-Many Relations,Occurence');
+                oneToMany.forEach(rel => {
+                    const cnt = relFreq && rel in relFreq ? relFreq[rel] : 0;
+                    const safeRel = `"${String(rel).replace(/"/g, '""')}"`;
+                    lines.push(`${safeRel},${cnt}`);
+                });
+                lines.push('');
+
+                // Many-to-One
+                lines.push('Many-to-One Relations,Occurence');
+                manyToOne.forEach(rel => {
+                    const cnt = relFreq && rel in relFreq ? relFreq[rel] : 0;
+                    const safeRel = `"${String(rel).replace(/"/g, '""')}"`;
+                    lines.push(`${safeRel},${cnt}`);
+                });
+                lines.push('');
+
+                // Top N by Domain/Range Diversity
+                const topN = Array.isArray(topDiverse) ? topDiverse.length : 0;
+                lines.push(`Top ${topN} Relations by Domain/Range Diversity`);
+                lines.push('Relation,Domain Types,Range Types');
+                (topDiverse || []).forEach(item => {
+                    const safeRel = `"${String(item.rel).replace(/"/g, '""')}"`;
+                    lines.push(`${safeRel},${item.domain_size},${item.range_size}`);
+                });
+
+                downloadCSV(lines.join('\n'), 'relation_cardinality_patterns.csv');
+            } catch (e) { console.error('Export relation cardinality patterns failed', e); }
+
+            // 3) Frequent Structural Patterns (all)
+            try {
+                const allPatternsData = {{ all_structural_patterns | tojson }};
+                const csvHeaders = ['structural_pattern', 'frequency'];
+                const csvRows = allPatternsData.map(item => {
+                    const patternTuple = item[0];
+                    const count = item[1];
+                    const patternString = `"${patternTuple[0]} -> ${patternTuple[1]} -> ${patternTuple[2]}"`;
+                    return [patternString, count];
+                });
+                const csvContent = [csvHeaders.join(','), ...csvRows.map(row => row.join(','))].join('\n');
+                downloadCSV(csvContent, 'structural_pattern_statistics.csv');
+            } catch (e) { console.error('Export structural patterns failed', e); }
+        }
+
+        // Combined export card: hook up checkboxes + button
+        const exportSelectedBtn = document.getElementById('export-selected-btn');
+        const exportOptionEntities = document.getElementById('export-option-entities');
+        const exportOptionPatterns = document.getElementById('export-option-patterns');
+        const exportOptionTriples = document.getElementById('export-option-triples');
+
+        function exportFilteredTriplesJSON() {
+            const data = collectFilteredTriples();
+            if (!data || data.length === 0) {
+                alert('No triples match the current filters.');
+                return;
+            }
+            downloadJSON(data, 'filtered_triples.json');
+        }
+
+        if (exportSelectedBtn) {
+            exportSelectedBtn.addEventListener('click', () => {
+                const runEntityExport = exportOptionEntities && exportOptionEntities.checked;
+                const runPatternExport = exportOptionPatterns && exportOptionPatterns.checked;
+                const runTriplesExport = exportOptionTriples && exportOptionTriples.checked;
+
+                if (!runEntityExport && !runPatternExport && !runTriplesExport) {
+                    alert('Please select at least one export option.');
+                    return;
+                }
+
+                if (runEntityExport) {
+                    exportEntityTypesCSV();
+                }
+                if (runPatternExport) {
+                    exportPatternAnalyticsAll();
+                }
+                if (runTriplesExport) {
+                    exportFilteredTriplesJSON();
+                }
+            });
+        }
+
+        // Backwards compatibility: keep standalone triggers if present
+        const exportEntityCSVBtn = document.getElementById('export-entity-csv-btn');
+        if (exportEntityCSVBtn) {
+            exportEntityCSVBtn.addEventListener('click', exportEntityTypesCSV);
+        }
+
+        const exportPatternsCSVBtn = document.getElementById('export-patterns-csv-btn');
+        if (exportPatternsCSVBtn) {
+            exportPatternsCSVBtn.addEventListener('click', () => {
+                const allPatternsData = {{ all_structural_patterns | tojson }};
+                const csvHeaders = ['structural_pattern', 'frequency'];
+                const csvRows = allPatternsData.map(item => {
+                    const patternTuple = item[0];
+                    const count = item[1];
+                    const patternString = `"${patternTuple[0]} -> ${patternTuple[1]} -> ${patternTuple[2]}"`;
+                    return [patternString, count];
+                });
+                const csvContent = [csvHeaders.join(','), ...csvRows.map(row => row.join(','))].join('\n');
+                downloadCSV(csvContent, 'structural_pattern_statistics.csv');
+            });
+        }
+    });
+    </script>
+</body>
+</html>
