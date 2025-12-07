@@ -40,7 +40,7 @@
             /* For less frequent entities */
             --accent-tertiary: #23231f80;
             /* For rare entities */
-            --border-primary: #EAEBEB;
+            --border-primary: #e6e6e6ff;
             --border-secondary: #CBD6E4;
             --accent-bg-subtle: #EEF2FF;
             --shadow-color-rgb: 95, 99, 104;
@@ -261,23 +261,33 @@
             padding-bottom: var(--sp-3);
             border-bottom: 1px solid var(--border-primary);
         }
-        /* ▼▼▼ UPDATED GLOBAL SUMMARY STYLES ▼▼▼ */
         .global-summary-card {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: var(--sp-6);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0;
             margin-bottom: var(--sp-8);
+            background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F7 100%);
+            border-radius: var(--radius-main);
+            border: 1px solid var(--border-primary);
+            padding: var(--sp-5) var(--sp-6);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
         }
         .global-summary-card .stat-item {
             text-align: center;
-            background-color: transparent;
-            padding: var(--sp-4) var(--sp-5);
-            border-radius: var(--radius-main);
-            border: 1px solid var(--border-primary);
-            transition: border-color 0.2s ease;
+            padding: var(--sp-2) var(--sp-4);
+            flex: 1;
+            position: relative;
         }
-        .global-summary-card .stat-item:hover {
-            border-color: var(--border-secondary);
+        .global-summary-card .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 40%;
+            width: 1px;
+            background-color: var(--border-primary);
         }
         .stat-item .value {
             font-size: 1.75rem; /* 28px */
@@ -294,13 +304,13 @@
             text-transform: uppercase;
             margin-top: var(--sp-1);
         }
-        /* ▲▲▲ END GLOBAL SUMMARY STYLES ▲▲▲ */
         .sidebar-panel, .summary-section {
-            background-color: var(--bg-secondary);
+            background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F7 100%);
             border: 1px solid var(--border-primary);
             border-radius: var(--radius-main);
             padding: var(--sp-5) var(--sp-6);
             margin-bottom: var(--sp-6);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
         }
         #analytics-panel {
              background-color: transparent;
@@ -440,6 +450,15 @@
  height: 14px; border-radius: var(--radius-swatch); }
         .patterns-container { display: flex; gap: var(--sp-8); align-items: flex-start;
  }
+        .patterns-list-single { margin: 0; padding-left: 0; list-style: none; font-size: var(--fs-sm); max-height: 400px; overflow-y: auto; }
+        .patterns-list-single li.hidden-by-display { display: none !important; }
+        .patterns-list-single li { margin-bottom: var(--sp-2); color: var(--fg-secondary); display: flex; justify-content: space-between; align-items: baseline; gap: var(--sp-4); padding: var(--sp-1) var(--sp-2); cursor: pointer; }
+        .patterns-list-single li:hover { background-color: var(--bg-secondary); border-radius: var(--radius-inline); }
+        .patterns-list-single li.active-filter { background-color: var(--accent-bg-subtle); border-radius: var(--radius-inline); }
+        .patterns-list-single li .rank { font-weight: 600; color: var(--fg-secondary); min-width: 1.5rem; text-align: right; margin-right: var(--sp-2); }
+        .patterns-list-single li .pattern { font-family: var(--font-mono); color: var(--fg-primary); }
+        .patterns-list-single li .count { font-weight: 600; background: var(--border-primary); padding: 1px 6px; border-radius: var(--radius-inline); font-size: var(--fs-xs); }
+        .patterns-list-single .pattern-rel { color: var(--accent); font-weight: 500; }
         .patterns-column ol { margin: 0; padding-left: 0; list-style: none; font-size: var(--fs-sm);
  }
         .patterns-column li { margin-bottom: var(--sp-2); color: var(--fg-secondary); display: flex; justify-content: space-between;
@@ -922,9 +941,9 @@
                     {% set rel_surfaces_join = group_list | map(attribute='relation') | map(attribute='surface_form') | join('|') %}
                     {% set subj_names_join = group_list | map(attribute='subject_entity') | map(attribute='name') | map('lower') | join('|') %}
                     {% set obj_names_join = group_list | map(attribute='object_entity') | map(attribute='name') | map('lower') | join('|') %}
-                    {% set patterns_join = '' %}
+                    {% set ns = namespace(patterns_join='') %}
                     {% for ex in group_list %}
-                        {% set patterns_join = patterns_join + (patterns_join and '|' or '') + (ex.subject_entity.entity_type ~ '::' ~ ex.relation.semantic_form ~ '::' ~ ex.object_entity.entity_type) %}
+                        {% set ns.patterns_join = ns.patterns_join + (ns.patterns_join and '|' or '') + (ex.subject_entity.entity_type ~ '::' ~ ex.relation.semantic_form ~ '::' ~ ex.object_entity.entity_type) %}
                     {% endfor %}
                     {% set evidence_sources_join = '' %}
                     {% if first.evidence_sources %}
@@ -938,7 +957,7 @@
                          data-relation-surfaces="{{ rel_surfaces_join }}"
                          data-object-types="{{ obj_types_join }}"
                          data-object-names="{{ obj_names_join }}"
-                         data-patterns="{{ patterns_join }}"
+                         data-patterns="{{ ns.patterns_join }}"
                          data-evidence-text="{{ group.grouper }}"
                          data-evidence-sources="{{ evidence_sources_join }}">
 
@@ -987,11 +1006,11 @@
                     </div>
                     <div class="export-options-list">
                         <label class="export-option">
-                            <input type="checkbox" id="export-option-entities" checked>
+                            <input type="checkbox" id="export-option-entities">
                             <span>Entity Types CSV</span>
                         </label>
                         <label class="export-option">
-                            <input type="checkbox" id="export-option-patterns" checked>
+                            <input type="checkbox" id="export-option-patterns">
                             <span>Pattern Analytics (Export All)</span>
                         </label>
                         <label class="export-option">
@@ -1005,13 +1024,10 @@
                     </button>
                 </div>
                 <div class="sidebar-panel" id="filter-and-search-panel">
-                    <h2>Entity Types</h2>
+                    <h2>Entity Types <span style="font-weight: 400; font-size: var(--fs-sm); color: var(--fg-secondary);">(Click to Filter)</span></h2>
                     
                     {% if all_entity_types %}
                     <div>
-                        <div class="section-header-with-actions">
-                            <h3>Entity Types (Click to Filter)</h3>
-                        </div>
                         <div class="legend-container">
                             <div class="legend-item"><div class="legend-color-box" style="background-color: var(--accent);"></div><span>&gt; 3 Utterances</span></div>
                             <div class="legend-item"><div class="legend-color-box" style="background-color: var(--accent-secondary);"></div><span>2-3 Utterances</span></div>
@@ -1161,22 +1177,27 @@
                             <span class="chevron"></span>
                         </div>
                         <div class="collapsible-content">
-                            <div class="patterns-container">
-                                <div>
-                                    <h4>Top 150 Most Frequent</h4>
-                                    <ol id="most-frequent-list">
-                                        {% for pattern, count in most_frequent_patterns %}<li data-filter-subject="{{ pattern[0] }}" data-filter-relation="{{ pattern[1] }}" data-filter-object="{{ pattern[2] }}"><span class="rank">{{ loop.index }}.</span><span class="pattern">{{ pattern[0] }} &rarr; <span class="pattern-rel">{{ pattern[1] }}</span> &rarr; {{ pattern[2] }}</span><span class="count">{{ count }}</span></li>{% endfor %}
-                                    </ol>
-                                    {% if most_frequent_patterns|length > 25 %}<button class="toggle-button" data-target="most-frequent-list">Show All</button>{% endif %}
-                                </div>
-                                <div>
-                                    <h4>Top 150 Least Frequent</h4>
-                                    <ol id="least-frequent-list">
-                                        {% for pattern, count in least_frequent_patterns %}<li data-filter-subject="{{ pattern[0] }}" data-filter-relation="{{ pattern[1] }}" data-filter-object="{{ pattern[2] }}"><span class="rank">{{ loop.index }}.</span><span class="pattern">{{ pattern[0] }} &rarr; <span class="pattern-rel">{{ pattern[1] }}</span> &rarr; {{ pattern[2] }}</span><span class="count">{{ count }}</span></li>{% endfor %}
-                                    </ol>
-                                    {% if least_frequent_patterns|length > 25 %}<button class="toggle-button" data-target="least-frequent-list">Show All</button>{% endif %}
-                                </div>
+                            <div class="patterns-controls" style="display: flex; gap: var(--sp-4); align-items: center; margin-bottom: var(--sp-4); flex-wrap: wrap;">
+                                <label style="display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-sm); color: var(--fg-secondary);">
+                                    Show:
+                                    <select id="patterns-display-count" style="padding: var(--sp-1) var(--sp-2); border-radius: var(--radius-interactive); border: 1px solid var(--border-primary); font-family: var(--font-primary); font-size: var(--fs-sm); background: var(--bg-primary);">
+                                        <option value="10">10</option>
+                                        <option value="25" selected>25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                        <option value="150">150</option>
+                                    </select>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-sm); color: var(--fg-secondary);">
+                                    Sort:
+                                    <button id="patterns-sort-toggle" class="network-control-btn" style="font-size: var(--fs-sm); padding: var(--sp-1) var(--sp-3);" title="Toggle sort order">
+                                        Descending ▼
+                                    </button>
+                                </label>
                             </div>
+                            <ol id="structural-patterns-list" class="patterns-list-single">
+                                {% for pattern, count in most_frequent_patterns %}<li data-filter-subject="{{ pattern[0] }}" data-filter-relation="{{ pattern[1] }}" data-filter-object="{{ pattern[2] }}" data-count="{{ count }}"><span class="rank">{{ loop.index }}.</span><span class="pattern">{{ pattern[0] }} &rarr; <span class="pattern-rel">{{ pattern[1] }}</span> &rarr; {{ pattern[2] }}</span><span class="count">{{ count }}</span></li>{% endfor %}
+                            </ol>
                         </div>
                     </div>
                     {% endif %}
@@ -1197,7 +1218,7 @@
                 </div>
                 <div class="network-controls">
                     <input type="search" id="network-search" placeholder="Search nodes..." class="network-search-input" title="Search for nodes by name">
-                    <button class="network-control-btn" id="physics-toggle" title="Toggle Physics (P)">Physics</button>
+                    <button class="network-control-btn active" id="physics-toggle" title="Toggle Physics (P)">Physics</button>
                     <div class="network-labels-dropdown">
                         <button class="network-control-btn" id="labels-btn" title="Toggle Labels (L)">Labels ▼</button>
                         <div class="labels-menu" id="labels-menu">
@@ -1206,10 +1227,10 @@
                         </div>
                     </div>
                     <div class="network-hops-dropdown">
-                        <button class="network-control-btn" id="hops-btn" title="Set Hop Distance">Hops: +1 ▼</button>
+                        <button class="network-control-btn" id="hops-btn" title="Set Hop Distance">Hops: 0 ▼</button>
                         <div class="hops-menu" id="hops-menu">
-                            <button id="hops-0" data-hops="0">0 (Exact)</button>
-                            <button id="hops-1" data-hops="1" class="active">+1 Hop</button>
+                            <button id="hops-0" data-hops="0" class="active">0 (Exact)</button>
+                            <button id="hops-1" data-hops="1">+1 Hop</button>
                             <button id="hops-2" data-hops="2">+2 Hops</button>
                         </div>
                     </div>
@@ -1253,7 +1274,7 @@
                 this.patternFilter = null;
                 this.relationFilter = null;
                 this.searchTerm = '';
-                this.hopDistance = 1; // Default to +1 hop
+                this.hopDistance = 0; // Default to 0 hops (exact)
             }
             
             updateFilters(typeFilters, patternFilter, relationFilter, searchTerm) {
@@ -1504,54 +1525,58 @@ class NetworkRenderer {
         
         let physicsOptions;
         if (nodeCount <= 150) {
-            // Small networks: BarnesHut with fine-tuned parameters
+            // Small networks: BarnesHut with maximum readability
             physicsOptions = {
                 enabled: this.physicsEnabled,
                 barnesHut: {
-                    gravitationalConstant: -7000,
-                    springLength: 200,
-                    springConstant: 0.05,
-                    avoidOverlap: 0.2
+                    gravitationalConstant: -30000,
+                    springLength: 400,
+                    springConstant: 0.02,
+                    damping: 0.15,
+                    avoidOverlap: 1.0
                 },
+                timestep: 0.5,
                 stabilization: {
                     enabled: true,
-                    iterations: Math.min(200, nodeCount * 2),
+                    iterations: Math.min(500, nodeCount * 5),
                     fit: true
                 }
             };
         } else if (isMediumNetwork) {
-            // Medium networks: ForceAtlas2Based
+            // Medium networks: ForceAtlas2Based with maximum separation
             physicsOptions = {
                 enabled: this.physicsEnabled,
                 forceAtlas2Based: {
-                    gravitationalConstant: -50,
-                    centralGravity: 0.02,
-                    springLength: 170,
-                    springConstant: 0.05,
-                    damping: 0.4,
-                    avoidOverlap: 0.2
+                    gravitationalConstant: -200,
+                    centralGravity: 0.005,
+                    springLength: 350,
+                    springConstant: 0.02,
+                    damping: 0.15,
+                    avoidOverlap: 1.0
                 },
+                timestep: 0.5,
                 stabilization: {
                     enabled: true,
-                    iterations: Math.max(100, Math.min(300, nodeCount)),
+                    iterations: Math.max(200, Math.min(500, nodeCount * 2)),
                     fit: true
                 }
             };
         } else {
-            // Large networks: optimized ForceAtlas2Based
+            // Large networks: optimized ForceAtlas2Based for clarity
             physicsOptions = {
                 enabled: this.physicsEnabled,
                 forceAtlas2Based: {
-                    gravitationalConstant: -50,
-                    centralGravity: 0.02,
-                    springLength: 150,
-                    springConstant: 0.08,
-                    damping: 0.6,
-                    avoidOverlap: 0.3
+                    gravitationalConstant: -150,
+                    centralGravity: 0.005,
+                    springLength: 280,
+                    springConstant: 0.03,
+                    damping: 0.2,
+                    avoidOverlap: 0.9
                 },
+                timestep: 0.5,
                 stabilization: {
                     enabled: true,
-                    iterations: Math.min(150, nodeCount / 2),
+                    iterations: Math.min(300, nodeCount),
                     fit: true
                 }
             };
@@ -2369,10 +2394,15 @@ class NetworkRenderer {
                 }
             }, 500);
             
-            // Disable physics after stabilization
+            // After stabilization, keep physics based on physicsEnabled setting
             this.network.on("stabilizationIterationsDone", () => {
                 console.log('✅ Network stabilization completed');
-                this.network.setOptions({ physics: false });
+                // Keep physics running if it was enabled by default
+                if (this.physicsEnabled) {
+                    console.log('🔄 Physics remains enabled');
+                } else {
+                    this.network.setOptions({ physics: false });
+                }
                 setTimeout(() => {
                     if (this.network) {
                         this.network.fit();
@@ -2816,10 +2846,10 @@ class NetworkRenderer {
 
         const allCards = document.querySelectorAll('.extraction-card');
         const allTurns = document.querySelectorAll('.speaker-turn');
-        const allPatternItems = document.querySelectorAll('.patterns-column li');
+        const allPatternItems = document.querySelectorAll('.patterns-column li, .patterns-list-single li');
         const sidebar = document.getElementById('sidebar');
         const typeFilterContainer = document.getElementById('entity-type-filter-container');
-        const patternLists = document.querySelectorAll('.patterns-column ol');
+        const patternLists = document.querySelectorAll('.patterns-column ol, .patterns-list-single');
         const clearAllFiltersBtn = document.getElementById('clear-all-filters-btn');
         const searchInput = document.getElementById('entity-search-input');
         
@@ -3096,6 +3126,73 @@ class NetworkRenderer {
                  button.textContent = isExpanded ? 'Show Less (Top 25)' : `Show All ${list.children.length}`;
              });
         });
+
+        // Structural Patterns Display Controls
+        (function initPatternDisplayControls() {
+            const patternsList = document.getElementById('structural-patterns-list');
+            const countSelect = document.getElementById('patterns-display-count');
+            const sortToggle = document.getElementById('patterns-sort-toggle');
+            
+            if (!patternsList) return;
+            
+            let isDescending = true; // Default: descending (most frequent first)
+            let displayCount = 25; // Default: 25 items
+            
+            // Store original items with their data for sorting
+            const allItems = Array.from(patternsList.children).map(li => ({
+                element: li,
+                count: parseInt(li.dataset.count, 10) || 0,
+                subject: li.dataset.filterSubject,
+                relation: li.dataset.filterRelation,
+                object: li.dataset.filterObject
+            }));
+            
+            function updateDisplay() {
+                // Sort items
+                const sorted = [...allItems].sort((a, b) => {
+                    return isDescending ? (b.count - a.count) : (a.count - b.count);
+                });
+                
+                // Clear and re-append in sorted order
+                patternsList.innerHTML = '';
+                sorted.forEach((item, index) => {
+                    const li = item.element;
+                    // Update the rank number
+                    const rankSpan = li.querySelector('.rank');
+                    if (rankSpan) {
+                        rankSpan.textContent = (index + 1) + '.';
+                    }
+                    // Show/hide based on displayCount
+                    if (index < displayCount) {
+                        li.classList.remove('hidden-by-display');
+                    } else {
+                        li.classList.add('hidden-by-display');
+                    }
+                    patternsList.appendChild(li);
+                });
+            }
+            
+            // Initialize display
+            updateDisplay();
+            
+            // Count select handler
+            if (countSelect) {
+                countSelect.addEventListener('change', () => {
+                    displayCount = parseInt(countSelect.value, 10);
+                    updateDisplay();
+                });
+            }
+            
+            // Sort toggle handler
+            if (sortToggle) {
+                sortToggle.addEventListener('click', () => {
+                    isDescending = !isDescending;
+                    sortToggle.textContent = isDescending ? 'Descending ▼' : 'Ascending ▲';
+                    updateDisplay();
+                });
+            }
+        })();
+
         // Helper for CSV/JSON download
         function downloadCSV(csvContent, filename) {
             const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
