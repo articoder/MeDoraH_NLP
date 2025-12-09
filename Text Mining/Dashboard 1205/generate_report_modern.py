@@ -22,9 +22,13 @@ def generate_html_report(json_path: str, output_path: str) -> None:
     print(f"    - Output HTML: {output_path}")
 
     try:
-        # 1. Setup Jinja2 Environment
+        # 1. Setup Jinja2 Environment (with support for partials)
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        env = Environment(loader=FileSystemLoader(script_dir), autoescape=True)
+        templates_dir = os.path.join(script_dir, 'templates')
+        env = Environment(
+            loader=FileSystemLoader([script_dir, templates_dir]),
+            autoescape=True
+        )
         template = env.get_template(TEMPLATE_FILE)
         print(f"[*] Successfully loaded template: '{TEMPLATE_FILE}'")
 
