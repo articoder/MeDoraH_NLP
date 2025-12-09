@@ -1,0 +1,87 @@
+/**
+ * Design Tokens
+ * Core design system variables for the LLM Hermeneutic Workbench
+ */
+
+:root {
+    /* 1. Design Tokens: Color Palette */
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F7F7F8;
+    --bg-entitybox: #ffffffff;
+    --fg-primary: #1D2029;
+    --fg-secondary: #5F6368;
+    --fg-on-accent: #FFFFFF;
+    --accent: #4368cdff;
+    --accent-secondary: #035c5cbe;
+    /* For less frequent entities */
+    --accent-tertiary: #23231f80;
+    /* For rare entities */
+    --border-primary: #dfdfdfff;
+    --border-secondary: #CBD6E4;
+    --border-entitybox: #cacacaff;
+    --accent-bg-subtle: #EEF2FF;
+    --shadow-color-rgb: 95, 99, 104;
+    --app-bar-height: 68px; /* Approximate height for calculations */
+
+    /* 2. Design Tokens: Typography */
+    --font-primary: 'Inter', sans-serif;
+    --font-mono: 'Source Code Pro', monospace;
+    --fs-xs: 0.8rem;
+    --fs-sm: 0.9rem;
+    --fs-base: 1rem;
+    --fs-md: 1.1rem;
+    --fs-lg: 1.25rem;
+    --fs-xl: 1.5rem;
+    --fs-display: 2.25rem;
+
+    /* 3. Design Tokens: Spacing & Sizing */
+    --sp-1: 0.25rem;
+    /* 4px */
+    --sp-2: 0.5rem;
+    /* 8px */
+    --sp-3: 0.75rem;
+    /* 12px */
+    --sp-35: 0.875rem;
+    --sp-4: 1rem;
+    /* 16px */
+    --sp-5: 1.25rem;
+    /* 20px */
+    --sp-6: 1.5rem;
+    /* 24px */
+    --sp-8: 2rem;
+    /* 32px */
+    --sp-12: 3rem;
+    /* 48px */
+
+    /* 4. Design Tokens: Borders & Shadows (NEW RADIUS SCALE) */
+    --radius-main: 26px;
+    /* Main containers/cards */
+    --radius-interactive: 10px;
+    /* Form controls/buttons */
+    --radius-inline: 6px;
+    /* Inline tags/code blocks */
+    --radius-swatch: 3px;
+    /* Legend color swatches */
+    --radius-pill: 999px;
+    /* Capsule/chip shapes */
+    --shadow-sm: 0 1px 2px rgba(var(--shadow-color-rgb), 0.05);
+    --shadow-md: 0 4px 6px rgba(var(--shadow-color-rgb), 0.06), 0 1px 3px rgba(var(--shadow-color-rgb), 0.08);
+    --shadow-focus-ring: 0 0 0 3px var(--accent-bg-subtle);
+
+    /* 5. Network Visualization Theme Variables */
+    --net-bg: #FDFCF9;
+    --net-node-label: var(--fg-primary);
+    --net-edge: #C5C5C580;
+    --net-edge-label: var(--fg-secondary);
+    --net-highlight: #FFE066;
+    --net-selected: var(--accent);
+    --net-shadow: rgba(var(--shadow-color-rgb), 0.15);
+    --net-cluster-1: #E69F00;
+    --net-cluster-2: #56B4E9;
+    --net-cluster-3: #009E73;
+    --net-cluster-4: #F0E442;
+    --net-cluster-5: #0072B2;
+    --net-cluster-6: #D55E00;
+    --net-cluster-7: #CC79A7;
+    --net-cluster-8: #999999;
+}
