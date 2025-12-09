@@ -203,8 +203,7 @@ def generate_html_report(json_path: str, output_path: str) -> None:
 
         # 5. Render Template
         html_content = template.render(
-            report_title="Relation Extraction Dashboard", # Renamed for clarity
-            global_stats=global_stats,
+            report_title="LLM Hermeneutic Workbench", global_stats=global_stats,
             speaker_turns=speaker_turns_data,
             all_entity_types=all_entity_types,
             # Pass the categorized lists to the template

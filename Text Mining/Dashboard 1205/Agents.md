@@ -1,21 +1,18 @@
 # Agents.md
 
-This file provides guidance to OpenAI Codex agents when working with code in this repository.
+This file provides guidance to AI coding agents when working with code in this repository.
 
 ## Project Overview
 
-This is a text mining project focused on relation extraction analysis and visualization. The project generates interactive HTML dashboards from JSON data containing extracted semantic triples (subject-relation-object) from text sources, specifically from interview transcripts.
+This is a text mining project focused on semantic triple analysis and visualization. The project generates interactive HTML dashboards from JSON data containing extracted semantic triples (subject-relation-object) from text sources, primarily interview transcripts.
 
 ## Core Architecture
 
 ### Main Components
 - **`generate_report_modern.py`**: Primary report generation script (Version 2.0) with streamlined template integration and network visualization
 - **`semantic_triple_analysis.py`**: Advanced analytics script for comprehensive semantic triple analysis, network topology, and scientific visualization using pandas, networkx, and pyvis
-- **`template_modern.html.j2`**: Self-contained Jinja2 template with embedded CSS/JS, responsive design, interactive filtering, and network visualization modal
-- **`template_modern_fixed.html.j2`**: Stable template variant with resolved JavaScript issues
-- **`template_modern_backup.html.j2`**: Backup template version
-- **`extracted_data.json`**: Input data containing speaker turn objects with semantic triple extractions
-- **Generated HTML reports**: Various output files (network reports, debug versions, etc.)
+- **`template_modern.html.j2`**: Self-contained Jinja2 template (~3500 lines) with embedded CSS/JS, responsive design, interactive filtering, and network visualization modal
+- **`extracted_data.json`**: Sample input data containing speaker turn objects with semantic triple extractions
 
 ### Data Flow Architecture
 1. **Input Processing**: JSON parsing with validation (must be array of speaker turns)
@@ -71,12 +68,7 @@ pip install jinja2
 pip install pandas numpy networkx matplotlib seaborn pyvis
 ```
 
-**Combined installation:**
-```bash
-pip install jinja2 pandas numpy networkx matplotlib seaborn pyvis
-```
-
-Standard library usage: `json`, `argparse`, `collections`, `sys`, `os`, `warnings`, `typing`
+Standard library usage: `json`, `argparse`, `collections`, `sys`, `os`, `typing`
 
 No external package management files (requirements.txt, setup.py) - minimal dependency approach.
 
@@ -100,12 +92,19 @@ SemanticTriple: {
 }
 ```
 
-### Analytics Output Structure
+### Template Context Variables
 The template receives comprehensive analysis data including:
-- `global_stats`: Aggregated metrics across all extractions
+- `report_title`: Dashboard title string
+- `global_stats`: Aggregated metrics (total_extractions, total_speaker_turns, unique_entity_types, unique_entity_names, unique_relations)
+- `speaker_turns`: Full speaker turn data with extractions
 - `all_entity_types`: Sorted entity types with frequency and utterance counts
-- Pattern analysis: Most/least frequent structural patterns
-- Advanced analytics: Multi-typed entities, cardinality patterns, domain/range diversity
+- `entity_types_high_freq/medium_freq/low_freq`: Categorized entity types by utterance frequency
+- `most_frequent_patterns/least_frequent_patterns`: Structural pattern rankings
+- `multi_typed_entities`: Entities appearing as multiple types
+- `subject_only_types/object_only_types`: Role-specific entity types
+- `one_to_one_relations_sorted/one_to_many_relations_sorted/many_to_one_relations_sorted`: Cardinality patterns
+- `top_diverse_relations`: Relations with highest domain/range diversity
+- `relation_frequency_map`: Frequency counts for all relations
 
 ## Configuration Constants
 
@@ -114,53 +113,49 @@ The template receives comprehensive analysis data including:
 - `PATTERN_RANKING_COUNT = 150`: Number of top/bottom patterns to analyze
 - `DIVERSE_RELATION_COUNT = 20`: Number of most diverse relations to display
 
-### Analytics Version (semantic_triple_analysis.py)
-- Uses `extracted_data.json` as default input
-- Generates comprehensive statistical analysis and network visualizations
-- Creates multiple output formats (HTML, network graphs, statistical plots)
-
-### Version Information
-- **Primary version**: 2.0 (generate_report_modern.py:1) - Streamlined analytics with network visualization
-- **Analytics version**: Advanced (semantic_triple_analysis.py:1) - Scientific analysis and visualization
-
-### File Organization
-- Templates must be co-located with respective scripts in same directory
-- Output files generated with UTF-8 encoding
-- Multiple output variants supported (professional, enhanced, modern, etc.)
-
-### Key Differences Between Components
-- **Primary (v2.0)**: Streamlined HTML report generation with network visualization modal, modern design aesthetics
-- **Analytics (Advanced)**: Comprehensive statistical analysis, network topology metrics, scientific visualizations using pandas/networkx/matplotlib
+### Template Design System
+- **Background**: Clean white (`#FFFFFF`) with subtle secondary (`#F7F7F8`)
+- **Typography**: Inter for body, PT Sans Narrow for UI elements, Source Code Pro for code
+- **Accent Colors**: Primary (`#3A87FD`), Secondary (`#E07C3A`), Tertiary (`#5BB98C`)
+- **Entity Badge Colors**: High frequency (blue), Medium (orange), Low (green/teal)
 
 ## Template Features
 
 ### Interactive Capabilities
-- Real-time filtering by entity types, relations, and structural patterns
-- Text search across entity names
-- Collapsible analytics sections
-- CSV export functionality for entity types and structural patterns
-- Responsive design with sticky navigation
-- **Network visualization modal** with interactive graph display (integrated 2025-01)
+- **Real-time filtering**: Filter by entity types, relations, and structural patterns
+- **Text search**: Search across entity names, evidence text, and metadata
+- **Collapsible sections**: Analytics panels collapse/expand for cleaner interface
+- **CSV export**: Export entity types, patterns, and filtered triples
+- **Responsive design**: Optimized for desktop with sticky navigation
 
-### Visual Design System
+### Network Visualization Modal
+- **vis.js Integration**: CDN-loaded library with fallback support
+- **Full-Screen Modal**: 96% viewport coverage with responsive design
+- **Interactive Controls**:
+  - Physics simulation toggle
+  - Node/Edge label toggles with dropdown menu
+  - Hop distance control (0, +1, +2 hops from selection)
+  - Cluster toggle for entity type grouping
+  - Node search within network
+  - Fit-to-view functionality
+- **Export Options**: PNG image, JSON data, CSV edges
+- **Filter Synchronization**: Network respects all active dashboard filters
+- **Keyboard Shortcuts**: P (physics), L (labels), F (fit), C (cluster)
 
-**Standard Template (template.html.j2)**
-- CSS custom properties for consistent theming
-- Three-tier entity frequency classification (high >3, medium 2-3, low <2 utterances)
-- Color-coded badges and interactive elements
-- Professional typography using Inter and Source Code Pro fonts
+### Sidebar Panels
+1. **Export Panel**: Checkbox-based multi-export for entities, patterns, and triples
+2. **Entity Types Panel**: Categorized entity type badges with frequency legend
+3. **Pattern Analytics Panel**: Collapsible sections for:
+   - Entity Type Patterns (multi-typed, subject-only, object-only)
+   - Relation Cardinality Patterns (1:1, 1:N, N:1, diversity metrics)
+   - Frequent Structural Patterns (configurable count, sort toggle)
 
-**Modern Template (template_modern.html.j2)**
-- Updated color palette with warm background (#FDFCF9) and modern accent colors
-- Enhanced typography with improved spacing and contrast
-- Streamlined visual hierarchy with updated CSS variables
-- Modern card-based design with subtle shadows and rounded corners
-- **Network visualization integration**: vis.js-powered interactive graphs in modal overlay
-  - Visualise button in app bar for network graph access
-  - Full-screen modal with responsive network container
-  - Filter synchronization between dashboard and network view
-  - Node coloring by entity type, edge labeling with relations
-  - Physics simulation with user interaction controls
+### Visual Design Updates (2025-12)
+- Modern minimalist aesthetic inspired by Anthropic/OpenAI design language
+- Card-based layout with subtle shadows and 12px border radius
+- Three-tier entity frequency classification with color-coded badges
+- Elegant stat cards without gradient accent bars
+- Fixed position Visualise and Back-to-Top buttons
 
 ## Error Handling
 
@@ -184,38 +179,24 @@ Located in `.claude/settings.local.json`:
 - No external linting/testing frameworks configured
 - Self-contained project with minimal external dependencies
 
-## Recent Updates (2025-01)
+## Recent Updates (2025-12)
 
-### Network Visualization Integration
-Successfully integrated interactive network visualization functionality into the modern template:
+### Visual Redesign
+- Implemented modern, minimalist design aesthetic
+- Updated color palette to professional standards
+- Enhanced typography with improved spacing and contrast
+- Streamlined card designs with refined shadows
 
-**Technical Implementation:**
-- **vis.js Library**: CDN-loaded network visualization library with fallback support
-- **JavaScript Architecture**: Three-class modular system:
-  - `FilterTracker`: Synchronizes dashboard filters with network data
-  - `NetworkRenderer`: Handles vis.js network creation and rendering
-  - `ModalManager`: Controls modal display and network generation timing
-- **Data Processing**: Real-time conversion of semantic triples to network graph format
-- **Container Management**: Automatic dimension validation and fallback sizing for proper rendering
+### UI/UX Improvements
+- Changed entity type badges to rounded rectangles
+- Removed gradient accent bars from cards
+- Added configurable pattern display count and sort toggle
+- Fixed pattern filtering functionality
+- Export options unselected by default
 
-**User Interface:**
-- **Visualise Button**: Located in app bar (top-right) for easy access
-- **Full-Screen Modal**: 96% viewport coverage with responsive design
-- **Filter Integration**: Network respects all active dashboard filters (entity types, relations, patterns, search)
-- **Interactive Features**: Node tooltips, edge labels, physics simulation, zoom/pan controls
-
-**Resolved Issues:**
-- Fixed "Cannot access uninitialized variable" JavaScript errors
-- Improved modal timing and container dimension handling  
-- Enhanced error handling with user-friendly feedback
-- Stabilized network rendering with proper resize sequences
-
-**Files Modified:**
-- `template_modern.html.j2`: Added network visualization UI components and JavaScript classes
-- Maintained backward compatibility with existing dashboard functionality
-
-**Usage:**
-```bash
-python3 generate_report_modern.py -i extracted_data.json -o network_report.html
-# Click "Visualise" button in generated report to access network view
-```
+### Network Visualization Enhancements
+- Added hop distance control for exploring node neighborhoods
+- Implemented node clustering by entity type
+- Added keyboard shortcuts for common actions
+- Improved label toggle with dropdown menu
+- Enhanced search functionality within network view

@@ -32,16 +32,18 @@
             /* 1. Design Tokens: Color Palette */
             --bg-primary: #FFFFFF;
             --bg-secondary: #F7F7F8;
+            --bg-entitybox: #ffffffff;
             --fg-primary: #1D2029;
             --fg-secondary: #5F6368;
             --fg-on-accent: #FFFFFF;
-            --accent: #4d78aaff;
+            --accent: #4368cdff;
             --accent-secondary: #035c5cbe;
             /* For less frequent entities */
             --accent-tertiary: #23231f80;
             /* For rare entities */
-            --border-primary: #e6e6e6ff;
+            --border-primary: #dfdfdfff;
             --border-secondary: #CBD6E4;
+            --border-entitybox: #cacacaff;
             --accent-bg-subtle: #EEF2FF;
             --shadow-color-rgb: 95, 99, 104;
             --app-bar-height: 68px; /* Approximate height for calculations */
@@ -64,6 +66,7 @@
             /* 8px */
             --sp-3: 0.75rem;
             /* 12px */
+            --sp-35: 0.875rem;
             --sp-4: 1rem;
             /* 16px */
             --sp-5: 1.25rem;
@@ -76,7 +79,7 @@
             /* 48px */
 
             /* 4. Design Tokens: Borders & Shadows (NEW RADIUS SCALE) */
-            --radius-main: 12px;
+            --radius-main: 26px;
             /* Main containers/cards */
             --radius-interactive: 10px;
             /* Form controls/buttons */
@@ -150,10 +153,22 @@
             flex: 1;
         }
         .app-bar-title {
-            font-size: var(--fs-lg);
-            font-weight: 600;
+            font-size: var(--fs-xl);
+            font-weight: 700;
             margin: 0;
             flex-shrink: 0;
+        }
+        .app-bar-title-container {
+            display: flex;
+            align-items: baseline;
+            gap: var(--sp-3);
+            flex-shrink: 0;
+        }
+        .layer-indicator {
+            font-size: var(--fs-base);
+            font-weight: 300;
+            color: var(--fg-secondary);
+            white-space: nowrap;
         }
         .app-bar .text-search-input {
             flex: 1;
@@ -266,11 +281,11 @@
             justify-content: space-between;
             align-items: center;
             gap: 0;
-            margin-bottom: var(--sp-8);
+            margin-bottom: var(--sp-3);
             background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F7 100%);
             border-radius: var(--radius-main);
             border: 1px solid var(--border-primary);
-            padding: var(--sp-5) var(--sp-6);
+            padding: var(--sp-1) var(--sp-2);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
         }
         .global-summary-card .stat-item {
@@ -290,9 +305,9 @@
             background-color: var(--border-primary);
         }
         .stat-item .value {
-            font-size: 1.75rem; /* 28px */
-            font-weight: 600;
-            line-height: 1.2;
+            font-size: 1.85rem; /* 28px */
+            font-weight: 700;
+            line-height: 1.3;
             color: #3A3B3F;
             letter-spacing: -0.02em;
         }
@@ -300,9 +315,9 @@
             font-size: 0.7rem; /* 11px */
             font-weight: 500;
             color: var(--fg-secondary);
-            letter-spacing: 0.5px;
+            letter-spacing: 0.4px;
             text-transform: uppercase;
-            margin-top: var(--sp-1);
+            margin-top: var(--sp-2);
         }
         .sidebar-panel, .summary-section {
             background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F7 100%);
@@ -480,7 +495,7 @@
  }
         .turn-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--sp-6); padding-bottom: var(--sp-4);
  border-bottom: 1px solid var(--border-primary); }
-        .turn-speaker-name { font-size: var(--fs-xl); font-weight: 700;
+        .turn-speaker-name { font-size: var(--fs-lg); font-weight: 600;
  }
         .turn-meta { font-size: var(--fs-sm); color: var(--fg-secondary);
  }
@@ -492,8 +507,8 @@
  }
         .sro-triple { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); margin-bottom: var(--sp-6);
  }
-        .entity-box { border: 1px solid var(--border-secondary); border-radius: var(--radius-main); padding: var(--sp-4) var(--sp-5);
- flex-grow: 1; flex-basis: 0; background-color: var(--bg-secondary); display: flex; justify-content: center; align-items: baseline; gap: var(--sp-2);
+        .entity-box { border: 0.5px solid var(--border-entitybox); border-radius: var(--radius-main); padding: var(--sp-35) var(--sp-35);
+ flex-grow: 1; flex-basis: 0; background-color: var(--bg-entitybox); display: flex; justify-content: center; align-items: baseline; gap: var(--sp-2);
  }
         .entity-name { font-size: var(--fs-md); font-weight: 600;
  }
@@ -842,14 +857,302 @@
                 height: 98%;
             }
         }
+
+        /* =====================================================
+           NAVIGATION BAR STYLES
+           ===================================================== */
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-5);
+            margin: 0 auto;
+            padding-right: 140px; /* Account for fixed buttons on the right */
+        }
+
+        .nav-item {
+            position: relative;
+            padding: var(--sp-2) var(--sp-3);
+            font-size: var(--fs-base);
+            font-weight: 300;
+            color: var(--fg-secondary);
+            cursor: pointer;
+            border-radius: var(--radius-interactive);
+            transition: all 0.2s ease;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            gap: var(--sp-1);
+            white-space: nowrap;
+        }
+
+        .nav-item:hover {
+            color: var(--fg-primary);
+            background-color: var(--bg-secondary);
+        }
+
+        .nav-item.active {
+            color: var(--fg-primary);
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+        }
+
+        /* Dropdown arrow indicator */
+        .nav-item.has-dropdown::after {
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 5px solid currentColor;
+            margin-left: var(--sp-1);
+            transition: transform 0.2s ease;
+        }
+
+        .nav-item.has-dropdown.open::after {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown Menu Styles - Frosted Glass Effect */
+        .nav-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            min-width: 200px;
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-main);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1100;
+            overflow: hidden;
+        }
+
+        .nav-item.has-dropdown.open .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .nav-dropdown-item {
+            display: block;
+            padding: var(--sp-3) var(--sp-4);
+            font-size: var(--fs-sm);
+            font-weight: 300;
+            color: var(--fg-secondary);
+            text-decoration: none;
+            transition: all 0.15s ease;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .nav-dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .nav-dropdown-item:hover {
+            background-color: var(--bg-secondary);
+            color: var(--fg-primary);
+            padding-left: calc(var(--sp-4) + 4px);
+        }
+
+        .nav-dropdown-item.active {
+            background-color: var(--accent-bg-subtle);
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* Search Icon Button */
+        .nav-search-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: transparent;
+            border: none;
+            border-radius: var(--radius-interactive);
+            cursor: pointer;
+            color: var(--fg-secondary);
+            transition: all 0.2s ease;
+        }
+
+        .nav-search-btn:hover {
+            background-color: var(--bg-secondary);
+            color: var(--fg-primary);
+        }
+
+        .nav-search-btn svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        /* Expandable Search Container */
+        .nav-search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-search-wrapper {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            width: 0;
+            overflow: hidden;
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background-color: var(--bg-primary);
+            border-radius: var(--radius-interactive);
+            z-index: 10;
+        }
+
+        .nav-search-wrapper.expanded {
+            width: 280px;
+            border: 1px solid var(--border-primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-search-input {
+            width: 100%;
+            padding: var(--sp-2) var(--sp-3);
+            padding-right: 40px;
+            font-size: var(--fs-sm);
+            font-family: var(--font-primary);
+            border: none;
+            border-radius: var(--radius-interactive);
+            background: transparent;
+            outline: none;
+            color: var(--fg-primary);
+        }
+
+        .nav-search-input::placeholder {
+            color: var(--fg-secondary);
+        }
+
+        .nav-search-close {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            color: var(--fg-secondary);
+            transition: all 0.2s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .nav-search-wrapper.expanded .nav-search-close {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .nav-search-close:hover {
+            background-color: var(--bg-secondary);
+            color: var(--fg-primary);
+        }
+
+        .nav-search-close svg {
+            width: 14px;
+            height: 14px;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        /* Mobile responsive nav adjustments */
+        @media (max-width: 1024px) {
+            .main-nav {
+                gap: 0;
+            }
+            .nav-item {
+                padding: var(--sp-1) var(--sp-2);
+                font-size: var(--fs-xs);
+            }
+            .nav-search-wrapper.expanded {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
     <header class="app-bar">
         <div class="app-bar-content">
-            <h1 class="app-bar-title">{{ report_title }}</h1>
-            <input type="search" id="entity-search-input" placeholder="Search entities, types, relations, evidence..." class="text-search-input">
-            <!-- Buttons moved to fixed container outside app-bar -->
+            <div class="app-bar-title-container">
+                <h1 class="app-bar-title">{{ report_title }}</h1>
+                <span class="layer-indicator" id="layer-indicator">| Claim Layer</span>
+            </div>
+            
+            <!-- Main Navigation Bar -->
+            <nav class="main-nav" id="main-nav">
+                <!-- View Layers with Dropdown -->
+                <div class="nav-item has-dropdown" id="nav-view-layers">
+                    <span>View Layers</span>
+                    <div class="nav-dropdown">
+                        <div class="nav-dropdown-item" data-layer="discourse">Discourse Layer</div>
+                        <div class="nav-dropdown-item" data-layer="narrative">Narrative Layer</div>
+                        <div class="nav-dropdown-item" data-layer="claim">Claim Layer</div>
+                        <div class="nav-dropdown-item" data-layer="historical">Historical Reference Layer</div>
+                    </div>
+                </div>
+                
+                <!-- Statistics -->
+                <div class="nav-item" id="nav-statistics">
+                    <span>Statistics</span>
+                </div>
+                
+                <!-- Models & API -->
+                <div class="nav-item" id="nav-models-api">
+                    <span>Models & API</span>
+                </div>
+                
+                <!-- Edit Ontology -->
+                <div class="nav-item" id="nav-edit-ontology">
+                    <span>Edit Ontology</span>
+                </div>
+                
+                <!-- Search Icon with Expandable Search -->
+                <div class="nav-search-container" id="nav-search-container">
+                    <button class="nav-search-btn" id="nav-search-btn" title="Search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                        </svg>
+                    </button>
+                    <div class="nav-search-wrapper" id="nav-search-wrapper">
+                        <input type="search" id="entity-search-input" placeholder="Search entities, types, relations..." class="nav-search-input">
+                        <button class="nav-search-close" id="nav-search-close" title="Close search">
+                            <svg viewBox="0 0 24 24">
+                                <line x1="18" y1="6" x2="6" y2="18"/>
+                                <line x1="6" y1="6" x2="18" y2="18"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </nav>
         </div>
         <div class="app-bar-content app-bar-filters">
             <div id="filter-status" class="filter-status-inline">
@@ -898,25 +1201,25 @@
     <div class="container">
         <main class="two-column-layout">
             <div class="main-content-column">
-                <div class="global-summary-card">
+                <div class="global-summary-card" id="global-summary-card">
                     <div class="stat-item">
-                        <div class="value">{{ global_stats.total_extractions }}</div>
+                        <div class="value" id="stat-total-extractions" data-original="{{ global_stats.total_extractions }}">{{ global_stats.total_extractions }}</div>
                         <div class="label">Total Extractions</div>
                     </div>
                     <div class="stat-item">
-                        <div class="value">{{ global_stats.total_speaker_turns }}</div>
+                        <div class="value" id="stat-speaker-turns" data-original="{{ global_stats.total_speaker_turns }}">{{ global_stats.total_speaker_turns }}</div>
                         <div class="label">Speaker Turns</div>
                     </div>
                     <div class="stat-item">
-                        <div class="value">{{ global_stats.unique_entity_names }}</div>
+                        <div class="value" id="stat-unique-entities" data-original="{{ global_stats.unique_entity_names }}">{{ global_stats.unique_entity_names }}</div>
                         <div class="label">Unique Entities</div>
                     </div>
                     <div class="stat-item">
-                        <div class="value">{{ global_stats.unique_entity_types }}</div>
+                        <div class="value" id="stat-unique-entity-types" data-original="{{ global_stats.unique_entity_types }}">{{ global_stats.unique_entity_types }}</div>
                         <div class="label">Unique Entity Types</div>
                     </div>
                     <div class="stat-item">
-                        <div class="value">{{ global_stats.unique_relations }}</div>
+                        <div class="value" id="stat-unique-relations" data-original="{{ global_stats.unique_relations }}">{{ global_stats.unique_relations }}</div>
                         <div class="label">Unique Relations</div>
                     </div>
                 </div>
@@ -1266,6 +1569,39 @@
     <script>
         // Embed raw triple data for network visualization
         window.rawTripleData = {{ speaker_turns | tojson }};
+        
+        // Utility: Animate number with smooth counting effect
+        function animateNumber(element, targetValue, duration = 400) {
+            if (!element) return;
+            const startValue = parseInt(element.textContent) || 0;
+            const target = parseInt(targetValue) || 0;
+            
+            // Skip animation if values are the same
+            if (startValue === target) return;
+            
+            const startTime = performance.now();
+            const diff = target - startValue;
+            
+            // Easing function for smooth deceleration
+            const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+            
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easedProgress = easeOutQuart(progress);
+                const currentValue = Math.round(startValue + diff * easedProgress);
+                
+                element.textContent = currentValue;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    element.textContent = target; // Ensure final value is exact
+                }
+            }
+            
+            requestAnimationFrame(update);
+        }
         
         // Network Visualization Classes
         class FilterTracker {
@@ -2839,6 +3175,116 @@ class NetworkRenderer {
     <script>
     // THE JAVASCRIPT SECTION REMAINS COMPLETELY UNCHANGED
     document.addEventListener('DOMContentLoaded', () => {
+        // =====================================================
+        // NAVIGATION BAR INTERACTIVITY
+        // =====================================================
+        const navViewLayers = document.getElementById('nav-view-layers');
+        const navSearchBtn = document.getElementById('nav-search-btn');
+        const navSearchWrapper = document.getElementById('nav-search-wrapper');
+        const navSearchClose = document.getElementById('nav-search-close');
+        const navSearchInput = document.getElementById('entity-search-input');
+        const navItems = document.querySelectorAll('.nav-item:not(.has-dropdown)');
+        const navDropdownItems = document.querySelectorAll('.nav-dropdown-item');
+
+        // View Layers dropdown toggle
+        if (navViewLayers) {
+            navViewLayers.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navViewLayers.classList.toggle('open');
+            });
+        }
+
+        // Dropdown item click handling
+        navDropdownItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const layerName = item.getAttribute('data-layer');
+                const layerText = item.textContent;
+                // Remove active class from all dropdown items
+                navDropdownItems.forEach(i => i.classList.remove('active'));
+                // Add active class to clicked item
+                item.classList.add('active');
+                // Close the dropdown
+                navViewLayers.classList.remove('open');
+                // Update layer indicator in title
+                const layerIndicator = document.getElementById('layer-indicator');
+                if (layerIndicator) {
+                    layerIndicator.textContent = `| ${layerText}`;
+                }
+                console.log(`Selected layer: ${layerName}`);
+            });
+        });
+
+        // Regular nav items click (for future feature implementation)
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const itemId = item.id;
+                console.log(`Nav item clicked: ${itemId}`);
+                // Future: implement specific features for each nav item
+            });
+        });
+
+        // Search button click - expand search bar
+        if (navSearchBtn) {
+            navSearchBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (navSearchWrapper) {
+                    navSearchWrapper.classList.add('expanded');
+                    navSearchBtn.style.display = 'none';
+                    setTimeout(() => {
+                        navSearchInput.focus();
+                    }, 300);
+                }
+            });
+        }
+
+        // Close search button
+        if (navSearchClose) {
+            navSearchClose.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (navSearchWrapper) {
+                    navSearchWrapper.classList.remove('expanded');
+                    navSearchBtn.style.display = 'flex';
+                    navSearchInput.value = '';
+                    // Trigger search clear
+                    navSearchInput.dispatchEvent(new Event('input'));
+                }
+            });
+        }
+
+        // Close dropdown and search when clicking outside
+        document.addEventListener('click', (e) => {
+            // Close View Layers dropdown
+            if (navViewLayers && !navViewLayers.contains(e.target)) {
+                navViewLayers.classList.remove('open');
+            }
+            // Close search if clicking outside and it's empty
+            if (navSearchWrapper && navSearchWrapper.classList.contains('expanded')) {
+                if (!navSearchWrapper.contains(e.target) && !navSearchBtn.contains(e.target)) {
+                    if (!navSearchInput.value.trim()) {
+                        navSearchWrapper.classList.remove('expanded');
+                        navSearchBtn.style.display = 'flex';
+                    }
+                }
+            }
+        });
+
+        // Close search on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (navViewLayers) {
+                    navViewLayers.classList.remove('open');
+                }
+                if (navSearchWrapper && navSearchWrapper.classList.contains('expanded')) {
+                    navSearchWrapper.classList.remove('expanded');
+                    navSearchBtn.style.display = 'flex';
+                }
+            }
+        });
+
+        // =====================================================
+        // EXISTING FILTER FUNCTIONALITY
+        // =====================================================
         let activeTypeFilters = new Set();
         let activePatternFilter = null;
         let activeRelationFilter = null; 
@@ -3013,6 +3459,59 @@ class NetworkRenderer {
                 const isVisible = activeTypeFilters.has(item.dataset.filterSubject) || activeTypeFilters.has(item.dataset.filterObject);
                 item.classList.toggle('hidden-by-filter', !isVisible);
             });
+
+            // Update Global Summary Card Statistics
+            const statTotalExtractions = document.getElementById('stat-total-extractions');
+            const statSpeakerTurns = document.getElementById('stat-speaker-turns');
+            const statUniqueEntities = document.getElementById('stat-unique-entities');
+            const statUniqueEntityTypes = document.getElementById('stat-unique-entity-types');
+            const statUniqueRelations = document.getElementById('stat-unique-relations');
+
+            if (hasActiveFilters) {
+                // Calculate stats from visible cards
+                const visibleCards = document.querySelectorAll('.extraction-card:not(.hidden-by-filter)');
+                const visibleTurns = document.querySelectorAll('.speaker-turn:not(.hidden-by-filter)');
+                
+                // Track unique entities, entity types, and relations
+                const uniqueEntities = new Set();
+                const uniqueEntityTypes = new Set();
+                const uniqueRelations = new Set();
+                let totalExtractions = 0;
+
+                visibleCards.forEach(card => {
+                    // Count triples in this card (each sro-triple div is one extraction)
+                    const triplesInCard = card.querySelectorAll('.sro-triple').length;
+                    totalExtractions += triplesInCard || 1;
+
+                    // Parse datasets for unique values
+                    const splitList = (s) => (s ? String(s).split('|').filter(Boolean) : []);
+                    
+                    // Entity names (subjects and objects)
+                    splitList(card.dataset.subjectNames || card.dataset.subjectName).forEach(n => uniqueEntities.add(n));
+                    splitList(card.dataset.objectNames || card.dataset.objectName).forEach(n => uniqueEntities.add(n));
+                    
+                    // Entity types
+                    splitList(card.dataset.subjectTypes || card.dataset.subjectType).forEach(t => uniqueEntityTypes.add(t));
+                    splitList(card.dataset.objectTypes || card.dataset.objectType).forEach(t => uniqueEntityTypes.add(t));
+                    
+                    // Relations
+                    splitList(card.dataset.relationForms || card.dataset.relationForm).forEach(r => uniqueRelations.add(r));
+                });
+
+                // Update DOM with animation
+                animateNumber(statTotalExtractions, totalExtractions);
+                animateNumber(statSpeakerTurns, visibleTurns.length);
+                animateNumber(statUniqueEntities, uniqueEntities.size);
+                animateNumber(statUniqueEntityTypes, uniqueEntityTypes.size);
+                animateNumber(statUniqueRelations, uniqueRelations.size);
+            } else {
+                // Restore original values when no filters are active (with animation)
+                animateNumber(statTotalExtractions, statTotalExtractions?.dataset.original);
+                animateNumber(statSpeakerTurns, statSpeakerTurns?.dataset.original);
+                animateNumber(statUniqueEntities, statUniqueEntities?.dataset.original);
+                animateNumber(statUniqueEntityTypes, statUniqueEntityTypes?.dataset.original);
+                animateNumber(statUniqueRelations, statUniqueRelations?.dataset.original);
+            }
         };
         
         if (sidebar) {
