@@ -1,0 +1,56 @@
+{# Network Modal Partial - Network visualization modal dialog #}
+<div id="network-modal" class="network-modal">
+    <div class="network-modal-content">
+        <div class="network-modal-header">
+            <div class="network-modal-title">
+                <span>Network Visualization</span>
+                <div class="network-legend" id="network-legend" style="display: none;">
+                    <!-- Legend items will be populated dynamically -->
+                </div>
+            </div>
+            <div class="network-controls">
+                <input type="search" id="network-search" placeholder="Search nodes..." class="network-search-input" title="Search for nodes by name">
+                <button class="network-control-btn active" id="physics-toggle" title="Toggle Physics (P)">Physics</button>
+                <div class="network-labels-dropdown">
+                    <button class="network-control-btn" id="labels-btn" title="Toggle Labels (L)">Labels ▼</button>
+                    <div class="labels-menu" id="labels-menu">
+                        <button id="toggle-node-labels" class="active">Node Labels</button>
+                        <button id="toggle-edge-labels">Edge Labels</button>
+                    </div>
+                </div>
+                <div class="network-hops-dropdown">
+                    <button class="network-control-btn" id="hops-btn" title="Set Hop Distance">Hops: 0 ▼</button>
+                    <div class="hops-menu" id="hops-menu">
+                        <button id="hops-0" data-hops="0" class="active">0 (Exact)</button>
+                        <button id="hops-1" data-hops="1">+1 Hop</button>
+                        <button id="hops-2" data-hops="2">+2 Hops</button>
+                    </div>
+                </div>
+                <button class="network-control-btn" id="fit-network" title="Fit Network to View (F)">Fit</button>
+                <button class="network-control-btn" id="cluster-toggle" title="Toggle Clustering (C)">Cluster</button>
+                <div class="network-export-dropdown">
+                    <button class="network-control-btn" id="export-btn" title="Export Network">Export ▼</button>
+                    <div class="export-menu" id="export-menu">
+                        <button id="export-png">PNG Image</button>
+                        <button id="export-json">JSON Data</button>
+                        <button id="export-csv">CSV Edges</button>
+                    </div>
+                </div>
+                <button class="network-modal-close" id="network-modal-close">&times;</button>
+            </div>
+        </div>
+        <div class="network-container">
+            <div class="network-loading" id="network-loading">
+                <div class="loading-spinner"></div>
+                <p>Generating network visualization...</p>
+            </div>
+            <div class="network-info" id="network-info" style="display: none;">
+                <strong>Filtered Network:</strong> <span id="filtered-stats"></span>
+            </div>
+            <div class="network-tips" id="network-tips">
+                💡 <strong>Tips:</strong> Scroll to zoom • Drag to pan • Click nodes for details • Search above • Shortcuts: P(hysics) L(abels) F(it) C(luster)
+            </div>
+            <div id="network-graph" style="width: 100%; height: 100%;"></div>
+        </div>
+    </div>
+</div>

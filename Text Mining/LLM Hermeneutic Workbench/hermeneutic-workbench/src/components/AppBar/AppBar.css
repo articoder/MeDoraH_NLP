@@ -1,0 +1,306 @@
+/* AppBar Two-Tier Navigation Styles (Refined) */
+
+/* =====================================================
+   BRAND ROW - Top tier (simplified)
+   ===================================================== */
+.app-bar-brand-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--sp-3) var(--sp-8);
+    background: transparent;
+    color: var(--fg-primary);
+}
+
+.app-bar-brand-text {
+    display: flex;
+    align-items: baseline;
+    gap: var(--sp-3);
+}
+
+.app-bar-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.02em;
+    color: var(--fg-primary);
+}
+
+.layer-indicator {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.file-indicator {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: 0.75rem;
+    color: var(--fg-secondary);
+    font-weight: 500;
+    margin-left: auto;
+}
+
+.file-indicator svg {
+    opacity: 0.6;
+}
+
+/* =====================================================
+   ACTION ROW - Bottom tier
+   ===================================================== */
+.app-bar-action-row {
+    width: min(calc(100% - 160px), 160rem);
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    padding: var(--sp-3) 0;
+    background: transparent;
+}
+
+/* =====================================================
+   ACTION BUTTONS - Left side
+   ===================================================== */
+.action-buttons-group {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    flex-shrink: 0;
+}
+
+.app-bar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    padding: var(--sp-2) var(--sp-4);
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: var(--radius-interactive);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    border: none;
+}
+
+/* Secondary Button - Outline style */
+.app-bar-btn-secondary {
+    background: transparent;
+    color: var(--fg-primary);
+    border: 1px solid var(--border-secondary);
+}
+
+.app-bar-btn-secondary:hover:not(:disabled) {
+    background: var(--bg-secondary);
+    border-color: var(--fg-secondary);
+    transform: translateY(-1px);
+}
+
+.app-bar-btn-secondary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Primary Button - Solid gradient */
+.app-bar-btn-primary {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(26, 26, 46, 0.25);
+}
+
+.app-bar-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26, 26, 46, 0.35);
+}
+
+.app-bar-btn-primary svg {
+    transition: transform 0.3s ease;
+}
+
+.app-bar-btn-primary:hover svg {
+    transform: rotate(15deg);
+}
+
+/* Ghost Button - Clear filters */
+.app-bar-btn-ghost {
+    background: transparent;
+    color: #dc3545;
+    border: 1px solid transparent;
+}
+
+.app-bar-btn-ghost:hover {
+    background: rgba(220, 53, 69, 0.08);
+    border-color: rgba(220, 53, 69, 0.2);
+}
+
+/* =====================================================
+   NAVIGATION - Pill style, right aligned
+   ===================================================== */
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--bg-secondary);
+    padding: var(--sp-1) var(--sp-1) var(--sp-1) var(--sp-2);
+    border-radius: var(--radius-pill);
+    flex-shrink: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-item {
+    position: relative;
+    padding: var(--sp-2) var(--sp-2);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--fg-secondary);
+    cursor: pointer;
+    border-radius: var(--radius-pill);
+    transition: all 0.2s ease;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: var(--sp-1);
+    white-space: nowrap;
+}
+
+.nav-item:hover {
+    color: var(--fg-primary);
+    background-color: var(--bg-primary);
+}
+
+/* Dropdown arrow */
+.nav-item .dropdown-arrow {
+    transition: transform 0.2s ease;
+    opacity: 0.6;
+}
+
+.nav-item.has-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+    opacity: 1;
+}
+
+/* Dropdown Menu */
+.nav-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 200px;
+    background-color: #fff;
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-main);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1100;
+    overflow: hidden;
+    padding: var(--sp-2) 0;
+}
+
+.nav-item.has-dropdown:hover .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-2) var(--sp-4);
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--fg-secondary);
+    transition: all 0.15s ease;
+    cursor: pointer;
+}
+
+.nav-dropdown-item:hover {
+    background-color: var(--bg-secondary);
+    color: var(--fg-primary);
+}
+
+.nav-dropdown-item.active {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.dropdown-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--border-secondary);
+    flex-shrink: 0;
+}
+
+.dropdown-dot.active {
+    background: var(--accent);
+}
+
+/* =====================================================
+   EXPANDABLE SEARCH - Inside nav pill
+   ===================================================== */
+.nav-search-container {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-search-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    color: var(--fg-secondary);
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.nav-search-toggle:hover {
+    background: var(--bg-primary);
+    color: var(--fg-primary);
+}
+
+.nav-search-input {
+    display: none;
+    width: 0;
+    max-width: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    font-size: 0.85rem;
+    font-family: var(--font-primary);
+    color: var(--fg-primary);
+    outline: none;
+}
+
+.nav-search-input::placeholder {
+    color: var(--fg-secondary);
+    opacity: 0.6;
+}
+
+/* Expanded state */
+.nav-search-container.expanded {
+    background: var(--bg-primary);
+    border-radius: var(--radius-pill);
+    padding-right: var(--sp-3);
+}
+
+.nav-search-container.expanded .nav-search-input {
+    display: block;
+    width: 140px;
+    max-width: 140px;
+    padding: var(--sp-1) 0 var(--sp-1) var(--sp-2);
+}

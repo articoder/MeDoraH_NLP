@@ -1,0 +1,23 @@
+{# Global Summary Partial - Statistics summary card #}
+<div class="global-summary-card" id="global-summary-card">
+    <div class="stat-item">
+        <div class="value" id="stat-total-extractions" data-original="{{ global_stats.total_extractions }}">{{ global_stats.total_extractions }}</div>
+        <div class="label">Total Extractions</div>
+    </div>
+    <div class="stat-item">
+        <div class="value" id="stat-speaker-turns" data-original="{{ global_stats.total_speaker_turns }}">{{ global_stats.total_speaker_turns }}</div>
+        <div class="label">Speaker Turns</div>
+    </div>
+    <div class="stat-item">
+        <div class="value" id="stat-unique-entities" data-original="{{ global_stats.unique_entity_names }}">{{ global_stats.unique_entity_names }}</div>
+        <div class="label">Unique Entities</div>
+    </div>
+    <div class="stat-item">
+        <div class="value" id="stat-unique-entity-types" data-original="{{ global_stats.unique_entity_types }}">{{ global_stats.unique_entity_types }}</div>
+        <div class="label">Unique Entity Types</div>
+    </div>
+    <div class="stat-item">
+        <div class="value" id="stat-unique-relations" data-original="{{ global_stats.unique_relations }}">{{ global_stats.unique_relations }}</div>
+        <div class="label">Unique Relations</div>
+    </div>
+</div>

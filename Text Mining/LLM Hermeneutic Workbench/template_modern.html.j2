@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ report_title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500&family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js" onerror="console.error('Failed to load vis-network from CDN')"></script>
+    <script>
+        // Check if vis.js loaded and provide fallback
+        window.addEventListener('load', function() {
+            if (typeof vis === 'undefined') {
+                console.error('vis.js failed to load from CDN, trying alternative CDN...');
+                const script = document.createElement('script');
+                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/standalone/umd/vis-network.min.js';
+                script.onload = function() {
+                    console.log('vis.js loaded from alternative CDN');
+                };
+                script.onerror = function() {
+                    console.error('vis.js failed to load from alternative CDN too');
+                };
+                document.head.appendChild(script);
+            } else {
+                console.log('vis.js loaded successfully from primary CDN');
+            }
+        });
+    </script>
+    <!-- External CSS Files -->
+    <link rel="stylesheet" href="static/css/design-tokens.css">
+    <link rel="stylesheet" href="static/css/components.css">
+    <link rel="stylesheet" href="static/css/network-modal.css">
+
+
+</head>
+<body>
+    {% include 'partials/_navbar.html.j2' %}
+
+    <div class="container">
+        <main class="two-column-layout">
+            <div class="main-content-column">
+                {% include 'partials/_global_summary.html.j2' %}
+                {% for turn in speaker_turns %}
+                <div class="speaker-turn"
+                     data-speaker-name="{{ turn.speaker_name }}"
+                     data-utterance-order="{{ turn.utterance_order }}">
+                    <div class="turn-header">
+                        <span class="turn-speaker-name">{{ turn.speaker_name }}</span>
+                        <span class="turn-meta">{{ turn.role }} | Utterance #{{ turn.utterance_order }} | {{ turn.extraction_count }} Extractions</span>
+                    </div>
+
+                    {# Group extractions by evidence (same sentence) #}
+                    {% for group in turn.extractions | groupby('evidence_text') %}
+                    {% set group_list = group.list %}
+                    {% set first = group_list[0] %}
+
+                    {# Build aggregated data attributes for filtering across all triples in the card #}
+                    {% set subj_types_join = group_list | map(attribute='subject_entity') | map(attribute='entity_type') | join('|') %}
+                    {% set obj_types_join = group_list | map(attribute='object_entity') | map(attribute='entity_type') | join('|') %}
+                    {% set rel_forms_join = group_list | map(attribute='relation') | map(attribute='semantic_form') | join('|') %}
+                    {% set rel_surfaces_join = group_list | map(attribute='relation') | map(attribute='surface_form') | join('|') %}
+                    {% set subj_names_join = group_list | map(attribute='subject_entity') | map(attribute='name') | map('lower') | join('|') %}
+                    {% set obj_names_join = group_list | map(attribute='object_entity') | map(attribute='name') | map('lower') | join('|') %}
+                    {% set ns = namespace(patterns_join='') %}
+                    {% for ex in group_list %}
+                        {% set ns.patterns_join = ns.patterns_join + (ns.patterns_join and '|' or '') + (ex.subject_entity.entity_type ~ '::' ~ ex.relation.semantic_form ~ '::' ~ ex.object_entity.entity_type) %}
+                    {% endfor %}
+                    {% set evidence_sources_join = '' %}
+                    {% if first.evidence_sources %}
+                        {% set evidence_sources_join = first.evidence_sources | join('|') %}
+                    {% endif %}
+
+                    <div class="extraction-card"
+                         data-subject-types="{{ subj_types_join }}"
+                         data-subject-names="{{ subj_names_join }}"
+                         data-relation-forms="{{ rel_forms_join }}"
+                         data-relation-surfaces="{{ rel_surfaces_join }}"
+                         data-object-types="{{ obj_types_join }}"
+                         data-object-names="{{ obj_names_join }}"
+                         data-patterns="{{ ns.patterns_join }}"
+                         data-evidence-text="{{ group.grouper }}"
+                         data-evidence-sources="{{ evidence_sources_join }}">
+
+                        {# Render each triple within the group, separated by a divider #}
+                        {% for extraction in group_list %}
+                        <div class="sro-triple">
+                            <div class="entity-box subject">
+                                <span class="entity-name">{{ extraction.subject_entity.name }}</span>
+                                {% set subj_utt_count = entity_utterance_counts_map.get(extraction.subject_entity.entity_type, 0) %}
+                                <span class="entity-type-badge {% if subj_utt_count > 3 %}badge-freq-high{% elif subj_utt_count >= 2 %}badge-freq-medium{% else %}badge-freq-low{% endif %}">
+                                    {{ extraction.subject_entity.entity_type }}
+                                </span>
+                            </div>
+                            <div class="relation-link"><span class="relation-semantic-form">{{ extraction.relation.semantic_form }}</span><span class="relation-arrow">&rarr;</span></div>
+                            <div class="entity-box object">
+                                <span class="entity-name">{{ extraction.object_entity.name }}</span>
+                                {% set obj_utt_count = entity_utterance_counts_map.get(extraction.object_entity.entity_type, 0) %}
+                                <span class="entity-type-badge {% if obj_utt_count > 3 %}badge-freq-high{% elif obj_utt_count >= 2 %}badge-freq-medium{% else %}badge-freq-low{% endif %}">
+                                    {{ extraction.object_entity.entity_type }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="relation-details">Surface Form: <code>"{{ extraction.relation.surface_form }}"</code></div>
+                        {% if not loop.last %}<hr class="triple-divider">{% endif %}
+                        {% endfor %}
+
+                        <div class="evidence-section">
+                            <h3>Evidence Source</h3>
+                            <blockquote class="evidence-text">{{ group.grouper }}</blockquote>
+                            <div class="evidence-sources">{% for source_id in first.evidence_sources %}<span class="evidence-id-tag">{{ source_id }}</span>{% endfor %}</div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="extraction-card" style="text-align: center; color: var(--fg-secondary);"><p>No extractions found for this utterance.</p></div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="extraction-card" style="text-align: center; color: var(--fg-secondary);"><p>No speaker turns found in the provided data.</p></div>
+                {% endfor %}
+            </div>
+
+            {% include 'partials/_sidebar.html.j2' %}
+        </main>
+    </div>
+
+    {% include 'partials/_network_modal.html.j2' %}
+
+    <!-- External JavaScript Files -->
+    <script src="static/js/utils.js"></script>
+    <script src="static/js/filter-engine.js"></script>
+    <script src="static/js/network-viz.js"></script>
+    <script src="static/js/main.js"></script>
+
+    <script>
+        // =====================================================
+        // JINJA2 DATA INJECTION
+        // This section MUST remain inline as it uses Jinja2 template expressions
+        // =====================================================
+        
+        // Embed raw triple data for network visualization
+        window.rawTripleData = {{ speaker_turns | tojson }};
+        
+        // Initialize network visualization components after vis.js loads
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeNetworkComponents);
+        } else {
+            initializeNetworkComponents();
+        }
+    </script>
+
+    <script>
+        // =====================================================
+        // EXPORT FUNCTIONS (require Jinja2 data)
+        // =====================================================
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Entity Types CSV Export
+            function exportEntityTypesCSV() {
+                const entityData = {{ all_entity_types | tojson }};
+                const csvHeaders = ['entity_type', 'total_frequency', 'utterance_occurrences'];
+                const csvRows = entityData.map(row => [`"${row.name.replace(/"/g, '""')}"`, row.count, row.utterance_count]);
+                const csvContent = [csvHeaders.join(','), ...csvRows.map(row => row.join(','))].join('\n');
+                downloadCSV(csvContent, 'entity_type_statistics.csv');
+            }
+
+            // Pattern Analytics Export
+            function exportPatternAnalyticsAll() {
+                try {
+                    const multiTyped = {{ multi_typed_entities | tojson }};
+                    const header1 = 'Multi-Typed Entities,Types';
+                    const rows1 = Object.entries(multiTyped).map(([name, types]) => {
+                        const safeName = `"${String(name).replace(/"/g, '""')}"`;
+                        const joinedTypes = `"${(types || []).join(', ').replace(/"/g, '""')}"`;
+                        return `${safeName},${joinedTypes}`;
+                    });
+                    downloadCSV([header1, ...rows1].join('\n'), 'entity_type_patterns.csv');
+                } catch (e) { console.error('Export multi-typed entities failed', e); }
+
+                try {
+                    const oneToOne = {{ one_to_one_relations_sorted | tojson }};
+                    const oneToMany = {{ one_to_many_relations_sorted | tojson }};
+                    const manyToOne = {{ many_to_one_relations_sorted | tojson }};
+                    const relFreq = {{ relation_frequency_map | tojson }};
+                    const topDiverse = {{ top_diverse_relations | tojson }};
+                    const lines = [];
+                    lines.push('One-to-One (by Type),Occurence');
+                    oneToOne.forEach(([rel, patterns]) => lines.push(`"${String(rel).replace(/"/g, '""')}",${Array.isArray(patterns) ? patterns.length : 0}`));
+                    lines.push('', 'One-to-Many Relations,Occurence');
+                    oneToMany.forEach(rel => lines.push(`"${String(rel).replace(/"/g, '""')}",${relFreq && rel in relFreq ? relFreq[rel] : 0}`));
+                    lines.push('', 'Many-to-One Relations,Occurence');
+                    manyToOne.forEach(rel => lines.push(`"${String(rel).replace(/"/g, '""')}",${relFreq && rel in relFreq ? relFreq[rel] : 0}`));
+                    lines.push('', `Top ${topDiverse?.length || 0} Relations by Domain/Range Diversity`, 'Relation,Domain Types,Range Types');
+                    (topDiverse || []).forEach(item => lines.push(`"${String(item.rel).replace(/"/g, '""')}",${item.domain_size},${item.range_size}`));
+                    downloadCSV(lines.join('\n'), 'relation_cardinality_patterns.csv');
+                } catch (e) { console.error('Export relation cardinality patterns failed', e); }
+
+                try {
+                    const allPatternsData = {{ all_structural_patterns | tojson }};
+                    const csvRows = allPatternsData.map(item => [`"${item[0][0]} -> ${item[0][1]} -> ${item[0][2]}"`, item[1]]);
+                    downloadCSV(['structural_pattern,frequency', ...csvRows.map(row => row.join(','))].join('\n'), 'structural_pattern_statistics.csv');
+                } catch (e) { console.error('Export structural patterns failed', e); }
+            }
+
+            function exportFilteredTriplesJSON() {
+                const data = window.collectFilteredTriples ? window.collectFilteredTriples() : [];
+                if (!data || data.length === 0) { alert('No triples match the current filters.'); return; }
+                downloadJSON(data, 'filtered_triples.json');
+            }
+
+            // Export button handlers
+            const exportSelectedBtn = document.getElementById('export-selected-btn');
+            if (exportSelectedBtn) {
+                exportSelectedBtn.addEventListener('click', () => {
+                    const runEntity = document.getElementById('export-option-entities')?.checked;
+                    const runPattern = document.getElementById('export-option-patterns')?.checked;
+                    const runTriples = document.getElementById('export-option-triples')?.checked;
+                    if (!runEntity && !runPattern && !runTriples) { alert('Please select at least one export option.'); return; }
+                    if (runEntity) exportEntityTypesCSV();
+                    if (runPattern) exportPatternAnalyticsAll();
+                    if (runTriples) exportFilteredTriplesJSON();
+                });
+            }
+
+            // Standalone export buttons (backwards compatibility)
+            document.getElementById('export-entity-csv-btn')?.addEventListener('click', exportEntityTypesCSV);
+            document.getElementById('export-patterns-csv-btn')?.addEventListener('click', () => {
+                const allPatternsData = {{ all_structural_patterns | tojson }};
+                const csvRows = allPatternsData.map(item => [`"${item[0][0]} -> ${item[0][1]} -> ${item[0][2]}"`, item[1]]);
+                downloadCSV(['structural_pattern,frequency', ...csvRows.map(row => row.join(','))].join('\n'), 'structural_pattern_statistics.csv');
+            });
+        });
+    </script>
+
+    <!-- Jinja2-dependent export functions (must remain inline due to template expressions) -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Individual export routines
+        function exportEntityTypesCSV() {
+            const entityData = {{ all_entity_types | tojson }};
+            const csvHeaders = ['entity_type', 'total_frequency', 'utterance_occurrences'];
+            const csvRows = entityData.map(row => [`"${row.name.replace(/"/g, '""')}"`, row.count, row.utterance_count]);
+            const csvContent = [csvHeaders.join(','), ...csvRows.map(row => row.join(','))].join('\\n');
+            downloadCSV(csvContent, 'entity_type_statistics.csv');
+        }
+
+        function exportPatternAnalyticsAll() {
+            // 1) Entity Type Patterns: Multi-Typed Entities -> Types
+            try {
+                const multiTyped = {{ multi_typed_entities | tojson }};
+                const header1 = 'Multi-Typed Entities,Types';
+                const rows1 = Object.entries(multiTyped).map(([name, types]) => {
+                    const safeName = `"${String(name).replace(/"/g, '""')}"`;
+                    const joinedTypes = `"${(types || []).join(', ').replace(/"/g, '""')}"`;
+                    return `${safeName},${joinedTypes}`;
+                });
+                const content1 = [header1, ...rows1].join('\n');
+                downloadCSV(content1, 'entity_type_patterns.csv');
+            } catch (e) { console.error('Export multi-typed entities failed', e); }
+
+            // 2) Relation Cardinality Patterns
+            try {
+                const oneToOne = {{ one_to_one_relations_sorted | tojson }}; // [ [rel, patterns], ... ]
+                const oneToMany = {{ one_to_many_relations_sorted | tojson }}; // [ rel, ... ]
+                const manyToOne = {{ many_to_one_relations_sorted | tojson }}; // [ rel, ... ]
+                const relFreq = {{ relation_frequency_map | tojson }}; // { rel: count }
+                const topDiverse = {{ top_diverse_relations | tojson }}; // [ {rel, domain_size, range_size}, ... ]
+
+                const lines = [];
+                // One-to-One (by Type)
+                lines.push('One-to-One (by Type),Occurence');
+                oneToOne.forEach(([rel, patterns]) => {
+                    const occ = Array.isArray(patterns) ? patterns.length : 0;
+                    const safeRel = `"${String(rel).replace(/"/g, '""')}"`;
+                    lines.push(`${safeRel},${occ}`);
+                });
+                lines.push('');
+
+                // One-to-Many
+                lines.push('One-to-Many Relations,Occurence');
+                oneToMany.forEach(rel => {
+                    const cnt = relFreq && rel in relFreq ? relFreq[rel] : 0;
+                    const safeRel = `"${String(rel).replace(/"/g, '""')}"`;
+                    lines.push(`${safeRel},${cnt}`);
+                });
+                lines.push('');
+
+                // Many-to-One
+                lines.push('Many-to-One Relations,Occurence');
+                manyToOne.forEach(rel => {
+                    const cnt = relFreq && rel in relFreq ? relFreq[rel] : 0;
+                    const safeRel = `"${String(rel).replace(/"/g, '""')}"`;
+                    lines.push(`${safeRel},${cnt}`);
+                });
+                lines.push('');
+
+                // Top N by Domain/Range Diversity
+                const topN = Array.isArray(topDiverse) ? topDiverse.length : 0;
+                lines.push(`Top ${topN} Relations by Domain/Range Diversity`);
+                lines.push('Relation,Domain Types,Range Types');
+                (topDiverse || []).forEach(item => {
+                    const safeRel = `"${String(item.rel).replace(/"/g, '""')}"`;
+                    lines.push(`${safeRel},${item.domain_size},${item.range_size}`);
+                });
+
+                downloadCSV(lines.join('\n'), 'relation_cardinality_patterns.csv');
+            } catch (e) { console.error('Export relation cardinality patterns failed', e); }
+
+            // 3) Frequent Structural Patterns (all)
+            try {
+                const allPatternsData = {{ all_structural_patterns | tojson }};
+                const csvHeaders = ['structural_pattern', 'frequency'];
+                const csvRows = allPatternsData.map(item => {
+                    const patternTuple = item[0];
+                    const count = item[1];
+                    const patternString = `"${patternTuple[0]} -> ${patternTuple[1]} -> ${patternTuple[2]}"`;
+                    return [patternString, count];
+                });
+                const csvContent = [csvHeaders.join(','), ...csvRows.map(row => row.join(','))].join('\n');
+                downloadCSV(csvContent, 'structural_pattern_statistics.csv');
+            } catch (e) { console.error('Export structural patterns failed', e); }
+        }
+
+        // Combined export card: hook up checkboxes + button
+        const exportSelectedBtn = document.getElementById('export-selected-btn');
+        const exportOptionEntities = document.getElementById('export-option-entities');
+        const exportOptionPatterns = document.getElementById('export-option-patterns');
+        const exportOptionTriples = document.getElementById('export-option-triples');
+
+        function exportFilteredTriplesJSON() {
+            const data = collectFilteredTriples();
+            if (!data || data.length === 0) {
+                alert('No triples match the current filters.');
+                return;
+            }
+            downloadJSON(data, 'filtered_triples.json');
+        }
+
+        if (exportSelectedBtn) {
+            exportSelectedBtn.addEventListener('click', () => {
+                const runEntityExport = exportOptionEntities && exportOptionEntities.checked;
+                const runPatternExport = exportOptionPatterns && exportOptionPatterns.checked;
+                const runTriplesExport = exportOptionTriples && exportOptionTriples.checked;
+
+                if (!runEntityExport && !runPatternExport && !runTriplesExport) {
+                    alert('Please select at least one export option.');
+                    return;
+                }
+
+                if (runEntityExport) {
+                    exportEntityTypesCSV();
+                }
+                if (runPatternExport) {
+                    exportPatternAnalyticsAll();
+                }
+                if (runTriplesExport) {
+                    exportFilteredTriplesJSON();
+                }
+            });
+        }
+
+        // Backwards compatibility: keep standalone triggers if present
+        const exportEntityCSVBtn = document.getElementById('export-entity-csv-btn');
+        if (exportEntityCSVBtn) {
+            exportEntityCSVBtn.addEventListener('click', exportEntityTypesCSV);
+        }
+
+        const exportPatternsCSVBtn = document.getElementById('export-patterns-csv-btn');
+        if (exportPatternsCSVBtn) {
+            exportPatternsCSVBtn.addEventListener('click', () => {
+                const allPatternsData = {{ all_structural_patterns | tojson }};
+                const csvHeaders = ['structural_pattern', 'frequency'];
+                const csvRows = allPatternsData.map(item => {
+                    const patternTuple = item[0];
+                    const count = item[1];
+                    const patternString = `"${patternTuple[0]} -> ${patternTuple[1]} -> ${patternTuple[2]}"`;
+                    return [patternString, count];
+                });
+                const csvContent = [csvHeaders.join(','), ...csvRows.map(row => row.join(','))].join('\n');
+                downloadCSV(csvContent, 'structural_pattern_statistics.csv');
+            });
+        }
+    });
+    </script>
+</body>
+</html>

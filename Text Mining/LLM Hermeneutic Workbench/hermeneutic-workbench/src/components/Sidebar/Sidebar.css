@@ -1,0 +1,128 @@
+/* Sidebar-specific styles */
+
+.export-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+}
+
+.export-option {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    cursor: pointer;
+    font-size: var(--fs-sm);
+}
+
+.export-option input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--accent);
+}
+
+.export-csv-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    width: 100%;
+    padding: var(--sp-2) var(--sp-4);
+    background-color: #4D4E54;
+    color: #F9F9F7;
+    border: none;
+    border-radius: var(--radius-interactive);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: var(--fs-sm);
+    transition: all 0.2s ease;
+}
+
+.export-csv-btn:hover {
+    background-color: #5D5E64;
+    transform: translateY(-1px);
+}
+
+.entity-type-section {
+    margin-bottom: var(--sp-4);
+}
+
+.entity-type-section h4 {
+    margin-bottom: var(--sp-2);
+}
+
+/* Collapsible sections */
+.collapsible .collapsible-content {
+    max-height: 2000px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.collapsible.collapsed .collapsible-content {
+    max-height: 0;
+    padding: 0;
+}
+
+.collapsible-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: var(--sp-2) 0;
+}
+
+.collapsible-header h3 {
+    margin: 0;
+}
+
+.chevron {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--fg-secondary);
+    transition: transform 0.2s ease;
+}
+
+.collapsible.collapsed .chevron {
+    transform: rotate(-90deg);
+}
+
+/* Patterns controls */
+.patterns-controls {
+    display: flex;
+    gap: var(--sp-4);
+    align-items: center;
+    margin-bottom: var(--sp-4);
+    flex-wrap: wrap;
+}
+
+.patterns-controls label {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-sm);
+    color: var(--fg-secondary);
+}
+
+.patterns-controls select {
+    padding: var(--sp-1) var(--sp-2);
+    border-radius: var(--radius-interactive);
+    border: 1px solid var(--border-primary);
+    font-family: var(--font-primary);
+    font-size: var(--fs-sm);
+    background: var(--bg-primary);
+}
+
+.network-control-btn {
+    padding: var(--sp-1) var(--sp-3);
+    font-size: var(--fs-sm);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-interactive);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.network-control-btn:hover {
+    background: var(--border-primary);
+}

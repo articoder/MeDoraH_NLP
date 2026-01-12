@@ -1,398 +1,549 @@
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>
-<!-- Font imports -->
-<link href="https://fonts.googleapis.com" rel="preconnect" />
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet" />
-<style type="text/css">/* CSS Reset and Variables */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<!DOCTYPE html>
+<html lang="en">
 
-        :root {
-            /* Typography */
-            --font-primary: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            --font-secondary: 'Instrument Serif', Georgia, serif;
-            
-            /* Colors - Consistent with landing page */
-            --color-bg: #F7F5F2;
-            --color-bg-card: #FFFFFF;
-            --color-text-primary: #1A1A1A;
-            --color-text-secondary: #4A4A4A;
-            --color-text-muted: #6B6B6B;
-            --color-accent-coral: #E4725B;
-            --color-accent-blue: #004b6e;
-            --color-accent-sage: #8B9A7B;
-            --color-border: #E5E5E5;
-            
-            /* Spacing */
-            --space-xs: 0.5rem;
-            --space-sm: 1rem;
-            --space-md: 1.5rem;
-            --space-lg: 2rem;
-            --space-xl: 3rem;
-            --space-2xl: 4rem;
-            --space-3xl: 6rem;
-            --space-4xl: 8rem;
-            
-            /* Typography Scale */
-            --text-xs: 0.875rem;
-            --text-sm: 1rem;
-            --text-base: 1.125rem;
-            --text-lg: 1.25rem;
-            --text-xl: 1.5rem;
-            --text-2xl: 2rem;
-            --text-3xl: 2.5rem;
-            --text-4xl: 3.5rem;
-            
-            /* Border Radius */
-            --radius-sm: 0.375rem;
-            --radius-md: 0.75rem;
-            --radius-lg: 1rem;
-            --radius-xl: 1.5rem;
-        }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Team - International Digital Oral History Lab</title>
 
-        /* Base Styles */
-        body {
-            font-family: var(--font-primary);
-            font-weight: 400;
-            background-color: var(--color-bg);
-            color: var(--color-text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+    <!-- Design System -->
+    <link href="CSS_template.css" rel="stylesheet" />
 
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--space-lg);
-        }
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet" />
 
-        /* Page Header */
-        .page-header {
-            padding: var(--space-4xl) 0 var(--space-2xl);
-            text-align: center;
-        }
-
-        .page-header h1 {
-            font-size: var(--text-4xl);
-            font-weight: 600;
-            color: var(--color-text-primary);
-            margin-bottom: var(--space-md);
-            letter-spacing: -0.03em;
-        }
-
-        .page-header .subtitle {
-            font-size: var(--text-xl);
-            color: var(--color-text-secondary);
-            font-family: var(--font-secondary);
-        }
-
-        /* Section Headers */
-        .section-header {
-            margin: var(--space-3xl) 0 var(--space-2xl);
-            padding-bottom: var(--space-md);
-            border-bottom: 2px solid var(--color-border);
-        }
-
-        .section-header h2 {
-            font-size: var(--text-2xl);
-            font-weight: 600;
-            color: var(--color-accent-blue);
-            letter-spacing: -0.02em;
-        }
-
-        /* Team Grid */
-        .team-grid {
+    <style>
+        /* Page-specific styling extensions */
+        .member-card {
             display: flex;
             flex-direction: column;
-            gap: var(--space-lg);
-            margin-bottom: var(--space-3xl);
+            align-items: center;
+            text-align: center;
+            height: 100%;
+            padding: var(--space-xl) !important;
         }
 
-        /* Team Member Card */
-        .team-card {
-            background-color: var(--color-bg-card);
-            border-radius: var(--radius-xl);
-            padding: var(--space-xl);
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-            transition: all 0.3s ease;
-            display: flex;
-            gap: var(--space-xl);
-            align-items: flex-start;
+        .profile-wrapper {
+            position: relative;
+            margin-bottom: var(--space-lg);
+            transition: transform 0.4s ease;
         }
 
-        .team-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        .member-card:hover .profile-wrapper {
+            transform: scale(1.05);
         }
 
-        /* Profile Image */
         .profile-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
+            width: 140px;
+            height: 140px;
+            border-radius: 50% !important;
             object-fit: cover;
-            object-position: center top;
-            flex-shrink: 0;
-            border: 3px solid var(--color-bg);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 4px solid white;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            aspect-ratio: 1 / 1;
         }
 
-        /* Team Member Info */
         .member-info {
-            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            flex-grow: 1;
         }
 
-        .member-info h3 {
-            font-size: var(--text-xl);
+        .member-name {
+            font-family: var(--font-primary);
+            font-size: 1.35rem;
             font-weight: 600;
-            margin-bottom: var(--space-xs);
             color: var(--color-text-primary);
-        }
-
-        .member-info h3 a {
-            color: inherit;
+            margin-bottom: var(--space-xs);
             text-decoration: none;
             transition: color 0.2s ease;
         }
 
-        .member-info h3 a:hover {
-            color: var(--color-accent-blue);
+        .member-card:hover .member-name {
+            color: var(--color-accent-coral);
         }
 
-        .member-title {
-            font-size: var(--text-base);
+        .member-role {
+            font-family: var(--font-primary);
+            font-size: 0.95rem;
             color: var(--color-text-secondary);
-            margin-bottom: var(--space-xs);
             font-weight: 500;
+            margin-bottom: var(--space-xs);
+            line-height: 1.4;
         }
 
-        .member-subtitle {
-            font-size: var(--text-sm);
+        .member-affiliation {
+            font-size: 0.875rem;
             color: var(--color-text-muted);
+            margin-bottom: var(--space-lg);
             font-style: italic;
-            margin-bottom: var(--space-md);
         }
 
-        /* Focus Areas */
-        .focus-areas {
+        .tags-container {
             display: flex;
             flex-wrap: wrap;
-            gap: var(--space-xs);
-            margin-bottom: var(--space-sm);
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: var(--space-lg);
+            width: 100%;
         }
 
-        .focus-tag {
-            background-color: var(--color-bg);
-            color: var(--color-text-secondary);
-            padding: var(--space-xs) var(--space-sm);
-            border-radius: var(--radius-lg);
-            font-size: var(--text-sm);
-            font-weight: 500;
+        .tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            font-weight: 600;
             transition: all 0.2s ease;
+            background-color: #F0F0F0;
+            color: var(--color-text-secondary);
         }
 
-        .focus-tag:hover {
-            background-color: var(--color-accent-blue);
+        .tag:hover {
+            background-color: var(--color-text-primary);
             color: white;
+            transform: translateY(-1px);
         }
 
-        /* Contact Link */
-        .contact-link {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-xs);
-            color: var(--color-accent-blue);
-            text-decoration: none;
-            font-size: var(--text-sm);
-            font-weight: 500;
-            transition: gap 0.2s ease;
+        /* Specific tag colors */
+        .tag-MeDoraH {
+            background-color: rgba(228, 114, 91, 0.1);
+            color: #C45A45;
         }
 
-        .contact-link:hover {
-            gap: var(--space-sm);
+        .tag-MDOH {
+            background-color: rgba(139, 154, 123, 0.15);
+            color: #6E7D60;
         }
 
-        .contact-link::before {
-            content: '✉';
-            font-size: var(--text-base);
+        .tag-Hidden {
+            background-color: rgba(74, 85, 104, 0.1);
+            color: #4A5568;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .page-header h1 {
-                font-size: var(--text-3xl);
-            }
-
-            .team-card {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: var(--space-lg);
-            }
-
-            .profile-image {
-                width: 100px;
-                height: 100px;
-            }
-
-            .focus-areas {
-                justify-content: center;
-            }
+        .contact-btn {
+            margin-top: auto;
+            width: auto;
+            min-width: 120px;
+            justify-content: center;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.9rem;
+            min-height: 36px;
+            /* Slower, smoother transition for leaving hover state */
+            transition: min-width 0.35s cubic-bezier(0.4, 0, 0.2, 1) 0.1s,
+                background-color 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
         }
 
-        /* Subtle animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .contact-btn span {
+            display: inline-block;
+            /* Smooth text transition */
+            transition: opacity 0.15s ease, transform 0.15s ease;
         }
 
-        .team-card {
-            animation: fadeIn 0.6s ease-out;
-            animation-fill-mode: both;
+        /* Hover Effect: Show Email - faster expand on enter */
+        .contact-btn:hover {
+            min-width: 220px;
+            background: var(--color-text-primary);
+            color: white;
+            border-color: var(--color-text-primary);
+            /* Faster transition when entering hover */
+            transition: min-width 0.25s cubic-bezier(0.25, 1, 0.5, 1),
+                background-color 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease;
         }
 
-        .team-card:nth-child(1) { animation-delay: 0.1s; }
-        .team-card:nth-child(2) { animation-delay: 0.2s; }
-        .team-card:nth-child(3) { animation-delay: 0.3s; }
-        .team-card:nth-child(4) { animation-delay: 0.4s; }
-        .team-card:nth-child(5) { animation-delay: 0.5s; }
-        .team-card:nth-child(6) { animation-delay: 0.6s; }
-</style>
-<!-- Main Content -->
-<main class="container"><!-- Principal Investigators Section -->
-<div class="section-header">
-<h2>Principal Investigators &amp; Directors</h2>
-</div>
+        /* Success State - stays expanded regardless of hover */
+        .contact-btn.copied {
+            background-color: #4CAF50 !important;
+            border-color: #4CAF50 !important;
+            color: white !important;
+            min-width: 200px !important;
+            cursor: default;
+            /* Smooth transition for copied state */
+            transition: min-width 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.15s,
+                background-color 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease;
+        }
 
-<div class="team-grid"><!-- Dr Andrew Flynn -->
-<div class="team-card"><img alt="Dr Andrew Flynn" class="profile-image" src="https://profiles.ucl.ac.uk/9621-andrew-flinn/thumbnail" />
-<div class="member-info">
-<h3><a href="https://profiles.ucl.ac.uk/9621-andrew-flinn/about">Dr Andrew Flynn</a></h3>
+        /* Section dividers */
+        .section-title {
+            position: relative;
+            padding-bottom: var(--space-md);
+            margin-bottom: var(--space-2xl);
+            margin-top: var(--space-4xl);
+            border-bottom: 1px solid var(--color-border);
+        }
 
-<p class="member-title">Reader in Archival Studies and Oral History, UCL</p>
+        .section-title h2 {
+            font-family: var(--font-secondary);
+            font-size: 2.5rem;
+            color: var(--color-text-primary);
+            margin-bottom: 0;
+        }
 
-<p class="member-subtitle">Vice Dean for Postgraduate Research and Faculty Graduate Tutor (Research) in the Faculty of Arts and Humanities</p>
+        .hero {
+            padding: var(--space-xl) 0 var(--space-xl);
+            margin-bottom: var(--space-xl);
+            border-bottom: 1px solid var(--color-border);
+        }
 
-<div class="focus-areas"><span class="focus-tag">MeDoraH</span> <span class="focus-tag">MDOH</span> <span class="focus-tag">Hidden Histories</span></div>
-<a class="contact-link" href="mailto:a.flinn@ucl.ac.uk">a.flinn@ucl.ac.uk</a></div>
-</div>
-<!-- Prof Dr Julianne Nyhan -->
+        .hero .tagline {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-left: 0.25rem;
+            text-align: left;
+        }
 
-<div class="team-card"><img alt="Prof Dr Julianne Nyhan" class="profile-image" src="https://hiddenhistories.net/files/asset/c7b60362b7b6af5ec0f8aab8e5210a7734a22bd3.jpg" />
-<div class="member-info">
-<h3><a href="https://profiles.ucl.ac.uk/29443-julianne-nyhan">Prof Dr Julianne Nyhan</a></h3>
+        /* Footer override for this page */
+        .footer-cta {
+            text-align: center;
+            padding: var(--space-4xl) 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(228, 114, 91, 0.03) 100%);
+            margin-top: var(--space-4xl);
+            border-top: 1px solid var(--color-border);
+        }
+    </style>
+</head>
 
-<p class="member-title">Chair of Humanities Data Science and Methodology, TU Darmstadt</p>
+<body>
 
-<p class="member-subtitle">Managing Director at the Institute of History, TU Darmstadt | Professor Emerita of Digital Humanities, UCL</p>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" style="padding-bottom: var(--space-xl);">
+            <div class="container">
+                <h1>Research <span style="color: var(--color-text-muted);">Team</span></h1>
+                <p class="tagline">The minds behind the International Digital Oral History Lab.</p>
+            </div>
+        </section>
 
-<div class="focus-areas"><span class="focus-tag">MeDoraH</span> <span class="focus-tag">MDOH</span> <span class="focus-tag">Hidden Histories</span></div>
-<a class="contact-link" href="mailto:j.nyhan@ucl.ac.uk">j.nyhan@ucl.ac.uk</a></div>
-</div>
-<!-- Dr Andreas Vlachidis -->
+        <div class="container">
 
-<div class="team-card"><img alt="Dr Andreas Vlachidis" class="profile-image" src="https://profiles.ucl.ac.uk/57279-andreas-vlachidis/thumbnail" />
-<div class="member-info">
-<h3><a href="https://profiles.ucl.ac.uk/57279-andreas-vlachidis/about">Dr Andreas Vlachidis</a></h3>
+            <!-- Principal Investigators -->
+            <div class="section-title">
+                <h2>Principal Investigators & Directors</h2>
+            </div>
 
-<p class="member-title">Associate Professor of Information Science, UCL</p>
+            <div class="cards-grid-3">
+                <!-- Andrew Flinn -->
+                <div class="card member-card">
+                    <div class="profile-wrapper">
+                        <img src="https://profiles.ucl.ac.uk/9621-andrew-flinn/thumbnail" alt="Prof Andrew Flinn"
+                            class="profile-image" />
+                    </div>
+                    <div class="member-info">
+                        <a href="https://profiles.ucl.ac.uk/9621-andrew-flinn/about" class="member-name">Prof Andrew
+                            Flinn</a>
+                        <p class="member-role">Professor of Archival Studies and Oral History</p>
+                        <p class="member-affiliation">UCL Faculty of Arts and Humanities</p>
 
-<div class="focus-areas"><span class="focus-tag">MeDoraH</span> <span class="focus-tag">MDOH</span></div>
-<a class="contact-link" href="mailto:a.vlachidis@ucl.ac.uk">a.vlachidis@ucl.ac.uk</a></div>
-</div>
-</div>
-<!-- Research Staff Section -->
+                        <div class="tags-container">
+                            <span class="tag tag-Hidden">Hidden Histories</span>
+                            <span class="tag tag-MDOH">MDOH</span>
+                            <span class="tag tag-MeDoraH">MeDoraH</span>
+                        </div>
+                    </div>
+                    <a href="mailto:a.flinn@ucl.ac.uk" class="btn btn-secondary contact-btn"
+                        data-email="a.flinn@ucl.ac.uk"><span>Contact</span></a>
+                </div>
 
-<div class="section-header">
-<h2>Research Staff</h2>
-</div>
+                <!-- Julianne Nyhan -->
+                <div class="card member-card">
+                    <div class="profile-wrapper">
+                        <img src="https://hiddenhistories.net/files/asset/c7b60362b7b6af5ec0f8aab8e5210a7734a22bd3.jpg"
+                            alt="Prof Dr Julianne Nyhan" class="profile-image" />
+                    </div>
+                    <div class="member-info">
+                        <a href="https://profiles.ucl.ac.uk/29443-julianne-nyhan" class="member-name">Prof Dr Julianne
+                            Nyhan</a>
+                        <p class="member-role">Chair of Humanities Data Science and Methodology</p>
+                        <p class="member-affiliation">TU Darmstadt & UCL</p>
 
-<div class="team-grid"><!-- Dr Marco Humbel -->
-<div class="team-card"><img alt="Dr Marco Humbel" class="profile-image" src="https://profiles.ucl.ac.uk/67801-marco-humbel/thumbnail" />
-<div class="member-info">
-<h3><a href="https://profiles.ucl.ac.uk/67801-marco-humbel">Dr Marco Humbel</a></h3>
+                        <div class="tags-container">
+                            <span class="tag tag-Hidden">Hidden Histories</span>
+                            <span class="tag tag-MDOH">MDOH</span>
+                            <span class="tag tag-MeDoraH">MeDoraH</span>
+                        </div>
+                    </div>
+                    <a href="mailto:j.nyhan@ucl.ac.uk" class="btn btn-secondary contact-btn"
+                        data-email="j.nyhan@ucl.ac.uk"><span>Contact</span></a>
+                </div>
 
-<p class="member-title">Research Fellow, UCL</p>
+                <!-- Andreas Vlachidis -->
+                <div class="card member-card">
+                    <div class="profile-wrapper">
+                        <img src="https://profiles.ucl.ac.uk/57279-andreas-vlachidis/thumbnail"
+                            alt="Dr Andreas Vlachidis" class="profile-image" />
+                    </div>
+                    <div class="member-info">
+                        <a href="https://profiles.ucl.ac.uk/57279-andreas-vlachidis/about" class="member-name">Dr
+                            Andreas Vlachidis</a>
+                        <p class="member-role">Associate Professor of Information Science</p>
+                        <p class="member-affiliation">UCL</p>
 
-<p class="member-subtitle">Postdoctoral Researcher, TU Darmstadt</p>
+                        <div class="tags-container">
+                            <span class="tag tag-MDOH">MDOH</span>
+                            <span class="tag tag-MeDoraH">MeDoraH</span>
+                        </div>
+                    </div>
+                    <a href="mailto:a.vlachidis@ucl.ac.uk" class="btn btn-secondary contact-btn"
+                        data-email="a.vlachidis@ucl.ac.uk"><span>Contact</span></a>
+                </div>
+            </div>
 
-<div class="focus-areas"><span class="focus-tag">MeDoraH</span></div>
-<a class="contact-link" href="mailto:marco.humbel.17@ucl.ac.uk">marco.humbel.17@ucl.ac.uk</a></div>
-</div>
-<!-- Dr Frieda Schmidt -->
+            <!-- Research Staff -->
+            <div class="section-title">
+                <h2>Research Staff</h2>
+            </div>
 
-<div class="team-card"><img alt="Dr Frieda Schmidt" class="profile-image" src="https://www.geschichte.tu-darmstadt.de/media/geschichte/ifg/medien_hds/veranstaltungen_1/FS_Schmidt_Frieda_page-0001-768x432_0x415.jpg" />
-<div class="member-info">
-<h3><a href="https://www.geschichte.tu-darmstadt.de/institut_fuer_geschichte_1/ifg_kontaktdetails_67520.en.jsp">Dr Frieda Schmidt</a></h3>
+            <div class="cards-grid-3">
+                <!-- Frieda Schmidt -->
+                <div class="card member-card">
+                    <div class="profile-wrapper">
+                        <img src="https://www.geschichte.tu-darmstadt.de/media/geschichte/ifg/medien_hds/veranstaltungen_1/FS_Schmidt_Frieda_page-0001-768x432_0x415.jpg"
+                            alt="Dr Frieda Schmidt" class="profile-image" />
+                    </div>
+                    <div class="member-info">
+                        <a href="https://www.geschichte.tu-darmstadt.de/institut_fuer_geschichte_1/ifg_kontaktdetails_67520.en.jsp"
+                            class="member-name">Dr Frieda Schmidt</a>
+                        <p class="member-role">Postdoctoral Researcher</p>
+                        <p class="member-affiliation">TU Darmstadt</p>
 
-<p class="member-title">Postdoctoral Researcher, TU Darmstadt</p>
+                        <div class="tags-container">
+                            <span class="tag tag-MeDoraH">MeDoraH</span>
+                        </div>
+                    </div>
+                    <a href="mailto:schmidt@pg.tu-darmstadt.de" class="btn btn-secondary contact-btn"
+                        data-email="schmidt@pg.tu-darmstadt.de"><span>Contact</span></a>
+                </div>
 
-<div class="focus-areas"><span class="focus-tag">MeDoraH</span></div>
-<a class="contact-link" href="mailto:schmidt@pg.tu-darmstadt.de">schmidt@pg.tu-darmstadt.de</a></div>
-</div>
-<!-- Dr Aleksey Varfolomeyev -->
+                <!-- Aleksey Varfolomeyev -->
+                <div class="card member-card">
+                    <div class="profile-wrapper">
+                        <img src="https://www.geschichte.tu-darmstadt.de/media/geschichte/ifg/medien_hds/personal_1/Foto_Aleksey_Varfolomeyev_890x890_415x415.jpg"
+                            alt="Dr Aleksey Varfolomeyev" class="profile-image" />
+                    </div>
+                    <div class="member-info">
+                        <a href="https://www.geschichte.tu-darmstadt.de/institut_fuer_geschichte_1/ifg_kontaktdetails_69504.en.jsp"
+                            class="member-name">Dr Aleksey Varfolomeyev</a>
+                        <p class="member-role">Postdoctoral Researcher</p>
+                        <p class="member-affiliation">TU Darmstadt</p>
 
-<div class="team-card"><img alt="Dr Aleksey Varfolomeyev" class="profile-image" src="https://www.geschichte.tu-darmstadt.de/media/geschichte/ifg/medien_hds/personal_1/Foto_Aleksey_Varfolomeyev_890x890_415x415.jpg" />
-<div class="member-info">
-<h3><a href="https://www.geschichte.tu-darmstadt.de/institut_fuer_geschichte_1/ifg_kontaktdetails_69504.en.jsp">Dr Aleksey Varfolomeyev</a></h3>
+                        <div class="tags-container">
+                            <span class="tag tag-MDOH">MDOH</span>
+                            <span class="tag tag-MeDoraH">MeDoraH</span>
+                        </div>
+                    </div>
+                    <a href="mailto:varfolomeyev@pg.tu-darmstadt.de" class="btn btn-secondary contact-btn"
+                        data-email="varfolomeyev@pg.tu-darmstadt.de"><span>Contact</span></a>
+                </div>
 
-<p class="member-title">Technical Assistant, TU Darmstadt</p>
+                <!-- Jiajie Zhang -->
+                <div class="card member-card">
+                    <div class="profile-wrapper">
+                        <img src="https://profiles.ucl.ac.uk/99799-jiajie-zhang/thumbnail" alt="Dr Jiajie Zhang"
+                            class="profile-image" />
+                    </div>
+                    <div class="member-info">
+                        <a href="https://profiles.ucl.ac.uk/99799-jiajie-zhang/about" class="member-name">Dr Jiajie
+                            Zhang</a>
+                        <p class="member-role">Research Associate</p>
+                        <p class="member-affiliation">UCL</p>
 
-<div class="focus-areas"><span class="focus-tag">MDOH</span></div>
-<a class="contact-link" href="mailto:varfolomeyev@pg.tu-darmstadt.de">varfolomeyev@pg.tu-darmstadt.de</a></div>
-</div>
-<!-- Dr Jiajie Zhang -->
+                        <div class="tags-container">
+                            <span class="tag tag-MeDoraH">MeDoraH</span>
+                        </div>
+                    </div>
+                    <a href="mailto:jiajie.zhang@ucl.ac.uk" class="btn btn-secondary contact-btn"
+                        data-email="jiajie.zhang@ucl.ac.uk"><span>Contact</span></a>
+                </div>
+            </div>
 
-<div class="team-card"><img alt="Dr Jiajie Zhang" class="profile-image" src="https://profiles.ucl.ac.uk/99799-jiajie-zhang/thumbnail" />
-<div class="member-info">
-<h3><a href="https://profiles.ucl.ac.uk/99799-jiajie-zhang/about">Dr Jiajie Zhang</a></h3>
+            <!-- Affiliates & Students (Grouped for layout balance, or separate) -->
+            <!-- Affiliates -->
+            <div class="section-title">
+                <h2>Affiliates</h2>
+            </div>
 
-<p class="member-title">Research Associate, UCL</p>
+            <div class="cards-grid-3">
+                <!-- Marco Humbel -->
+                <div class="card member-card">
+                    <div class="profile-wrapper">
+                        <img src="https://profiles.ucl.ac.uk/67801-marco-humbel/thumbnail" alt="Dr Marco Humbel"
+                            class="profile-image" />
+                    </div>
+                    <div class="member-info">
+                        <a href="https://profiles.ucl.ac.uk/67801-marco-humbel" class="member-name">Dr Marco Humbel</a>
+                        <p class="member-role">The National Archives, UK</p>
+                        <p class="member-affiliation">Honorary Research Fellow, UCL</p>
 
-<div class="focus-areas"><span class="focus-tag">MeDoraH</span></div>
-<a class="contact-link" href="mailto:jiajie.zhang@ucl.ac.uk">jiajie.zhang@ucl.ac.uk</a></div>
-</div>
-</div>
-<!-- Student Assistants Section -->
+                        <div class="tags-container">
+                            <span class="tag tag-MeDoraH">MeDoraH</span>
+                        </div>
+                    </div>
+                    <a href="mailto:marco.humbel.17@ucl.ac.uk" class="btn btn-secondary contact-btn"
+                        data-email="marco.humbel.17@ucl.ac.uk"><span>Contact</span></a>
+                </div>
+            </div>
 
-<div class="section-header">
-<h2>Student Assistants</h2>
-</div>
+            <!-- Student Assistants -->
+            <div class="section-title">
+                <h2>Student Assistants</h2>
+            </div>
 
-<div class="team-grid"><!-- Valentina Prishchepova -->
-<div class="team-card"><img alt="Valentina Prishchepova" class="profile-image" src="https://hiddenhistories.net/files/asset/61f24a8c8ab409ac86e60735e0be86ac67b30e12.jpg" />
-<div class="member-info">
-<h3>Valentina Prishchepova</h3>
+            <div class="cards-grid-3">
+                <!-- Valentina Prishchepova -->
+                <div class="card member-card">
+                    <div class="profile-wrapper">
+                        <img src="https://hiddenhistories.net/files/asset/61f24a8c8ab409ac86e60735e0be86ac67b30e12.jpg"
+                            alt="Valentina Prishchepova" class="profile-image" />
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Valentina Prishchepova</h3>
+                        <p class="member-role">Student Assistant</p>
+                        <p class="member-affiliation">TU Darmstadt</p>
 
-<p class="member-title">Student Assistant, TU Darmstadt</p>
+                        <div class="tags-container">
+                            <span class="tag tag-MeDoraH">MeDoraH</span>
+                        </div>
+                    </div>
+                    <a href="mailto:valentina.prishchepova@stud.tu-darmstadt.de" class="btn btn-secondary contact-btn"
+                        data-email="valentina.prishchepova@stud.tu-darmstadt.de"><span>Contact</span></a>
+                </div>
 
-<div class="focus-areas"><span class="focus-tag">MeDoraH</span></div>
-<a class="contact-link" href="mailto:valentina.prishchepova@stud.tu-darmstadt.de">valentina.prishchepova@stud.tu-darmstadt.de</a></div>
-</div>
-<!-- Florian Elleringmann -->
+                <!-- Florian Elleringmann -->
+                <div class="card member-card">
+                    <div class="profile-wrapper">
+                        <img src="https://hiddenhistories.net/files/asset/ff984c6ca305347521db82b2901dec81196bb5b2.jpg"
+                            alt="Florian Elleringmann" class="profile-image" />
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Florian Elleringmann</h3>
+                        <p class="member-role">Student Assistant</p>
+                        <p class="member-affiliation">TU Darmstadt</p>
 
-<div class="team-card"><img alt="Florian Elleringmann" class="profile-image" src="https://hiddenhistories.net/files/asset/ff984c6ca305347521db82b2901dec81196bb5b2.jpg" />
-<div class="member-info">
-<h3>Florian Elleringmann</h3>
+                        <div class="tags-container">
+                            <span class="tag tag-MDOH">MDOH</span>
+                            <span class="tag tag-MeDoraH">MeDoraH</span>
+                        </div>
+                    </div>
+                    <a href="mailto:florian.elleringmann@stud.tu-darmstadt.de" class="btn btn-secondary contact-btn"
+                        data-email="florian.elleringmann@stud.tu-darmstadt.de"><span>Contact</span></a>
+                </div>
+            </div>
 
-<p class="member-title">Student Assistant, TU Darmstadt</p>
+        </div>
 
-<div class="focus-areas"><span class="focus-tag">MeDoraH</span> <span class="focus-tag">MDOH</span></div>
-<a class="contact-link" href="mailto:florian.elleringmann@stud.tu-darmstadt.de">florian.elleringmann@stud.tu-darmstadt.de</a></div>
-</div>
-</div>
-</main>
+        <!-- Footer -->
+        <section class="footer-cta">
+            <div class="container">
+                <h2 style="font-size: 2rem; margin-bottom: 1rem;">Join our community</h2>
+                <p style="font-size: 1.125rem; color: var(--color-text-secondary); margin-bottom: 2rem;">We invite
+                    students, researchers, and practitioners to explore with us.</p>
+                <div class="button-group" style="justify-content: center;">
+                    <a href="mailto:j.nyhan@ucl.ac.uk" class="btn btn-primary">Contact the Lab</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactBtns = document.querySelectorAll('.contact-btn[data-email]');
+
+            contactBtns.forEach(btn => {
+                const textSpan = btn.querySelector('span');
+                const originalText = "Contact";
+                const email = btn.getAttribute('data-email');
+                let isLocked = false; // Prevent interactions during cooldown
+
+                // Helper to change text smoothly
+                function updateText(newText, callback) {
+                    textSpan.style.opacity = '0';
+                    textSpan.style.transform = 'translateY(5px)';
+
+                    setTimeout(() => {
+                        textSpan.textContent = newText;
+                        textSpan.style.opacity = '1';
+                        textSpan.style.transform = 'translateY(0)';
+                        if (callback) callback();
+                    }, 150); // Match CSS transition timing
+                }
+
+                // Hover effect: Show email
+                btn.addEventListener('mouseenter', () => {
+                    if (!btn.classList.contains('copied') && !isLocked) {
+                        updateText(email);
+                    }
+                });
+
+                btn.addEventListener('mouseleave', () => {
+                    if (!btn.classList.contains('copied') && !isLocked) {
+                        updateText(originalText);
+                    }
+                });
+
+                // Click effect: Copy to clipboard
+                btn.addEventListener('click', async (e) => {
+                    e.preventDefault();
+
+                    // Ignore clicks during locked/cooldown period
+                    if (isLocked) return;
+
+                    // Lock the button IMMEDIATELY to prevent any hover interactions
+                    isLocked = true;
+
+                    try {
+                        await navigator.clipboard.writeText(email);
+
+                        // Show feedback
+                        updateText("Copied Email Address");
+                        btn.classList.add('copied');
+
+                        // Reset after 2 seconds
+                        setTimeout(() => {
+                            // Determine target state based on hover
+                            const isHovering = btn.matches(':hover');
+                            const targetText = isHovering ? email : originalText;
+
+                            // Remove copied class first to start width transition
+                            btn.classList.remove('copied');
+
+                            // Update text with slight delay to ensure smooth visual
+                            setTimeout(() => {
+                                updateText(targetText, () => {
+                                    // Unlock after text transition completes
+                                    setTimeout(() => {
+                                        isLocked = false;
+                                    }, 200);
+                                });
+                            }, 50);
+
+                        }, 2000);
+
+                    } catch (err) {
+                        console.error('Failed to copy text: ', err);
+                        isLocked = false; // Unlock on error
+                        window.location.href = btn.getAttribute('href');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

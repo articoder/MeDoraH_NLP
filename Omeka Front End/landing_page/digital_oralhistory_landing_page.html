@@ -1,590 +1,809 @@
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title></title>
 <link href="https://fonts.googleapis.com" rel="preconnect" />
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet" />
+<link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap"
+    rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet" />
-<style type="text/css">/* CSS Reset and Variables */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        corePlugins: {
+            preflight: false, // CRITICAL: Disable preflight to protect Omeka styles
+        },
+        theme: {
+            extend: {
+                colors: {
+                    border: "hsl(var(--border))",
+                    input: "hsl(var(--input))",
+                    ring: "hsl(var(--ring))",
+                    background: "#F7F5F2", // Using page bg
+                    foreground: "#1A1A1A", // Using page text primary
+                    primary: {
+                        DEFAULT: "#1A1A1A",
+                        foreground: "#FFFFFF",
+                    },
+                    secondary: {
+                        DEFAULT: "#FFFFFF",
+                        foreground: "#1A1A1A",
+                    },
+                    destructive: {
+                        DEFAULT: "hsl(var(--destructive))",
+                        foreground: "hsl(var(--destructive-foreground))",
+                    },
+                    muted: {
+                        DEFAULT: "#F7F5F2",
+                        foreground: "#6B6B6B",
+                    },
+                    accent: {
+                        DEFAULT: "#F7F5F2", // Using page bg for accent hover
+                        foreground: "#E4725B", // Using coral for accent text
+                    },
+                    popover: {
+                        DEFAULT: "#FFFFFF",
+                        foreground: "#1A1A1A",
+                    },
+                    card: {
+                        DEFAULT: "#FFFFFF",
+                        foreground: "#1A1A1A",
+                    },
+                },
+                borderRadius: {
+                    lg: "0.75rem",
+                    md: "calc(0.75rem - 2px)",
+                    sm: "calc(0.75rem - 4px)",
+                },
+            },
+        },
+    }
+</script>
+<style type="text/css">
+    /* CSS Reset and Variables */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        :root {
-            /* Typography */
-            --font-primary: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            --font-secondary: 'Instrument Serif', Georgia, serif;
-            
-            /* Colors - Anthropic-inspired palette */
-            --color-bg: #F7F5F2;
-            --color-bg-card: #FFFFFF;
-            --color-text-primary: #1A1A1A;
-            --color-text-secondary: #4A4A4A;
-            --color-text-muted: #6B6B6B;
-            --color-accent-coral: #E4725B;
-            --color-accent-blue: #4A5568;
-            --color-accent-sage: #8B9A7B;
-            --color-border: #E5E5E5;
-            
-            /* Spacing */
-            --space-xs: 0.5rem;
-            --space-sm: 1rem;
-            --space-md: 1.5rem;
-            --space-lg: 2rem;
-            --space-xl: 3rem;
-            --space-2xl: 4rem;
-            --space-3xl: 6rem;
-            --space-4xl: 8rem;
-            
-            /* Typography Scale */
-            --text-xs: 0.875rem;
-            --text-sm: 1rem;
-            --text-base: 1.125rem;
-            --text-lg: 1.25rem;
-            --text-xl: 1.5rem;
-            --text-2xl: 2rem;
-            --text-3xl: 2.5rem;
-            --text-4xl: 3.5rem;
-            --text-5xl: 4rem;
-            
-            /* Border Radius */
-            --radius-sm: 0.375rem;
-            --radius-md: 0.75rem;
-            --radius-lg: 1rem;
-            --radius-xl: 1.5rem;
-        }
+    :root {
+        /* Typography */
+        --font-primary: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        --font-secondary: 'Instrument Serif', Georgia, serif;
 
-        /* Base Styles */
-        body {
-            font-family: var(--font-primary);
-            font-weight: 400;
-            background-color: var(--color-bg);
-            color: var(--color-text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+        /* Colors - Anthropic-inspired palette */
+        --color-bg: #F7F5F2;
+        --color-bg-card: #FFFFFF;
+        --color-text-primary: #1A1A1A;
+        --color-text-secondary: #4A4A4A;
+        --color-text-muted: #6B6B6B;
+        --color-accent-coral: #E4725B;
+        --color-accent-blue: #4A5568;
+        --color-accent-sage: #8B9A7B;
+        --color-border: #E5E5E5;
 
-        .container {
-            /* UPDATED: Use variables from your site CSS for a wider, consistent layout */
-            max-width: var(--container-max, 1200px);
-            margin: 0 auto;
-            padding: 0 var(--side-space-desktop, var(--space-lg));
-        }
+        /* Spacing */
+        --space-xs: 0.5rem;
+        --space-sm: 1rem;
+        --space-md: 1.5rem;
+        --space-lg: 2rem;
+        --space-xl: 3rem;
+        --space-2xl: 4rem;
+        --space-3xl: 6rem;
+        --space-4xl: 8rem;
 
-        /* Section Separator */
-        section:not(:last-of-type) {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-            position: relative;
-        }
+        /* Typography Scale */
+        --text-xs: 0.875rem;
+        --text-sm: 1rem;
+        --text-base: 1.125rem;
+        --text-lg: 1.25rem;
+        --text-xl: 1.5rem;
+        --text-2xl: 2rem;
+        --text-3xl: 2.5rem;
+        --text-4xl: 3.5rem;
+        --text-5xl: 4rem;
 
-        section:not(:last-of-type)::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--color-accent-coral), transparent);
-        }
+        /* Border Radius */
+        --radius-sm: 0.375rem;
+        --radius-md: 0.75rem;
+        --radius-lg: 1rem;
+        --radius-xl: 1.5rem;
+    }
 
-        /* Hero Section */
-        .hero {
-            padding: var(--space-4xl) 0 var(--space-3xl);
-            text-align: left;
-            position: relative;
-        }
+    /* Base Styles */
+    body {
+        font-family: var(--font-primary);
+        font-weight: 400;
+        background-color: var(--color-bg);
+        color: var(--color-text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 
-        .hero-content {
-            max-width: 900px;
-        }
+    .container {
+        /* UPDATED: Use variables from your site CSS for a wider, consistent layout */
+        max-width: var(--container-max, 1200px);
+        margin: 0 auto;
+        padding: 0 var(--side-space-desktop, var(--space-lg));
+    }
 
-        .hero h1 {
-            font-size: var(--text-5xl);
-            font-weight: 600;
-            color: var(--color-text-primary);
-            margin-bottom: var(--space-lg);
-            letter-spacing: -0.03em;
-            line-height: 1.15;
-        }
+    /* Section Separator */
+    section:not(:last-of-type) {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        position: relative;
+    }
 
-        .hero .tagline {
-            font-size: var(--text-2xl);
-            color: var(--color-text-secondary);
-            font-family: var(--font-secondary);
-            font-weight: 400;
-            margin-bottom: var(--space-2xl);
-            letter-spacing: -0.01em;
-        }
+    section:not(:last-of-type)::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent 0%, var(--color-accent-coral) 50%, transparent 100%);
+        opacity: 0.6;
+    }
 
-        .hero-graphic {
-            position: absolute;
-            right: -60px; /* Changed from -100px */
-            top: 50%;
-            transform: translateY(-50%);
-            width: 500px;
-            height: 400px;
-            opacity: 0.9;
-        }
+    /* Hero Section */
+    .hero {
+        padding: var(--space-xl) 0 var(--space-3xl);
+        text-align: left;
+        position: relative;
+    }
 
-        .hero-graphic img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
+    .hero-content {
+        max-width: 900px;
+    }
 
-        /* Buttons */
-        .button-group {
-            display: flex;
-            gap: var(--space-md);
-            flex-wrap: wrap;
-        }
+    .hero h1 {
+        font-size: var(--text-5xl);
+        font-weight: 600;
+        color: var(--color-text-primary);
+        margin-bottom: var(--space-lg);
+        letter-spacing: -0.03em;
+        line-height: 1.15;
+    }
 
-        .btn {
-            padding: var(--space-sm) var(--space-xl);
-            border-radius: var(--radius-lg);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: var(--text-base);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-xs);
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
+    .hero .tagline {
+        font-size: var(--text-2xl);
+        color: var(--color-text-secondary);
+        font-family: var(--font-secondary);
+        font-weight: 400;
+        margin-bottom: var(--space-2xl);
+        letter-spacing: -0.01em;
+    }
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
+    .hero-graphic {
+        position: absolute;
+        right: -60px;
+        /* Changed from -100px */
+        top: 50%;
+        transform: translateY(-50%);
+        width: 500px;
+        height: 400px;
+        opacity: 0.9;
+    }
 
-        .btn:hover::before {
-            left: 100%;
-        }
+    .hero-graphic img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--color-text-primary) 0%, #2A2A2A 100%);
-            color: #FEFEFE !important;
-            box-shadow: 0 4px 14px 0 rgba(26, 26, 26, 0.25);
-        }
+    /* Buttons */
+    .button-group {
+        display: flex;
+        gap: var(--space-md);
+        flex-wrap: wrap;
+    }
 
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #2A2A2A 0%, var(--color-text-primary) 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px 0 rgba(26, 26, 26, 0.35);
-        }
+    .btn {
+        padding: var(--space-sm) var(--space-xl);
+        border-radius: var(--radius-lg);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: var(--text-base);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-xs);
+        border: none;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
 
-        .btn-secondary {
-            background: linear-gradient(135deg, var(--color-bg-card) 0%, #fafafa 100%);
-            color: #1B1B1B !important;
-            border: 1px solid var(--color-border);
-            box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06);
-        }
+    .btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+    }
 
-        .btn-secondary:hover {
-            background: linear-gradient(135deg, #fafafa 0%, var(--color-bg-card) 100%);
-            border-color: var(--color-accent-coral);
-            color: var(--color-accent-coral);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px 0 rgba(228, 114, 91, 0.15);
-        }
+    .btn:hover::before {
+        left: 100%;
+    }
 
-        /* Cards Section */
-        .cards-section {
-            padding: var(--space-3xl) 0;
-        }
+    .btn-primary {
+        background: linear-gradient(135deg, var(--color-text-primary) 0%, #2A2A2A 100%);
+        color: #FEFEFE !important;
+        box-shadow: 0 4px 14px 0 rgba(26, 26, 26, 0.25);
+    }
 
-        .cards-intro {
-            text-align: center;
-            margin-bottom: var(--space-3xl);
-        }
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #2A2A2A 0%, var(--color-text-primary) 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px 0 rgba(26, 26, 26, 0.35);
+    }
 
-        .cards-intro h2 {
-            font-size: var(--text-3xl);
-            font-weight: 600;
-            color: var(--color-text-primary);
-            margin-bottom: var(--space-md);
-            letter-spacing: -0.02em;
-        }
+    .btn-secondary {
+        background: linear-gradient(135deg, var(--color-bg-card) 0%, #fafafa 100%);
+        color: #1B1B1B !important;
+        border: 1px solid var(--color-border);
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06);
+    }
 
-        .cards-intro .subtitle {
-            font-size: var(--text-xl);
-            color: var(--color-text-secondary);
-            font-weight: 400;
+    .btn-secondary:hover {
+        background: linear-gradient(135deg, #fafafa 0%, var(--color-bg-card) 100%);
+        border-color: var(--color-accent-coral);
+        color: var(--color-accent-coral);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px 0 rgba(228, 114, 91, 0.15);
+    }
+
+    /* Cards Section */
+    .cards-section {
+        padding: var(--space-3xl) 0;
+    }
+
+    .cards-intro {
+        text-align: center;
+        margin-bottom: var(--space-3xl);
+    }
+
+    .cards-intro h2 {
+        font-size: var(--text-3xl);
+        font-weight: 600;
+        color: var(--color-text-primary);
+        margin-bottom: var(--space-md);
+        letter-spacing: -0.02em;
+    }
+
+    .cards-intro .subtitle {
+        font-size: var(--text-xl);
+        color: var(--color-text-secondary);
+        font-weight: 400;
+    }
+
+    .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-lg);
+    }
+
+    .card {
+        background-color: var(--color-bg-card);
+        border-radius: 2.3rem;
+        padding: var(--space-2xl);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        min-height: 380px;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgba(0, 0, 0, 0.03);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .card:hover .card-link {
+        gap: var(--space-sm);
+    }
+
+    .card:hover .card-link::after {
+        transform: translateX(4px);
+    }
+
+    .card-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--color-text-muted);
+        margin-bottom: var(--space-sm);
+        font-weight: 600;
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        border-radius: 9999px;
+        background-color: rgba(0, 0, 0, 0.04);
+        width: fit-content;
+    }
+
+    /* Themed card label backgrounds */
+    .card:nth-child(1) .card-label {
+        background-color: rgba(228, 114, 91, 0.1);
+        color: #C45A45;
+    }
+
+    .card:nth-child(2) .card-label {
+        background-color: rgba(139, 154, 123, 0.15);
+        color: #6E7D60;
+    }
+
+    .card:nth-child(3) .card-label {
+        background-color: rgba(74, 85, 104, 0.1);
+        color: #4A5568;
+    }
+
+    .card h3 {
+        font-size: var(--text-2xl);
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin-bottom: var(--space-md);
+        line-height: 1.2;
+        flex-grow: 1;
+        transition: color 0.3s ease;
+    }
+
+    .card:hover h3 {
+        color: var(--color-accent-coral);
+    }
+
+    .card p {
+        color: var(--color-text-secondary);
+        line-height: 1.7;
+        font-size: var(--text-base);
+        margin-bottom: var(--space-xl);
+    }
+
+    .card-visual {
+        position: absolute;
+        bottom: var(--space-lg);
+        right: var(--space-xl);
+        width: 75px;
+        height: 75px;
+        opacity: 1;
+    }
+
+    /* Visual Elements */
+    .visual-research {
+        background: linear-gradient(135deg, #fff6f2, #ffefe9);
+        border-radius: 1.7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .visual-teaching {
+        background: linear-gradient(135deg, #ebf2eb, #e4f0e4);
+        border-radius: 1.7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .visual-events {
+        background: linear-gradient(135deg, #eff1f5, #edf1f7);
+        border-radius: 1.7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Mission Section */
+    .mission {
+        padding: var(--space-4xl) 0;
+        position: relative;
+        background: linear-gradient(135deg, rgba(228, 114, 91, 0.02) 0%, rgba(139, 154, 123, 0.02) 50%, rgba(74, 85, 104, 0.02) 100%);
+        border-bottom: none;
+    }
+
+    .mission-content {
+        max-width: 800px;
+        font-weight: 500;
+    }
+
+    .mission h2 {
+        font-size: var(--text-3xl);
+        font-weight: 600;
+        color: var(--color-text-primary);
+        margin-bottom: var(--space-md);
+    }
+
+    .mission .highlight {
+        font-size: var(--text-xl);
+        color: var(--color-accent-coral);
+        font-family: var(--font-secondary);
+        font-weight: 400;
+        margin-bottom: var(--space-lg);
+        display: block;
+    }
+
+    .mission-text {
+        font-size: var(--text-lg);
+        line-height: 1.8;
+        font-weight: 400;
+        color: var(--color-text-secondary);
+    }
+
+    .mission-graphic {
+        position: absolute;
+        right: -40px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 400px;
+        height: 400px;
+        opacity: 0.9;
+    }
+
+    .mission-graphic img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: var(--radius-xl);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Footer Section */
+    .footer {
+        padding: var(--space-3xl) 0;
+        text-align: center;
+        color: var(--color-text-primary);
+    }
+
+    .footer h2 {
+        font-size: var(--text-3xl);
+        font-weight: 600;
+        margin-bottom: var(--space-md);
+    }
+
+    .footer p {
+        font-size: var(--text-lg);
+        margin-bottom: var(--space-xl);
+        opacity: 0.9;
+        max-width: 800px;
+        /* Increased from 600px */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .footer .btn {
+        background: linear-gradient(135deg, var(--color-accent-coral) 0%, #d85a43 100%);
+        color: white;
+        box-shadow: 0 4px 14px 0 rgba(228, 114, 91, 0.25);
+    }
+
+    .footer .btn:hover {
+        background: linear-gradient(135deg, #d85a43 0%, var(--color-accent-coral) 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px 0 rgba(228, 114, 91, 0.35);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+
+        .hero-graphic,
+        .mission-graphic {
+            display: none;
         }
 
         .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-lg);
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: var(--text-2xl);
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-size: var(--text-xl);
+        }
+
+        .cards-intro h2 {
+            font-size: var(--text-2xl);
         }
 
         .card {
-            background-color: var(--color-bg-card);
-            border-radius: var(--radius-xl);
-            padding: var(--space-2xl);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            min-height: 380px;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(0, 0, 0, 0.03);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            min-height: auto;
+        }
+    }
+
+    /* Subtle animations */
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(0);
         }
 
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            border-color: rgba(228, 114, 91, 0.1);
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    .float-animation {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    /* Updated fade-in and pop animation for tagline words */
+    @keyframes fadeInAndPop {
+
+        /* Step 1: Start invisible and slightly smaller */
+        0% {
+            opacity: 0;
+            transform: scale(1.0);
         }
 
-        .card-label {
-            font-size: var(--text-xs);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--color-text-muted);
-            margin-bottom: var(--space-sm);
-            font-weight: 500;
+        /* Step 2: Fade in and scale up to its largest size (the "pop") */
+        60% {
+            opacity: 1;
+            transform: scale(1.03);
         }
 
-        .card h3 {
-            font-size: var(--text-2xl);
-            font-weight: 700;
-            color: var(--color-text-primary);
-            margin-bottom: var(--space-md);
-            line-height: 1.2;
-            flex-grow: 1;
-            transition: color 0.3s ease;
+        /* Step 3: Settle back to its normal size */
+        100% {
+            opacity: 1;
+            transform: scale(1.0);
         }
+    }
 
-        .card:hover h3 {
-            color: var(--color-accent-coral);
-        }
+    .tagline .fade-in-word {
+        /* Set initial state for the animation */
+        opacity: 0;
+        display: inline-block;
+        /* Helps scale transform behave predictably */
 
-        .card p {
-            color: var(--color-text-secondary);
-            line-height: 1.7;
-            font-size: var(--text-base);
-            margin-bottom: var(--space-xl);
-        }
+        /* Apply the new, longer animation */
+        animation: fadeInAndPop 0.8s ease-out forwards;
+    }
 
-        .card-visual {
-            position: absolute;
-            bottom: var(--space-lg);
-            right: var(--space-lg);
-            width: 80px;
-            height: 80px;
-            opacity: 0.8;
-        }
+    /* Staggering the animation delay (same as before) */
+    .tagline .fade-in-word:nth-child(1) {
+        animation-delay: 0.6s;
+    }
 
-        /* Visual Elements */
-        .visual-research {
-            background: linear-gradient(135deg, #FFE5D9, #FFD4C1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .tagline .fade-in-word:nth-child(2) {
+        animation-delay: 0.9s;
+    }
 
-        .visual-teaching {
-            background: linear-gradient(135deg, #E5F2E5, #D4E6D4);
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .tagline .fade-in-word:nth-child(3) {
+        animation-delay: 1.3s;
+    }
 
-        .visual-events {
-            background: linear-gradient(135deg, #E5E9F2, #D4DCE6);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    /* Text styling */
+    .text-grey {
+        color: #6B6B6B;
+    }
 
-        /* Mission Section */
-        .mission {
-            padding: var(--space-4xl) 0;
-            position: relative;
-            background: linear-gradient(135deg, rgba(228, 114, 91, 0.02) 0%, rgba(139, 154, 123, 0.02) 50%, rgba(74, 85, 104, 0.02) 100%);
-            border-bottom: none;
-        }
-        
-        .mission-content {
-            max-width: 800px;
-        }
+    /* Link styling - High specificity to override Omeka theme */
+    .cards-grid .card .card-link,
+    .card .card-link,
+    a.card-link {
+        color: var(--color-text-primary) !important;
+        text-decoration: none !important;
+        font-weight: 600;
+        font-size: var(--text-sm);
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-xs);
+        transition: all 0.3s ease;
+        position: relative;
+        border-bottom: none !important;
+    }
 
-        .mission h2 {
-            font-size: var(--text-3xl);
-            font-weight: 600;
-            color: var(--color-text-primary);
-            margin-bottom: var(--space-md);
-        }
+    .cards-grid .card .card-link:hover,
+    .card .card-link:hover,
+    a.card-link:hover {
+        color: var(--color-accent-coral) !important;
+        gap: var(--space-sm);
+        text-decoration: none !important;
+        border-bottom: none !important;
+    }
 
-        .mission .highlight {
-            font-size: var(--text-xl);
-            color: var(--color-accent-coral);
-            font-weight: 500;
-            margin-bottom: var(--space-lg);
-            display: block;
-        }
+    .cards-grid .card .card-link::after,
+    .card .card-link::after,
+    a.card-link::after {
+        content: none !important;
+        display: none !important;
+    }
 
-        .mission-text {
-            font-size: var(--text-lg);
-            line-height: 1.8;
-            color: var(--color-text-secondary);
-        }
+    .cards-grid .card .card-link:hover::after,
+    .card .card-link:hover::after,
+    a.card-link:hover::after {
+        content: none !important;
+        display: none !important;
+    }
 
-        .mission-graphic {
-            position: absolute;
-            right: -40px; 
-            top: 50%;
-            transform: translateY(-50%);
-            width: 400px;
-            height: 400px;
-            opacity: 0.9;
-        }
-
-        .mission-graphic img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: var(--radius-xl);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Footer Section */
-        .footer {
-            padding: var(--space-3xl) 0;
-            text-align: center;
-            color: var(--color-text-primary);
-        }
-
-        .footer h2 {
-            font-size: var(--text-3xl);
-            font-weight: 600;
-            margin-bottom: var(--space-md);
-        }
-
-        .footer p {
-            font-size: var(--text-lg);
-            margin-bottom: var(--space-xl);
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .footer .btn {
-            background: linear-gradient(135deg, var(--color-accent-coral) 0%, #d85a43 100%);
-            color: white;
-            box-shadow: 0 4px 14px 0 rgba(228, 114, 91, 0.25);
-        }
-
-        .footer .btn:hover {
-            background: linear-gradient(135deg, #d85a43 0%, var(--color-accent-coral) 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px 0 rgba(228, 114, 91, 0.35);
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-graphic, .mission-graphic {
-                display: none;
-            }
-            
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: var(--text-2xl);
-                line-height: 1.2;
-            }
-            
-            .hero .tagline {
-                font-size: var(--text-xl);
-            }
-            
-            .cards-intro h2 {
-                font-size: var(--text-2xl);
-            }
-            
-            .card {
-                min-height: auto;
-            }
-        }
-
-        /* Subtle animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .float-animation {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        /* Updated fade-in and pop animation for tagline words */
-        @keyframes fadeInAndPop {
-            /* Step 1: Start invisible and slightly smaller */
-            0% {
-                opacity: 0;
-                transform: scale(1.0);
-            }
-            /* Step 2: Fade in and scale up to its largest size (the "pop") */
-            60% {
-                opacity: 1;
-                transform: scale(1.03);
-            }
-            /* Step 3: Settle back to its normal size */
-            100% {
-                opacity: 1;
-                transform: scale(1.0);
-            }
-        }
-
-        .tagline .fade-in-word {
-            /* Set initial state for the animation */
-            opacity: 0; 
-            display: inline-block; /* Helps scale transform behave predictably */
-
-            /* Apply the new, longer animation */
-            animation: fadeInAndPop 0.8s ease-out forwards;
-        }
-
-        /* Staggering the animation delay (same as before) */
-        .tagline .fade-in-word:nth-child(1) {
-            animation-delay: 0.6s;
-        }
-
-        .tagline .fade-in-word:nth-child(2) {
-            animation-delay: 0.9s;
-        }
-
-        .tagline .fade-in-word:nth-child(3) {
-            animation-delay: 1.3s;
-        }
-
-        /* Text styling */
-        .text-grey {
-            color: #999999;
-        }
-
-        /* Link styling */
-        .card-link {
-            color: var(--color-text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: var(--text-sm);
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-xs);
-            transition: gap 0.2s ease;
-        }
-
-        .card-link:hover {
-            gap: var(--space-sm);
-        }
-
-        .card-link::after {
-            content: '→';
-            font-size: var(--text-lg);
-        }
+    /* Override the global a::before underline for card-link */
+    .cards-grid .card .card-link::before,
+    .card .card-link::before,
+    a.card-link::before {
+        display: none !important;
+        content: none !important;
+    }
 </style>
 <section class="hero">
-<div class="container">
-<div class="hero-content">
-<h1>Preserved <span class="text-grey">Voices</span>,<br />
-Human <span class="text-grey">Interpretations</span>,<br />
-Computational <span class="text-grey">Lenses</span></h1>
+    <div class="container">
+        <div class="hero-content">
+            <h1>Preserved <span class="text-grey">Voices</span>,<br />
+                Human <span class="text-grey">Interpretations</span>,<br />
+                Computational <span class="text-grey">Lenses</span></h1>
 
-<p class="tagline">Where stories are <span class="fade-in-word">unfolded</span>, meanings <span class="fade-in-word">discovered</span>, and patterns <span class="fade-in-word">illuminated</span>.</p>
+            <p class="tagline">Where stories are <span class="fade-in-word">unfolded</span>, meanings <span
+                    class="fade-in-word">discovered</span>, and patterns <span class="fade-in-word">illuminated</span>.
+            </p>
 
-<div class="button-group"><a class="btn btn-primary" draggable="false" href="#">Explore our work</a> <a class="btn btn-secondary" draggable="false" href="#">Learn more</a></div>
-</div>
+            <div class="button-group flex gap-4 flex-wrap"><a
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-semibold bg-[#2d2d2d] !text-white h-12 px-8 py-2 shadow-[0_4px_14px_0_rgba(26,26,26,0.3)] hover:bg-[#444444] hover:scale-[1.02] hover:-translate-y-1 hover:shadow-[0_10px_30px_0_rgba(26,26,26,0.4)] transition-all duration-300 ease-out cursor-pointer [&amp;::after]:hidden"
+                    draggable="false"
+                    href="https://hiddenhistories.net/s/digital-oral-history-lab/page/resources-publications">Explore
+                    our work</a> <a
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-semibold bg-white text-[#1A1A1A] border-2 border-[#E5E5E5] h-12 px-8 py-2 shadow-sm hover:border-[#E4725B] hover:text-[#E4725B] hover:bg-[#FFF8F6] hover:scale-[1.02] hover:-translate-y-1 hover:shadow-[0_8px_20px_0_rgba(228,114,91,0.2)] transition-all duration-300 ease-out cursor-pointer [&amp;::after]:hidden"
+                    draggable="false"
+                    href="https://hiddenhistories.net/s/digital-oral-history-lab/page/IDOHL_Projects">Learn more</a>
+            </div>
+        </div>
 
-<div class="hero-graphic"><img alt="An abstract visualization of interconnected nodes, representing themes of voices, interpretations, and computation." class="float-animation" draggable="false" src="https://hiddenhistories.net/files/asset/a3484403ff6aaa366da63c89edd591e7161fde80.png" /></div>
-</div>
+        <div class="hero-graphic"><img
+                alt="An abstract visualization of interconnected nodes, representing themes of voices, interpretations, and computation."
+                class="float-animation" draggable="false"
+                src="https://hiddenhistories.net/files/asset/e38eb3e5154376fbdb6b48d5301abd1477adfdb4.webp" /></div>
+    </div>
 </section>
 
 <section class="cards-section">
-<div class="container">
-<div class="cards-intro">
-<h2>International Digital Oral History Lab</h2>
+    <div class="container">
+        <div class="cards-intro">
+            <h2>International Digital Oral History Lab</h2>
 
-<p class="subtitle">A collaboration between UCL and TU Darmstadt</p>
-</div>
+            <p class="subtitle">A collaboration between UCL and TU Darmstadt</p>
+        </div>
 
-<div class="cards-grid">
-<div class="card"><span class="card-label">RESEARCH</span>
+        <div class="cards-grid">
+            <div class="card"><span class="card-label">RESEARCH</span>
 
-<h3>Research &amp;<br />
-Collaboration</h3>
+                <h3>Research &amp;<br />
+                    Collaboration</h3>
 
-<p>Leading projects in Oral History, critical AI, and Digital Humanities across international partnerships.</p>
-<a class="card-link" draggable="false" href="https://hiddenhistories.net/s/digital-oral-history-lab/page/IDOHL_Projects">View projects</a>
+                <p>Leading projects in Oral History, critical AI, and Digital Humanities across international
+                    partnerships.</p>
+                <a class="card-link inline-flex items-center gap-2 !text-[#1A1A1A] !no-underline font-semibold text-sm hover:!text-[#E4725B] hover:gap-3 transition-all duration-300 [&amp;::after]:hidden [&amp;::before]:hidden"
+                    draggable="false" href="https://hiddenhistories.net/s/digital-oral-history-lab/page/IDOHL_Projects"
+                    onmouseout="this.style.color='#1A1A1A'; this.querySelector('span').style.transform='translateX(0)';"
+                    onmouseover="this.style.color='#E4725B'; this.querySelector('span').style.transform='translateX(6px)';"
+                    style="text-decoration: none !important; border-bottom: none !important;">View projects <span
+                        style="transition: transform 0.3s ease; display: inline-block;">&rarr;</span></a>
 
-<div class="card-visual visual-research"><svg height="40" viewbox="0 0 40 40" width="40"> <circle cx="20" cy="20" fill="#E4725B" opacity="0.1" r="18"></circle> <g opacity="0.8" stroke="#E4725B" stroke-width="0.5"> <line x1="12" x2="20" y1="15" y2="10"></line> <line x1="12" x2="15" y1="15" y2="25"></line> <line x1="12" x2="28" y1="15" y2="18"></line> <line x1="20" x2="28" y1="10" y2="18"></line> <line x1="20" x2="25" y1="10" y2="29"></line> <line x1="15" x2="25" y1="25" y2="29"></line> <line x1="28" x2="25" y1="18" y2="29"></line> </g> <g fill="#E4725B" opacity="0.9"> <circle cx="20" cy="10" r="2"></circle> <circle cx="12" cy="15" r="2"></circle> <circle cx="28" cy="18" r="2"></circle> <circle cx="15" cy="25" r="2"></circle> <circle cx="25" cy="29" r="2"></circle> </g> </svg></div>
-</div>
+                <div class="card-visual visual-research"><svg height="40" viewbox="0 0 40 40" width="40">
+                        <circle cx="20" cy="20" fill="#E4725B" opacity="0.1" r="18"></circle>
+                        <g opacity="0.8" stroke="#E4725B" stroke-width="0.5">
+                            <line x1="12" x2="20" y1="15" y2="10"></line>
+                            <line x1="12" x2="15" y1="15" y2="25"></line>
+                            <line x1="12" x2="28" y1="15" y2="18"></line>
+                            <line x1="20" x2="28" y1="10" y2="18"></line>
+                            <line x1="20" x2="25" y1="10" y2="29"></line>
+                            <line x1="15" x2="25" y1="25" y2="29"></line>
+                            <line x1="28" x2="25" y1="18" y2="29"></line>
+                        </g>
+                        <g fill="#E4725B" opacity="0.9">
+                            <circle cx="20" cy="10" r="2"></circle>
+                            <circle cx="12" cy="15" r="2"></circle>
+                            <circle cx="28" cy="18" r="2"></circle>
+                            <circle cx="15" cy="25" r="2"></circle>
+                            <circle cx="25" cy="29" r="2"></circle>
+                        </g>
+                    </svg></div>
+            </div>
 
-<div class="card"><span class="card-label">EDUCATION</span>
+            <div class="card"><span class="card-label">EDUCATION</span>
 
-<h3>Teaching &amp;<br />
-Training</h3>
+                <h3>Teaching &amp;<br />
+                    Training</h3>
 
-<p>Master&#39;s courses, PhD supervision, and workshops emphasise ethical digital methods in oral history.</p>
-<a class="card-link" draggable="false" href="#">Learn with us</a>
+                <p>Master&#39;s courses, PhD supervision, and workshops emphasise ethical digital methods in oral
+                    history.</p>
+                <a class="card-link inline-flex items-center gap-2 !text-[#1A1A1A] !no-underline font-semibold text-sm hover:!text-[#E4725B] hover:gap-3 transition-all duration-300 [&amp;::after]:hidden [&amp;::before]:hidden"
+                    draggable="false"
+                    href="https://hiddenhistories.net/s/digital-oral-history-lab/page/resources-publications#workshops"
+                    onmouseout="this.style.color='#1A1A1A'; this.querySelector('span').style.transform='translateX(0)';"
+                    onmouseover="this.style.color='#E4725B'; this.querySelector('span').style.transform='translateX(6px)';"
+                    style="text-decoration: none !important; border-bottom: none !important;">Learn with us <span
+                        style="transition: transform 0.3s ease; display: inline-block;">&rarr;</span></a>
 
-<div class="card-visual visual-teaching"><svg height="40" viewbox="0 0 40 40" width="40"> <rect fill="#8B9A7B" height="2" width="20" x="10" y="12"></rect> <rect fill="#8B9A7B" height="2" width="16" x="10" y="18"></rect> <rect fill="#8B9A7B" height="2" width="18" x="10" y="24"></rect> <circle cx="30" cy="28" fill="#8B9A7B" r="2"></circle> </svg></div>
-</div>
+                <div class="card-visual visual-teaching"><svg height="40" viewbox="0 0 40 40" width="40">
+                        <!-- Certificate Paper -->
+                        <path
+                            d="M12 6 H28 A1 1 0 0 1 29 7 V33 A1 1 0 0 1 28 34 H12 A1 1 0 0 1 11 33 V7 A1 1 0 0 1 12 6 Z"
+                            stroke="#8B9A7B" stroke-width="1.5" fill="none" />
+                        <!-- Seal -->
+                        <circle cx="20" cy="25" r="3.5" stroke="#8B9A7B" stroke-width="1.5" fill="none" />
+                        <!-- Ribbon tails -->
+                        <path d="M18 27 L17 31 L19 30 M22 27 L23 31 L21 30" stroke="#8B9A7B" stroke-width="1.5"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                        <!-- Lines -->
+                        <path d="M15 12 H25 M15 16 H25 M15 20 H19" stroke="#8B9A7B" stroke-width="1.5"
+                            stroke-linecap="round" opacity="0.8" />
+                    </svg></div>
+            </div>
 
-<div class="card"><span class="card-label">COMMUNITY</span>
+            <div class="card"><span class="card-label">COMMUNITY</span>
 
-<h3>Events &amp;<br />
-Engagement</h3>
+                <h3>Events &amp;<br />
+                    Engagement</h3>
 
-<p>Online seminars featuring international experts and open events connecting researchers worldwide.</p>
-<a class="card-link" draggable="false" href="#">Join us</a>
+                <p>Online seminars featuring international experts and open events connecting researchers worldwide.</p>
+                <a class="card-link inline-flex items-center gap-2 !text-[#1A1A1A] !no-underline font-semibold text-sm hover:!text-[#E4725B] hover:gap-3 transition-all duration-300 [&amp;::after]:hidden [&amp;::before]:hidden"
+                    draggable="false" href="https://hdsm.hypotheses.org/category/digital_oral_history_lab"
+                    onmouseout="this.style.color='#1A1A1A'; this.querySelector('span').style.transform='translateX(0)';"
+                    onmouseover="this.style.color='#E4725B'; this.querySelector('span').style.transform='translateX(6px)';"
+                    style="text-decoration: none !important; border-bottom: none !important;">Join us <span
+                        style="transition: transform 0.3s ease; display: inline-block;">&rarr;</span></a>
 
-<div class="card-visual visual-events"><svg height="40" viewbox="0 0 40 40" width="40"> <circle cx="20" cy="20" fill="none" opacity="0.3" r="15" stroke="#4A5568" stroke-width="2"></circle> <circle cx="20" cy="5" fill="#4A5568" r="2"></circle> <circle cx="32" cy="14" fill="#4A5568" r="2"></circle> <circle cx="32" cy="26" fill="#4A5568" r="2"></circle> <circle cx="20" cy="35" fill="#4A5568" r="2"></circle> <circle cx="8" cy="26" fill="#4A5568" r="2"></circle> <circle cx="8" cy="14" fill="#4A5568" r="2"></circle> </svg></div>
-</div>
-</div>
-</div>
+                <div class="card-visual visual-events"><svg height="40" viewbox="0 0 40 40" width="40">
+                        <!-- Screen Frame -->
+                        <rect x="5" y="7" width="30" height="21" rx="2" stroke="#4A5568" stroke-width="1.5" fill="none">
+                        </rect>
+                        <!-- Stand -->
+                        <path d="M20 28 v6 M14 34 h12" stroke="#4A5568" stroke-width="1.5" stroke-linecap="round">
+                        </path>
+                        <!-- Slide Content -->
+                        <g fill="#4A5568" opacity="0.9">
+                            <rect x="10" y="13" width="12" height="1.5" rx="0.75"></rect>
+                            <rect x="10" y="17" width="8" height="1.5" rx="0.75" opacity="0.7"></rect>
+                            <rect x="10" y="21" width="5" height="1.5" rx="0.75" opacity="0.5"></rect>
+                        </g>
+                        <!-- Graph Graphic on slide -->
+                        <g fill="#4A5568">
+                            <rect x="25" y="19" width="2" height="5" opacity="0.6"></rect>
+                            <rect x="28" y="15" width="2" height="9" opacity="0.8"></rect>
+                        </g>
+                    </svg></div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section class="mission">
-<div class="container">
-<div class="mission-content">
-<h2>Our mission</h2>
-<span class="highlight">Memory, Meaning Making, and Algorithms</span>
+    <div class="container">
+        <div class="mission-content">
+            <h2>Our mission</h2>
+            <span class="highlight">Memory, Meaning Making, and Algorithms</span>
 
-<p class="mission-text">As a discipline, practice, and social movement, Oral History captures and preserves personal and collective memories that offer vital insights into lived, human experiences. Digital technologies are now reshaping how we record, access, and interpret these memories. The International Digital Oral History Lab investigates the impact of algorithmic processes, including AI and natural language processing, on oral history research. By combining qualitative and quantitative methods, our work examines how digital tools influence memory, meaning-making, and historical understanding in an increasingly data-driven world.</p>
-</div>
-</div>
+            <p class="mission-text">As a discipline, practice, and social movement, Oral History captures and preserves
+                personal and collective memories that offer vital insights into lived, human experiences. Digital
+                technologies are now reshaping how we record, access, and interpret these memories. The International
+                Digital Oral History Lab investigates the impact of algorithmic processes, including AI and natural
+                language processing, on oral history research. By combining qualitative and quantitative methods, our
+                work examines how digital tools influence memory, meaning-making, and historical understanding in an
+                increasingly data-driven world.</p>
+        </div>
+    </div>
 
-<div class="mission-graphic"><img alt="An abstract visualization of a data network." draggable="false" src="https://hiddenhistories.net/files/asset/74fab014ce5a3aa7b90ae91d94d248689511a586.png" /></div>
+    <div class="mission-graphic"><img alt="An abstract visualization of a data network." draggable="false"
+            src="https://hiddenhistories.net/files/asset/a29d8a25982cc827a67d0cef078f0f7157115694.png" /></div>
 </section>
 
 <section class="footer">
-<div class="container">
-<h2>Shape the future of memory</h2>
+    <div class="container">
+        <h2>Shape the future of memory</h2>
 
-<p>We invite students, researchers, and practitioners to explore with us.</p>
-<a class="btn" draggable="false" href="#">Contact the Lab</a></div>
+        <p>We invite students, researchers, and practitioners to explore with us.</p>
+        <a class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-semibold bg-[#2d2d2d] !text-white h-12 px-8 py-2 shadow-[0_4px_14px_0_rgba(26,26,26,0.3)] hover:bg-[#444444] hover:scale-[1.02] hover:-translate-y-1 hover:shadow-[0_10px_30px_0_rgba(26,26,26,0.4)] transition-all duration-300 ease-out cursor-pointer [&amp;::after]:hidden"
+            draggable="false" href="https://hiddenhistories.net/s/digital-oral-history-lab/page/research-team">Contact
+            the Lab</a>
+    </div>
 </section>
