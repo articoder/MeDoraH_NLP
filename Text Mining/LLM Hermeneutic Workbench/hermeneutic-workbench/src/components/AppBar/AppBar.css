@@ -1,77 +1,108 @@
-/* AppBar Two-Tier Navigation Styles (Refined) */
+/* AppBar Single-Row Navigation Styles */
 
 /* =====================================================
-   BRAND ROW - Top tier (simplified)
+   SINGLE ROW LAYOUT - Full width with aligned sections
    ===================================================== */
-.app-bar-brand-row {
-    width: 100%;
+.app-bar-single-row {
+    /* Match container width for alignment with content below */
+    width: min(calc(100% - 160px), 160rem);
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: var(--sp-3) var(--sp-8);
+    padding: var(--sp-3) 0;
     background: transparent;
     color: var(--fg-primary);
+    gap: var(--sp-4);
+}
+
+/* =====================================================
+   LEFT GROUP - Brand + Buttons
+   ===================================================== */
+.app-bar-left-group {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    flex-shrink: 0;
+    /* Enable smooth transition for position changes */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .app-bar-brand-text {
     display: flex;
     align-items: baseline;
     gap: var(--sp-3);
+    flex-shrink: 0;
 }
 
 .app-bar-title {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 700;
     margin: 0;
+    margin-right: var(--sp-3);
     letter-spacing: -0.02em;
     color: var(--fg-primary);
+    white-space: nowrap;
+    display: inline-block;
+    overflow: hidden;
+    /* Elegant entrance animation - slower, smoother return */
+    transition:
+        transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        max-width 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+        margin-right 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateX(0);
+    opacity: 1;
+    max-width: 340px;
+}
+
+/* Scrolled state: elegant slide-out with fade */
+.app-bar.scrolled .app-bar-title {
+    transform: translateX(-24px);
+    opacity: 0;
+    max-width: 0;
+    margin-right: 0;
+    /* Snappier exit animation */
+    transition:
+        transform 0.35s cubic-bezier(0.55, 0, 1, 0.45),
+        opacity 0.2s cubic-bezier(0.55, 0, 1, 0.45),
+        max-width 0.35s cubic-bezier(0.55, 0, 1, 0.45),
+        margin-right 0.35s cubic-bezier(0.55, 0, 1, 0.45);
 }
 
 .layer-indicator {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 600;
     color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-}
-
-.file-indicator {
-    display: flex;
-    align-items: center;
-    gap: var(--sp-2);
-    font-size: 0.75rem;
-    color: var(--fg-secondary);
-    font-weight: 500;
-    margin-left: auto;
-}
-
-.file-indicator svg {
-    opacity: 0.6;
+    white-space: nowrap;
+    /* Smooth follow animation with easing */
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* =====================================================
-   ACTION ROW - Bottom tier
+   RIGHT GROUP - Navigation aligned with Sidebar
    ===================================================== */
-.app-bar-action-row {
-    width: min(calc(100% - 160px), 160rem);
-    margin: 0 auto;
-    box-sizing: border-box;
+.app-bar-right-group {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: var(--sp-4);
-    padding: var(--sp-3) 0;
-    background: transparent;
+    justify-content: flex-end;
+    /* Match sidebar width proportion: flex: 3 out of total 7 (4+3) */
+    flex: 3;
+    min-width: 320px;
 }
 
 /* =====================================================
-   ACTION BUTTONS - Left side
+   ACTION BUTTONS - Left side with smooth transition
    ===================================================== */
 .action-buttons-group {
     display: flex;
     align-items: center;
     gap: var(--sp-2);
     flex-shrink: 0;
+    /* Smooth follow animation */
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .app-bar-btn {

@@ -144,6 +144,209 @@ import './styles/network-modal.css';
 }
 ```
 
+---
+
+## Animation Rules
+
+Based on Vercel's Web Interface Guidelines:
+
+### Compositor-Friendly Animations
+
+Only animate properties that don't trigger layout recalculation:
+
+```css
+/* ✅ Good: Only transform and opacity */
+.element {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.element:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* ❌ Bad: Layout-triggering properties */
+.element {
+    transition: all 0.2s ease; /* NEVER use 'all' */
+    transition: width 0.2s ease; /* Causes layout */
+    transition: height 0.2s ease; /* Causes layout */
+}
+```
+
+### Respect Reduced Motion Preference
+
+```css
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+```
+
+### SVG Animation
+
+```css
+/* For SVG animations, wrap in a div and animate the wrapper */
+.svg-wrapper {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 0.2s ease;
+}
+```
+
+### Animation Must Be Interruptible
+
+Animations should respond to user input mid-animation. Avoid animations that lock interaction.
+
+---
+
+## Typography Guidelines
+
+Based on Vercel's Web Interface Guidelines:
+
+### Punctuation
+
+| Use | Avoid |
+|-----|-------|
+| `…` (ellipsis character) | `...` (three dots) |
+| `"` `"` (curly quotes) | `"` `"` (straight quotes) |
+| `–` (en-dash for ranges) | `-` (hyphen for ranges) |
+
+### Loading States
+
+```css
+/* Loading text should end with ellipsis */
+.loading-text::after {
+    content: "…"; /* Not "..." */
+}
+```
+
+### Number Display
+
+```css
+/* Use tabular numbers for numeric columns */
+.stats-number {
+    font-variant-numeric: tabular-nums;
+}
+```
+
+### Heading Text Wrap
+
+```css
+/* Prevent widows in headings */
+h1, h2, h3 {
+    text-wrap: balance;
+}
+```
+
+### Non-Breaking Spaces
+
+Use `&nbsp;` for:
+- Units: `10&nbsp;MB`, `5&nbsp;sec`
+- Keyboard shortcuts: `⌘&nbsp;K`
+- Brand names that shouldn't break
+
+---
+
+## Content Handling
+
+### Text Truncation
+
+```css
+/* Single line truncation */
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Multi-line truncation */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* CRITICAL: Flex children need min-w-0 to allow truncation */
+.flex-child {
+    min-width: 0;
+}
+```
+
+### Empty States
+
+Always style empty states - never render broken UI for empty arrays/strings:
+
+```css
+.empty-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl);
+    color: var(--color-text-secondary);
+    font-style: italic;
+}
+```
+
+---
+
+## Dark Mode & Theming
+
+### System Integration
+
+```css
+/* Set on html element for system integration */
+html[data-theme="dark"] {
+    color-scheme: dark;
+}
+```
+
+### Input Styling
+
+```css
+/* Native inputs need explicit colors in dark mode (Windows) */
+input, select, textarea {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+}
+```
+
+### Meta Theme Color
+
+```html
+<!-- Match page background for mobile browser chrome -->
+<meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+```
+
+---
+
+## Focus States
+
+Never remove focus outlines without providing a replacement:
+
+```css
+/* ✅ Good: Custom focus-visible style */
+button:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ❌ Bad: Removes focus with no replacement */
+button:focus {
+    outline: none;
+}
+
+/* Use :focus-visible over :focus (avoids focus ring on click) */
+```
+
+---
+
 ## Examples
 
 ### Styling a New Panel
@@ -162,13 +365,35 @@ import './styles/network-modal.css';
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: var(--spacing-sm);
+    text-wrap: balance;
 }
 
 .my-panel-content {
     font-family: var(--font-body);
     line-height: 1.6;
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .my-panel {
+        transition: none;
+    }
+}
 ```
+
+---
+
+## Anti-Patterns to Avoid
+
+| Anti-Pattern | Correct Approach |
+|--------------|------------------|
+| `transition: all` | List properties explicitly |
+| `outline: none` without replacement | Use `:focus-visible` with custom outline |
+| Hardcoded colors | Use CSS variables |
+| Missing dark mode colors | Test with both themes |
+| Images without dimensions | Always set `width` and `height` |
+| `...` for ellipsis | Use `…` character |
+
+---
 
 ## Common Pitfalls
 
@@ -176,6 +401,8 @@ import './styles/network-modal.css';
 2. **Wrong import order**: `app.css` must be first (contains font imports)
 3. **Missing transitions**: Add `transition` for hover/active states
 4. **Forgetting responsive**: Test at different viewport sizes
+5. **Using `transition: all`**: List specific properties instead
+6. **Ignoring reduced-motion**: Wrap animations in media query
 
 ## Verification
 
@@ -183,3 +410,5 @@ import './styles/network-modal.css';
 2. Visual inspection matches existing design
 3. CSS variables resolve (check in browser DevTools)
 4. Hover/active states work smoothly
+5. Focus states visible when tabbing
+6. Reduced-motion preference respected

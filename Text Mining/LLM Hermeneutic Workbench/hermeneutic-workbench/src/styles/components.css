@@ -31,8 +31,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    border-bottom: 1px solid var(--border-primary);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    /* Frosted glass effect */
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    /* Rounded bottom corners */
+    border-radius: 0 0 var(--radius-main) var(--radius-main);
 }
 
 .app-bar-content {
@@ -199,23 +205,7 @@ body {
     background-color: #5D5E64;
 }
 
-#clear-all-filters-btn {
-    font-weight: 600;
-    color: #F9F9F7;
-    background: #4D4E54;
-    border: 1px solid #4D4E54;
-    border-radius: var(--radius-interactive);
-    padding: var(--sp-2) var(--sp-4);
-    cursor: pointer;
-    font-size: var(--fs-sm);
-    transition: all 0.2s ease;
-}
-
-#clear-all-filters-btn:hover {
-    background-color: #5D5E64;
-    border-color: #5D5E64;
-    transform: translateY(-1px);
-}
+/* Clear filters button now uses AppBar unified button styles */
 
 .toggle-button {
     display: block;
@@ -279,10 +269,8 @@ body {
 .sidebar-column {
     flex: 3;
     min-width: 320px;
-    position: sticky;
-    top: calc(var(--app-bar-height) + var(--sp-4));
-    max-height: calc(100vh - var(--app-bar-height) - var(--sp-8));
-    overflow-y: auto;
+    /* Remove sticky positioning to allow content to scroll under navbar */
+    /* The sidebar will scroll with the page, showing frosted glass effect */
 }
 
 /* =====================================================
