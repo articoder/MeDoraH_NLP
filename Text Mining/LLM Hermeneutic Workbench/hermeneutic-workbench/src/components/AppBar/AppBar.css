@@ -274,13 +274,18 @@
 }
 
 /* =====================================================
-   EXPANDABLE SEARCH - Inside nav pill
+   EXPANDABLE SEARCH - Inside nav pill with refined animation
    ===================================================== */
 .nav-search-container {
     display: flex;
     align-items: center;
     overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: var(--radius-pill);
+    /* Smooth collapse animation */
+    transition:
+        background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        padding 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .nav-search-toggle {
@@ -295,17 +300,25 @@
     border-radius: var(--radius-pill);
     cursor: pointer;
     color: var(--fg-secondary);
-    transition: all 0.2s ease;
     flex-shrink: 0;
+    /* Refined hover transition */
+    transition:
+        background-color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+        color 0.2s ease,
+        transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .nav-search-toggle:hover {
     background: var(--bg-primary);
     color: var(--fg-primary);
+    transform: scale(1.05);
+}
+
+.nav-search-toggle:active {
+    transform: scale(0.95);
 }
 
 .nav-search-input {
-    display: none;
     width: 0;
     max-width: 0;
     padding: 0;
@@ -315,23 +328,46 @@
     font-family: var(--font-primary);
     color: var(--fg-primary);
     outline: none;
+    opacity: 0;
+    /* Smooth collapse - faster to hide */
+    transition:
+        width 0.3s cubic-bezier(0.55, 0, 1, 0.45),
+        max-width 0.3s cubic-bezier(0.55, 0, 1, 0.45),
+        padding 0.3s cubic-bezier(0.55, 0, 1, 0.45),
+        opacity 0.15s ease-out;
 }
 
 .nav-search-input::placeholder {
     color: var(--fg-secondary);
     opacity: 0.6;
+    transition: opacity 0.2s ease;
 }
 
-/* Expanded state */
+.nav-search-input:focus::placeholder {
+    opacity: 0.4;
+}
+
+/* Expanded state - elegant reveal */
 .nav-search-container.expanded {
     background: var(--bg-primary);
-    border-radius: var(--radius-pill);
     padding-right: var(--sp-3);
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+    /* Smooth expand animation */
+    transition:
+        background-color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+        padding 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .nav-search-container.expanded .nav-search-input {
-    display: block;
-    width: 140px;
-    max-width: 140px;
+    width: 150px;
+    max-width: 150px;
     padding: var(--sp-1) 0 var(--sp-1) var(--sp-2);
+    opacity: 1;
+    /* Elegant expand - slower reveal with delay */
+    transition:
+        width 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        max-width 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        padding 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
 }
