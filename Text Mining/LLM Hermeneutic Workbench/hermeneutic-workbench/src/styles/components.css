@@ -177,35 +177,7 @@ body {
     transform: rotate(5deg);
 }
 
-#back-to-top-btn {
-    position: fixed;
-    top: 12px;
-    right: 20px;
-    z-index: 1001;
-    background-color: #4D4E54;
-    color: #F9F9F7;
-    border: none;
-    border-radius: var(--radius-interactive);
-    padding: var(--sp-2) var(--sp-4);
-    cursor: pointer;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-    flex-shrink: 0;
-    font-weight: 600;
-    font-size: var(--fs-sm);
-    white-space: nowrap;
-    box-shadow: var(--shadow-md);
-}
-
-#back-to-top-btn:hover {
-    filter: brightness(1.1);
-    transform: translateY(-1px);
-    background-color: #5D5E64;
-}
-
-/* Clear filters button now uses AppBar unified button styles */
+/* Back to Top button styles now in AppBar.css */
 
 .toggle-button {
     display: block;

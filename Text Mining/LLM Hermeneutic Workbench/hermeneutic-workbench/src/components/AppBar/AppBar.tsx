@@ -11,7 +11,7 @@ import './AppBar.css';
 
 export function AppBar() {
     const { loadJsonFile, isLoading, loadedFilePath } = useDataStore();
-    const { searchTerm, setSearchTerm, hasActiveFilters, clearAllFilters } = useFilterStore();
+    const { searchTerm, setSearchTerm } = useFilterStore();
     const { openNetworkModal } = useUIStore();
 
     // Search expansion state
@@ -61,16 +61,25 @@ export function AppBar() {
         }
     }, [isSearchExpanded]);
 
-    // Scroll detection for title animation
+    // Scroll detection for title animation and back-to-top button
     useEffect(() => {
         const handleScroll = () => {
+            // Use multiple sources for scroll position (cross-browser compatibility)
+            const scrollTop = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
             // Trigger animation after scrolling 50px
-            const scrolled = window.scrollY > 50;
+            const scrolled = scrollTop > 50;
             setIsScrolled(scrolled);
         };
 
+        // Initial check in case page is already scrolled
+        handleScroll();
+
         window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
+        document.addEventListener('scroll', handleScroll, { passive: true });
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            document.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
     return (
@@ -119,17 +128,17 @@ export function AppBar() {
                             Visualise
                         </button>
 
-                        {hasActiveFilters() && (
+                        {isScrolled && (
                             <button
-                                className="app-bar-btn app-bar-btn-ghost"
-                                id="clear-all-filters-btn"
-                                onClick={clearAllFilters}
+                                className="app-bar-btn app-bar-btn-ghost back-to-top-inline"
+                                onClick={handleBackToTop}
+                                title="Scroll to Top"
                             >
-                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <line x1="18" y1="6" x2="6" y2="18" />
-                                    <line x1="6" y1="6" x2="18" y2="18" />
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <line x1="12" y1="19" x2="12" y2="5" />
+                                    <polyline points="5 12 12 5 19 12" />
                                 </svg>
-                                Clear Filters
+                                Back to Top
                             </button>
                         )}
                     </div>
@@ -205,14 +214,6 @@ export function AppBar() {
                 </div>
             </div>
 
-            {/* Back to Top Button */}
-            <button
-                id="back-to-top-btn"
-                onClick={handleBackToTop}
-                title="Back to Top"
-            >
-                ↑ Top
-            </button>
         </header>
     );
 }
