@@ -1,0 +1,94 @@
+{
+  "previous_utterances": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 29,
+      "sentences": [
+        {
+          "sentence": "As you were talking I was trying to think through the various strands of this.",
+          "sentence_order": "29-1"
+        },
+        {
+          "sentence": "What about those colliding points, those points where ideas collide with technology?",
+          "sentence_order": "29-2"
+        },
+        {
+          "sentence": "What you were saying about words seems to be going very much in that direction now.",
+          "sentence_order": "29-3"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 30,
+      "sentences": [
+        {
+          "sentence": "Yes, in looking at some of the chapters in the book I just finished, this issue of the technology colliding with what you want to do comes up fairly often.",
+          "sentence_order": "30-1"
+        },
+        {
+          "sentence": "Many people wanted to use images.",
+          "sentence_order": "30-2"
+        },
+        {
+          "sentence": "There was also the amount of time to get online, a lag, as they called it at that time.",
+          "sentence_order": "30-3"
+        },
+        {
+          "sentence": "It was frustrating and it was expensive too.",
+          "sentence_order": "30-4"
+        }
+      ]
+    }
+  ],
+  "current_utterance": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 31,
+      "sentences": [
+        {
+          "sentence": "I don't really mean that.",
+          "sentence_order": "31-1"
+        },
+        {
+          "sentence": "I mean, did the computer also become a sort of - going back to Willard McCarty - an exploratory tool?",
+          "sentence_order": "31-2"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 32,
+      "sentences": [
+        {
+          "sentence": "Yes, but maybe I was coming at it a little differently because I already knew what I wanted to do, to a certain extent, because I'd been working with these card catalogs for so many years.",
+          "sentence_order": "32-1"
+        },
+        {
+          "sentence": "It was exploratory, so I had to find out how to make it work on the system.",
+          "sentence_order": "32-2"
+        },
+        {
+          "sentence": "But maybe I was in a slightly different position than other people coming to look at technology with the idea of making art.",
+          "sentence_order": "32-3"
+        },
+        {
+          "sentence": "I had a certain advantage of knowing what I was going to do and I also could put it into practice very quickly.",
+          "sentence_order": "32-4"
+        },
+        {
+          "sentence": "Essentially I was using the computer to fulfil a vision I already had.",
+          "sentence_order": "32-5"
+        },
+        {
+          "sentence": "Now I don't know...that's a little different than the way other people approached it I think.",
+          "sentence_order": "32-6"
+        }
+      ]
+    }
+  ]
+}

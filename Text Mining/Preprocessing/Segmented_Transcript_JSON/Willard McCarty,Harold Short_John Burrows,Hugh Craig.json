@@ -1,0 +1,555 @@
+[
+  {
+    "speaker_name": "Willard McCarty",
+    "speaker_raw": "Willard ",
+    "role": "Interviewer",
+    "utterance": "I\u2019m going to go through six questions which have been asked of everybody in this project, but unusually, because there are two of you and you\u2019ve known each other for a long time, some sort of cross talk between the two of you will make this a particularly valuable record of your memories, recollections and thoughts on very long careers in DH. The first question is: what is your earliest memory of encountering computing technology and what did you think of the computing technology you encountered at the time?\n",
+    "order": 1
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "John Burrows ",
+    "role": "Interviewee",
+    "utterance": "[pause \u2026 laughter\u2026 pause \u2026]. It was 1979. I\u2019d been card-indexing examples of tolerably common words (or frequent words) in Jane Austen\u2019s novels. My card indexing system was becoming intolerably overburdened, complicated and difficult to manage, and I went downstairs to the Director of our Computing Service, John Lambert,Footnote2 and asked him if any of this could be computerised. He told me about COCOA (Russell 1965), the software program of the day for text management and preparation.Footnote3 He responded with great interest and enthusiasm and we worked right on from there. So, I had the good fortune to have an early positive response from a highly competent and capable man.\n",
+    "order": 2
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "Hugh ",
+    "role": "Interviewee",
+    "utterance": "A Remington word processor that we had in the faculty was my first contact. There was a special room there where the word processor was sitting. Remember [to JB], you were Dean and you put me in charge of that project. Now when was that? That was in the early 1980s, so that was our first bit of word processing technology.\n",
+    "order": 3
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\n1983.\n",
+    "order": 4
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nOK\n",
+    "order": 5
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nIt was known as \u2018the Dean\u2019s white elephant\u2019\n",
+    "order": 6
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nYes it did have a few problems. I remember that the daisy wheels kept breaking on the machine.\n",
+    "order": 7
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nIt had an abominable problem. I was lucky enough to be away on sabbatical while it was being experienced and came back just after it was resolved. It had the wrong board fitted (it was a closely related but not identical model). It took about 12 months and many visits from the technicians before it was discovered that all they had to do was insert the right board. Afterwards it worked admirably, by which time nobody was interested.\n",
+    "order": 8
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nPeople had spent too long battling its problems.\n",
+    "order": 9
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nAnd, of course, about $20,000 of faculty money which, at that time, was a considerable sum. It just predated the vigorous growth of PCs.\n",
+    "order": 10
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nIt seemed like the solution at the time.\n",
+    "order": 11
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nSo, your experience was unluckier than mine \u2013 it\u2019s a wonder you kept going.\n",
+    "order": 12
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nWell, that was unrelated to Computational Stylistics. I must have noted your work, particularly authorship attribution, happening here. I was working on a problem on Ben Jonson\u2019s additions to the Spanish Tragedy and I thought \u201cmaybe we could apply this to Computational Stylistics\u201d, as I don\u2019t think it was called then.\n",
+    "order": 13
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nNo\n",
+    "order": 14
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nAnd it wasn\u2019t called Stylometrics either \u2013 what did you call it at the beginning?\n",
+    "order": 15
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nNothing. It was just what I was doing. An American couple, I think their name was Sedelow used the term in a book of theirs in the mid-1970s. I took it up from them about 20 years later, principally because I thought by then we were outgrowing what had always been called Stylometry because we were doing more ambitious and complex things than just one-on-one contests between two candidate authors. We were doing more than Authorship Studies and I thought a new term was needed. The old term still survives but the justification of the new one is pretty obvious.\n",
+    "order": 16
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nThe old terms come back, you see it again and again. I\u2019m not sure why, I think because new players keep coming in and they just pick up on some of the older terminology and it comes back.\n",
+    "order": 17
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nYes, once again it\u2019s the dearth of the history of the field which we have talked about a number of times\n",
+    "order": 18
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nI think that it makes a big difference if you have somebody in your own institution, or even down the corridor, doing something. I think it\u2019s in terms of the sort of confidence you can have that something can be seen through or that you\u2019ll get some payoff for your investment. I\u2019m pretty sure that if I had been elsewhere and had just heard of John\u2019s work that I wouldn\u2019t have had the confidence to invest a lot of time. I would have thought \u201cOK, I can spend a year doing this and get nothing out of it. I don\u2019t think I\u2019ll do that!\u201d I had known John for a long time and I think there is something about proximity and the sense that you can observe, almost on a daily basis, that things are working out and things are progressing. It\u2019s a bit hard to define but that\u2019s why I got into it and persisted.\n\nI know that I did my first comparison in 1988. I had maybe six Shakespeare plays and six Jonson plays and the odd thing I always say is that I prepared Hamlet for that study in 1988 and I\u2019ve probably used it at least every week since then \u2013 that same text over and over again. It\u2019s a great advantage if the texts are not just a one-off; they\u2019re almost not worth it for a one-off study. There\u2019s such a big investment in the preparation of the texts in order to do it properly. I think that\u2019s true even today; you might get a database from somewhere yet you nearly always need to add something. So, it really pays off when you keep re-using your material. In my case, I\u2019ve just been able to keep building it up to, I don\u2019t know, 225 plays or whatever. But the core ones are still being recycled \u2013 I won\u2019t say daily but weekly, almost. And Hamlet is still there.\n",
+    "order": 19
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nAnother piece of serendipity in my early days was my first author. As I said a while ago, I\u2019d been doing card indexes looking at Jane Austen\u2019s language and she just absorbed this sort of punishment. She always rewarded you with an interesting answer to your question. If I\u2019d tackled some other stylistically-duller author I\u2019d probably have given up long before, but she just kept seducing me, which is something Ms Austen might not have wished to hear. And then, shortly after my conversation with John Lambert in August or September 1979, I went off to Cambridge for a year and had the good fortune to meet John Dawson [the Manager of Cambridge University Literary and Linguistic Computer Centre]. Through John and another man whose name escapes me at the moment, Robinson I think, I was told about Susan Hockey (see Chap. 6) and the work in Oxford University Computing Services. So, between Dawson\u2019s center in Cambridge and Hockey\u2019s center in Oxford, I was doing a lot of criss-cross travelling in the course of that year and learned a great deal and got a lot of encouragement and support to continue. I think I struck a lot of good luck, in a number of ways, early on when one might have been discouraged.\n\nWMC\nYes, stories of good luck are to be expected. The second question is \u2013 I\u2019m not sure why it\u2019s here really \u2013 about formal and informal training. Both of you began when there was no formal training, I know I began when there was no formal training, and you\u2019ve already answered more or less how you learned. But I\u2019m wondering if you could comment a bit more on the process of picking up this set of technologies and what that was like, and your relationship to John Lambert, in particular, because you had somebody in the computing center who was sympathetic.\n",
+    "order": 20
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nThe relationship with Lambert was enormously important throughout those years. You know, by 2001 he had been retired from his post as Director of Computing Services for 6 or 8 years. To amuse himself, and to earn a bit of money on the side, he became our programmer in our center. He worked actively with us right up to the time of his death. The prototype software that he designed for us called LILAC (Literature, Language, Computing) I use every day still. It was never refined as he would wish to see it but he left us a good enough working model. Now, the essence of that part of it, I think, is how much support the Humanities person needs from the computing person, Lambert or Dawson or Hockey, while he\u2019s finding his feet. It was 15 years before I could do much work by myself, on my own, without referring to somebody else all the time. So the training was a long, long slow process. Admittedly, in my own defence, I was a busy person at the time and doing a lot of other things.\n",
+    "order": 21
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nIt\u2019s just as well we weren\u2019t Statisticians and it\u2019s just as well we weren\u2019t Linguists because we would never have started. You know, the Statisticians would have been worried about normal distribution of the data, about not having enough. I think we would have been too inhibited. If we had been Linguists we would have been interested in Chomsky and Universal Grammar and not at all interested in data, as Chomsky wasn\u2019t. We never got much buy-in from Linguists. The best buy-in was probably from Statisticians once we had accumulated quite a lot of data. I think that if we\u2019d been trained\u2013[to JB] I don\u2019t know what you think about it\u2013Statisticians or Linguists, we would not have thought to do this kind of stuff because it was very exploratory, and no one would have held out much hope of finding any interesting patterns. Let\u2019s say, the less training the better.\n",
+    "order": 22
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nI quite agree. I got a great deal of support from our Professor of Statistics, Annette Dobson, who was sympathetic to my ignorance and stupidity. I had good help from statistically-informed friends, but I agree with you here. On the whole, the more strongly expert people were statistically, the more inclined they were to want us to use methods that yielded definite answers: yes/no answers. Our interest was rather more in exploring to find out what the answers might be, and what questions they might provoke. The finality of a Linear Discriminant Analysis,Footnote4 for example, was never really suitable to our need: it closed the question, but we didn\u2019t want it closed. We wanted to go on thinking about why it should look like that.\n",
+    "order": 23
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nPrincipal Component Analysis (PCA) was just the key, wasn\u2019t it? It was a beautiful way of combining the multivariate (combining all those different variables in an exploratory way) and letting the data speak for itself. PCA does this beautifully, as opposed to Discriminant, which wants a closed answer. It over trains and is over optimistic and gives rise to all those problems. [To JB] who put you on to PCA? That was really fortunate.\n",
+    "order": 24
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nNick McLaren in the Cambridge Computing Laboratory. Then friends of mine refined the rough model that McLaren had suggested and taught me how to use it better.\n",
+    "order": 25
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nNobody thought that function words would give you anything because every one used them at the same rate and they were empty words, or stock words, you know, classically.\n",
+    "order": 26
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nThat was me! That was just one bit of all of this. Poor judgement, good luck, and personal friends, [laughing] and I mixed teaching with it. Unexpectedly ordinary, boring, empty little words seemed to be doing a lot and that\u2019s where the card index broke down, of course, because one can\u2019t index and and of and the. Once I got it into the computer setup I was able to explore what did happen to and and, of and the. Much to my surprise, and everybody else\u2019s I think, the result was just as interesting as the result from ostensibly more interesting words of the kind that Stylistics has been much more focussed on. So, we got through to a layer that could not have been seriously penetrated without the computer.\n",
+    "order": 27
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nYes, that part of language was waiting for the computer to arrive so that it could become visible. Then PCA somehow went beautifully with function words; that was John\u2019s winning hand, function words plus PCA.\n",
+    "order": 28
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nI always expected to be completely overtaken and surpassed by some wealthy American Institute, and it never actually happened. More luck! I seem to be in a benevolent frame this afternoon.\n",
+    "order": 29
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nWe still come back to function words and PCA. You know, one goes down to the more interesting words and lots of people find ways of doing that, as we have ourselves, but then you come back to function words: they\u2019re abundant, they\u2019ve got a good distribution \u2026 they\u2019re like the very fabric of language, aren\u2019t they?\n",
+    "order": 30
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nAnd they not only require a computer, they also require statistics to handle them.\n\nWMC\nPeople are always asking the question you\u2019ve just answered, which is, where has the computer made a real difference that no-one could have made by him or herself \u2013 this is a very important point.\n",
+    "order": 31
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nYou can imagine a Victorian Parson mad enough to count up all the thees or all the ofs but he could never have done multivariate things with them. The first of those two steps is lunacy but the second would have been impossible.\n",
+    "order": 32
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nAnd you would have probably just done Shakespeare, and never been comparative, which is the other great thing. That\u2019s why I almost challenge John about Austen \u2013 if you\u2019d started on Dickens you might have got something of the same. If you\u2019re inside that author, you sort of feel that author is the world.\n",
+    "order": 33
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nAusten is not alone. A comparatively small number of authors have a really strong stylistic gift but I don\u2019t think it works for the common run of writers. Nothing in my work would support the idea that it works in the commonest authors.\n",
+    "order": 34
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nDown to the finest levels of character or progression of characters, yes.\n\nWMC\nThere\u2019s another important point there that I picked up on as you were talking. That is your relationship to the other disciplines that touched your intellectual lives, a glancing or peripheral relationship, which, had it been intimate, would have paralysed the work. But, starting from literature you went out and picked up things here and there where they helped the work. That would not have happened with any other kind of relationship.\n",
+    "order": 35
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nYes but it is very dangerous because you are working on instinct rather than training, which is risky, certainly with statistics.\n\nWMC\nBut it\u2019s a well-educated instinct.\n",
+    "order": 36
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nI think we\u2019re fortunate that we never really wanted to do anything other than study literature; all of the other things were ancillary to that. That central purpose literally questioned the questions of a literary scholar. They might have been the questions of a Linguistics scholar or an Historian, or whatever, but for us they were, have been, and continue to be the questions of literary people\n\nWMC\nWe continue with the question of influence in your career. You spoke of one or two strong influences but who else gripped you, including those at a distance such as people whose books you read?\n",
+    "order": 37
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nOn the whole they were not in computing. As I said, I picked that up en passant as time went along. Background influences \u2026 let me think. I was enormously impressed by Wolfgang Clemen (1977) on Shakespeare\u2019s imagery. I took up detail of the figures and showed how they worked through the plays dramatically. In a way, I think what I am doing is something like what Clemen did except that I am doing it with words rather than with images. And I might say, by the way, looking back to an earlier answer, both Hugh and I laid some emphasis on the function words. A lot of the work was done on them early on and is still, to a very large extent, about them. But increasingly the other words have come into play. As we\u2019ve developed a better understanding of what we\u2019re doing our vocabulary has spread from the bottom up, rather than the top down. So, we are enriching as we proceed, or so we like to think. So, Clemens was one.\n\nI was also enormously impressed by Erich Auerbach\u2019s Mimesis (see, for example, Auerbach 2013), partly because of the way in which it was written by a refugee in Istanbul I think it was, during the war, quite without a proper library. He had just a few texts and had to simply write out of his head about what he thought of some of the books which meant most to him. A remarkable study. Those two. Then, afterwards, the New Critics generally\n\nWMC\nRichards and Ogden for example?\n",
+    "order": 38
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nNot so much the English ones \u2013 the Americans. I didn\u2019t ever warm to Richards. I didn\u2019t quite find his wavelength or he didn\u2019t quite find mine. I can see his importance but he didn\u2019t really speak to me. But some of the Americans did. Reuben Arthur Brower\u2019s Fields of Light (1951), was terribly important to me, you know. All in all, the main influences on me had to do with close reading: the world in a grain of sand.\n",
+    "order": 39
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nI don\u2019t know that there\u2019s anyone very close to what we do who has been a big influence. I\u2019ve lived through deconstruction and post modernism and those sort of eras but in many ways I probably define myself against some of that work. I\u2019m very fascinated by it, it\u2019s definitely embedded in my thinking, but a lot of what I\u2019ve been doing is trying to push back against that sort of work. But I was very influenced by New Historicism in our own area \u2013 that is, the renaissance area \u2013 people like Stephen Greenblatt and so-called Cultural Poetics, which is a good broadening from close reading. I don\u2019t know, a lot of that doesn\u2019t relate directly to what we actually do. We had a really nice visit from George Hunter, G. K. Hunter, who did a literary history of renaissance English, you know.\n\nYou\u2019re always looking for people who have a broader, more conspectus view, because that\u2019s, I think, what the computational stuff does well. It\u2019s extensive rather than intensive, which people, I think, have struggled with, because we\u2019re so used to the intensive. But the real gain is from the wide sweep so one looks for people there. Robert Weimann, a German scholar, latterly does that kind of thing (Weimann and Bruster 2010) and has some broad perspectives. But we\u2019re often looking for myths to bust so almost you read these people to find a reasonably categorical statement, preferably slightly quantitative, which can then be tested. So that\u2019s a strange form of influence! It\u2019s like \u201cgive me something I can disprove\u201d. I suppose I\u2019ve a vaguely oppositional perspective on what would otherwise be regarded as influences.\n\nWMC\nWhat about other people who were using computers in their research when you got started. Were there any and did you draw anything from them? Do you remember what their views were of what you were doing, or of computing generally?\n",
+    "order": 40
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nI didn\u2019t have a lot of close contact, partly because there wasn\u2019t much else going on in Australia at that time. I just had the brief relevant periods in Cambridge, so, on the whole, not. I did learn a lot in the late 1980s and 1990s at conferences with people like Susan Hockey and Paul Fortier.Footnote5 I heard some splendid papers here and there, at the conferences, but on the whole not much in the way of close contact because there was never anyone much close to me until Hugh came along and that made things more interesting because we began talking together and working together.\n\nWMC\nHow about the people here in the computing center? You mentioned Lambert, what did you think about the computing center and the relations for a person like you with the people in it.\n",
+    "order": 41
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nWell, it was only one-on-one, Lambert and me. I\u2019d go down and talk to him, or his deputy Paul Butler was helpful at times, but on the whole, I didn\u2019t have much connection with the center as a center or the service as a computing service. My contact was much more with the Director so that it was a personal affair rather than a departmental one.\n\nWMC\nWhat about you, Hugh? What about the other people using computing at the time and your closeness to them or distance from them? I know that in my case I actively disliked most of the people having something to do with computing for many years!\n",
+    "order": 42
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nI didn\u2019t have any strong feelings that way. I guess the center was already providing that sort of ambience and technical support so it was already well in train. I didn\u2019t have to do much pioneering there. We had Alexis Antonia already there as a wonderfully patient person, and a Linguist, to help with preparing texts. Certainly no negative experiences; it was fairly restricted really. There weren\u2019t a lot of competitors, not a lot of opposition, so\u2026\n",
+    "order": 43
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nThe journals that were important were Literary and Linguistic Computing particularly but Computing in the Humanities as well. It\u2019s the only field in which I\u2019ve ever worked where people really seem to read each other\u2019s articles. In English Studies, I think on the whole, this wouldn\u2019t be altogether true. A lot of people write for the standard academic necessity of writing but don\u2019t on the whole interchange ideas with each other and they don\u2019t much care what the other fellow is writing. That\u2019s putting it too strongly, but I feel there\u2019s a step difference between the interrelationships in English Studies and those in the general area of DH where people really do seem to know what other people have said in the journals.\n\nWMC\nI\u2019ve heard this said before too with respect to the friendliness of the people and in the degree in which they want to relate to each other. I know that was my experience when\u2026.\n",
+    "order": 44
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nAnd not too much belligerence either of the kind that\u2019s so common, for example, in Classics where so many of them hate each other. There have been some notable attacks on generally deserving objects but I don\u2019t think that there\u2019s much general belligerence at all.\n",
+    "order": 45
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nThe interesting relationship I reckon is with our English colleagues in the English department or discipline or whatever. That\u2019s been the most potent one for me, like trying to persuade them that this is a worthwhile activity, and you\u2019re actually learning something this way. I don\u2019t know if they ever quite got persuaded, but we\u2019re keeping on trying.\n",
+    "order": 46
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nThe scepticism is enormously useful!\n",
+    "order": 47
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nYes, so we have a number of very, very bright and learned colleagues who we found hard to persuade (but we kept on trying) and that\u2019s a very good sort of proving ground. I think some of them are half way there. They\u2019re half way to the point that they can see that there is some value in it but they wouldn\u2019t want to do it themselves, and I guess it\u2019s slightly disappointing. It would be nice to get a few more over the line and for them to say \u201cI can see it\u2019s valuable and I\u2019m prepared to spend the next 6 months doing it\u201d. I certainly learned a lot about trying to persuade close colleagues that I really respected that this was something worthwhile and still get the reaction that it\u2019s an awful lot of trouble to learn so little. Then you have to persuade them that it\u2019s little but at least it\u2019s something you know, if you know what I mean, whereas you can make a grand statement, as they like to on the whole, which is just worthless.\n\nWMC\nIt\u2019s a little bit at a time.\n",
+    "order": 48
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nYes, and what there is, is solid. It\u2019s not likely to be reversed in a hurry.\n",
+    "order": 49
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nI think your father rates a mention, doesn\u2019t he, as a shrewd questioner and challenger?\n",
+    "order": 50
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nYes my father is a good mathematician and so I worked with him doing some PCAs. I don\u2019t think I could do it now, but, you know, diagonalising the matrix and so on was good in the early days for making sure you really understood what was happening.\n\nAnother great question came from Anne Barton (who was a very good Ben Jonson scholar) in Cambridge. Those were the very early days when I was trying to persuade her of a certain thing. She said \u201cyes, this sounds fun but I just don\u2019t know how much faith to have in your results\u201d, which was a brilliant! \u201cI can see technically it might be ok, but how much faith should I have in it when as a reader I might think something differently?\u201d We\u2019ve all sort of lived by that, you know.\n\nWMC",
+    "order": 51
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "John",
+    "role": "Interviewee",
+    "utterance": ", you used a phrase that I really liked about the mounting evidence that this multitude of weak markers is something secure, that they add up to a view of literature which is probabilistic and, well, in my words, the ground is getting more solid. The mounting evidence and the patience over time in advancing step by step (and I think it is advancing) was brought to mind by your comment about the little things versus the grand statement.\n\nThe last of the required questions is about conferences. You\u2019ve mentioned a bit about conferences, I suppose that the size of this country and its distance from where most of the conference activity and literature goes on meant that there weren\u2019t a lot of them. When did the conference engagement with this kind of work begin, and what was it like?\n",
+    "order": 52
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nWell, I gave a paper to a conference in Adelaide, the Australian branch of the MLA, AULLA in 1974, and I just talked about some word counts in Jane Austen. Someone said \u201chave you tested this at all with anything like the chi-squared test\u201d. I said \u201cno, I don\u2019t know anything about that, I just count on my fingers [laughing]. I used a simple word counter and here are the comparative results\u201d.\n\nIt wasn\u2019t until afterwards in Cambridge that I began to understand a bit about chi-squared and a few other things, 5 or 6 years later. Overseas conferences for me, in this field I mean, began in San Francisco in what must have been 1981 at the big ACH/ ALLC conference of that year. From then on I went to it around every second year for a dozen years or so. After I retired I eased out of them. I found them well worth doing, I enjoyed the people and the papers. It was very arduous \u2013 I was Head of Department a lot of that time, and then Dean. I\u2019d be away for only a week in Australia or America or Europe and return to a desk full of work. Pretty sore, but it was worth it. Any particularly memorable one? Yes, Columbia, South Carolina, [to WMC] you were there with me at the time. Georgetown in 1993? You and Harold were both there.\n\nWMC\nChrist Church, Oxford, in 199[2] \u2013 that\u2019s where I met you.\n",
+    "order": 53
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nOh yes, that\u2019s a good one too. Christ Church, that\u2019s right. We were both together at Columbia, Willard and I, but we really met in 199[2].\n",
+    "order": 54
+  },
+  {
+    "speaker_name": "Harold Short",
+    "speaker_raw": "Harold Short [HS]",
+    "role": "Interviewer",
+    "utterance": "\nNew York, 2001 was memorable for lots of the rest of us, John\n\nWMC\nWell, Christ Church in 199[2] was the first time I\u2019d ever heard John talk and I went up to him afterwards and I effused in my typical fashion. We\u2019ve been friends ever since [laughing].\n",
+    "order": 55
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nIt\u2019s a good beginning ...\n",
+    "order": 56
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nHow not? [laughing]\n",
+    "order": 57
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nFor me, conferences in Renaissance literature or Shakespeare, or whatever, have been just as important. And that\u2019s where I feel the work really has to be done. It\u2019s very good to learn about what other people are doing technically and so on at the DH sub-conferences. But one of the things that I think makes us distinctive is this: we made a resolution at some point that we would always try to get articles in good journals in our discipline and that those are the people we really wanted to persuade. It\u2019s still the quest! But I think we\u2019ve been distinctive in always trying to keep that link with the discipline and keep persuading our colleagues. Perhaps to no avail, but \u2026\n",
+    "order": 58
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nWe\u2019ve had a victory or two, but not a huge number, the mainstream journals are still very hard to persuade\n",
+    "order": 59
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nYes, but increasingly they are more open \u2013 definitely the best ones are.\n",
+    "order": 60
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nIt\u2019s beginning to be said in America that DH is the next big thing \u2013 be nice if that were true [laughing]!\n\nWMC\nThe last question is my own and off-piste. If you look back on what you\u2019ve done and what has happened in your field since you got started, what has happened that you think is really important? Can you use that to pick out a trajectory for the field, or more than one trajectory for the field, into the future? Not in terms of predicting the future but in terms of recognising the possibilities that are now before us? What about the past really comes out to you as important, and in using that, what do you see for the future?\n",
+    "order": 61
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nI\u2019m not dodging it, I\u2019m letting you go first. It is the future\n",
+    "order": 62
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nIs it what one\u2019s self has done?\n\nWMC\nYes, start there with what you\u2019ve done and what you think is important for the future of the field. Something you\u2019re proud of; something you are ashamed of [laughter]. That kind of autobiographical sorting of the past to try to pull from it something that we\u2019ve learned, that makes our choices in the future more like another step in a trajectory.\n",
+    "order": 63
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nI don\u2019t know if I can respond to that question!\n\nWMC\nI\u2019ll think up another question!\n",
+    "order": 64
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nI think that [pause] it\u2019s all empirical at present, and to my mind, that is generally speaking a very good thing. We\u2019ve learned a great amount about the details of the ways in which language works. As Hugh was saying a while ago, it\u2019s becoming increasingly possible to reach out to larger and larger corpora as the capacity and speed of computers improves, so that we\u2019re able to do more with less and we know much more than we did about the intricacies of stylistic patterns.\n\nIt\u2019s never-the-less true that as Argamon (2012) says \u2013 I don\u2019t agree with his derogatory way of saying it, he says that the field is a mess \u2013 that there have been some major achievements. Now, the field is a mess, he thinks, because no-one has a deep understanding of the patterns at work and what they really mean. What that deep understanding might be, I don\u2019t really begin to understand, so for me that\u2019s a very good question for the future. I\u2019d like to meet the person who is going to offer answers that speak to me. I don\u2019t know what form that will take.\n\nFor me, there\u2019s never been any surprise in the idea that authors should be identifiable by their style, or patterns in their language, any more than if you and Hugh and two or three people come along a corridor towards me, I don\u2019t have to stop and think, is that Willard? Is that Hugh? Is that Harold? Everything about you speaks to me: the way you move, the way you dress, the way you speak and the way you eat. We\u2019re like that. We have so much in common, we humans, but we are certainly different in so many ways. It is not in the least degree remarkable to me but people seem surprised and surprised and surprised that our own individuality should speak through and beyond and out of our community. That\u2019s the sort of big understanding that I would understand, but I don\u2019t think that\u2019s what Argamon (2012) means. I would like to know what this other deep understanding of what it is all about might look like. I don\u2019t know if that\u2019s an answer\u2026\n",
+    "order": 65
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nThat\u2019s exactly what I think. I remember when you were working on that article and commented on how there is different individuality, that your own individuation is there in all the different strata. You said something that crystallised that whole issue of language individuation, which sort of is the answer to the idea that the author is dead, and all the rest of it! It\u2019s the empirical answer that people do in fact make their own language, or idiolect, out of languages. That gave the underpinning for a whole lot of work, not only on authorship but individuation in general. But I think we\u2019ve worked through that; I mean, it\u2019s so obvious once you do it that the battle is almost won.\n",
+    "order": 66
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nExcept that people don\u2019t believe it.\n",
+    "order": 67
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nNo, I\u2019m satisfied. I think everyone sensible is satisfied \u2013 it just makes obvious truth. I think that\u2019s a real contribution that Computational Stylistics has made: to have that broader idea and then work it through in a whole mass of different studies which show that authors can be distinguished. Linguists are still not very interested in the individuation of language; that\u2019s not what they do. They like much more general things about languages or even about sociolects or whatever. I feel we\u2019ve probably done the individuation work and I don\u2019t know what the next phase is beyond that. Some people feel that the work of Computational Stylistics is to endlessly prove that authors are different and that Computational Stylistics can show that, but I think we\u2019re sort of bored with that. That has been demonstrated, it\u2019s as rock solid as anything can be, it\u2019s no longer the mission of Computational Stylistics and it would be good if it was disassociated from it because we\u2019ve got our answer.\n",
+    "order": 68
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nNow, there\u2019s double spin here, isn\u2019t there? On the one hand, what you say in principle is absolutely true. On the other hand, for me at least, the particular problems of authorship remain fascinating, because so many of them are unresolved. So, I no longer feel that there\u2019s any need to demonstrate that it can be demonstrated, but I still passionately believe that the real interest, and the real challenge, lies in the particular problems themselves. However, it\u2019s not just authorship attribution, individuation is larger and more interesting than that. My own work will probably continue to be mostly in authorship attribution and individuation \u2013 I think the larger issues are fascinating and maybe there\u2019s room for a lot more work there\n",
+    "order": 69
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nThere is always to and fro between attribution, which is the bread and butter of Computational Stylistics and continues to ground or authenticate or validate its work. And then there\u2019s always the temptation or interest in something beyond authorship. So, I guess one continues to go back and forth between those two. And the great thing is that authorship is a very good testing ground because people are really interested in the answer and you can\u2019t muck about. You can\u2019t do too much hand-waving about very general concepts. And it\u2019s one area where people will actually go back and check your sums, people like Jackson (2002). I think that is quite unusual, certainly in our area, because most people will accept tables and numbers. That\u2019s the good thing about authorship attribution, it gets peoples\u2019 interest to a very profound degree. But, it\u2019s not the whole of the possibilities of the field.\n\nWMC\nWhat strikes me is that it really doesn\u2019t make any sense at all. In one of his books Ian Hacking remarks that the great achievement of twentieth century physics is the realisation that nature is probabilistic. The fact that you two have shown that literary language is probabilistic means that we, as authors, are operating in the natural world as the natural world operates. And that\u2019s more of a question than an answer; I think that\u2019s a really interesting question.\n",
+    "order": 70
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nIt\u2019s a very elegant way of saying what I was fumbling with there, about the character of individuality.\n\nWMC\nThe fact is that we are an intimate part of the natural world and have been pretending to be separate from it for a very long time. We are an intimate part of it down to the most elusive of aspects of artistic expression \u2013 style. As you say, it\u2019s instantly recognisable when you\u2019re walking down a hallway and you don\u2019t have to pause to know who it is \u2026\n",
+    "order": 71
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nYes, that concept of style, however elusive, is the other key or one of the keys, definitely.\n\nWMC\nHow far can we take this? How far can we take that probabilistic bond that we have with the natural world? Sociologists have been puzzling over this in large crowds of people and such for a long time. But there\u2019s a continuum here that seems to me to be a really interesting question. That is what I say is the significance of your work John, when I\u2019m asked or when I can say it.\n",
+    "order": 72
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nThink of those people with good musical memories \u2013 they can recognise something in a phrase or a couple of bars. Perhaps that is what style is like? But, you do it in tennis, you do it in cricket \u2013 it\u2019s circumambient. We\u2019re part of the natural world.\n",
+    "order": 73
+  },
+  {
+    "speaker_name": "Harold Short",
+    "speaker_raw": "HS",
+    "role": "Interviewer",
+    "utterance": "\nOne of the things that I think of is your most significant achievement, actually you touched on it early in the interview, is that the purpose is questions and not answers. In an authorship study you are trying to establish an answer. The method and the results are actually about the questions. In a world that often gets far too fixated on the quantitative as a way to answer questions this keeps this work rooted in the Humanities. I think that has been incredibly valuable for the field and continues to be.\n",
+    "order": 74
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nOn Authorship again, here\u2019s an idea that has always meant a lot since it first came to me from Hugh 20 years ago. When you make a proper attribution of a poem, you\u2019re fitting it into an interpretative nexus where it makes more sense than it would if you had tried to force it into some alien nexus, and that\u2019s when it gets interesting. You get it into its proper home and then you see that the shape of the home has changed a little bit, and so you go on again. So it\u2019s not just \u201cyes, this poem is Rochester\u2019s\u201d, it\u2019s what that means to Rochester.\n",
+    "order": 75
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nWell, there\u2019s some connection there with computing power and speed, which is that in an older method you had to construct a sort of a test and a hypothesis and then you could painfully run that through, get an answer one way or another and then maybe try again. That was a very rigid structure. Computational power means that you can do that exploratory data analysis, change a parameter, re-do it, and then it becomes open in the way you\u2019re describing. And I think that\u2019s what people perhaps don\u2019t realise. They say \u201ccan your program tell you, or could your program tell you who wrote this book?\u201d That shows no understanding whatsoever of the processes involved in doing a complicated authorship problem.\n",
+    "order": 76
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nOur friend, Harold Love, used to say that after you finish the computation and calculations, and all the rest of it, that\u2019s when the brainwork begins.\n",
+    "order": 77
+  },
+  {
+    "speaker_name": "Hugh Craig",
+    "speaker_raw": "HC",
+    "role": "Interviewee",
+    "utterance": "\nYeah, but then you can re-do them all.\n",
+    "order": 78
+  },
+  {
+    "speaker_name": "John Burrows",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nOne chap at one of those symposia was very distressed by the way you\u2019re talking right now. He said \u201chow you can call it an experiment when you change your minds a dozen times in the course of a morning, and come at it from so many different angles and different ways? That\u2019s not an experiment!\u201d [Laughter].\n\nWMC\nWe know now from really good work in the History of Science like David Gooding\u2019s on experiment (Gooding et al. 1989) that that\u2019s exactly how experiments are worked. That\u2019s the second thing that I think is really important about this work: it exemplifies the experimental method which is brand new to the Humanities. When I started, you planned your computer program out really, really well and did a flow chart and all that. Then you took your deck of cards down to the computing center and if you were really important like a Nobel Prize physicist, you could get your answers back in a couple of hours. Otherwise it was 2 days or a week, only to learn that you\u2019d made some keypunch error [laughter]. It was only the hackers at MIT who had talked about the hands-on imperative who understood. They were sitting at the console, playing with the computer from midnight until eight in the morning. They understood this experimental method, which now we have because now you have these small machines. But, your point about the idea of experiment is really important.\n\nWMC\nWell, thank you two very much for the interview.",
+    "order": 79
+  }
+]

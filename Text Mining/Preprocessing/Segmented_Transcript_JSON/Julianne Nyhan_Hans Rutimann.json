@@ -1,0 +1,282 @@
+[
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "Julianne ",
+    "role": "Interviewer",
+    "utterance": "What is your earliest memory of encountering computing technology?\n",
+    "order": 1
+  },
+  {
+    "speaker_name": "Hans Rutimann",
+    "speaker_raw": "Hans ",
+    "role": "Interviewee",
+    "utterance": "It\u2019s a complex story and I\u2019ll try to make it very brief. It was about 1968 or 1969 and I was at the Modern Languages Association (MLA) in New York. The MLA at that time was in the process of introducing a computer, mainly to help with administrative tasks.Footnote1 I was a research assistant at the organisation, having come from Switzerland just a year or two before, and I heard about the arrival of the computer and a whole staff was hired: an Operator, Punched Card Operators, Programmers etc. I had nothing to do with it, I was doing a study on the teaching of German in high schools. But then the computer arrived, it was a 360/20, which is the smallest in that famous 360 line and the preparations were on-going. In spite of its size, the 360/20 had a memory of only 12 K, later augmented to 16 K. A programmer in those days spent more time sub-dividing programs than writing whole programs.\n\nThen there was small scandal at the organisation when the Head of Computing, as we called it then, had a romantic liaison with the woman who was hired to be the Operator. The Executive Director of the MLA was very offended by that, he was the son of a missionary, and he fired everybody connected with the computer. It just came to a standstill and he called me up and said \u201cI saw in your resum\u00e9 that you worked in a Swiss bank, so you\u2019re probably good with numbers. Would you like to make a go of it and try to help us with this new computer?\u201d\n\nThe computer was huge, at that time it filled a room that had a double floor and extra air conditioning. I said I would think about it, thought about it and I said \u201cyes\u201d and went to training classes. But that\u2019s really leading into your second question, \u201cdid you receive formal training in programming and computing?\u201d At that time the IBM customer service was excellent and I took courses in operating and programming. Regarding the work, the first task was to convert the membership list, an address list of about 30,000 members, which at that time were still on metal plates on what we called an addressograph machine.Footnote2 Those were all punched on cards. So that was my beginning.\n",
+    "order": 2
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nDid you go somewhere to take the training?\n",
+    "order": 3
+  },
+  {
+    "speaker_name": "Hans Rutimann",
+    "speaker_raw": "HR",
+    "role": "Interviewee",
+    "utterance": "\nYes, IBM had a classroom building in Manhattan and I took courses, first in operating and then in programming. Usually we were a group of about 15\u201320. I took the courses and we successfully converted the membership list and went on to other administrative tasks. Within a year or so we had it up and running.\n",
+    "order": 4
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat did you think of the computing that you encountered on that training course?\n",
+    "order": 5
+  },
+  {
+    "speaker_name": "Hans Rutimann",
+    "speaker_raw": "HR",
+    "role": "Interviewee",
+    "utterance": "\nI found it very interesting and not boring at all. It was all new to me, and obviously not my field, so I felt I was getting a valuable additional education through the courses. It was splendid and didn\u2019t cost us a thing!\n",
+    "order": 6
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd was it difficult?\n",
+    "order": 7
+  },
+  {
+    "speaker_name": "Hans Rutimann",
+    "speaker_raw": "HR",
+    "role": "Interviewee",
+    "utterance": "\nYes, I found it challenging because of the amount of precision that you had to work with. I remember the frustration I felt when I used a colon instead of a semi-colon; in programming that is, of course, deadly. I could never quite get used to the fact that you had to be very, very precise.\n",
+    "order": 8
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd what about the other people who were on the course with you?\n",
+    "order": 9
+  },
+  {
+    "speaker_name": "Hans Rutimann",
+    "speaker_raw": "HR",
+    "role": "Interviewee",
+    "utterance": "\nThey were from businesses all over New York that had ordered IBM equipment recently, or at that point, and needed to programme. So, it was a real cross-section of individuals, including people like me who were drafted in to do that. It was a new activity for most companies, and we were all in the same boat.\n\nI remember another frustration was that they only had one mainframe available. So, when you finished your programme you had to line up and sort of sign up for your programme to be evaluated. At that time you had to run it against a compiler, which was about 1000 cards, to turn the programme that you have written into what we called the project deck. And that was another 2000 cards, so it took time. And every time you had to line up or sign up for your evaluation to realise that you\u2019d made another mistake \u2026\n",
+    "order": 10
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nYes, so then it was back to fix the semi-colon again!\n",
+    "order": 11
+  },
+  {
+    "speaker_name": "Hans Rutimann",
+    "speaker_raw": "HR",
+    "role": "Interviewee",
+    "utterance": "\nYes, so I started going on weekends because that mainframe was less busy then \u2026 I\u2019m talking about a long time ago in the early 1960s.\n",
+    "order": 12
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat was the gender breakdown of students and instructors on the course?\n",
+    "order": 13
+  },
+  {
+    "speaker_name": "Hans Rutimann",
+    "speaker_raw": "HR",
+    "role": "Interviewee",
+    "utterance": "\nAs I recall it was practically 50/50. It was pretty balanced.\n",
+    "order": 14
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd the courses were in operating and programming?\n",
+    "order": 15
+  },
+  {
+    "speaker_name": "Hans Rutimann",
+    "speaker_raw": "HR",
+    "role": "Interviewee",
+    "utterance": "\nIt was billed as operation (which required a different set of skills to make those huge monsters run) and programming (the programming was, at that time, nothing very complex but we had to do something.)\n",
+    "order": 16
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd how long did it last for?\n",
+    "order": 17
+  },
+  {
+    "speaker_name": "Hans Rutimann",
+    "speaker_raw": "HR",
+    "role": "Interviewee",
+    "utterance": "\nThose courses, on average, I would say about 5 months, 6 months.\n",
+    "order": 18
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWere you going every day or was it part time?\n",
+    "order": 19
+  },
+  {
+    "speaker_name": "Hans Rutimann",
+    "speaker_raw": "HR",
+    "role": "Interviewee",
+    "utterance": "\nNo, it was sort of twice or three times a week.\n",
+    "order": 20
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd later in your time at MLA you also worked on electronic reference tools?\n",
+    "order": 21
+  },
+  {
+    "speaker_name": "Hans Rutimann",
+    "speaker_raw": "HR",
+    "role": "Interviewee",
+    "utterance": "\nYes, well that was a parallel development. As we worked on converting all the administrative tasks (accounting, budgeting, membership services etc.) so that they could be done with computing, we also had an outside firm compose the MLA International Bibliography (MLA IB). By \u2018composing\u2019 I mean that we would prepare a tape with all the typesetting codes and they would then set the type from this tape. We did that for a few years, I\u2019m now moving through the 1970s and we produced the MLA IB, which was at that time the largest reference work for English, Foreign Languages, Folklore and Linguistics. Then, I\u2019m skipping a few years now, we also looked into the possibility of making this available \u2018online\u2019 and that leads to another anecdote!\n\nWe worked at that time with a company called Lockheed, the airplane manufacturer in California. They made databases available for online searching. The MLA was the first organisation to make a reference work in the Humanities available online. I remember very well, we produced a tape and stripped it of all photo-typesetting composition codes. It was one of the large tapes, you know, the old tapes, I don\u2019t know if you recall those? [JN: No] They were quite large, about 15 inches in diameter. They were called the seven-track tapes. I had one under my arm and I took a plane from New York to Palo Alto, San Francisco. I drove to Lockheed and gave them the tape and they made it available online as the first international database in the Humanities.\n\nAnd I remember so well, I flew back to New York and we bought one of those early online terminals. It was not really a terminal, it was a telephone with two rubber receptacles: you dialled the number, and you put the receiver in those rubber receptacles and then you typed in your search query. I remember I jumped with joy when the first results came in and I marvelled aloud that this was from 3000 miles away and I got the answers that I requested. Of course the searching was nowhere near the sophistication of today but it worked and proved to be very successful. I then negotiated, now we\u2019re moving into the late 1970s or early 1980s, with the Wilson Company in New York, a publisher of articles and books for the library world. The Wilson Quarterly also had an online service. We produced the first CD of the MLA IB to be made available through Wilson. So that was all very exciting for our membership and the usage increased, we got royalties, and it was a success, as I recall.\n",
+    "order": 22
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat was the reason for selecting Lockheed?\n",
+    "order": 23
+  },
+  {
+    "speaker_name": "Hans Rutimann",
+    "speaker_raw": "HR",
+    "role": "Interviewee",
+    "utterance": "\nWell, basically it was the only name in town. Lockheed, as I understand it, at that time got into computing and machine readable this and machine readable that and saw a need to host databases from all over. There was no such thing at that time but they, in fact, became the host. I couldn\u2019t go elsewhere and then Lockheed spun off that service and called it DIALOG.\n",
+    "order": 24
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWas it very expensive to work with them?\n",
+    "order": 25
+  },
+  {
+    "speaker_name": "Hans Rutimann",
+    "speaker_raw": "HR",
+    "role": "Interviewee",
+    "utterance": "\nNo, as I recall, it didn\u2019t cost a thing. I mean, they put it up online and the terms of the fee structure was that they somehow got a part of the hourly usage from each user. So, Lockheed got a cut too and they got their money in the end that way.\n",
+    "order": 26
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nI wondered whether you were aware of any other projects in the area of Humanities who would have been working with Lockheed around that time?\n",
+    "order": 27
+  },
+  {
+    "speaker_name": "Hans Rutimann",
+    "speaker_raw": "HR",
+    "role": "Interviewee",
+    "utterance": "\nNo, later we prided ourselves on having been the only one at that time. The MLA IB was our most extensive work and it was, at that time, the only exclusively Humanities database. We prided ourselves on being the first from the Humanities because all the others that came before us were in Science, Social Science or other fields.\n",
+    "order": 28
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nI know that we agreed the questions in advance but can I ask you one that just occurred to me? You mentioned that the first computer that arrived in the MLA c.1968 was procured for administrative purposes. Over time there was obviously a shift to include research-oriented ends. Would you reflect on that shift and on whether you were aware of a wider context to it?\n",
+    "order": 29
+  },
+  {
+    "speaker_name": "Hans Rutimann",
+    "speaker_raw": "HR",
+    "role": "Interviewee",
+    "utterance": "\nIt was really through the reactions of the membership that I became aware of a lot of work being done with the aid of computers, for example, word concordances, frequency studies and authorship tracking. We began to dabble in all of this but not very seriously because most of that work was done at universities. I saw my role as an enabler and that goes on to another question. Very early on, there was a very active group of people in the MLA, dealing with computers and the Humanities. That was also the time that the journal CHum came out, and we organised an Association of Computers and the Humanities. I was on the board and they were looking at first for an opportunity to meet and to talk about issues and to plan the next steps. I made the conference room of the MLA available to a small group and that turned out to be the founding, not the founding meeting, but the beginning of the Text Encoding Initiative. And so the early beginnings of TEI were really at the MLA in a conference room that I made available to that group, just an aside.Footnote3\n\nAnd you have a question \u201cwhich people particularly influenced you and how?\u201d I would like to mention Joseph Raben. I think he\u2019s retired by now. He was the person who influenced me greatly, he was a professor at Queen\u2019s College. He founded the journal CHum; he was also very active in the ACH. He and I worked very closely in those years on another aspect that I think I should mention. The MLA has an annual meeting, a fairly large gathering of its members, it usually draws about 10,000 members. Parallel to the convention we had book publishers organize a huge exhibit of scholarly books. Early on, Joseph Raben and I felt that it would be very interesting to have some computer-related activities at that exhibit. At that time there was a lot of talk about computer-assisted education, computer-assisted teaching, computer-aided teaching, it went by all kinds of names. We invited hardware manufacturers, software publishers and related industries to exhibit at the convention. At that point I visualised that this would be so successful that in the next couple of decades the computer-related exhibitors would outnumber the traditional book publishers. Well, it didn\u2019t quite happen that quickly. At that time we had maybe three or four, I remember Apple was one of the first to agree to come. Now, when I look at the convention programme some 30 to 40 years later, I notice that there are quite a few more. They\u2019re still not in the majority but getting there. Joseph Raben and I worked on that very intensively and he was a huge help because of his contacts and his knowledge.\n",
+    "order": 30
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nYou\u2019ve mentioned about the TEI and your earliest engagements with the conference community, does a particular event stand out? Perhaps one where you had a sense that a community was being formed?\n",
+    "order": 31
+  },
+  {
+    "speaker_name": "Hans Rutimann",
+    "speaker_raw": "HR",
+    "role": "Interviewee",
+    "utterance": "\nYes, indeed, that was just a hard-core group of around 10 people and that of course grew over time. My real involvement with the conference community was, I think, later. We\u2019re talking now about the 1990s, and later, when I became a Senior Advisor to the Mellon Foundation. That was (or is, I\u2019m still doing that) in the Scholarly Communication and the Technology Information programme.Footnote4 That\u2019s where I really became involved in all kinds of projects in this country and also abroad. They included the sophisticated digitisation of medieval manuscript collections, infrastructure problems and projects like Bamboo (see, for example, Dombrowski 2014). But while I was at the MLA I just had peripheral contact with the group that was involved with Computing and the Humanities.\n\nCan I just go forward on your list because you\u2019re asking a very interesting question? One of the questions is \u201cwhat about scholars who were not using computers in their research? Do you have a sense of what their views on Humanities Computing were?\u201d Yes, indeed I do, on many levels. First of all, I experienced a lot of hostility early on, in the late 1960s and early 1970s. I heard comments along the lines of \u201ccomputers have no business in Humanities disciplines, computing is a scientific instrument and we don\u2019t want to have anything to do with it\u201d. And that, of course, changed over time with more and more people getting involved in computing and research. But the interesting thing was that at that time it was very difficult to get any kind of recognition for computing work in the scholarly community (and I think that\u2019s still a sore point today). So any kind of work, be that research with the help of a computer, or the creation of software, or anything related to computing, at that time anyway, got very little recognition. The desire of the Humanities Computing community was to get the same kind of recognition that you would get by having an article published in a peer-reviewed journal but that was not the case. But then slowly it began to change. I think today you get a little more recognition but from reading the literature, I realise that we\u2019re not quite there in terms of equivalency with a peer-reviewed article. That was my experience; the hostility against computing early on in the 1960s was profound.\n",
+    "order": 32
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhy do you think that started to reduce? Why do you think the hostility became less as time went on?\n",
+    "order": 33
+  },
+  {
+    "speaker_name": "Hans Rutimann",
+    "speaker_raw": "HR",
+    "role": "Interviewee",
+    "utterance": "\nI think by sheer force of the evidence and the growth of the industry and the fact that you couldn\u2019t argue with it anymore and that it proved that it can be a very useful tool. The field of computer-aided instruction really missed the boat because at that time it announced itself as something totally new that would replace the teacher. You had to be with it or you would be out of it. That proved to be absolutely not the case because the teachers were as important as they always were and the computer was just a help in the teaching. Of course, now things have developed in so many other ways and the field as such really ceased to exist.\n",
+    "order": 34
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nSomething else occurred to me after I sent list of questions. I read about your work with the Engineering Information Foundation (EIF) and I noticed that part of its mission is in terms of the recruitment of women. I was wondering if you might say a little about that and whether you have some reflections on the role of women in Humanities Computing?\n",
+    "order": 35
+  },
+  {
+    "speaker_name": "Hans Rutimann",
+    "speaker_raw": "HR",
+    "role": "Interviewee",
+    "utterance": "\nWomen can be as effective as men, if not more effective, in computing in the Humanities. In my work at the EIF we have an explicit mission to support women, I mean, girls really, in 11th and 12th grade, to choose an engineering career because of the dismal rate of women in Engineering. It\u2019s lower than 20 % and it was recognised by many studies that this had something to do with the environment. There was a bias against women in engineering and that was exemplified by comments from teachers, other students and a not-very-welcoming atmosphere. That\u2019s one of the things they\u2019re trying to change. So, we\u2019re giving grants to the so-called STEM programmes \u2013 Science, Technology, Engineering, Mathematics \u2013 to change the environment in the classroom and also to do much more work on the equally important issue of how to retain women once they have started on their engineering career. So far we have been reasonably successful, the topic is being discussed and recognised. Large organisations have taken up the cause and we continue giving grants to organisations that have innovative programmes in helping to attract and retain women in Engineering. So my regard for women\u2019s work in Engineering, Computing, Mathematics is extremely high. I\u2019m the President of the foundation so I think my views are well known.\n",
+    "order": 36
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nHow does DH fair in terms of attracting and retaining women?\n",
+    "order": 37
+  },
+  {
+    "speaker_name": "Hans Rutimann",
+    "speaker_raw": "HR",
+    "role": "Interviewee",
+    "utterance": "\nI think very well. What I\u2019m saying now is more anecdotal than documented. I work with a lot of groups here and abroad in digital projects (and I also worked with earlier projects that dealt with what we used to call library automation, where card catalogues were being converted to digital form or to computer-readable form). In those groups, I think the majority of the people that I met were women who showed an enormous capability and interest in the work they were doing. When I think of the DH projects that I\u2019ve had to deal with, they really did not have the preponderance of men that you would expect in a scientific environment. The majority were women and very effective women.\n\nIt is extremely different than the traditional Engineering field, there we have slow-going change in the atmosphere and climate. In DH we didn\u2019t fall into the trap in the first place. We managed to stay out of it, luckily. I hadn\u2019t thought about that but that seems to be true.\n",
+    "order": 38
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nIs there anything else that you would like to add to the interview?\n",
+    "order": 39
+  },
+  {
+    "speaker_name": "Hans Rutimann",
+    "speaker_raw": "HR",
+    "role": "Interviewee",
+    "utterance": "\nI\u2019m glad to still be involved in what I would call the advancement of computing in the Humanities.",
+    "order": 40
+  }
+]

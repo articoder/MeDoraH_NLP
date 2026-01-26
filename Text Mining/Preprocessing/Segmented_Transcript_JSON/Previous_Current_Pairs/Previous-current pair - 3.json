@@ -1,0 +1,282 @@
+{
+  "previous_utterances": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 3,
+      "sentences": [
+        {
+          "sentence": "Whether in descriptions of preparing punched cards or of manually manipulating card catalogs and other earlier technologies it is the physicality of the operation that always strikes me.",
+          "sentence_order": "3-1"
+        },
+        {
+          "sentence": "That is something we have lost.",
+          "sentence_order": "3-2"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 4,
+      "sentences": [
+        {
+          "sentence": "Indeed, we have lost that.",
+          "sentence_order": "4-1"
+        },
+        {
+          "sentence": "A few years later, following an interval of camping around Europe and doing some writing, I went to work for, I think it was, the J. Walter Thompson Company, who had a contract with the Goddard Space Flight Center.",
+          "sentence_order": "4-2"
+        },
+        {
+          "sentence": "It was around 1967 and the Goddard Space Flight Center was computerising their library.",
+          "sentence_order": "4-3"
+        },
+        {
+          "sentence": "It was one of the earlier efforts to computerise libraries on a large scale.",
+          "sentence_order": "4-4"
+        },
+        {
+          "sentence": "My job there was to catalog the documents and books that were in their collection, and then, sometimes, I'd key punch them in myself or sometimes a key puncher offered to do that.",
+          "sentence_order": "4-5"
+        },
+        {
+          "sentence": "I never saw the computer at the Goddard Space Center.",
+          "sentence_order": "4-6"
+        },
+        {
+          "sentence": "When we were finished creating the records for the computer we took them and put them in the slot.",
+          "sentence_order": "4-7"
+        },
+        {
+          "sentence": "Now, I used to think that the slot accessed some long tunnel to the Goddard Space Flight Center, but when I was looking at the map I saw that the Space Center was actually not that close to where I was working.",
+          "sentence_order": "4-8"
+        },
+        {
+          "sentence": "They must have gone to a truck or something.",
+          "sentence_order": "4-9"
+        },
+        {
+          "sentence": "I remember very clearly punching the cards, or taking the punched cards from someone who punched them, and putting them in the slot, and then they went off to the computer.",
+          "sentence_order": "4-10"
+        },
+        {
+          "sentence": "But I'm not sure that this was a standard key punch card operation or precisely what the output was.",
+          "sentence_order": "4-11"
+        },
+        {
+          "sentence": "It may have been an interim step in the process because I don't think the output was the standard IBM keypunch card.",
+          "sentence_order": "4-12"
+        },
+        {
+          "sentence": "The other thing I remember clearly is problems with the machines.",
+          "sentence_order": "4-13"
+        },
+        {
+          "sentence": "Has operating key punch machines and how finicky they were come up in some of your other work with key punch people?",
+          "sentence_order": "4-14"
+        }
+      ]
+    }
+  ],
+  "current_utterance": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 5,
+      "sentences": [
+        {
+          "sentence": "Yes and no because everybody tends to have a different focus.",
+          "sentence_order": "5-1"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 6,
+      "sentences": [
+        {
+          "sentence": "The machines tended to break a lot, and it turned out that the best way to fix them was to sort of hit them.",
+          "sentence_order": "6-1"
+        },
+        {
+          "sentence": "It was actually a known technique - just gently slap them! [Both laugh].",
+          "sentence_order": "6-2"
+        },
+        {
+          "sentence": "It was something I would get very good at, some people would call me and say, \"would you come and do whatever it is you do to make this thing work?\" And, so I remember struggling with that technology.",
+          "sentence_order": "6-3"
+        },
+        {
+          "sentence": "I always enjoyed cataloguing - it was a relaxing kind of job.",
+          "sentence_order": "6-4"
+        },
+        {
+          "sentence": "So, after that, my boyfriend got drafted, and he was sent to Germany.",
+          "sentence_order": "6-5"
+        },
+        {
+          "sentence": "I went to Germany and we got married there after much paperwork.",
+          "sentence_order": "6-6"
+        },
+        {
+          "sentence": "I worked in the Special Library System in Furth, and I lived in Dürer Platz in the old walled City of Nurnberg and bicycled to work.",
+          "sentence_order": "6-7"
+        },
+        {
+          "sentence": "Then, we came back to America, and when we got to Boulder, in Colorado, we decided that we'd like to stay there.",
+          "sentence_order": "6-8"
+        },
+        {
+          "sentence": "We were camping in the mountains, so I remember putting on a suit very clearly.",
+          "sentence_order": "6-9"
+        },
+        {
+          "sentence": "In those days, fairly often as a woman, you could not go into a company wearing pants.",
+          "sentence_order": "6-10"
+        },
+        {
+          "sentence": "I went down to this huge aerospace company called the Ball Brothers Research Corporation (BBRC; now called Ball Aerospace), where a position was advertised.",
+          "sentence_order": "6-11"
+        },
+        {
+          "sentence": "I applied for the position of technical librarian and got it.",
+          "sentence_order": "6-12"
+        },
+        {
+          "sentence": "Actually, that was a bit of a surprise for me and so all of a sudden I was the head of a large technical library for a big aerospace company.",
+          "sentence_order": "6-13"
+        },
+        {
+          "sentence": "They made the orbiting solar observatory.",
+          "sentence_order": "6-14"
+        },
+        {
+          "sentence": "It was an incredibly beautiful piece of hardware, it got mounted on rockets and then launched with a mission of solar observation.",
+          "sentence_order": "6-15"
+        },
+        {
+          "sentence": "So, the library was quite large.",
+          "sentence_order": "6-16"
+        },
+        {
+          "sentence": "You could not take things out of the company because you had to have a clearance to work there.",
+          "sentence_order": "6-17"
+        },
+        {
+          "sentence": "It wasn't military, but some of the technology was top secret.",
+          "sentence_order": "6-18"
+        },
+        {
+          "sentence": "I dealt with the documents and I'm not sure exactly how it occurred that I began to computerise the library.",
+          "sentence_order": "6-19"
+        },
+        {
+          "sentence": "I think part of the idea may have come from me, because I had been interested in that since seeing how Goddard was doing it.",
+          "sentence_order": "6-20"
+        },
+        {
+          "sentence": "It was a fairly sizeable library of documents and the computer room was fairly close to where I was working.",
+          "sentence_order": "6-21"
+        },
+        {
+          "sentence": "So I undertook the job to computerise the library.",
+          "sentence_order": "6-22"
+        },
+        {
+          "sentence": "Now, at that time, there were not a lot of known ways to do this.",
+          "sentence_order": "6-23"
+        },
+        {
+          "sentence": "Not like now.",
+          "sentence_order": "6-24"
+        },
+        {
+          "sentence": "There was no applications software; there were very few documents that told you how to do this.",
+          "sentence_order": "6-25"
+        },
+        {
+          "sentence": "Essentially I was working with a computer that I had to programme in FORTRAN and so I learnt to programme in FORTRAN.",
+          "sentence_order": "6-26"
+        },
+        {
+          "sentence": "This was not the era of big Computer Science departments, it was 1969, and not all engineers and scientists knew how to programme.",
+          "sentence_order": "6-27"
+        },
+        {
+          "sentence": "BBRC at that time, like many other corporations, went on a campaign against what they called the 'slide rule engineers', who were still there then.",
+          "sentence_order": "6-28"
+        },
+        {
+          "sentence": "You know, they walked around the company with slide rules in their pockets.",
+          "sentence_order": "6-29"
+        },
+        {
+          "sentence": "BBRC decided that engineers needed to use the computer, and luckily for me, since I needed instructions in how to do this, they gave classes.",
+          "sentence_order": "6-30"
+        },
+        {
+          "sentence": "So I joined the slide rule engineers and scientists, and took classes in FORTRAN from Dan Anderson.",
+          "sentence_order": "6-31"
+        },
+        {
+          "sentence": "He ran the computer room and also taught the classes.",
+          "sentence_order": "6-32"
+        },
+        {
+          "sentence": "Then I still had some questions about how to do it, so I took a summer institute at the University of Denver's Graduate School of Librarianship on Library Systems Analysis, I think it was.",
+          "sentence_order": "6-33"
+        },
+        {
+          "sentence": "That was possibly the most important thing I ever did as far as my later career of writing electronic literature was concerned.",
+          "sentence_order": "6-34"
+        },
+        {
+          "sentence": "It was so important to me to learn that way of thinking.",
+          "sentence_order": "6-35"
+        },
+        {
+          "sentence": "It's not just programming, it's also a way of thinking when you have a problem.",
+          "sentence_order": "6-36"
+        },
+        {
+          "sentence": "The problem that faced me was actually not that difficult, and I had staff.",
+          "sentence_order": "6-37"
+        },
+        {
+          "sentence": "I had a woman who worked with me, Jo Sanford, who was also learning to programme.",
+          "sentence_order": "6-38"
+        },
+        {
+          "sentence": "So we worked on this together; occasionally Dan Anderson helped us when we ran into blocks.",
+          "sentence_order": "6-39"
+        },
+        {
+          "sentence": "The most important thing was not the act of the programming but the Systems Analysis, the act of analysing how we were going to do this.",
+          "sentence_order": "6-40"
+        },
+        {
+          "sentence": "I like to tell electronic literature students, \"step back\".",
+          "sentence_order": "6-41"
+        },
+        {
+          "sentence": "Nowadays people are using applications and they don't always think this through.",
+          "sentence_order": "6-42"
+        },
+        {
+          "sentence": "Step back, and even if you use the old-fashioned flowchart, think about exactly what you want to do.",
+          "sentence_order": "6-43"
+        },
+        {
+          "sentence": "Think about the algorithms you are going to use.",
+          "sentence_order": "6-44"
+        },
+        {
+          "sentence": "I don't want to scare them too much, so I always use this book, The Art of Asking your Boss for a Raise, I don't know if you've ever seen this?",
+          "sentence_order": "6-45"
+        }
+      ]
+    }
+  ]
+}

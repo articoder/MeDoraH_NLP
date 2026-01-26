@@ -1,0 +1,238 @@
+{
+  "previous_utterances": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 27,
+      "sentences": [
+        {
+          "sentence": "When you bought the Apple for your son about 15 years later you must have been struck by how much easier it seemed.",
+          "sentence_order": "27-1"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 28,
+      "sentences": [
+        {
+          "sentence": "I was struck, I was thrilled.",
+          "sentence_order": "28-1"
+        },
+        {
+          "sentence": "I mean this was 1986, when this all came together for me.",
+          "sentence_order": "28-2"
+        },
+        {
+          "sentence": "I was thrilled by how easy it was, and by how I already had those skills.",
+          "sentence_order": "28-3"
+        },
+        {
+          "sentence": "I knew how to think about the algorithms, I knew how to do the basic programming, and I knew the programming structures.",
+          "sentence_order": "28-4"
+        },
+        {
+          "sentence": "I was finding it hugely easier than I did working at BBRC.",
+          "sentence_order": "28-5"
+        },
+        {
+          "sentence": "Some of that may have been the corporate situation and some of it may have been that it wasn't my own work.",
+          "sentence_order": "28-6"
+        },
+        {
+          "sentence": "Although I was interested in it I was not excited about it; those are two different things.",
+          "sentence_order": "28-7"
+        },
+        {
+          "sentence": "As I noticed also in Willard's interview, I was not financially able not to have a job, in my case because I didn't make that much money as an artist.",
+          "sentence_order": "28-8"
+        },
+        {
+          "sentence": "So, all of a sudden, all these things came together and it wasn't that difficult.",
+          "sentence_order": "28-9"
+        },
+        {
+          "sentence": "I realised that I could do what I'd been trying to do with the card catalogs.",
+          "sentence_order": "28-10"
+        },
+        {
+          "sentence": "You see, I'd started working on the card catalogs in 1976, about 10 years previously.",
+          "sentence_order": "28-11"
+        },
+        {
+          "sentence": "I started working on them before I could actually make the vision I had for the kind of literature they were meant to be into something real by using the Apple II.",
+          "sentence_order": "28-12"
+        },
+        {
+          "sentence": "It was sitting on the desk in our house, you know, it was right there.",
+          "sentence_order": "28-13"
+        },
+        {
+          "sentence": "On top of that, I had the enormous good fortune of having a very good friend, my old friend Carl Loeffler, who made an alternative arts space in San Francisco (see Malloy 2013).",
+          "sentence_order": "28-14"
+        },
+        {
+          "sentence": "Early on, in 1979 I think, he worked on an early communications project, a satellite, using NASA technology.",
+          "sentence_order": "28-15"
+        },
+        {
+          "sentence": "So he had some computer background - he was the founding director of Art Com/La Mamelle and then of Art Com Electronic Network (ACEN) and he also did a fair amount of publishing.",
+          "sentence_order": "28-16"
+        },
+        {
+          "sentence": "But they were always underfunded; like any alternative press and they didn't have large amounts of money.",
+          "sentence_order": "28-17"
+        },
+        {
+          "sentence": "He came up with the idea of taking his whole gallery online.",
+          "sentence_order": "28-18"
+        },
+        {
+          "sentence": "This was in 1986, and he turned that into a place (ACEN) where he could not only communicate with people, but also publish art and get an audience.",
+          "sentence_order": "28-19"
+        },
+        {
+          "sentence": "So he called me up around April or March of 1986, and said he knew I was working with computers because he had seen the database I was making (Bad Information Base no 1).",
+          "sentence_order": "28-20"
+        },
+        {
+          "sentence": "I didn't even know what he was talking about by \"going online\", but he was very persuasive.",
+          "sentence_order": "28-21"
+        },
+        {
+          "sentence": "So, I went out and bought a modem (you had to buy a modem in those days).",
+          "sentence_order": "28-22"
+        },
+        {
+          "sentence": "I got online and when I got there, it was such an extraordinary experience.",
+          "sentence_order": "28-23"
+        },
+        {
+          "sentence": "I mean nowadays we all grow up with this but to actually be able - even though it was slow - to log on to a computer, and suddenly talk to people in Canada, talk to spoken word poet Fortner Anderson in Canada, to Jim Rosenberg in Pennsylvania, Fred Truck in Iowa!",
+          "sentence_order": "28-24"
+        },
+        {
+          "sentence": "And there was a conferencing system (the WELL used the conferencing software PicoSpan) and we could talk about what we were doing.",
+          "sentence_order": "28-25"
+        },
+        {
+          "sentence": "But on top of that, I discovered that you could co-opt the conferencing system into a place for additive storytelling.",
+          "sentence_order": "28-26"
+        },
+        {
+          "sentence": "It was how I first published Uncle Roger; I told people to use their own database software, because most people in that community had something like dBase at that time.",
+          "sentence_order": "28-27"
+        },
+        {
+          "sentence": "So I published each lexia (a hypertext node or block of text) with the keywords, and said to the community, it was a fairly computer literate community, \"I'm gonna put out a lexia every day, like a serial.",
+          "sentence_order": "28-28"
+        },
+        {
+          "sentence": "Pull it into your database, use the keywords that I've given you, and you can make this work on your home computer\".",
+          "sentence_order": "28-29"
+        },
+        {
+          "sentence": "This was in 1986, it was pretty interesting.",
+          "sentence_order": "28-30"
+        },
+        {
+          "sentence": "To add to this, Carl Loeffler initiated and Fred Truck programmed a system and menu where the works could actually be published.",
+          "sentence_order": "28-31"
+        },
+        {
+          "sentence": "The WELL gave ACEN direct access to the server which even nowadays is not easy to get.",
+          "sentence_order": "28-32"
+        },
+        {
+          "sentence": "So basically there was a top menu that accessed the works, which is what I'm talking about here.",
+          "sentence_order": "28-33"
+        },
+        {
+          "sentence": "The works themselves, and in my case the programs I wrote that ran them, were housed in The WELL's VAX.",
+          "sentence_order": "28-34"
+        },
+        {
+          "sentence": "So if you chose Uncle Roger from the menu, my program (written in Unix shell scripts) that ran Uncle Roger was set in motion and the program and data were interactive in response to user commands.",
+          "sentence_order": "28-35"
+        },
+        {
+          "sentence": "This was incredible for 1987!",
+          "sentence_order": "28-36"
+        },
+        {
+          "sentence": "Moreover, we had an audience, and this was part of what Carl was looking for.",
+          "sentence_order": "28-37"
+        },
+        {
+          "sentence": "He had the idea that if you work in the conceptual, performance or video art field that your audience is pretty much limited to the other artists working in the field.",
+          "sentence_order": "28-38"
+        },
+        {
+          "sentence": "That's who goes to openings; that's who looks at work.",
+          "sentence_order": "28-39"
+        },
+        {
+          "sentence": "He thought the work was good enough that it should go to a wider audience and all of a sudden we had an audience too.",
+          "sentence_order": "28-40"
+        },
+        {
+          "sentence": "All this came together at once and it was probably one of the most exciting years of my life.",
+          "sentence_order": "28-41"
+        },
+        {
+          "sentence": "Therefore, I made a shift in my work, I was so thrilled by how I saw that words could be used and how words could be manipulated by the computer, that I thought, \"OK, I can't use images here, but, you know, images, to a certain extent add a different dimension.",
+          "sentence_order": "28-42"
+        },
+        {
+          "sentence": "I'm going to start just working with words\".",
+          "sentence_order": "28-43"
+        }
+      ]
+    }
+  ],
+  "current_utterance": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 29,
+      "sentences": [
+        {
+          "sentence": "As you were talking I was trying to think through the various strands of this.",
+          "sentence_order": "29-1"
+        },
+        {
+          "sentence": "What about those colliding points, those points where ideas collide with technology?",
+          "sentence_order": "29-2"
+        },
+        {
+          "sentence": "What you were saying about words seems to be going very much in that direction now.",
+          "sentence_order": "29-3"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 30,
+      "sentences": [
+        {
+          "sentence": "Yes, in looking at some of the chapters in the book I just finished, this issue of the technology colliding with what you want to do comes up fairly often.",
+          "sentence_order": "30-1"
+        },
+        {
+          "sentence": "Many people wanted to use images.",
+          "sentence_order": "30-2"
+        },
+        {
+          "sentence": "There was also the amount of time to get online, a lag, as they called it at that time.",
+          "sentence_order": "30-3"
+        },
+        {
+          "sentence": "It was frustrating and it was expensive too.",
+          "sentence_order": "30-4"
+        }
+      ]
+    }
+  ]
+}

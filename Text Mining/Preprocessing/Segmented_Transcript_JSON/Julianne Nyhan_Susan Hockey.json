@@ -1,0 +1,233 @@
+[
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nPlease reflect on your earliest memories of encountering a computer or computing technologies.\n",
+    "order": 1
+  },
+  {
+    "speaker_name": "Susan Hockey",
+    "speaker_raw": "SH",
+    "role": "Interviewee",
+    "utterance": "\nWell, I\u2019ll tell you how I got started. I was an undergraduate in the late 1960s. I did Classics at Oxford and then did my final degree in Egyptian with Akkadian. I was always interested in language things, and I think it was in about 1967 that I remembered reading those articles in the Observer from Andrew Morton (see, for example, Morton 1963), who\u2019d been doing this text analysis study of the Pauline Epistles with a computer (Morton 1965). It sounded really interesting and I thought I\u2019d like to work in something like that. So, I checked how I could do this. I met one of the lecturers in Arabic, called Alan Jones, and found out that he was already doing some computing things (see Jones 1971). I think my tutor told me about him and I met him and found out that he was doing some text analysis work on the Koran. Because technology within the universities at that time was quite small, and very much focussed on Sciences, he was doing his work at an organisation called the Atlas Computer Laboratory,Footnote3 which was funded by what was then called the Science Research Council to provide computing support for universities \u2013 the things that the universities couldn\u2019t have the technologies to do themselves.\n\nI applied for a job there, having no qualifications in computing, and my only mathematical expertise was up to O level, and they hired me. They took a chance, which was very, very nice, because I had no qualifications and, in fact, they had to create a special job title for me because I didn\u2019t fit in with the requirements for the Science Research Council. They wanted someone who could be a focal point for these kinds of activities at the Atlas Computer Laboratory. It\u2019s been merged into many other things since then and is on the Harwell site at Chilton. When I started they already had a concordance program called COCOA, which was running on the Atlas, which was the first ever paged memory computing machine. It filled the whole room. It was a British machine \u2013 I think they only built three of them \u2013 but they had several people using this COCOA concordance program, which I think was written in the Atlas machine language. It had a somewhat difficult user interface and you\u2019ve got to remember that this was in the days when you put things into the computer on punch cards or paper tapes and that was it. They wanted something that would have a slightly better user interface, and something that would outlive Atlas, so they started a project to re-write it in FORTRAN. I didn\u2019t actually do the coding. I was an adviser on that project. They also wanted a means of generating output, not in Latin characters, this was the days when you put uppercase letters into the computer and nothing else. So I wrote some programs to display Alan Jones\u2019s Arabic concordances on a graph plotter, which is a really ancient device. It was the latest technology then and the only way of doing graphs. So I got interested in doing that kind of thing.\n\nSeveral other people were using the Atlas facility including, in fact, Andrew Morton who\u2019s a terrific character and very entertaining to me. So that\u2019s how I got started. As you could only really put capital letters and numbers into a computer it was more text analysis or number crunching. The other thing was that there was so little disk storage. Anything more than a very small file was stored on a magnetic tape which you could only access serially. So, what you actually did with your data was rather dependant on that. You couldn\u2019t jump around in it is what I\u2019m trying to say, the tape had to wind backwards and forwards. There was very little remote access to computers; basically, you turned up with your deck of punch cards.\n\nI stayed there until early 1975 when Oxford University decided they wanted to do something more on Computing in the Arts, as it was called then, and they started looking for someone who could get people interested. So I applied for that job and got it and it was first of all described as Teaching Officer for Computing in the Arts. I started giving courses there and then we started developing more in different facilities. I don\u2019t know how much more you want there \u2013 I was there from 1975 until I went to America in 1991.\n",
+    "order": 2
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat did you know about computing before you read the articles by Andrew Morton in the Observer?\n",
+    "order": 3
+  },
+  {
+    "speaker_name": "Susan Hockey",
+    "speaker_raw": "SH",
+    "role": "Interviewee",
+    "utterance": "\nWell, I\u2019d heard of computers and was interested but I didn\u2019t know anything about them. There wasn\u2019t a lot of computing going on before then; just a few businesses had taken it up. I had read a few things about IBM, who were, in the main, manufacturing systems in business computing, but I wasn\u2019t really interested in the business world.\n",
+    "order": 4
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWould you have heard of Busa, for example?\n",
+    "order": 5
+  },
+  {
+    "speaker_name": "Susan Hockey",
+    "speaker_raw": "SH",
+    "role": "Interviewee",
+    "utterance": "\nI wanted to talk about Busa. I don\u2019t think I\u2019d heard of him until I started doing work in this area and had started to dig around quite a bit. The Atlas Computer Laboratory was generously funded and they had a good library which included CHum right back to when it started in 1966. So I spent quite a bit of time when I first got there looking around in the library and I found out about Busa then and started following up about what he was doing. I can\u2019t remember when I first met him. It must have been about 10 years later, I\u2019m not sure. I remember him coming to Oxford and then coming to my office in Oxford but that was probably in the late 1970s. I think he\u2019d asked to come and see me \u2013 he\u2019d obviously heard about what we were doing. He spoke so many languages. Most of his operations were actually in Italian, but his English was pretty good. You know, he wrote the introduction to his Thomas Aquinas thing [Index Thomisticus] in Latin, so that it could be read by a lot of different people. But, I don\u2019t remember in detail. I know I read a lot about what was going on, and I went to the first conference in this country [the UK] in 1970 on what was called Literary and Linguistic Computing. I know Busa wasn\u2019t there but that is where I met Antonio Zampolli, who was there, as were quite a lot of other people. You know, Antonio Zampolli started as Busa\u2019s research assistant.\n",
+    "order": 6
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWere you quite unusual among your classmates and other people in Oxford when you became interested in computing, having just finished a degree in Oriental Studies?\n",
+    "order": 7
+  },
+  {
+    "speaker_name": "Susan Hockey",
+    "speaker_raw": "SH",
+    "role": "Interviewee",
+    "utterance": "\nTo some extent. Quite a few of my friends went into teaching or did a variety of things. I remember going to the Careers Service in Oxford, which was nothing like the kind of thing it is now, and they were suggesting that everybody should apply to the Civil Service or GCHQ [the UK Government Communications Headquarters], or something like that. But they couldn\u2019t help me when I said what I was interested in doing computing. People went to all kinds of jobs so I don\u2019t think it was particularly unusual. I\u2019m sure some of my contemporaries went to work in computing, almost certainly in places like IBM and big computer companies. Some of them then ended up in university computing but probably later on after that.\n",
+    "order": 8
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nI wanted to ask you about the special job which was created for you in Atlas Computer Laboratory and I think you said it was there on the job that you were trained up in programming.\n",
+    "order": 9
+  },
+  {
+    "speaker_name": "Susan Hockey",
+    "speaker_raw": "SH",
+    "role": "Interviewee",
+    "utterance": "\nWell, they created the job and hired me. I\u2019m not certain that it was created for me but I was appointed to it. I was given some books and they said \u201cread and get on with it. You need to learn FORTRAN and if you need any help come and ask\u201d, and that\u2019s how I learned. They were very, very helpful and I think I had one or two little tutorials with the head of one of the programming groups there. But basically somebody explained to me how I got my punch cards done \u2013 probably by doing them myself \u2013 and what I had to do to hand in my punch cards to get my programs to run, and I learned like that. I still like playing around with computers quite a bit. I\u2019m actually a great believer in reading book manuals to get going. If you have a good overview of what\u2019s happening and then understand what you can and can\u2019t do \u2013 I\u2019ve always almost entirely learned that way. I think the first time I went to a computer course was when I was giving it. I think it depended on the atmosphere I was in. I don\u2019t think I could have learned like that, you see, if I was out on my own with a group of people who were not interested in it or who were not doing it. But, there were lots of people around and if you were stuck and asked for help they would help you. That\u2019s really how I learned.\n",
+    "order": 10
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nThe first programming language you learned was FORTRAN?\n",
+    "order": 11
+  },
+  {
+    "speaker_name": "Susan Hockey",
+    "speaker_raw": "SH",
+    "role": "Interviewee",
+    "utterance": "\nAnd I learned some ALGOL, a little bit of Atlas machine code, and I started seriously doing SNOBOL when I wanted to give a programming course in Oxford and it seemed the obvious thing for text handling. I think I looked at that a bit when I was at the Atlas Computer Laboratory but they didn\u2019t really have a proper compiler for it there. FORTRAN was the thing that everybody used for almost all the applications in the Atlas Computer Laboratory.\n",
+    "order": 12
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhen you started essentially teaching yourself FORTRAN how did it compare with 4 years learning Akkadian and other ancient languages?\n",
+    "order": 13
+  },
+  {
+    "speaker_name": "Susan Hockey",
+    "speaker_raw": "SH",
+    "role": "Interviewee",
+    "utterance": "\nWell, I\u2019m not the only person who said computer programming is not dissimilar from Latin and languages like that. When I first got started doing this I met a lot of people who\u2019d got into it from Classics, or who were Classicists and took to programming very easily. So, I think there is this kind of mental approach which makes the two somewhat similar. I was always interested in the linguistic and the symbolic side of the languages that I studied.\n",
+    "order": 14
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd this was another language\u2026.\n",
+    "order": 15
+  },
+  {
+    "speaker_name": "Susan Hockey",
+    "speaker_raw": "SH",
+    "role": "Interviewee",
+    "utterance": "\nAnother language, yes, and you couldn\u2019t break the rules in it\n",
+    "order": 16
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nI had a question about how you first got involved in the Humanities Computing community, but that was essentially through the Atlas Computer Laboratory?\n",
+    "order": 17
+  },
+  {
+    "speaker_name": "Susan Hockey",
+    "speaker_raw": "SH",
+    "role": "Interviewee",
+    "utterance": "\nYes, not my immediate boss, but the person that I did quite a bit of work for when there was called Bob Churchhouse,Footnote4 who left to take up a chair at Cardiff. He and I went to what I think was the first Literary Linguistic and Computing conference in the UK, in Cambridge in 1970, and we gave a preliminary talk on what we were planning to do with all this non-standard character output (published as Church house and Hockey 1971).\n\nThere were about 70 or 80 people there and that\u2019s when I first met people who subsequently became quite well known worldwide in the field. I met Joseph Raben, for example, and Bob and Joe got on very well, so we kept in touch a lot. There was no email then, so you had to rely on things such as putting a letter in the post or meeting people again at conferences. These conferences were such a success that another one was organised in Edinburgh 2 years later and I think they carried on every 2 years for about 10 or 12 years and more people kept coming. The proceedings were published in real books and so people got to find out quite a lot more about what was going on because of these books. Mostly they were published by well-known publishers. I think Roy Wisbey edited the first one (1971), which was published by Cambridge. So, there was a core of people that came every time. That core was probably between, I don\u2019t know, 50 and 70 people, and others sort of dipped in and out.\n\nBut that\u2019s how I got involved more with this field. I\u2019m just trying to remember what happened. That was before the ALLC was founded: there was a lady called Joan Smith, who was in Manchester then, and she was energetic and felt it would be a good idea to form a society to support all of this. She persuaded Roy Wisbey to take on doing this. And there was a meeting at King\u2019s College in London in 1973 when it was formed. Of course I was there with a number of other people from the Atlas Computer Laboratory. The Society ran its own bulletin and journal for quite some time. Quite a few people came from outside the UK for that meeting. You must know Wilhelm Ott (see Chap. 4), who started computing quite a bit before I did, and I first met him at the conference at Cambridge. He was there, Antonio Zampolli was there, and a number of other people, and I don\u2019t know what happened to it but ALLC had a book that used to go round for everyone to sign at general meetings and that started at that conference. I had it for a long time but I passed it on to somebody else. I think Harold Short might have it. \u2026\n\nYes, I think I ended up on the committee of the ALLC fairly early on, and then I was editing the ALLC Bulletin, and then I got elected to be the Chair, which I actually did for quite a long time, and by then various other international things had got going, like the TEI, and more conferences and things like that.\n",
+    "order": 18
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nYou were also very involved in TEI.\n",
+    "order": 19
+  },
+  {
+    "speaker_name": "Susan Hockey",
+    "speaker_raw": "SH",
+    "role": "Interviewee",
+    "utterance": "\nYes. The obvious reason why people were interested in it is because people were fed up of not being able to use somebody else\u2019s text in a different application and they were fed up of not being able to encode complicated things very well.\n\nTEI started with a meeting organized at Vassar College Poughkeepsie in 1987, November, I think, and that was invitational. There were about 20 people there. It tried to get some idea of whether there was enough willingness among the community to do something about that, and how such a project might be organized. I think it was at that meeting that it was decided to organise it with two representatives of the three societies that were involved with it. There was the ALLC, ACH and the Association for Computational Linguistics, whose long term Secretary Don Walker had also realised that this was something important. I was one of the two ALLC representatives on the Steering Committee. The other was Antonio Zampolli. We got some money from the NEH to get started and Antonio was instrumental in getting some money from a European Commission stream (I don\u2019t remember exactly what). There were six of us, I suppose, who organized it. We took it in turns to chair the Steering Committee and when it was the ALLC turn it was me. So, we basically planned out how we were going to do this work and found some people to do some work and found some money to get it done. We did get it done and I know there is still a lot of interest in it but the real issue later on was how to keep it funded. I remember now, at the Vassar meeting it finished up with a sort of discussion about the basic principles for doing this project. Nancy Ide asked me to lead that discussion and it was one of the earliest instances where I saw something projected up from a computer screen onto a big screen. We sat for an afternoon and defined these things which became known as the Poughkeepsie principles (TEI 1988). You can find all that in the TEI archives.\n",
+    "order": 20
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nThat was really cutting edge at that point?\n",
+    "order": 21
+  },
+  {
+    "speaker_name": "Susan Hockey",
+    "speaker_raw": "SH",
+    "role": "Interviewee",
+    "utterance": "\nYes, there was quite a lot of cutting edge about a lot of things that were going on. I think that we were all feeling our way and we had some intellectual goals that we wanted to meet and it seemed that the obvious thing was to use the technologies to get there. We said in the TEI right from the beginning that anybody who wanted to do any work for it had to do it by email. It was not long after international email started but we could see that was the only way we could get any work done. But we soon discovered how difficult it is to get closure on an email discussion and we did have funding to have face to face meetings, which really were very productive.\n",
+    "order": 22
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nI served on the TEI council a few years ago and email is still certainly at the heart of all of it. Something that I wondered about, looking at all of the chronologies, is that I noticed that the ACH, which I think you were also a founding member of, was set up a couple of years after the ALLC?\n",
+    "order": 23
+  },
+  {
+    "speaker_name": "Susan Hockey",
+    "speaker_raw": "SH",
+    "role": "Interviewee",
+    "utterance": "\nI think it was later than that. I think it was perhaps 4 or 5 years after the ALLC. I can\u2019t remember the details about the founding of ACH, but Joseph Raben was interested in having some kind of society to support CHum, which had been round various publishers. And I think also the Americans had sort of looked a little bit at what was going on in Britain and they\u2019d started a series of conferences in the alternate years and the [third] one of those was at the University of Waterloo in 1977 (Lusignan and North 1977). I remember that because it was the first time I ever went to North America. That was similar in some ways and different in others because there was a lot of interest in North America at that time about using computing to support all those courses they give to teach students how to write. Of course, we didn\u2019t have any of that in Britain. About half the papers there were about computing in composition \u2013 I can\u2019t remember exactly what they called it \u2013 but they started a series of conferences in odd-numbered years to correspond with those European ones which went on in even-numbered years. They were organized in a slightly different way because conferences in America tend to be more condensed \u2013 more papers happening at the same time and fewer days. I did go to quite a number of those as well. I was a member of the ACH for quite some time but I don\u2019t really remember exactly what happened about the organization of that. It was run in a slightly different way, you know. Learned Societies operate in a different way in the UK certainly, I don\u2019t know about the rest of Europe, than they do in America. It was run in a more American style.\n",
+    "order": 24
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat about the people who influenced you and how and why they influenced you?\n",
+    "order": 25
+  },
+  {
+    "speaker_name": "Susan Hockey",
+    "speaker_raw": "SH",
+    "role": "Interviewee",
+    "utterance": "\nI made some notes about this. Busa because I think it is amazing that you start talking about the potential and the future of multimedia when you\u2019re nearly 90 (Busa 1999) and also going back to what he did when he first started. You know, in the 1950s he wanted to have a completely lemmatized version of his text and we still can\u2019t really do that automatically now, though things are a lot better than they used to be, I think. What I learned from him was to keep looking ahead. You know, he\u2019s been an enormous influence on all of us.\n\nAnother one was Antonio Zampolli because he also was thinking all the time about how we can do this better. Not just to do this particular project but to think about how we can make it better and what better tools we can make for it. He was very, very keen on linking up literary computing (as it used to be called) with research that was going on in Computational Linguistics, and there still aren\u2019t all that many people looking at that now. I\u2019m not really up to date on what\u2019s going on now, there are probably still some others as well, but Antonio was really keen, even in the 1980s to do work, to try and apply the tools and techniques they\u2019d developed for Computational Linguistics to see how well they worked with literary texts like Dante and other works of Italian literature. One other thing I learned from him was how to think about turning an idea of something you want to do into something that would be a project that was fundable. As you know, there is a difference there. You can obviously have grand ideas but if you want some money to do something you\u2019ve got to think about what\u2019s practical, what bits of it can be done and how you\u2019re going get the next bit of money to carry on after that.\n\nTwo people who helped me a lot when I started were Bob Churchhouse and Alan Jones \u2013 I\u2019ve already mentioned them. I\u2019ve a couple of others which are a little bit different again. David Barnard who was involved in the TEI quite a bit when he was Professor of Computer Science at Queens University, in Canada. He\u2019s now the President at the University of Manitoba. He taught me how to run a meeting and how to get things done. He ran the best meetings I\u2019ve ever been in by a long way.\n\nThere\u2019s one other person I wanted to mention and this is a little bit different again. There\u2019s always been a very, very friendly atmosphere amongst DH, or whatever you want to say. That goes back, I\u2019m pretty certain, to the late Paul Fortier whom I remember talking to when he was at a conference in Edinburgh in 1972. He was in French Studies and he said that nobody spoke to him at the first conference he went to in French Studies and he vowed it would never happen in this field. He made a point of making sure that everybody spoke to new people and got them involved in the discussions and the social events. I think that is one of the main reasons, why there\u2019s always such a friendly atmosphere. That\u2019s a different thing again, but I think that started from Bob Churchhouse, who was very sociable. It helps a lot, you know, because new people come to a conference to learn and they don\u2019t want to feel that they\u2019re just looking up to other people. I think it\u2019s nice to think that they feel on equal terms in many ways.\n",
+    "order": 26
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nDo you think the field is somewhat unusual in terms of the social cohesion and kinship that exists in it, in addition to its shared intellectual goals and interests?\n",
+    "order": 27
+  },
+  {
+    "speaker_name": "Susan Hockey",
+    "speaker_raw": "SH",
+    "role": "Interviewee",
+    "utterance": "\nI don\u2019t know, I\u2019ve never really been involved in other fields. Another thing I wanted to say in relation to your question about what other Humanities people think about it \u2013 for a very long time I never came across them. I worked in the computing center and so I only met people who were interested. I know we\u2019ve always tried to be a sort of friendly and sociable group, and I think things have changed generally since the 1970s, but I think also in computing you can realize that a lot of the good work comes from the young people. You only have to look at what\u2019s happening in the world of business computing and things like Facebook and Google and whatever, so I think it is important to give them a chance to talk about whatever they are doing.\n",
+    "order": 28
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nCan we talk a small bit more about what other scholars who were not using computing views may have been of the field?\n",
+    "order": 29
+  },
+  {
+    "speaker_name": "Susan Hockey",
+    "speaker_raw": "SH",
+    "role": "Interviewee",
+    "utterance": "\nWell, I think I was lucky that I didn\u2019t encounter it for a very, very long time because at the Atlas Computer Laboratory we only met people who were interested in using the computer. I was 16 years in the Computing Center in Oxford. A good deal of that was before people had their own PCs, so they came to the computing center if they wanted to do something because Humanities, at that time in Oxford, except for Oriental Studies, had no departmental facilities. You spoke to people who were in your College more than anything. I was elected to a fellowship of St Cross College in 1979, which was one of the new young graduate colleges and I met a lot of people from other disciplines there, but actually they were predominantly Scientists and Social Scientists. There were very few Humanities people there. But St Cross was also very forward looking and it was actually the first college to have a computer in Oxford, so I didn\u2019t really have any way of meeting people who weren\u2019t interested in computing because of where I was based and what I was doing.\n\nOccasionally I got invited to dinner in some other colleges by some of our computing users and got to talk to a few other people then but I think people who weren\u2019t interested just basically ignored it. I benefited, and I think a lot of those who worked in Humanities Computing at an early stage benefitted from the interest of well-known scholars. I was reading your other interviews, I think Harold Short mentioned that as well (Short et al. 2012), particularly Anthony Kenny, the well-known Philosopher, who did various computer-based stylistic studies based on concordances. I got to know him very well. I did quite a bit of work with Kenneth Dover as well, a very well-known classicist. So, I didn\u2019t really encounter that.\n\nMy next job in New Jersey was based in a library and that had a different atmosphere. As I had never worked in a library in the UK I didn\u2019t really know what the atmosphere was going to be, but I think it was still a time when electronic resources were rather strange things in libraries and they tended to be treated as if they were another kind of book. You know, you make a catalogue record for it and stick it there for somebody to use rather than thinking \u201cthis is a very different kind of object and what are we going to do about it?\u201d It was very, very early days for computing and electronic resources in libraries anyway \u2013 they were almost all CD-ROMs. So, there was quite a lot of interest there but more in the way of how to treat this as something that librarians needed to deal with. That\u2019s still the case now, but I think it\u2019s rather different from when your electronic resources are just a lot of CD-ROMs and its quite difficult for anybody to be able to support them because it takes so long to find out what you can actually do with them.\n\nSo because I wasn\u2019t ever in a Humanities department until I got to Alberta where there was a very stimulating intellectual atmosphere, I didn\u2019t really have much cause to be around people who weren\u2019t computing. I think the same was true in Alberta where there was a very big project which I was extremely interested in, and I did quite a bit of work with, the Orlando project, and that was really pushing the boundaries of what you can do.Footnote5 It generated, I think, quite a lot of intellectual discussion and it got down to the bottom line, which is how do you represent interpretation. I think that was really the nuts and bolts of what was going on and that generated a lot of interesting discussion\n",
+    "order": 30
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nMy final question is about the participation of women in the field?\n",
+    "order": 31
+  },
+  {
+    "speaker_name": "Susan Hockey",
+    "speaker_raw": "SH",
+    "role": "Interviewee",
+    "utterance": "\nI didn\u2019t feel any problem at being a woman and there were quite a number of women. I wouldn\u2019t say we were a majority but it didn\u2019t seem to me to be a problem. I think one of the real things, certainly in the early days of Humanities Computing, was that everybody treated everybody else as equals because they were interested in what each other was doing and needed to learn something from them. So, I didn\u2019t find any problem in that, and I think there has always been quite a lot of women in computing right from the beginning. I think there is now a bit more of an issue regarding people who get into certain management positions in universities and certain disciplines. I never noticed it, shall I put it that way? Certainly when I got to work in libraries there was a predominance of women and it was very obvious when I went to some library conferences in America that women were a big majority.\n",
+    "order": 32
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nThanks a million \u2013 that was really fascinating",
+    "order": 33
+  }
+]

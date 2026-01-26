@@ -1,0 +1,122 @@
+{
+  "previous_utterances": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 43,
+      "sentences": [
+        {
+          "sentence": "It's something that's incredibly difficult to answer anyhow, isn't it?",
+          "sentence_order": "43-1"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 44,
+      "sentences": [
+        {
+          "sentence": "Yes.",
+          "sentence_order": "44-1"
+        },
+        {
+          "sentence": "I think it's also because everyone in the field at the moment approaches it differently and I think that's good.",
+          "sentence_order": "44-2"
+        },
+        {
+          "sentence": "I don't like to see us in the electronic literature field saying that everything should be created with Twine or Inform 7 or that everything should be created in Processing; these are different authoring systems.",
+          "sentence_order": "44-3"
+        },
+        {
+          "sentence": "I like to urge students to step back from the process.",
+          "sentence_order": "44-4"
+        },
+        {
+          "sentence": "I tend to say to them \"what is your vision and what do you want to create?",
+          "sentence_order": "44-5"
+        },
+        {
+          "sentence": "Your vision - not where the software's going to take you\".",
+          "sentence_order": "44-6"
+        },
+        {
+          "sentence": "Then we can see whether there is an application to do that, or, if not, how to do it.",
+          "sentence_order": "44-7"
+        },
+        {
+          "sentence": "Some students can become very excited by that; others can say, \"you know, I don't think so\".",
+          "sentence_order": "44-8"
+        }
+      ]
+    }
+  ],
+  "current_utterance": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 45,
+      "sentences": [
+        {
+          "sentence": "Next I want to ask you for your impression of the conference community and the type of conference communities you encountered?",
+          "sentence_order": "45-1"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 46,
+      "sentences": [
+        {
+          "sentence": "Coming from an art background, I couldn't understand why anyone would want to go to a conference.",
+          "sentence_order": "46-1"
+        },
+        {
+          "sentence": "We went to openings that were free and you were never asked to pay a conference fee to talk.",
+          "sentence_order": "46-2"
+        },
+        {
+          "sentence": "It was either free or you were paid for being on a panel.",
+          "sentence_order": "46-3"
+        },
+        {
+          "sentence": "Also, I couldn't see why you would want to sit around a room, who would want to do that?",
+          "sentence_order": "46-4"
+        },
+        {
+          "sentence": "The first minute I went to a conference I completely changed my mind.",
+          "sentence_order": "46-5"
+        },
+        {
+          "sentence": "The first conference I went to was in 1989 and it was the NCGA Conference that took place in San Jose State University.",
+          "sentence_order": "46-6"
+        },
+        {
+          "sentence": "It was a conference on Computer Art and was hosted by the Computers in Art and Design, Research and Education Institute (CADRE) at San Jose State.",
+          "sentence_order": "46-7"
+        },
+        {
+          "sentence": "I was invited to be on the Art and Telecommunications panel, organized by Carl Loeffler, and including various other people connected with ACEN.",
+          "sentence_order": "46-8"
+        },
+        {
+          "sentence": "Let's see, there was Robert Edgar, Anna Couey, Jeanelle Hurst (from Australia) and, I think, Howard Besser was there also and he is actually connected more with the Museum Computer Network.",
+          "sentence_order": "46-9"
+        },
+        {
+          "sentence": "So it was a mix of people; I was amazed at the interaction, it was very different from going to an art opening or a reading, in that, you know, you're meeting people from all over the word, and there's a lot of very targeted information exchanged.",
+          "sentence_order": "46-10"
+        },
+        {
+          "sentence": "It was exciting, so I changed my mind about conferences.",
+          "sentence_order": "46-11"
+        },
+        {
+          "sentence": "But I was run down in 1994, and I've been on crutches ever since, so unless they are in my area I don't go to a lot of conferences any more, which I miss.",
+          "sentence_order": "46-12"
+        }
+      ]
+    }
+  ]
+}

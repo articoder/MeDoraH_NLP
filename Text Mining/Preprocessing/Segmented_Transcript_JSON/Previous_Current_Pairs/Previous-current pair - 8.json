@@ -1,0 +1,130 @@
+{
+  "previous_utterances": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 13,
+      "sentences": [
+        {
+          "sentence": "Yes, because it's lovely.",
+          "sentence_order": "13-1"
+        },
+        {
+          "sentence": "Well, it is lovely now, but it probably wasn't so lovely then!",
+          "sentence_order": "13-2"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 14,
+      "sentences": [
+        {
+          "sentence": "This was a terrible moment.",
+          "sentence_order": "14-1"
+        },
+        {
+          "sentence": "I had the programme we created on a big stack of punched cards.",
+          "sentence_order": "14-2"
+        },
+        {
+          "sentence": "This was not a small stack of punched cards and they all had to be kept in order.",
+          "sentence_order": "14-3"
+        },
+        {
+          "sentence": "If you dropped them it was very bad, and putting them in order was not easy.",
+          "sentence_order": "14-4"
+        },
+        {
+          "sentence": "So, I took the punched cards in over lunch hour.",
+          "sentence_order": "14-5"
+        },
+        {
+          "sentence": "You had to sign up for access to the computer, and I had to use it over lunch hour so as not to interfere with important engineer tasks.",
+          "sentence_order": "14-6"
+        },
+        {
+          "sentence": "I took the card stack in and put it on the conveyor belt.",
+          "sentence_order": "14-7"
+        },
+        {
+          "sentence": "I'm standing there, and all of a sudden, all the cards fly into the air.",
+          "sentence_order": "14-8"
+        },
+        {
+          "sentence": "How this happened, I don't know, but when I was telling the story to Stuart Moulthrop during the Pathfinders interview, he told me the same thing had happened to Nancy Kaplan, who's his wife.",
+          "sentence_order": "14-9"
+        },
+        {
+          "sentence": "So I had to go find Dan Anderson (who ran the computer room), and tell him what happened and all those cards had to be put back in order.",
+          "sentence_order": "14-10"
+        },
+        {
+          "sentence": "It was not fun and it was also horrendously embarrassing because it was important to look professional when you were going into the computer room because not everybody was hugely in favour of somebody who wasn't a regular engineer using the equipment.",
+          "sentence_order": "14-11"
+        },
+        {
+          "sentence": "For years I didn't like to tell people that I had worked for BBRC, because they would go, \"you what?\" I didn't like to talk about that although it was germane.",
+          "sentence_order": "14-12"
+        },
+        {
+          "sentence": "I don't mind it now, because I'm going over an age hump and I've realised this was important.",
+          "sentence_order": "14-13"
+        },
+        {
+          "sentence": "The companies in that era (Bell Labs in New Jersey was like that also) were very open to whom they were hiring.",
+          "sentence_order": "14-14"
+        },
+        {
+          "sentence": "They didn't hesitate at BBRC to hire artists and writers, they didn't hesitate to hire someone who had just been bumming around Europe for a year.",
+          "sentence_order": "14-15"
+        },
+        {
+          "sentence": "Nowadays, that would never happen.",
+          "sentence_order": "14-16"
+        }
+      ]
+    }
+  ],
+  "current_utterance": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 15,
+      "sentences": [
+        {
+          "sentence": "Many other people I've interviewed have mentioned to me that they also worked in commercial companies.",
+          "sentence_order": "15-1"
+        },
+        {
+          "sentence": "You can read more about that when the other interviews are published.",
+          "sentence_order": "15-2"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 16,
+      "sentences": [
+        {
+          "sentence": "I'm really looking forward to that because I feel like I'm less out on a limb hearing that.",
+          "sentence_order": "16-1"
+        },
+        {
+          "sentence": "And I think there is some credit due to those companies.",
+          "sentence_order": "16-2"
+        },
+        {
+          "sentence": "I think their willingness was also related to the post-World War II context; what women did during World War II was still remembered.",
+          "sentence_order": "16-3"
+        },
+        {
+          "sentence": "Companies thought that, as a woman, you had some skills, and you could come in and do that.",
+          "sentence_order": "16-4"
+        }
+      ]
+    }
+  ]
+}

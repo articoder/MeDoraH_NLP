@@ -99,14 +99,30 @@ export function AppBar() {
                             className="app-bar-btn app-bar-btn-secondary"
                             onClick={handleOpenFile}
                             disabled={isLoading}
-                            title={loadedFilePath ? loadedFilePath.split('/').pop() : 'Open JSON File'}
+                            title={loadedFilePath ? loadedFilePath.split('/').pop() : 'Bottom-up Extraction'}
                         >
                             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                                <polyline points="17 8 12 3 7 8" />
-                                <line x1="12" y1="3" x2="12" y2="15" />
+                                <path d="M12 2l8 4v4l-8 4-8-4V6l8-4z" />
+                                <path d="M4 10v4l8 4 8-4v-4" />
+                                <path d="M4 14v4l8 4 8-4v-4" />
                             </svg>
-                            {isLoading ? 'Loading...' : (loadedFilePath ? 'Opened' : 'Open')}
+                            {isLoading ? 'Loading...' : (loadedFilePath ? 'Extracted' : 'Bottom-up Extraction')}
+                        </button>
+
+                        <button
+                            className="app-bar-btn app-bar-btn-secondary"
+                            onClick={() => console.log('Ontology Population clicked')}
+                            title="Ontology Population"
+                        >
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2">
+                                <circle cx="12" cy="5" r="3" />
+                                <circle cx="6" cy="17" r="3" />
+                                <circle cx="18" cy="17" r="3" />
+                                <line x1="12" y1="8" x2="12" y2="12" />
+                                <line x1="12" y1="12" x2="6" y2="14" />
+                                <line x1="12" y1="12" x2="18" y2="14" />
+                            </svg>
+                            Ontology Population
                         </button>
 
                         <button

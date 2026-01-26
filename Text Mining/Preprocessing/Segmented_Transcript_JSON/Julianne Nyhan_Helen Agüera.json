@@ -1,0 +1,275 @@
+[
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nThe first question that I would like to ask is about your earliest memories of encountering computing technology?\n",
+    "order": 1
+  },
+  {
+    "speaker_name": "Helen Agu\u0308era",
+    "speaker_raw": "HA",
+    "role": "Interviewee",
+    "utterance": "\nWell, when I joined the NEH in 1979 I had no personal experience with computing technology. I came as a Humanist myself to work at NEH, someone who had done work in Spanish literature and language actually and had never even used any computer-based projects of any kind, or done any kind of that work. At that time computers were large hardware units that were used primarily by businesses for administrative purposes. At the NEH I was introduced to a database of evaluators that the agency was beginning to compile. It was intended to help the programme officers with the reviewers and panellists who assessed NEH applications. And then, shortly after that, the Endowment got its first word processing system to help us create grant documents that had very similar text because changing the address on the letters and other types of documents was repetitious. My only other personal experience in the early 1980s was when IBM PCs became available and I pretty much just did word processing. My first real encounter with the application of digital technology to the Humanities was through the projects that NEH supported.\n\nYou know, I started working in a programme in the \u201cDivision of Research\u201d that supported the preparation of research tools, reference works and scholarly editions. These projects were the ones that were using digital technology at the time. The NEH had been funding some of these projects since the 1970s, primarily, one large text corpus, the Thesaurus Linguae Graecae (TLG),Footnote1 which began getting funding in the early 1970s. Other projects were using computer technology to generate a print product, and that included dictionaries. We supported many of the dictionaries. But even concordances to texts \u2013 of course, now it is almost unthinkable to think of this as a separate tool \u2013 were considered separate tools at that time. We funded a project to do concordances to the works of Darwin and to the works of William Faulkner, for instance, and then from the output of the computer they created print products.Footnote2\n",
+    "order": 2
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nI understand that you can\u2019t speak in detail about the evaluation of individual projects, but I just wondered, in an overall sense, whether the digital components of TLG, for example, would have been \u201cnoticeable\u201d at that time? Or, how were digital projects received and discussed as far as evaluation was concerned?\n",
+    "order": 3
+  },
+  {
+    "speaker_name": "Helen Agu\u0308era",
+    "speaker_raw": "HA",
+    "role": "Interviewee",
+    "utterance": "\nWell, in this programme in particular there was a very positive reaction to the use of the computer because it was seen as a tool that would help expedite the work of creating the research tool or reference work. The TLG was a little bit different because it was the only one that really was intended to be used electronically rather than as a printed work that anyone could use in a library, or wherever. So, the TLG as a pure database was obviously was a little different, but, because it had the support of the entire field at the time (it was always well-received) we made many awards to it.\n\nNow, I believe it was probably in 1979, just shortly after I joined NEH, that the programme introduced a separate set of guidelines for projects that involved the use of computers. This had to be a separate statement within the proposal that addressed a number of issues about the use of the computer. The very first question was a justification for using computers; it was so rare, obviously, to use the computer within other fields of the Humanities that you needed to justify why a computer was necessary for the work that you were proposing.Footnote3\n",
+    "order": 4
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nHow did it come about that the NEH started funding those projects at what was still a reasonably early stage?\n",
+    "order": 5
+  },
+  {
+    "speaker_name": "Helen Agu\u0308era",
+    "speaker_raw": "HA",
+    "role": "Interviewee",
+    "utterance": "\nIt was an early stage and I think it\u2019s really because NEH has always responded to the field. So, you know, we have open calls. For Classics at that time being able to query the whole corpus of Greek was such an important part of the scholarly work they did. People were doing it manually, so the very thought of being able to query the corpus of all those texts, and being able to come out with instances where a word was used was just a tremendous opportunity in the eyes of people from the field (see, for example, Crane 2004). I think every time we\u2019ve seen a project that is essential to the scholarly work of the field there has been an impetus from the field to come and request funding and the evaluators have always responded extremely positively.\n",
+    "order": 6
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhen did you start becoming active in the conference community?\n",
+    "order": 7
+  },
+  {
+    "speaker_name": "Helen Agu\u0308era",
+    "speaker_raw": "HA",
+    "role": "Interviewee",
+    "utterance": "\nAt the time the main organisation that was having conferences, at least here in the United States, was the ACH. They were having meetings in the early 1980s. I went to an early 1980s conference, but my first recollection of going to a meeting was in 1987 at South Carolina. I remember that because it\u2019s where I met Nancy Ide and Michael Sperberg-McQueen (see Chap. 12) and that made me aware of the importance of coming up with encoding guidelines. That started the opportunity for the Text Encoding Initiative (TEI) to apply to NEH for support and we funded the first planning grant to them. That planning grant was for TEI to hold an international meeting. They brought together 30 people who had been doing work in computing to discuss the possibility of collaboratively developing guidelines for encoding text in the humanities.\n",
+    "order": 8
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nHow easy or difficult was it to making the case for the necessity of funding standards-based work (such as TEI)?\n",
+    "order": 9
+  },
+  {
+    "speaker_name": "Helen Agu\u0308era",
+    "speaker_raw": "HA",
+    "role": "Interviewee",
+    "utterance": "\nThat was a little bit different than the TLG, which the whole field was really interested in doing. Regarding TEI, there was an awareness on our part that there were lots of people and lots of projects (and the case for this was made in the application) that were creating their own encoding standards and formats. A lot of work was expended doing that yet texts could not be exchanged and reused. So, for the purposes of the review process, that was what persuaded the evaluators at the NEH to go ahead with that kind of support. That was a little bit less tangible to support; after all, you could always think of querying a database and getting results out and that seemed pretty tangible. The development of standards was a little bit outside of the realm of what we normally did. But the Endowment always thought it was important to support tools that were going to facilitate research in the Humanities. In fact, we even did so before computers. An example is the development of a typewriter element for Coptic because there was no way for people to use existing typewriters to create that, so we supported that. That was just an example of things that would seem outside of research tools per se, but they were the tools for the field.\n",
+    "order": 10
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nSo there\u2019s definitely a longer history of supporting tools irrespective of whether they happen to be digital or not.\n",
+    "order": 11
+  },
+  {
+    "speaker_name": "Helen Agu\u0308era",
+    "speaker_raw": "HA",
+    "role": "Interviewee",
+    "utterance": "\nPrimarily research tools, obviously, and this has been the case since very early on in the history of the Endowment and before there were separate programmes. Eventually separate programmes were created to support and focus on different types of activities. The \u201cResearch Materials\u201d programme supported all the various tools, scholarly editions, and so forth.\n",
+    "order": 12
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nCan I ask about those who have been quite good at canvassing and advocacy work or communicating with the Endowment about DH research trends and what might be considered for funding at a later stage?\n",
+    "order": 13
+  },
+  {
+    "speaker_name": "Helen Agu\u0308era",
+    "speaker_raw": "HA",
+    "role": "Interviewee",
+    "utterance": "\nWell, there have been some pioneers in different areas and fields. I already mentioned the TLG. Ted BrunnerFootnote4 was the lead person on this in the 1970s and 1980s and he was very outspoken on the use of computer technology for his field. Greg Crane is well known for his promotion of computing technology, first for Classics, but really for the Humanities largely. Early on in the field of lexicography there were some people who promoted use of the technology.\n\nI remember John Nitti who worked on the Dictionary of the Old Spanish Language (see Chap. 9), and he was involved with computer scientists and actually doing the programming. They had to do everything from scratch because mainframes were more in use at the time. Eventually they moved everything to other computers.\n\nIn the context of text encoding I remember Nancy Ide, Susan Hockey (see Chap. 6) and Michael Sperberg-McQueen (see Chap. 12). They were very outspoken in terms of the need to come up with guidelines for encoding text and for ways of archiving material so that it can be reusable.\n\nI also worked a little bit with people in scholarly editions like Peter Shillingsburg and David ChesnuttFootnote5 who were creating scholarly editions in History and in literature. They were working at a time when the use of computers for scholarly editions was not really the main mode of doing editions. They were working with the field and trying to persuade it that there were some things computers could do for scholarly editing. That took a little bit more, I would say, persuasion than in other areas where tool development was an easy sell.\n",
+    "order": 14
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nI think that nicely interconnects with another question I had about scholars who were not using computers in their research and the views they may have had about aspects of Humanities Computing (or DH)?\n",
+    "order": 15
+  },
+  {
+    "speaker_name": "Helen Agu\u0308era",
+    "speaker_raw": "HA",
+    "role": "Interviewee",
+    "utterance": "\nThe scholarly editors, in general, initially saw some value in working with the word processor but nothing else. I think there was a somewhat slower trajectory for scholarly editing until people could understand how some types of editions could be rendered electronically. Critical editions and things that involve a lot of collation and the generating of different views of the text seemed a bit harder to do with the tools that were available in earlier years.\n",
+    "order": 16
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nDo you think the objection, or lack of attention, was due as much to not seeing the possibilities as the difficulties of implementing the computational work? Or do you think other factors were also involved?\n",
+    "order": 17
+  },
+  {
+    "speaker_name": "Helen Agu\u0308era",
+    "speaker_raw": "HA",
+    "role": "Interviewee",
+    "utterance": "\nI think it was primarily due to the challenges of using the technology for what they wanted to do. The only other issue that occurred across all the projects was the question of rights to use the material. In the case of scholarly editions, they was a contract with a publisher and so the publisher\u2019s point of view on how the content might be made accessible was a factor in perhaps not making the editions available online right away because at that point there wasn\u2019t the subscription mode possibility that could be as fully used as now, for instance. I think it was technological issues and also questions of how valuable the technology was for what they needed to do. They were collating multiple texts and they had to put all these versions of multiple texts together \u2013 was that easier than actually doing this by hand?\n",
+    "order": 18
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nThere are myths about time saving and productivity!\n",
+    "order": 19
+  },
+  {
+    "speaker_name": "Helen Agu\u0308era",
+    "speaker_raw": "HA",
+    "role": "Interviewee",
+    "utterance": "\nFor the other things, you know, they were compiling information from many different sources to create one new item or new entries. That\u2019s a different use.\n",
+    "order": 20
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nDid you ever encounter cultural or social factors that questioned whether the computer actually had a place in Humanities research, whether it was just a tool and perhaps not something with which Humanities people should concern themselves? Or had that already abated by the late 1970s?\n",
+    "order": 21
+  },
+  {
+    "speaker_name": "Helen Agu\u0308era",
+    "speaker_raw": "HA",
+    "role": "Interviewee",
+    "utterance": "\nI think there was a difference between the people who were developing the reference works and research tools (the people we were working with) and people who were working in other areas. Historians, Literary scholars or Philosophers at that point had much less need to use computers other than for word processing. Or maybe, as some of the online bibliographies and catalogues and so forth started coming out, they did see value in using computers for doing their research and for creating their monographs and articles. But as something that would be useful in any other way \u2026 I think that took a long time. The mind-set that you see now, \u201clet\u2019s see how the computer can actually allow us to question or visualize some areas of interest for us that we can then do research on\u201d wasn\u2019t there at all. There was a sense that the computer was not teaching them anything, it was primarily a tool at that point.\n",
+    "order": 22
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat about the sustainability of the projects that NEH has funded?\n",
+    "order": 23
+  },
+  {
+    "speaker_name": "Helen Agu\u0308era",
+    "speaker_raw": "HA",
+    "role": "Interviewee",
+    "utterance": "\nWell, that\u2019s a big issue, and it has been for a long time. It is particularly so for the long-term projects that have received multiple awards from the NEH. We have been working with that issue for many years as we understood that at some point we could not continue to support all of the existing projects in addition to new projects. Accordingly, we started to urge the long-term projects to find ways of sustaining themselves.\n\nSome projects created endowments that would help them meet part of the costs of continually updating. Initially everybody was so excited because you could update this resource easily. But then it became a big burden because you never finish this work, right? At least with a print work, you printed it and were done with the work. In this domain you must continue to update that resource all the time; that requires support and not only in terms of people (the most costly part of it) but also equipment and resources. We managed to urge people; we\u2019d work with them, we\u2019d visit them and we\u2019d talk about some of the funding strategies they could develop to become self-sustaining and not depend on NEH funding forever because it would not be possible for the agency to continue to fund their project in perpetuity. We had to give a clear message. For instance, we worked with the classical bibliography, L\u2019Ann\u00e9e Philologique Footnote6 for many years to make them understand the need to be self-sustaining. Not only did they have a lot of bibliographic work to do, and we helped support that, but every year they had new work to do, as new publications came out.\n",
+    "order": 24
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nIf you think back on the portfolio of NEH projects \u2013 I know that just because of lifecycles that some wouldn\u2019t tend to be sustainable in any case \u2013 in general, have projects been able to make that shift?\n",
+    "order": 25
+  },
+  {
+    "speaker_name": "Helen Agu\u0308era",
+    "speaker_raw": "HA",
+    "role": "Interviewee",
+    "utterance": "\nWell, they have to a great extent. Some of the early ones have done that. The TLG is a good example. I think they\u2019re in existence for over 40 years now and they have received institutional support, support from the field, an endowment plus a subscription that I think they still have for part of their database. That has helped them maintain themselves over many years. With other projects the institutions have taken that responsibility, and often it\u2019s an international effort as well, but it is a struggle for some projects. It means that someone needs to be constantly, not only fundraising, but thinking of new ways of doing things more efficiently, or partnering with other people. And we encourage them to do all of that because it\u2019s always good to have projects that have a track record of being useful to the field.\n\nAnd I must say that I have a list of projects that we have supported since 1967 and another list of databases and other computer tools that we supported from 1967 to 1990. I was pleasantly surprised to look at these lists and check these projects on the web to see whether some are still around. They are, for the most part! In some cases they just resulted in print works but some of these databases are actually still accessible. They have migrated and continue to be accessible. Actually this was an interesting thing for me, because you would think that after so many years some of these projects would have disappeared. Actually, what\u2019s interesting about it is that we see a range of the old technologies (obsolete now obviously) that were used at the time to create these databases.\n",
+    "order": 26
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nDid people whose work was funded tend to stay in the field? Or, did you see, because of the nature of project funding, people being quite active in the 1970s, for example, and then maybe \u2018disappear\u2019 (from academia) or go to industry?\n",
+    "order": 27
+  },
+  {
+    "speaker_name": "Helen Agu\u0308era",
+    "speaker_raw": "HA",
+    "role": "Interviewee",
+    "utterance": "\nWell, there is some of that, some people moved into working in industry. But in general I would say that they stayed in academia, or in education for the most part, even though they may not be working on that particular project any longer. They may have moved to other positions in academic libraries or in archives. I see less movement from academia to the business world, for instance. Some, but not everyone who worked on these projects moved on to something else. They continue to have an interest, maybe not directly in the project they started with, but in other related projects or enterprises that have to do with research and innovation.\n",
+    "order": 28
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat about the participation of women in the field over the time?\n",
+    "order": 29
+  },
+  {
+    "speaker_name": "Helen Agu\u0308era",
+    "speaker_raw": "HA",
+    "role": "Interviewee",
+    "utterance": "\nWell, it\u2019s interesting. Initially there were some women in the ACH: I mentioned Nancy Ide and Susan Hockey. But overall, it was a smaller number of women. If you compare that situation with now, or if you go to DH meetings now, you do see a large number of young women involved in these projects. I don\u2019t know whether that had to do with the fact that in the initial days it was such a challenge to do any work with computing. The people who knew how to work with computers were mostly Computer Scientists and they did work with mainframes and then minicomputers. Maybe there was more of an influx of women to the field when the microrevolution came in, and then the personal computer.\n\nAmong scholarly editors there were more women, but then again, they were not really using the computer in advanced ways, with some exceptions, and people who were doing some indexing. I don\u2019t want to suggest that there were not people who were ahead of others, it\u2019s just as a group I\u2019m talking.\n\nMore women were involved in bibliography systems for libraries, which are very natural places for computers to help with this mass of work that you would have never been able to do without the help of the computer. On the issue of the take up of computing across the disciplines, Lexicography was also a natural fit, you can think of all the manual work that was required for the Oxford English Dictionary or just to collect all those individual cards [slips] and try to compile a dictionary out of that. We had a project, the Assyrian Dictionary at the University of Chicago that did everything manually. It started in 1923, and it finished everything manually, well not manually, at the end it was working with computers a lot. But the actual card index was done manually and it had two million little cards.\n",
+    "order": 30
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nYes, part of my PhD was on historical lexicography. The Dictionary of the Irish Language took over a hundred years.\n",
+    "order": 31
+  },
+  {
+    "speaker_name": "Helen Agu\u0308era",
+    "speaker_raw": "HA",
+    "role": "Interviewee",
+    "utterance": "\nCorrect! I think it\u2019s really in those areas where the task was so large that the computer was really a blessing. That\u2019s the only way to describe it. Or, in the case of Classics, it was important because the field had, I think, that tradition of philology, or enquiry into specific use of words and phrases within the entire corpus.\n",
+    "order": 32
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nIt\u2019s interesting, isn\u2019t it? With Classics and lexicography the application was very apparent.\n",
+    "order": 33
+  },
+  {
+    "speaker_name": "Helen Agu\u0308era",
+    "speaker_raw": "HA",
+    "role": "Interviewee",
+    "utterance": "\nYes and I think it was a good match for the needs of those fields. While for Historians, who were building arguments and looking at many different things, it wasn\u2019t clear how the computer was going to be a useful tool.\n",
+    "order": 34
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWe have really seen a tipping point since the publication of The Companion to Digital Humanities (Schreibman et al. 2008). Do you remember seeing that critical mass build up in terms of more and more fields saying \u201cah yes, now I get it!\u201d?\n",
+    "order": 35
+  },
+  {
+    "speaker_name": "Helen Agu\u0308era",
+    "speaker_raw": "HA",
+    "role": "Interviewee",
+    "utterance": "\nI do. Looking, for instance, at Philosophy, first it was bibliographic controls, then the Encyclopaedia of Philosophy was the first fully online encyclopaedia. But more and more, once it became clear that these different resources could be connected together to create something new, I think people saw the value of doing it for their field. Now everybody wants to digitise, in part because they feel that if it\u2019s not online, its non-existent. So, from small institutions (that perhaps have unique resources) to very large institutions (that have huge bodies of information and artefacts) it isn\u2019t any more a question of making accessible the key things in a field, but all extant evidence. It\u2019s a little mind-boggling actually.\n",
+    "order": 36
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nYes, as are the dangers of whole swathes of things just \u201cdisappearing\u201d because for some reason they are not on the web and so people don\u2019t access them. Is there anything else that I haven\u2019t mentioned that you would like to discuss?\n",
+    "order": 37
+  },
+  {
+    "speaker_name": "Helen Agu\u0308era",
+    "speaker_raw": "HA",
+    "role": "Interviewee",
+    "utterance": "\nObviously, I think the Endowment has managed over time to work with the field and to address the needs as they arise. Now I\u2019m pleased that there\u2019s the Office of Digital HumanitiesFootnote7 that is looking at those other questions from how technology affects our lives and the way we do research on what should be the cutting edge of the use of computers in the Humanities. So it has been an interesting trajectory for me to watch from just being at the part where the main focus was on developing resources, because there were so few. Now that we have this large amount of information the focus is on how we are going to use it. How can we actually focus on materials to make better use of them?\n",
+    "order": 38
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nMany thanks for your time",
+    "order": 39
+  }
+]

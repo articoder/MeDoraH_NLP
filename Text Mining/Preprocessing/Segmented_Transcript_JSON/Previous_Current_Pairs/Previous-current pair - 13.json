@@ -1,0 +1,174 @@
+{
+  "previous_utterances": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 23,
+      "sentences": [
+        {
+          "sentence": "So, you had formal training at BBRC and in systems analysis at the University of Denver.",
+          "sentence_order": "23-1"
+        },
+        {
+          "sentence": "When you were learning FORTRAN, for example, what were your impressions of it, what did you think of it?",
+          "sentence_order": "23-2"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 24,
+      "sentences": [
+        {
+          "sentence": "It was hard.",
+          "sentence_order": "24-1"
+        },
+        {
+          "sentence": "I was very good at systems analysis, although in my recollection, not to the liking completely of Professor Dougherty, who had his own ideas.",
+          "sentence_order": "24-2"
+        },
+        {
+          "sentence": "But for my own way of thinking, I was very good at systems analysis and I was very interested in it.",
+          "sentence_order": "24-3"
+        },
+        {
+          "sentence": "The FORTRAN itself I found difficult and occasionally I would get stuck on the programming.",
+          "sentence_order": "24-4"
+        },
+        {
+          "sentence": "I would go to Dan Anderson, and if he was in a mood to help, he would.",
+          "sentence_order": "24-5"
+        },
+        {
+          "sentence": "He was actually very helpful, but he had a lot of other, more important things to do.",
+          "sentence_order": "24-6"
+        },
+        {
+          "sentence": "I think he was the only computer guy in this whole huge company.",
+          "sentence_order": "24-7"
+        },
+        {
+          "sentence": "Occasionally, my colleague Jo Sanford was able to solve things I couldn't.",
+          "sentence_order": "24-8"
+        },
+        {
+          "sentence": "My impression was that she was a better hands-on programmer, but I was good at creating the algorithms and setting up the systems, so we worked pretty well together.",
+          "sentence_order": "24-9"
+        },
+        {
+          "sentence": "But I'll tell you, there's another issue here, I realised that one of the other problems was that there were no manuals at BBRC.",
+          "sentence_order": "24-10"
+        },
+        {
+          "sentence": "I think there was one FORTRAN manual.",
+          "sentence_order": "24-11"
+        },
+        {
+          "sentence": "Nowadays, if you want to learn a programming language, you can get a whole shelf of books that will help you.",
+          "sentence_order": "24-12"
+        },
+        {
+          "sentence": "There are people you can ask who will help you.",
+          "sentence_order": "24-13"
+        },
+        {
+          "sentence": "My recollection is that there was one FORTRAN manual and that was it!",
+          "sentence_order": "24-14"
+        },
+        {
+          "sentence": "There were none of these 'FORTRAN for Dummies' or 'Here's how I did this in FORTRAN' books.",
+          "sentence_order": "24-15"
+        },
+        {
+          "sentence": "When I started using BASIC, which was hugely easier to use, and BASIC is actually not that different from FORTRAN, I had access to the University of California's libraries.",
+          "sentence_order": "24-16"
+        },
+        {
+          "sentence": "When I got stuck, I would go down to the basement and there was an entire bank of at least 40 books on BASIC.",
+          "sentence_order": "24-17"
+        },
+        {
+          "sentence": "I would go over them one at a time until I found out how to do what I wanted to do.",
+          "sentence_order": "24-18"
+        },
+        {
+          "sentence": "You couldn't just go to Google to search online then.",
+          "sentence_order": "24-19"
+        },
+        {
+          "sentence": "Although actually I could have done computer searches because I did have access to that but engineering databases weren't oriented towards fixing your sink or how to do something in BASIC.",
+          "sentence_order": "24-20"
+        },
+        {
+          "sentence": "I also programmed Uncle Roger in Unix Shell scripts (see Malloy 1991), and there the community on the Whole Earth 'Lectronic Link (see, for example, Rheingold 2000; Turner 2010) was very helpful.",
+          "sentence_order": "24-21"
+        },
+        {
+          "sentence": "The people I was working with weren't that knowledgeable at BASIC, so I had to use the books.",
+          "sentence_order": "24-22"
+        },
+        {
+          "sentence": "But once again, this was not available when I was first learning to programme.",
+          "sentence_order": "24-23"
+        },
+        {
+          "sentence": "So what happened was, I was OK on how to write the programme, but I would get stuck on how to do certain things, the way we all do.",
+          "sentence_order": "24-24"
+        },
+        {
+          "sentence": "I'm sure you've encountered that?",
+          "sentence_order": "24-25"
+        }
+      ]
+    }
+  ],
+  "current_utterance": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 25,
+      "sentences": [
+        {
+          "sentence": "Yes, absolutely.",
+          "sentence_order": "25-1"
+        },
+        {
+          "sentence": "So, what did you do?",
+          "sentence_order": "25-2"
+        },
+        {
+          "sentence": "Did you hit dead-ends?",
+          "sentence_order": "25-3"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 26,
+      "sentences": [
+        {
+          "sentence": "I also wasn't familiar with ways of testing to find the bug.",
+          "sentence_order": "26-1"
+        },
+        {
+          "sentence": "And testing to find the bug on a punched-card system is not as easy as on the kind of systems we use nowadays.",
+          "sentence_order": "26-2"
+        },
+        {
+          "sentence": "At that time, if you couldn't find it by your eye you could start running portions of the programme until you found out which portion didn't work.",
+          "sentence_order": "26-3"
+        },
+        {
+          "sentence": "But you didn't have that much access to the room.",
+          "sentence_order": "26-4"
+        },
+        {
+          "sentence": "It was more difficult.",
+          "sentence_order": "26-5"
+        }
+      ]
+    }
+  ]
+}

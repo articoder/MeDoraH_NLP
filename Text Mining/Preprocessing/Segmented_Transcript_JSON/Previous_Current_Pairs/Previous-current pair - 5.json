@@ -1,0 +1,134 @@
+{
+  "previous_utterances": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 7,
+      "sentences": [
+        {
+          "sentence": "[laughs] No.",
+          "sentence_order": "7-1"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 8,
+      "sentences": [
+        {
+          "sentence": "It's by Georges Perec (2011), who was a member of the Oulipo, and the 2011 English edition was translated by David Bellos.",
+          "sentence_order": "8-1"
+        },
+        {
+          "sentence": "Essentially, Perec was asked to write a book using computer processes.",
+          "sentence_order": "8-2"
+        },
+        {
+          "sentence": "So, he simply rambles on and on about this poor fellow who was trying to get a raise, and walks into his boss' office, \"is the boss there?\", \"yes\", \"is the boss there?\", \"no\", \"is the boss in a good mood?\", \"is the boss in a bad mood\".",
+          "sentence_order": "8-3"
+        },
+        {
+          "sentence": "Somebody actually computerised this and I show it to students so they can see how flowcharts work.",
+          "sentence_order": "8-4"
+        },
+        {
+          "sentence": "It's a wonderful example because it's entertaining and uses different ways of thinking about how to create a work.",
+          "sentence_order": "8-5"
+        },
+        {
+          "sentence": "Perec was a fairly well known experimental author.",
+          "sentence_order": "8-6"
+        },
+        {
+          "sentence": "I mean, somebody might say \"huh?\" but creating a library catalog where you enter information in order to make it searchable and retrievable, for instance, is not so different from writing hypertext.",
+          "sentence_order": "8-7"
+        },
+        {
+          "sentence": "Actually, if you look in Uncle Roger, you can see that I played off the programme I wrote for BBRC.",
+          "sentence_order": "8-8"
+        },
+        {
+          "sentence": "For instance, I used the Boolean operator \"and\" to allow readers to combine words and phrases such as \"uncle Roger\" and \"men in tan suits\".",
+          "sentence_order": "8-9"
+        }
+      ]
+    }
+  ],
+  "current_utterance": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 9,
+      "sentences": [
+        {
+          "sentence": "I picked up on two comments in the Pathfinders interview that I'd like to ask you more about.",
+          "sentence_order": "9-1"
+        },
+        {
+          "sentence": "Firstly, when you were discussing the period that we have just been discussing, you mentioned that the idea of using computers in your artistic work had not yet occurred to you.",
+          "sentence_order": "9-2"
+        },
+        {
+          "sentence": "So how did those two things come together?",
+          "sentence_order": "9-3"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 10,
+      "sentences": [
+        {
+          "sentence": "I had no intention of that at all, it was two separate lives.",
+          "sentence_order": "10-1"
+        },
+        {
+          "sentence": "In fact, I think I told you in an email, that my immediate boss at BBRC, and this is kind of interesting, was José Antonio Villarreal, who was a pioneer Chicano writer.",
+          "sentence_order": "10-2"
+        },
+        {
+          "sentence": "The company hired writers and artists, which I thought was kind of wonderful.",
+          "sentence_order": "10-3"
+        },
+        {
+          "sentence": "José, quite shortly after that, was able to get a university teaching job based on his work as a writer.",
+          "sentence_order": "10-4"
+        },
+        {
+          "sentence": "Neither of us had graduate degrees and we had to make a living.",
+          "sentence_order": "10-5"
+        },
+        {
+          "sentence": "At the time he was writing The Fifth Horseman, which was a story of the Mexican Revolution.",
+          "sentence_order": "10-6"
+        },
+        {
+          "sentence": "His father actually fought with Pancho Villa.",
+          "sentence_order": "10-7"
+        },
+        {
+          "sentence": "One of the best experiences working for BBRC was when José used to come up and sometimes talk with me about what he was working on.",
+          "sentence_order": "10-8"
+        },
+        {
+          "sentence": "At that time I was working on things like a hand-made map that I made a few years later on rice paper and then I made versions on Xerox that I sold, not a lot, but a few copies.",
+          "sentence_order": "10-9"
+        },
+        {
+          "sentence": "This is a colour Xerox copy of a map that I made on rice paper [she holds the map up to the webcam], and a portion of these maps were narrative and under the category of what you would call 'Artists' Books'.",
+          "sentence_order": "10-10"
+        },
+        {
+          "sentence": "But there was certainly no intention at all of using computers in my artistic work.",
+          "sentence_order": "10-11"
+        },
+        {
+          "sentence": "One thing you didn't have access to in those days was personal computers, all you had was a large, scary computer.",
+          "sentence_order": "10-12"
+        }
+      ]
+    }
+  ]
+}

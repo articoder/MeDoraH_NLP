@@ -1,0 +1,274 @@
+{
+  "previous_utterances": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 15,
+      "sentences": [
+        {
+          "sentence": "Many other people I've interviewed have mentioned to me that they also worked in commercial companies.",
+          "sentence_order": "15-1"
+        },
+        {
+          "sentence": "You can read more about that when the other interviews are published.",
+          "sentence_order": "15-2"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 16,
+      "sentences": [
+        {
+          "sentence": "I'm really looking forward to that because I feel like I'm less out on a limb hearing that.",
+          "sentence_order": "16-1"
+        },
+        {
+          "sentence": "And I think there is some credit due to those companies.",
+          "sentence_order": "16-2"
+        },
+        {
+          "sentence": "I think their willingness was also related to the post-World War II context; what women did during World War II was still remembered.",
+          "sentence_order": "16-3"
+        },
+        {
+          "sentence": "Companies thought that, as a woman, you had some skills, and you could come in and do that.",
+          "sentence_order": "16-4"
+        }
+      ]
+    }
+  ],
+  "current_utterance": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 17,
+      "sentences": [
+        {
+          "sentence": "So, in asking this, I'm probably jumping forward in the timeline a bit, but how did the ideas of technology and artist books start intertwining?",
+          "sentence_order": "17-1"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 18,
+      "sentences": [
+        {
+          "sentence": "OK, this was a bit of a longish process.",
+          "sentence_order": "18-1"
+        },
+        {
+          "sentence": "I was creating various kinds of artist's books.",
+          "sentence_order": "18-2"
+        },
+        {
+          "sentence": "After my son was born, and this is something that you will know as a parent of a young child, it became difficult to create something like this (though I think this is a good story and it's always good to have a positive story of how children influence your life).",
+          "sentence_order": "18-3"
+        },
+        {
+          "sentence": "It became difficult to stretch large sheets of paper out across a drawing board - sometimes children like to play on your drawing board!",
+          "sentence_order": "18-4"
+        },
+        {
+          "sentence": "I was creating connected texts and drawings on large sheets of paper.",
+          "sentence_order": "18-5"
+        },
+        {
+          "sentence": "Some were on rice paper, so they were very fragile.",
+          "sentence_order": "18-6"
+        },
+        {
+          "sentence": "Because I was working for months on one sheet of paper that couldn't easily be corrected the process was not conducive to good interactive parenting.",
+          "sentence_order": "18-7"
+        },
+        {
+          "sentence": "A lot of times I was working during naps, or didn't have that much time to work, or I was working in short bursts.",
+          "sentence_order": "18-8"
+        },
+        {
+          "sentence": "It started by just thinking \"how can I do this?\" It happened that catalog cards were accessible to me, and I thought, \"why don't I try drawing on catalog cards?\"I started drawing on the catalog cards without the vision of how I was going to use them eventually.",
+          "sentence_order": "18-9"
+        },
+        {
+          "sentence": "I started using text and I started using photographs, and I began to have this vision that I could create a non-sequential narrative using catalog cards.",
+          "sentence_order": "18-10"
+        },
+        {
+          "sentence": "I had no access to a computer - it was 1976 when I started doing this.",
+          "sentence_order": "18-11"
+        },
+        {
+          "sentence": "So I thought \"well I generally show my work in exhibitions\", but there weren't a lot of people using computers in exhibitions, although there were a few.",
+          "sentence_order": "18-12"
+        },
+        {
+          "sentence": "So I began making what were essentially small, metal card catalog trays.",
+          "sentence_order": "18-13"
+        },
+        {
+          "sentence": "I used cards that had writing, photographs and drawings on them.",
+          "sentence_order": "18-14"
+        },
+        {
+          "sentence": "I categorised them with text but it was somewhat poetic text.",
+          "sentence_order": "18-15"
+        },
+        {
+          "sentence": "So, if I was telling a story I would write a line of poetry (sometimes I used an image) and put that on a divider on the top, like the old card catalogs were sometimes indexed.",
+          "sentence_order": "18-16"
+        },
+        {
+          "sentence": "Then, behind the line of poetry, the narrative would be told by images, texts and photographs.",
+          "sentence_order": "18-17"
+        },
+        {
+          "sentence": "Essentially, it was early multimedia and not so different from what you might see people working on today as they create narratives with images and all kinds of media.",
+          "sentence_order": "18-18"
+        },
+        {
+          "sentence": "I became almost obsessed with this for a few years, to the point where I began thinking \"what the heck am I doing?\" I thought it was fascinating, it was a wonderful training for becoming an electronic literature writer.",
+          "sentence_order": "18-19"
+        },
+        {
+          "sentence": "I spent hours trying to make certain that the narrative worked exactly right.",
+          "sentence_order": "18-20"
+        },
+        {
+          "sentence": "But when I showed these works, people generally just pulled the cards out and looked at occasional cards.",
+          "sentence_order": "18-21"
+        },
+        {
+          "sentence": "I let them do that, and they usually didn't experience the narrative the way I had intended them to experience it.",
+          "sentence_order": "18-22"
+        },
+        {
+          "sentence": "At that point I began to stop and think, \"Well, I'm enjoying doing this, I think this is great, but I can only make one copy, and I'm not sure I'm reaching the reader with these works\".",
+          "sentence_order": "18-23"
+        },
+        {
+          "sentence": "I then made a small switch to trying to use electromechanical books.",
+          "sentence_order": "18-24"
+        },
+        {
+          "sentence": "I think I started doing that in 1981.",
+          "sentence_order": "18-25"
+        },
+        {
+          "sentence": "In those days, Radio Shack made these electromechanical address books (this was in the days before personal computers were widely available, although they were being used at that point).",
+          "sentence_order": "18-26"
+        },
+        {
+          "sentence": "So, I would purchase these houses for electromechanical address books from Radio Shack, open them up and take out the scrolls (on which you were supposed to put addresses).",
+          "sentence_order": "18-27"
+        },
+        {
+          "sentence": "Instead of the addresses I would put images and text, and these books had little buttons on the front, so you could press the buttons and make them spin around.",
+          "sentence_order": "18-28"
+        },
+        {
+          "sentence": "Once again, it's a protogenic hypertext structure.",
+          "sentence_order": "18-29"
+        },
+        {
+          "sentence": "They had another kind of address book - if you look at the start of the pathfinder interviews, you'll see I'm holding one up, although you can't tell what it is.",
+          "sentence_order": "18-30"
+        },
+        {
+          "sentence": "Essentially, it looked like a small TV.",
+          "sentence_order": "18-31"
+        },
+        {
+          "sentence": "I painted it blue-green.",
+          "sentence_order": "18-32"
+        },
+        {
+          "sentence": "I'd been to the bleachers of a baseball game, and taken pictures of mostly men and a few women.",
+          "sentence_order": "18-33"
+        },
+        {
+          "sentence": "They were all very entertaining (by which I mean that the men and women I photographed played to the camera).",
+          "sentence_order": "18-34"
+        },
+        {
+          "sentence": "And so I took the photographs, colour Xeroxed them, opened the address book, took out the scroll that was in it, and substituted my own scroll of the pictures of the bleachers.",
+          "sentence_order": "18-35"
+        },
+        {
+          "sentence": "So, when you pushed the button you could scan across the bleachers, like a contemporary scrolling web narrative.",
+          "sentence_order": "18-36"
+        },
+        {
+          "sentence": "I don't know if you've seen any?",
+          "sentence_order": "18-37"
+        },
+        {
+          "sentence": "JR Carpenter's City Fish, for instance, is kind of wonderful.",
+          "sentence_order": "18-38"
+        },
+        {
+          "sentence": "The scroll books I made with Radio Shack address books were big hits in exhibitions because they were fun to use.",
+          "sentence_order": "18-39"
+        },
+        {
+          "sentence": "So, I'm still not using computers, but I'm essentially simulating computer technology.",
+          "sentence_order": "18-40"
+        },
+        {
+          "sentence": "To tell you the truth, I hadn't thought of using computers.",
+          "sentence_order": "18-41"
+        },
+        {
+          "sentence": "Why?",
+          "sentence_order": "18-42"
+        },
+        {
+          "sentence": "I don't know.",
+          "sentence_order": "18-43"
+        },
+        {
+          "sentence": "I was using a sculptural object process, partially because I was working with my hands, but it was proto-computer-mediated, and here we go back again to the influence of algorithmic thinking and how that had pervaded my own work without using the technology itself.",
+          "sentence_order": "18-44"
+        },
+        {
+          "sentence": "I started using a computer when my son wanted one.",
+          "sentence_order": "18-45"
+        },
+        {
+          "sentence": "We didn't have a lot of money, but we went and bought a used Apple II, and he brought in Infocom games (interactive fiction; the kids traded the disks) and all kinds of things.",
+          "sentence_order": "18-46"
+        },
+        {
+          "sentence": "At the time, I was doing another kind of work, but I won't spend too much time on that, and I also made works of information art.",
+          "sentence_order": "18-47"
+        },
+        {
+          "sentence": "The works collected information, and then organised it in order to look at the culture of technology and what is conveyed about technology in advertisements.",
+          "sentence_order": "18-48"
+        },
+        {
+          "sentence": "So, I had a project where I was collecting advertisements for computers, it was something I was interested in.",
+          "sentence_order": "18-49"
+        },
+        {
+          "sentence": "I took the slogans off them and created a database.",
+          "sentence_order": "18-50"
+        },
+        {
+          "sentence": "This one I didn't initially programme myself, I used the early Apple II programme called Visidex.",
+          "sentence_order": "18-51"
+        },
+        {
+          "sentence": "But I quickly realised that if I wanted to distribute this I had to write my own programme.",
+          "sentence_order": "18-52"
+        },
+        {
+          "sentence": "So this was the first time I used computers since I left BBRC in 1969, and it was 1986.",
+          "sentence_order": "18-53"
+        }
+      ]
+    }
+  ]
+}

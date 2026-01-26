@@ -1,0 +1,268 @@
+[
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat is your earliest memory, in any context at all, of encountering computing or computing technology?\n",
+    "order": 1
+  },
+  {
+    "speaker_name": "Manfred Thaller",
+    "speaker_raw": "MT",
+    "role": "Interviewee",
+    "utterance": "\nI assume you are referring to computer technology within the Humanities. Well, in approximately my third or fourth year at the university, which must have been something like 1973 or so, we had a working group of students who invited people outside of the normal context to present what then was considered innovative approaches to History. We had a presentation from somebody who used a pre-runner of what would later be called a database to map the spatial distribution of medieval coins\n",
+    "order": 2
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nDid you find it interesting?\n",
+    "order": 3
+  },
+  {
+    "speaker_name": "Manfred Thaller",
+    "speaker_raw": "MT",
+    "role": "Interviewee",
+    "utterance": "\nOh yes, it was definitely interesting but I didn\u2019t have any immediate application for it in the kind of work I made.\n",
+    "order": 4
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd was this seen as an unusual type of presentation or would it have been par for the course at that stage?\n",
+    "order": 5
+  },
+  {
+    "speaker_name": "Manfred Thaller",
+    "speaker_raw": "MT",
+    "role": "Interviewee",
+    "utterance": "\nNo that was definitely highly unusual at the time, and it was also in no way covered by what you would have heard at a university regularly. That really was just a presentation to people who had shown unusual interest in History in general, not in this specific topic.\n",
+    "order": 6
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat was your first engagement with the Humanities Computing community of the time?\n",
+    "order": 7
+  },
+  {
+    "speaker_name": "Manfred Thaller",
+    "speaker_raw": "MT",
+    "role": "Interviewee",
+    "utterance": "\nWell, how far a Humanities Computing community existed in 1976, when my active work in the area started, is a bit doubtful, particularly in Austria. My first professional contact was to a Historian of the family, not in the sense of Genealogy but the development of structures of family, like the Cambridge Group did in England (see, for example, Laslett and Wall 1972). That was in Vienna in early 1977, where I was immediately hired because a professor had approached me as he had heard that I was doing some computer work for other historical projects.\n",
+    "order": 8
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd what kind of research did you do on the project?\n",
+    "order": 9
+  },
+  {
+    "speaker_name": "Manfred Thaller",
+    "speaker_raw": "MT",
+    "role": "Interviewee",
+    "utterance": "\nThat was standard statistical calculations of demographic behaviour.\n",
+    "order": 10
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nTell me about when you started leading your own research projects, and the factors that led you to include the computer in that or to theorise about the role of the computer in that research.\n",
+    "order": 11
+  },
+  {
+    "speaker_name": "Manfred Thaller",
+    "speaker_raw": "MT",
+    "role": "Interviewee",
+    "utterance": "\nWell, that\u2019s a different story. My own doctoral thesis dealt with roughly the History of Mentality, or more properly, how opinions would be created out of information available at the time. For that purpose, between 1973 and 1975 I filled roughly 32,000 index cards with excerpts from approximately 500 years of newspapers, which certainly was impressive but impressed upon me that it was not very simple to handle such stuff. And after finishing my doctorate (Thaller 1975) I had the possibility to get a scholarship for 2 years of post-doctoral training at the Institute for Advanced Studies in Vienna, which offered courses in empirical Social Science even to people who had no formal training in Social Science. There I encountered statistical standard software and found that while this was interesting, their statistical paradigms could not be applied sensibly to historical data without these data undergoing certain transformations from the stage in which the stuff was kept in the sources.\n\nThis led me to the decision to do, besides the application of statistical software, some programming exercises in SNOBOL. This led very, very early (actually, something like 4 weeks after I started programming) into an involvement with a project on the daily life of the middle ages at a research institute where one of my friends worked. This project had started to create a collection of all the surviving medieval images in the area roughly coincident with today\u2019s Austria and some of the neighbouring countries. The project had started approximately 1 or 2 years earlier. The idea was to create a database which would use those images not as Art Historians use them, but for historical purposes, that is, for the study of material aspects of daily life. This meant that you had to represent the content of these images (it was still the time of punched cards) because digitising them was completely out of the question, at least with equipment we had available at that time. And my first exercise in applied programming was to build software to administer the descriptions of images. It was controlled by a command language that was supposed to be sufficiently far from a computer that the people working at that research institute actually could use it themselves. Of course, one has to say that in 1976 the visibility requirements (by which I mean the expectation to see a medieval painting on a computer screen) were slightly lower than they are now!\n",
+    "order": 12
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAm I right in saying that at the Institute for Advanced Studies, you had access to formal training in programming?\n",
+    "order": 13
+  },
+  {
+    "speaker_name": "Manfred Thaller",
+    "speaker_raw": "MT",
+    "role": "Interviewee",
+    "utterance": "\nNo. We had formal training in statistics and some in Mathematics, but formal training in computer usage simply consisted of how to use SPSS. What went beyond that was based on the advice that SNOBOL, which nobody else at the Institute had ever used in practice, was suspected to be particularly useful for what I had in mind. And then I simply had to learn the language myself.\n",
+    "order": 14
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWill you please reflect on that process of self-teaching: how you went about it, what it entailed and whether there was, at times, a social element to it?\n",
+    "order": 15
+  },
+  {
+    "speaker_name": "Manfred Thaller",
+    "speaker_raw": "MT",
+    "role": "Interviewee",
+    "utterance": "\nWell, people learn in different ways. I remember that a few years later when I went to the place where I later had my first long-term permanent job I was basically reading a description of the programming language PL/1 and I simply started thinking how nice it would be to realise certain things with that. And I really think that how you learn things is very, very, very much a personal matter, which is the reason why until today I am a bit suspect of didactics. Some people like very much to learn programming by trying things out themselves, other people need a group of three or four reference persons with whom they can talk about it. This is the reason why when I formally teach computing and programming I try not to impress a model of how people have to learn (any more than is absolutely necessary to keep classes consistent).\n",
+    "order": 16
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat was the first Humanities Computing conference that you attended?\n",
+    "order": 17
+  },
+  {
+    "speaker_name": "Manfred Thaller",
+    "speaker_raw": "MT",
+    "role": "Interviewee",
+    "utterance": "\nThe first ALLC conference that I attended was in Pisa in 1982. The first conference that I attended which dealt with computing in parts of the Humanities was in Cologne in 1977, where there was a conference of what is still called Quantum (Association for Quantification and Methods in Historical and Social Research \u2013 Arbeitsgemeinschaft f\u00fcr Quantifizierung und Methoden in der historisch-sozialwissenschaftlichen Forschung e.V), which is a membership-driven group which at that time was working very intensively with quantitative methods in History. The reason why my voice became slightly slow when I said membership organisation is simply that after the very few first years it basically evolved into a group of people who still publish a journal (Historical Social Research) in the field but there\u2019s not very much happening beyond that. In those years they organised summer schools themselves in which I, of course, was heavily involved.\n",
+    "order": 18
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nPeople frequently comment to me that when they attended Humanities Computing (and Digital History and so on \u2013 labels are always so difficult in this context) conferences that the community was always very open and welcoming. They say that the type of spats and arguments that one may see in more established disciplines didn\u2019t tend to be as apparent. I wondered whether you agree or disagree with that interpretation?\n",
+    "order": 19
+  },
+  {
+    "speaker_name": "Manfred Thaller",
+    "speaker_raw": "MT",
+    "role": "Interviewee",
+    "utterance": "\nOh yes, I totally agree with that. Not all of the people were young in that group, but the mean age was probably something like 30, possibly even below. It was very clear that the people at these conferences considered themselves, well, if not as a group of elite at least as a group of revolutionaries who grumbled against the conservative people trying to keep away from their inter-disciplinary work, which at that time was rather innovative in many Humanities disciplines.\n",
+    "order": 20
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nDid you present your DH research also at \u201cpure\u201d History conferences?\n",
+    "order": 21
+  },
+  {
+    "speaker_name": "Manfred Thaller",
+    "speaker_raw": "MT",
+    "role": "Interviewee",
+    "utterance": "\nOh yes. Still linking back to Austria, I was part of an Austrian-based group who organised a series of summer schools in Austria that ran between 1978 until the early 1990s. This group also organised regular workshops or sections at the annual Historians\u2019 conference in Austria. This I remember rather clearly because it was a whole series of events and we were present at each of the Historians\u2019 conferences. From something like 1978 onwards, I also quite frequently presented the work I did at all sorts of Historians\u2019 conferences, but there were too many of them for me to have a very clear memory of when I presented what.\n",
+    "order": 22
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd what kind of reception did you receive, especially from those who were not using computing in their research?\n",
+    "order": 23
+  },
+  {
+    "speaker_name": "Manfred Thaller",
+    "speaker_raw": "MT",
+    "role": "Interviewee",
+    "utterance": "\nWell, I would say about a third of the people saw this as a positive development, though there was a slight reserve about the feasibility of it all. Roughly a third of the Historians more or less did not indicate any interest. And there was a hard core of Historians who, at that time, considered computation as a kind of vulneration against the principles established by Ranke. But that is a very mixed matter because in the early days of quantitative History the assumption was not so much one of usability of computers or of publishing something. The assumption by the avowed quantifiers was that you could produce better historical results with statistical efforts. In this way the usage of a computer was only a secondary aspect. So, the Poverty of Historicism (Popper 1957) was frequently quoted by the quantifiers and, as a side-effect, there were Historians who were clearly against quantitative work because they saw it as a conscientious attack upon proper historical methodology.\n\nBut on the other hand, one also should not say that this describes the frontline completely. Since this first wave of quantitative work there have been a couple of research projects in History that used decidedly non-quantitative approaches, like for example, trying to identify the agreement between witness lists of medieval charters (see, for example, Schmid 1978), which were implemented by some of the more, if not most, methodologically conservative medievalists in Germany. They did not see any problem with it as long as it was clear that the methodological and conceptual framework of their work would not be endangered.\n",
+    "order": 24
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAs you look back on your career do you view the process of using the computer in History as one that moved from the margins towards the mainstream, or how would you characterise that process?\n",
+    "order": 25
+  },
+  {
+    "speaker_name": "Manfred Thaller",
+    "speaker_raw": "MT",
+    "role": "Interviewee",
+    "utterance": "\nWell, it\u2019s really a kind of circular process. We had a couple of very important events. For example, the advent of easily available quantitative methods with the arrival of SPSS and similar programs; the arrival of easily usable databases together with PCs; and the arrival of easily usable web publication possibilities or web services in something like 1995. And there have been similar indications of a new wave in the last 5 to 7 years, where it is not yet so clear what the primary type of application will be.\n\nAt the stage of each of these introductions of a new method two things happened which ran a little bit against each other. On the one hand, at each of these stages, the number of computer applications in History increased by about one order of magnitude. On the other hand, the methodological conceptual refinement dropped sharply. That can be very simply described when we talk about the advent of the personal computer. Before 1985, quantitative studies usually meant that you would have to do a statistics course and then you would apply statistical software, which created tables, co-efficients and other things that you would have to interpret in order to get any insight. Relatively many Historians were very, very sceptical of whether these figures could actually show something. There are some very good reasons to be doubtful about quantitative studies in History, there are other reasons which are not so good. But there was certainly a scepticism among many Historians.\n\nThe interesting thing that happened when the PC was invented is that there came with it some very simple-minded statistical programs that offered the possibility of very easily creating graphical representations of statistical data. The first 3 years of the introduction of PCs in to History departments produced a flood of totally unrefined pie charts. Some of them did show absurd things because the data that had gone into them were beyond recovery as they never had been clarified. But they suddenly made pie charts very, very popular. Well, after people had played with PCs for something like 3 to 5 years, it turned out that things were not quite as simple as they had seemed in the meantime. The methodological refinement increased again because people accepted that even if you had the computer on your desk, you needed more than a passing acquaintance with what happened in the software if you actually wanted to use it.\n\nAnd if one would go into detail you could show exactly the same thing with the first web projects. You had an explosion of people using the computer, but it\u2019s rather good for everybody\u2019s reputation that some of the webpages that were created at that time haven\u2019t been preserved so well!\n",
+    "order": 26
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nBoth a loss and a gain! Who influenced you? This can be as much in terms of traditional Historians as Humanities Computing people.\n",
+    "order": 27
+  },
+  {
+    "speaker_name": "Manfred Thaller",
+    "speaker_raw": "MT",
+    "role": "Interviewee",
+    "utterance": "\nIt\u2019s a shame, but it\u2019s relatively hard to remember the names. Unfortunately I have a very bad memory for names, so I would have to look up some of the books that I vaguely remember.Footnote2 I\u2019m afraid I can\u2019t point to any specific name. What influenced me very much was Historical Methods, a journal which had its heyday from the 1970s until the 1980s. It published very much about the usage of computers and particularly the usage of computers for non-quantitative purposes in History. I\u2019m not quite sure if that journal still exists. I haven\u2019t looked for it recently because after the end of the 1980s it turned its focus mainly towards Anthropology and interpretative inter disciplinarity rather than the formal methods. But that\u2019s probably the one thing that influenced me most directly.\n\nWhat influenced me more systematically was simply the working conditions I found at the place where I had my first long-term work in the Max Planck Institute for History in G\u00f6ttingen. There I was originally hired for a rather specific project that was supposed to be a complex Social History analysis based on things called family reconstitutions or extended family reconstitutions, for specific types of Economic and Social History. Now, a Max Planck Institute is a pure research institute, which is actually not connected to a university, and the Director of that institute at that time, Mr Vierhaus, let his people have great leeway. So the assumption was basically that you were supposed to be visible worldwide and be on the same level as your competition (or whoever is best in this discipline). Otherwise you can do more or less what you want. Fortunately this approach was backed up by resources which meant that in the late 1970s and early 1980s I had the possibility to buy, relatively systematically, all the literature which was available at that time. Now, in pre-Amazon times, all the literature that was available probably wasn\u2019t very much more than something like 50 titles or so. But I had access to all the conference volumes published since the early 1960s about the early stages of Humanities Computing all over the field.\n\nThe other big thing that influenced me is also immaterial: the Max Planck is an institution which has Humanities institutes but which is primarily shaped by hard Science institutes. It\u2019s really not an institute but a collection of something like 80 institutes which run joint infrastructures. And these infrastructures assumed that people should have the computing capacities and devices they needed quite irrespective of which institute they came from. Why this is important I can describe by telling you an anecdote which at that time left me in deep shock. In the early 1980s our work on social and economic History had led to databases of roughly about 200 MB, which now seems relatively trivial, but at that time, as will become clear in a moment, was rather large. And I could do that as somebody who had just finished his thirtieth year because I belonged to an institute which was supposed to be entitled to use computing resources, period.\n\nWhen my position became permanent I went to the US on a 3 week journey. I basically went to a dozen or 14 people at universities all over the US, including Harvard. In Harvard at that time there was an extremely prominent social or economic Historian named David Herlihy who had done one of the very first studies of Italian censuses. He was truly famous for the first fully quantitative study of the Tuscan or Pisan census, one of the first censuses of their first years. So, I entered the holy halls of Harvard, met one of the great men of the field, and wanted to talk to him about what he thought of computer technology. He became very, very enthusiastic because Harvard had just made extraordinary capabilities available to him, more precisely a 10 MB hard disc and he would only have to find the money for a programmer so he could actually use it! So this is a bit unfair, but the possibility to have access to all the resources I could dream up has probably influenced me much, much more than any specific article or paper I\u2019ve read.\n",
+    "order": 28
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nIn a way that doesn\u2019t surprise me, it sounds like a truly amazing, dream-like scenario.\n",
+    "order": 29
+  },
+  {
+    "speaker_name": "Manfred Thaller",
+    "speaker_raw": "MT",
+    "role": "Interviewee",
+    "utterance": "\nIt may be a dream scenario for people in the Humanities nowadays, but if you look at the capabilities at research institutes in Computer Science it is actually a well-tried principle: make resources available for people, force them to produce results, but don\u2019t hinder them by counting bytes or bandwidth or other nice things.\n",
+    "order": 30
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWere other Humanities people also working at the Max Planck Institute in G\u00f6ttingen?\n",
+    "order": 31
+  },
+  {
+    "speaker_name": "Manfred Thaller",
+    "speaker_raw": "MT",
+    "role": "Interviewee",
+    "utterance": "\nYes, there were people who were working on something called proto-industrialisation. Proto-industrialisation is defined as the phase when artisanry in agricultural areas was, by various economic constructions, converted into a system where a relatively large portion of available income was also produced by the systematic production of items, particularly in the textile pre-industry or proto-industry. And there are all sorts of theories about how that was connected with social behaviour and similar things. Now my task, and that was exactly the job I was hired for, was to create a computer system able to take the marriage registers of a village, find out which children belonged to which marriage, which death record belonged to which individual (which is called family reconstitution) and then to augment that with just about any conceivable source that contained names, lists of taxation, property lists and various other stuff.\n\nIn this context David Sabean [Distinguished Professor of History & Henry J. Bruman Endowed Chair in German History, UCLA] who in the meantime, I think, has retired, indirectly influenced me very much, though not in detail, because he was not following things up very much himself. But he most certainly had very visionary ideas about the necessity of connecting every conceivable source to the kind of system that was being developed. This forced me, at an early stage, to think relatively generally, because it was not a limited set of sources to be processed but every conceivable source which might exist. And, my experience from Vienna of building systems which, at least in theory, should be used by the researchers themselves, let me then invent the programming system CLIO (Thaller 1987a), which some people still remember because it\u2019s probably the only modestly widely used system with a command language in Latin, which in any case was rather general and could be used for, theoretically, all types of historical sources.Footnote3\n\nThen something happened which was relatively typical for that type of project. While the data arrived and while everybody was very happy that his data would be processed, people actually finished other books or wrote other articles and more or less postponed the analysis of the data which we had prepared for them. And at that time I somehow decided that if this were so, and if it would be supported by Mr Vierhaus, the Director of the Institute at that time, then I would simply ask people at other institutes whether it would not be possible to use some of their data to test out the features we had implemented. I have to admit again here that the possibility to use what, for all practical purposes, were unlimited computing resources helped. This meant that within a relatively short period of something like 5 years, what originally had clearly been a supportive function for a specific number of research projects gained the status of an abstract research project on its own, simply geared towards building a general software system for historical purposes, for which I invented the term \u201csource-oriented data processing\u201d (see Thaller 1987b, 1988, 1991). Behind that term was the assumption that previous software, like, for example, SPSS, was focused on making a specific canon of methods (quantitative methods or analytical quantitative methods to be precise) available more or less to the researcher him or herself. Source-oriented databases, as I understood them, or source-oriented data processing as I understood it, meant that you would try to take historical sources and try to convert \u201ceverything\u201d (I hope you heard the quotes) that a source possibly contains into a form which then could be analysed for various purposes.\n\nThat was going on for something like 5 years. At the end of which this research project had emancipated itself to such an extent that I got a grant from the Volkswagenstiftung funding agency. This allowed me to start a new implementation of that software that was not implemented in PL/1 anymore but in the programming language C which, by the middle of the 1980s was not completely new anymore, but was still one of the newer ones. And the point of that project was to make it as widely available to the research community as possible. Between the middle of the 1980s and 1990s (the implementation of the first version started in 1987) we worked on that software, making it available shortly after development began. We also made it available by providing summer schools (1987 to 1992, 1994 and 1997) which at the height of the development brought something like 100 people together for 2 weeks, to show how you could handle historical sources based on that type of software.\n\nThe only problem was that it was heavily limited in time (as such funded research still is). So, the actual development grant for the software that was developed ran for about 3 years only, with a fourth year glued on. And afterwards, to develop the software further, we had to look for research projects which would allow us to develop it in the context of content-driven research. There have been quite a few of these, one of which, for example, involved some early work on making the content of archives of the former concentration camp at Auschwitz available (Sicherung und verbesserte Erschlie\u00dfung der Quellen im Archiv des Staatlichen Museums Auschwitz-Birkenau Footnote4) but the scope was really very different. This is chronologically probably wrong now because it\u2019s a bit earlier, but at some stage we also did work on the comparison of the shape of medieval pottery, which has relatively few commonalities with documents at Auschwitz, but simply also has some data structures which can be supported if you have software which operates at the right level of generalisation.\n",
+    "order": 32
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhen you look back at the ways that the computer was used in these projects, what were your disappointments \u2026?\n",
+    "order": 33
+  },
+  {
+    "speaker_name": "Manfred Thaller",
+    "speaker_raw": "MT",
+    "role": "Interviewee",
+    "utterance": "\nActually, there were a couple of disappointments in the way interaction went. This, of course, is still one of the big problems of interdisciplinary work: if at some stage you are interested in developing a software product, not because you personally want to see the results, but because you want to test out some formal idea of what you can do to information, at some stage you cross the invisible line between History and Computer Science. After some time I simply got interested in the problems of formalising Historical Studies just because I was interested in these problems and not because I wanted to implement a specific study. And at this stage, as is usually the case in interdisciplinary projects between Computer Scientists and Humanists, there very frequently started the misunderstanding that when somebody from the formal part of the world wants to test something they think that they should provide a system which people can use later on in their own projects. And it is very frequently the case that people developing software get into the habit of doing it just once more themselves, to spare the time needed for the people who are interested in the content to learn how to do that for the tools that might already be available. That is, from a Computer Science point of view, if you have developed a solution, you have developed the solution, and you would be very happy if other people apply it. From a Humanist\u2019s point of view, if a Computer Scientist develops the solution, you usually expect him or her to apply it for sufficiently long that you get some results that you can interpret. That was definitely a kind of disappointment.\n\nBut the more serious disappointment, which I still think is something which has damaged parts of the Humanities, is that in the 1990s there was a move away from working with formalised results. And I have a strong suspicion that that simply relates to the fact that if you want to study a phenomenon formally \u2013 I do not say quantitatively because my own work had moved far away from quantification by the late 1980s \u2013 computers have the obnoxious habit of telling you time and time again that your data may contain errors, while what may actually be going on is that your data contains something that does not fit your hypothesis. So, it\u2019s a long and painstaking process. However, it is much, much faster, and much less frustrating to go into an archive and find a document with a human appeal and publish it and add a clever interpretation to it. Historical research has certainly fallen into what I consider a trap by getting away from doing the types of research that are harder to do.\n\nOne has to say that there was, of course, a very serious change in the 1990s with the advent of the ability to handle images and use web services, which in my opinion are still not completely understood. Well, still cooperating with that Austrian Institute where I had my first contract in 1976, we entered image processing, which is digitisation, image enhancement, pattern recognition in 1988 or 1989, working on Unix workstations, and built up quite some image handling capabilities, and that\u2019s the software I\u2019m referring to.\n\nNow, when we did that I was, at a very early stage, interested in the possibilities of making sources widely available for interpretation. So, at the conference of the ALLC and the ACH in Siegen in [1990] we presented a workstation with the kind of software I\u2019m talking about, which showed, among other things, a very, very early version of this image processing software. And, at the same time, we were very interested in what you could do with digitised documents. Around then we started a project which for me had an extremely interesting result. We got a research grant in the middle of the 1990s which allowed us to digitise a substantial amount of manuscripts, something like 60,000 pages or 70,000 pages, and make them available over the internet (see Aumann et al. 1999). This was really early and, though it is childish, I still remember with some amusement sitting on a panel beside a representative of the Library of Congress in Washington who unveiled, with great pathos, the first version of the George Washington papers. I had immediately afterwards the possibility to point out that the not so widely known city of Duderstadt in lower Saxony had online about twice as many pages of fairly obscure material from the fifteenth century! But this is just to say that we were very early with that. The strange thing I discovered was that we worked under two assumptions in that project. Firstly, that what made the applications of computers particularly interesting was that you could read some of the documents demonstrably better on the screen than in the original due to image enhancement and various other things. Secondly, we assumed that if you offered such material as digitised manuscripts on a large scale, you should look in parallel at possibilities to provide editorial techniques together with it (see Aumann et al. 1999). So, while digitisation was the main point of the project, we had a separate section where we implemented the possibility of handling manuscript variants in a way that is more meaningful than how it is typically done.\n\nWhat in hindsight might have been a mistake, I\u2019m not quite sure, was that we accompanied that project with an attempt to connect very, very closely with the user community. So, in the 3 years of the project we had a public presentation every 12 months and discussed the results achieved so far. And during these 3 years, where to a degree we followed up the feedback from the user community, we discovered that they found the possibilities for image enhancement, and various other things, interesting, but what people really got excited about was the possibility of having very great amounts of source material available on the internet, and conceptually having a couple of hundred thousand pages available at their fingertips (though in reality it was only 70,000 at that stage). So, we actually dropped all the analytical ideas we had in favour of improving access to the material.\n\nI find it quite significant when I look at the development of digital editions in general to discover a very strange phenomenon. In the middle of the 1990s digital editions were usually connected to CD-based systems, which had a couple of very nice features that probably haven\u2019t been surpassed by most of the other systems we have nowadays. Then great amounts of data became available on the internet. At the same time, you notice that the interest in digital editions actually dropped because those people who were interested in applying technical innovation to the Humanities mainly became caught by the same trap we might have been caught by, that is that the sheer exuberance of access drowned out the analytical possibilities which might be there. This is strange in some ways and I really wonder how long it will take for a couple of things to be addressed. It is quite obvious at the moment, and I wrote papers which discussed this already in the 1990s, that there is actually not very much point in ever finishing an edition in the Humanities because howsoever good the edition is, you can be absolutely sure that beyond a certain intensity of usage the users will try to go back to the manuscripts. Still, for some strange reason people think of editorial processes as ending at a given stage, for which there are simply no technical reasons any more. I mean, if you were to concentrate on digital editions, not as tools for presenting a final result of a working process, but as an intermediate stage which could be taken up again at any stage, we would actually use the medium much more according to its characteristics. I really wonder how long it will take until what I consider the simple technical and artisan-like implications of the printed medium will be dropped in favour of adopting the possibilities that the new media create.\n",
+    "order": 34
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nIt\u2019s astonishing to see how slow this process is and to think that we\u2019re still trapped in this almost incunabular-like stage. I\u2019ve kept you for the best part of an hour so I\u2019m going to ask two more questions if that\u2019s ok? So, when you left Max Planck did you go straight to the University of Cologne?\n",
+    "order": 35
+  },
+  {
+    "speaker_name": "Manfred Thaller",
+    "speaker_raw": "MT",
+    "role": "Interviewee",
+    "utterance": "\nNo, already during my last years at Max Planck in G\u00f6ttingen, I had a parallel appointment in Bergen, Norway. There I had something highly unusual, a kind of part-time professorship that\u2019s a Norwegian mechanism by which you can connect people who you want to have in your department for shorter periods of time to a university. They can be from industry or, for example, from other countries. I did a bit of teaching in History that was connected to digital methods and I was then asked to move fully to the University of Bergen to direct the merger of three independent research units there, which covered the whole scope from editorial Philology right through to Museum Information Systems. So that was a fairly large unit which, when it had been merged, was something like a 30-person infrastructure for IT usage in the Humanities in the University of Bergen. Originally I definitely had understood this to be a long-term assignment. But I have to admit that it had one shortcoming: while I endorsed this task very much it was also clear that by that step I had converted from somebody doing active research into a research manager, which had its own rewards. But when Cologne then offered a Professorship for Computer Science for the Humanities, where I had the possibility to build up my own study programs and also attract funding for projects that I could get involved in personally, rather than only managing them, this had so much attraction that I went south again, ending up instead on the Rhine at Cologne.\n",
+    "order": 36
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nJust to close, what were the main differences between the Max Planck and the university in terms of the access to resources and the social structures that you had around you?\n",
+    "order": 37
+  },
+  {
+    "speaker_name": "Manfred Thaller",
+    "speaker_raw": "MT",
+    "role": "Interviewee",
+    "utterance": "\nWell, that\u2019s totally different, I mean, at Max Planck I had absolutely no contact with students, originally. But on the other hand, I may hold a few records for side-teaching assignments when working at a research institute. I think I collected teaching assignments at more than a dozen universities during my years at Max Planck. I was also heavily involved in summer schools. This was not necessarily a very good qualification for taking over a regular Professorship because it meant that I had mainly encountered students who were more than normally interested in their field and particularly interested in applying new methods. Without wanting in any way to offend my Cologne students, going from that to a normally-motivated group of students certainly needed some adjustments.\n\nAnd the other thing, of course, is that at Max Planck funds were considerably more easily available than at a regular university, though I have to say that in a sense I think I can call myself extremely successful at inviting third party funding for research while being in Cologne. That may have brought me away from my original purposes because out of creating historical databases it was very simple to drift into digital libraries, particularly because it was easier to get funding for digital libraries than it was for historical databases, and out of digital libraries it was particularly easy to drift off into digital preservation because that was relatively simple to fund. And that may have brought me further from my original analytical interests than I ever wanted.",
+    "order": 38
+  }
+]

@@ -1,0 +1,118 @@
+{
+  "previous_utterances": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 53,
+      "sentences": [
+        {
+          "sentence": "Philip Larkin worked in a library, didn't he?",
+          "sentence_order": "53-1"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 54,
+      "sentences": [
+        {
+          "sentence": "Yes, I think so.",
+          "sentence_order": "54-1"
+        },
+        {
+          "sentence": "These are good jobs for poets and writers.",
+          "sentence_order": "54-2"
+        },
+        {
+          "sentence": "Libraries, particularly, are lovely, they are quiet and the work is interesting, I was not unhappy with that at all, you know, when I was in midcareer stage.",
+          "sentence_order": "54-3"
+        },
+        {
+          "sentence": "Although occasionally, as a single parent, I was juggling an awful lot between two careers, and being a parent.",
+          "sentence_order": "54-4"
+        },
+        {
+          "sentence": "Also, it wasn't until recently that I thought, and I think this is partially an age thing, \"I have so much to pass on to students, and I'm so thrilled to be working with students\".",
+          "sentence_order": "54-5"
+        },
+        {
+          "sentence": "I love the work they do and want to see it continue.",
+          "sentence_order": "54-6"
+        },
+        {
+          "sentence": "Now I feel that maybe I only have so many years left, and it's important to me to work with students, to essentially pass the small torch - we all have different torches in electronic literature - to pass on the knowledge that I have about how to make it work.",
+          "sentence_order": "54-7"
+        },
+        {
+          "sentence": "I think people with the knowledge of the history of the field that I have should teach.",
+          "sentence_order": "54-8"
+        },
+        {
+          "sentence": "We won't be around forever, and what we know is very valuable.",
+          "sentence_order": "54-9"
+        }
+      ]
+    }
+  ],
+  "current_utterance": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 55,
+      "sentences": [
+        {
+          "sentence": "The final question that I want to ask is whether you feel any disappointments about, about routes that electronic literature didn't take (whether social, cultural, intellectual, technological or whatever)?",
+          "sentence_order": "55-1"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 56,
+      "sentences": [
+        {
+          "sentence": "Well, I don't put it quite that way.",
+          "sentence_order": "56-1"
+        },
+        {
+          "sentence": "I still think of this as an incredibly open field.",
+          "sentence_order": "56-2"
+        },
+        {
+          "sentence": "I mean, when I started using a computer to do my work in 1986, part of the excitement was the many ways to manipulate words.",
+          "sentence_order": "56-3"
+        },
+        {
+          "sentence": "There are thousands of things we can do.",
+          "sentence_order": "56-4"
+        },
+        {
+          "sentence": "I wonder about recent moves to take electronic literature into the field of multimedia because that's a different field.",
+          "sentence_order": "56-5"
+        },
+        {
+          "sentence": "I see people who work with words leaving words, and I want to ask \"why are you doing this?\" They are doing it partially because that is more encouraged.",
+          "sentence_order": "56-6"
+        },
+        {
+          "sentence": "I mean someone implied to me that one reason why the electronic literature community is going in that direction is hostility from the literary community.",
+          "sentence_order": "56-7"
+        },
+        {
+          "sentence": "A digital writer perceived far less hostility if less words and more images were used.",
+          "sentence_order": "56-8"
+        },
+        {
+          "sentence": "By the way, I think a lot of the works created with images and sound and video are very good.",
+          "sentence_order": "56-9"
+        },
+        {
+          "sentence": "I just want people to also see that there are ways to work with words that are incredible and that we haven't yet explored.",
+          "sentence_order": "56-10"
+        }
+      ]
+    }
+  ]
+}

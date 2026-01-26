@@ -1,0 +1,324 @@
+[
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat is your earliest memory, in any context, of encountering computing or computing technology?\n",
+    "order": 1
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nI saw IBM machines in the window of their shop in Milan in the 1950s and so I became aware that something like that existed. I was still at the Gymnasium [secondary school].\n\nThen, early on in my time at the university I became acquainted with Silvio Ceccato. Does that name say anything to you? Probably not, but he was one of the first Italian intellectuals \u2013 and he was Professor at the University of Milan, of course \u2013 to become interested in the Artificial Intelligences or methods to produce artificial reasoning.Footnote2\n\nI was studying Philology at the time and so my Professor of Philology and I tried to arrange a system (this was around 1960) to explore the possibilities of making a critical edition in Latin of St Augustine\u2019s The City of God, with the help of those card computers. I was, in a sense, the originator of the project, because I spoke with my Professor of Philology, Ignazio Cazzaniga, about it. He was curious about those things but he did not know anything about them. I also did not know anything but I had an idea of what it could be. We began to punch cards (I don\u2019t know what has become of them) and then our project finished because I had other things to do. So we tried but we gave up.\n",
+    "order": 2
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nIt was too complicated?\n",
+    "order": 3
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nNo, we were distracted with other things! You know how this happens \u2013 it was just an idea. But we started to punch cards because it is easy to imagine that if you have a system that can put words into a given order and compare them you will have a critical idiom and methodology that you can start experimenting with. This is the na\u00efve way of saying it was an idea that seemed valid in those years. So that was my first encounter with computing. But of course, the experience of the possibility remained in my mind.\n\nBy the late 1970s I had collected a great amount of information pertaining to Coptic manuscripts and other literature. It became difficult for me just to manage that information and so I thought \u201cI must try to do this automatically.\u201d I contacted some companies like Nixdorf Computer AG,Footnote3 and others, in order to explore the possibilities that existed then. But when I went to the Centro di calcolo (the Computer Centre) of the University of Rome everything really began.\n",
+    "order": 4
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhy did you contact companies rather than going to the computer centre in the first instance?\n",
+    "order": 5
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nI confess that I was not very confident in the organization of the computer centre, and, most of all, I was afraid that they would not welcome a Humanities scholar. In fact, I came to realise that the personnel there who were available to help me were really good and I worked with them with much satisfaction.\n",
+    "order": 6
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd were others also pursuing Humanities Computing topics in the university at the time?\n",
+    "order": 7
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nAs I mentioned, Professor Ceccato, but he had also seen that those machines could, in a way, think. As a person he was very brilliant but also a bit out of reality. He was, in a sense, one of those people who is so enthusiastic that their feet scarcely touch the ground.\n",
+    "order": 8
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nHe was too enthusiastic about the technology?\n",
+    "order": 9
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nYes, and more than that. There is always this double side: good and bad. I mean, he had seen the relationship between pure thinking and automatic procedures. That he had seen, but then he went about it in an unrealistic way.\n",
+    "order": 10
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nThis is the story of the history of Artificial Intelligence to an extent, isn\u2019t it?\n",
+    "order": 11
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nExactly, but it has also taught me to beware of Artificial Intelligence because I don\u2019t like the uncertainty. That has to do with possibilities, another question. The man I consider my real teacher in computing and also Humanities Computing is Luigi Cerofolini. He was an applied mathematician who also studied the logical theory of numbers, and so on. He taught me very much about what is and what is not a computer and a computing system. That is what I would call the real turn in my experience with Humanities Computing. He was very realistic, very straightforward. There was no charlatanism in his approach and he hated Artificial Intelligence.\n",
+    "order": 12
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nSo when you talk about the turn in your experience, who else had you worked with before then (apart from the colleague who worked on Artificial Intelligence)?\n",
+    "order": 13
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nLet me set the chronological development straight. In the 1950s, I had the experience with this brilliant man in Artificial Intelligence. Then a dark period! Then the experience in the seventies, first with people in the Centro di calcolo, the Computing Centre of the University of Rome, and they were ingenious. Mirella Schaerf, the Director, was very helpful. She was an engineer and she understood my problems and provided a Database Management System (called Omnidata), then running on the UNIVAC mainframe of the centre. She explained how it worked and gave me free access. The staff of the centre were very helpful for some practical things but not for all the rest. The methodological problems I had to try to imagine by myself.\n\nThen I met Luigi Cerofolini and he taught me about the methodological issues and I encountered two things \u2013 that is why I speak of a \u201cturn\u201d. First, I encountered the Turing machine and I had never heard about that before. Second, I encountered Unix. I insist, and nobody in Humanities Computing wants to acknowledge this, but I think that what is most important from the theoretical side is the Turing machine and from the practical side is the Unix system. Cerofolini taught me that Unix is not an operating system, it is an environment system. It is all the ground you have at your disposal when you work. And that is, I think, extremely important as background for this, and that was the turn.\n",
+    "order": 14
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nI know that you\u2019ve published on this (see, for example, Orlandi 2002, 2000) but would you also say a bit more about the theory of the Universal Turing machine and the impact that it had on your work?\n",
+    "order": 15
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nNot only on my work but on my life! Well, seriously, I have understood that the Turing machine is mysterious and also, in a sense, a mystic-philosophical link between logic, reason and something that materially happens, that is the computer or whatever. You know the computer is not only what we generally call \u2018a computer\u2019? It is anything that can perform automatic procedures on discreet quantities. And, in fact, it gives you the possibility to express your theoretical ideas in a way that is actionable. That is what I happened to like very much about Humanities Computing because in Humanities you can discuss everything and everybody is right. How do you check whether Virgil is a good poet or not? How do you check whether Virgil really wrote that verse or not, and so on. Those discussions have gone on for centuries and everybody is right! Well, I\u2019m not trying to say that everything can be solved in Humanities with computers. But at least you can say \u201chic Rhodus, hic salta\u201d to some questions. If you have an idea you formalise it and put it into something that is materially real. You could not do that before Turing. After Turing you can and this is the wonder of the Turing machine.\n",
+    "order": 16
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nDo you think that this contribution characterises the work of Humanities Computing?\n",
+    "order": 17
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nYou know, I divide Humanities research into two sectors. One sector is governed by logic, the other sector is governed by what you might call intuition. Intuition is not manageable and you either have it or you don\u2019t. It is difficult to subject intuition to scrutiny: one can say \u201cthat is a good intuition\u201d while another says \u201cthat is a bad intuition\u201d.\n\nHowever, when one develops a historical proposition they must construct it logically. If it is not logically constructed it is intrinsically contradictory and does not stand. That part of Humanities may be automated with enormous consequences in the sense that computers (this is banal but this is where it enters) can manage quantities of memories that the human brain cannot. And so, if you can apply your method (or logic) to an enormous amount of material then you will probably be able to concretely see where it does not work.\n",
+    "order": 18
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhen you mentioned Milan I wondered whether you also encountered Busa and the work of Busa?\n",
+    "order": 19
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nI encountered Busa relatively late and not in Milan. Whether Father Busa is the origin of Humanities Computing is a delicate question. Here I prefer to limit myself to two observations: firstly, although his relationship with IBM (which at the time did not include real computation, like the UNIVAC, for example) is, of course, established, there is absolutely no evidence outside Busa\u2019s own recollections that he had real computation in mind. Secondly, Busa had no linguistic or semiotic background in a conventional sense and his work was placed far from ongoing computational developments.\n\nThe real beginnings of Humanities Computing can be found in some experiments, especially on artificial translation and automatic translation, which made mistakes, but never mind. Here I\u2019m referring, of course, to the work of William Weaver, Norbert Wiener, and others. We must also look to some branches of archaeology, especially the experiments of Jean-Claude Gardin and the new archaeology, in America and beyond. There you find something really interesting. Of course, mistakes were made, it was a case of trial and error, as they say. But I don\u2019t agree that Father Busa may be mentioned among the pioneers. The position that he now has is not only wrong but misleading.\n",
+    "order": 20
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nIn the research that I\u2019ve been doing on Busa, my working hypothesis at the moment is that Busa\u2019s legend is, to some extent, a useful fiction.\n",
+    "order": 21
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nPerfectly!\n",
+    "order": 22
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd I don\u2019t mean to denigrate his work, but I think that his legend is something that the community has seized on as a foundation myth. He is a figure they can project things onto and organise around. But I think, exactly as you said, that the intellectual link is actually difficult to uncover in his earlier writings (though perhaps I\u2019ll be proven wrong on this as the research progresses). In any case, one of the things that I\u2019m trying to figure out is how this \u2018useful fiction\u2019 came about? What were the establishment and transmission processes?\n",
+    "order": 23
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nBusa had an enormous capacity for, if I may say so, selling himself. You know that in the modern world this is enormously important. We must also say and agree that he had a capacity for understanding what people tended to assume about the application of computers to the Humanities. He was an incredibly intelligent man, no question about that. But unfortunately he did not \u2013 this may be something to do with his being a Jesuit and that is also important \u2013 grasp the change in linguistic and mental attitudes brought about by the Turing machine. I am convinced, I don\u2019t know, perhaps I am wrong here, but in my idea Father Busa and Turing are something completely apart, one ignoring the other. So, after what I said, you understand that I do not agree that he was a pioneer. Indeed, the much more serious work done for the early Italian literary text by Mario Alinei and D\u2019Arco Silvio Avalle does not come from Busa\u2019s group.\n",
+    "order": 24
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nCan I ask you to name some other projects that you consider to have taken important steps forward?\n",
+    "order": 25
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nRegarding the first critical edition, for instance, what comes to my mind is Peter Robinson\u2019s Chaucer (1996). But generally such projects are so open-ended. I maintain that what is important is not the fulfilment of a project but the methodological attitude that it has begun. In this regard Robinson\u2019s Chaucer project was very interesting. To this I would also add the work of Jean Claude Gardin (discussed below)\n",
+    "order": 26
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nDid you at some point take formal training in computing?\n",
+    "order": 27
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nAbsolutely not. I trained myself using textbooks. The people at the University Computer Centre gave me some practical instruction and I met with Luigi Cerofolini on several occasions. We became friends; after a while, absolute friends. I remember that I went to America in about 1980 or 1981 and I went around the university bookshops to see what they had about computing and related areas. I acquired, and still have, some books about the fundamentals of computing theory and science, which today absolutely nobody in Humanities Computing mentions and it is strange how they put things.\n\nI always studied, I try always to go deeper. What most of my colleagues in Humanities Computing don\u2019t do, one of the great things I often expose, is that they tend not to read about what they call \u201ctheir subject\u201d. A worker, a mental worker in Humanities Computing, how much do they know of the bibliography on computing? From what I see, generally nothing, or almost nothing. This is the real shortcoming of the discipline of Humanities Computing; of course, you in UCL and King\u2019s College London are an exception. But generally such matters have no place in the discipline itself and of course we all weep about that. But we also have our faults!\n\nI have, for instance, assembled a library that went from linguistics and encoding theory, for instance, to Jean Claude Gardin\u2019s Archaeological Constructs: An Aspect of Theoretical Archaeology (1980). Having such books ranging from the works of Gardin to treatments of the Turing machine together helps you to see their relations.\n\nIn my opinion we are still at an early stage of Humanities Computing in terms of the development of methodology. People speak about revolutions and the immediate changes that we can see on the surface of things. But deep changes require, I will not say tens of years, but hundreds. You know, Humanities Computing may be said to have existed since the late 1940s. It is almost a century old. If you go around (I don\u2019t mean in our circle) and ask people \u201cWhat is Humanities Computing?\u201d they, of course, will answer \u201clibraries, catalogues,\u201d or \u201ccollections of texts\u201d. Well, where is the Humanities Computing in having at your disposal the pdf of this or that? This is not Humanities Computing!\n",
+    "order": 28
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAbsolutely not. Unfortunately many people seem to think that\u2019s all it is. My impression is that this is especially the case since this move to DH, this term that\u2019s very often used now instead of Humanities Computing.\n",
+    "order": 29
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nYes, unfortunately people don\u2019t know what digital is! When they say \u201cdigital\u201d, they think of \u201celectronic\u201d. What do Humanities people know about the difference between digital and analogue, for instance? They think that it\u2019s an obvious concept of which they need not to be aware. I am always against mathematics, in the sense that what you think is mathematics is really our environment, so I don\u2019t want to call that mathematics. That is logic. And \u201cdigital\u201d is not necessarily \u201celectronic\u201d, absolutely not.\n",
+    "order": 30
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nYou mentioned this word \u201crevolution\u201d and it\u2019s a word that is used an awful lot in DH and Humanities Computing circles. It\u2019s a word that puzzles me in a lot of ways, because to me, at least, a revolution involves overthrowing the corrupted past and working towards some glorious new future. So that might not necessarily be the way that it\u2019s used but would you be able to talk a little bit about encountering that term and what you understand is meant by that term within Humanities Computing?\n",
+    "order": 31
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nI could not in the sense that when I want to describe such phenomena I find only that word. You know that computers are now very different to the \u201cstrange machines\u201d that they were. Within the illustrious disciplines of the Humanities few conceived that an encounter between computers and Humanities could be achieved. You know very well that they said \u201ccomputers are for mathematics, the Humanities is for thinking. Computers have nothing to do with languages or historical effects\u201d. All those who began to see that an encounter could be done spoke about a revolution, but not in the sense that they despised the older things. It was more so that they expected that the older habits of the Humanities would be disrupted by the new instrument. It is a revolution like what Elizabeth Eisenstein (1980) calls the printing revolution. You have nothing against manuscript, but with printing you have a revolution.\n",
+    "order": 32
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd why do you think the term continues to be used? I would argue that it\u2019s not so relevant anymore. It may continue to be a defining word but now it refers to circumstances that have come and gone.\n",
+    "order": 33
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nUnfortunately, this term \u201crevolution\u201d has been used and continues to be used because it has taken on what I call \u201csociological ground\u201d. People now see that readers are not the same, libraries are not the same, archaeological excavations are not the same and so on. But just because roles have changed and instruments have changed \u2013 you do an excavation and use telecameras, and other wonderful things, and you have the measurements at once \u2013 they say \u201cAh, that is the revolution!\u201d It\u2019s no revolution at all \u2013 it is analogous to having a microwave oven at your disposal when 50 years ago you did not. Is that a revolution? \u201cOf course it is, it is a meaningful revolution!\u201d Well, the food is about the same from that point of view!\n",
+    "order": 34
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat was your first encounter with the Humanities Computing community?\n",
+    "order": 35
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nIt\u2019s my privilege to be able to say I did not encounter it, I saw it growing. For instance I met Antonio Zampolli at the beginning of the thing. He was in Pisa at the Istituto di Linguistica Computazionale (Institute of Computational Linguistics) of the CNR, and so I saw how things were growing there. I met Willard McCarty here in Rome, at a meeting organised by the Canadian Embassy when he worked in Canada still. And so it was early in his career that we made our acquaintance. I think I met many of those who were present at the beginning.\n\nI must say that Gardin is an exceptional case because he really is at the source of Humanities Computing. Gardin is another of the men (he died just recently) for whom I really feel a deep sentiment of respect. He was reflecting on the possibilities of computing in the 1950s, but nobody knew. He was a very reserved man; his story is rather unknown. And so I was not aware of his work until I read his book on archaeological constructs. I met him, not at the beginning, but when Humanities Computing was growing in France. In Germany I met Manfred Thaller (see Chap. 13) who is one of the other men who really knows things. He did not have much luck, of course, just because he is a good theoretician, and this happens.\n",
+    "order": 36
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat do you mean when you say that Thaller didn\u2019t have much luck?\n",
+    "order": 37
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nTo become a professor Thaller had to \u201cvenire a patti\u201d, to compromise. He produced the collection of reproductions of manuscripts in Cologne, which is wonderful (see Chap. 13). I like it. Is it Humanities Computing? No, or yes with many reservations.\n",
+    "order": 38
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nIn some ways that interconnects with another question I had about your perception of how those who were not doing Humanities Computing reacted to and evaluated that work?\n",
+    "order": 39
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nWith scepticism, or even a range that went from negazione (denial) and rifiuto (refusal) to scepticism. I would say \u201crightly so\u201d because unfortunately the enterprises in Humanities Computing were generally not sound enough to meet the attention of Humanities scholars who were not computing. Of course, the production of concordances, or things like that met with their approval at once. Such tools were very important but there is nothing theoretical about them. The Oxford Text ArchiveFootnote4 is a wonderful thing and, then, after that, came Google. You see, everything that is practically useful is appreciated but such examples have nothing to do with the methodology and the study of the individual Humanities scholar.\n\nThe advancements in linguistic theory that emerged from the unfortunate experiments in artificial translation are very important (see Hutchins 2000). In this context I\u2019m not only referring to experiments here in Italy. Geoffrey Sampson and the British National CorpusFootnote5 and a lot of those enterprises are important too because they went together with Sampson\u2019s insights on two things. The first is syntactical linguistics and the polemic (Sampson 2005) he wrote against Chomsky (who, on the other hand, is a good example of the real interaction between computing principles and languages. Unfortunately I maintain that he was not philosophically sound enough, he took historical languages as something given by nature. Nevertheless, he was very interesting in this regard). That book is wonderful. The second is encoding principles, which is joined to alphabet theory. Sampson has written a wonderful book about alphabets (Sampson 2015), strange for one who creates the British National Corpus, you see, but this is just what I say. Advancements in Humanities may be obtained through reflection on computer applications and this book is a wonderful example of that.\n",
+    "order": 40
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nRegarding the projects that were not accepted, is it your interpretation that they were not accepted because their applications were not so clear to the Humanities?\n",
+    "order": 41
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nI think that they were not accepted because of a phenomenon that I will submit to you with much regret. When you begin to work seriously with automation (computers, but in the sense of automation) in the Humanities, you almost at once realise that in Humanities you don\u2019t know exactly what you do, and this is very hard to accept. This is my personal experience: how can I tell the colleague in, for example, Italian literature that he does not really know the texts he studies? How can I tell him that he does not understand what a text is and in which sense we can say that this text is by Dante or not? Or, even more, what is the meaning of orthography in this and that manuscript? What is the difference between the actual material design of a letter and the idea of a grapheme as part of the graphic and the spoken apparatus of one language?\n\nThe colleague would tell me that I am completely crazy and that these are not problems and in any case he does not want to study them. This is probably because they are intuitive problems. However, when you have to teach a machine how to manage such data, you must tell the machine exactly what everything is and you realise that you don\u2019t know the answers to the questions I just asked! Here is where the normal Humanities scholar keeps back because he cannot accept all that. It is a long process and in due course the normal Humanities scholars may come to accept such issues about the difficulties of formally defining such phenomena. And this is \u201cla scommessa\u201d, the bet for the future, because from one side everything will be computerised. Whether we want that or not is not the problem \u2013 it will happen. And if so, the way that all the data of our disciplines will be computerised, the correctness of that depends on the generations from now on. And this is why I am very much, I will not say preoccupied, but why I try to think about this crucial problem.\n\nYou know, the trend now is infrastructures. The European community recommends the building of infrastructures for many domains but they will go by themselves. What is the idea of convening meetings on how to organise Humanities Computing infrastructures? Of course it takes money but they will have to build them in any case, with or without European money. Universities will have to build them at some point, and in any case it will cost them less and less. I don\u2019t see any research problems in the area of infrastructures, on the contrary. You will have huge amounts of data, of course, and bless it. But how will that data be put in digital form? That depends on a very delicate attitude and few people will understand that. Willard McCarty, Geoffrey Rockwell and Manfred Thaller will understand that, one, two, three and yet the phenomenon is spreading around the world. But we must not be pessimistic, of course! In any case we must realise that this is the great challenge of the next years. Let\u2019s try to sell that to responsible people even though it is not easy.\n",
+    "order": 42
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nA lot of those I\u2019ve interviewed have reflected to me that when they went to their first Humanities Computing conferences they often found that people were very friendly or that sometimes their experience was that the community was much friendlier than their home Humanities disciplines. I just want to ask how you respond to that?\n",
+    "order": 43
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nYes, I would agree. There was a great deal of cameratismo (comradery). This was a custom, just as it was in the wider computing environment. It was not so in Humanities. For instance, when the Oxford Patristic ConferenceFootnote6 started it was not as huge as it is now, it was just held in a meeting room. In any case, everybody has his school. I think that now it is different in Humanities too because they have acquired that sense of comradery that was not present at the time.\n",
+    "order": 44
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nYou\u2019ve already mentioned a couple of people who especially influenced you. Is there anybody else that you\u2019d like to add, just to finish off?\n",
+    "order": 45
+  },
+  {
+    "speaker_name": "Tito Orlandi",
+    "speaker_raw": "TO",
+    "role": "Interviewee",
+    "utterance": "\nNo, I think one always forgets somebody on such occasions but I have mentioned most of them already.",
+    "order": 46
+  }
+]

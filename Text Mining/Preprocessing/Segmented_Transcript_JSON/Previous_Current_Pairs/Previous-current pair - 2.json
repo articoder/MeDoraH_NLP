@@ -1,0 +1,142 @@
+{
+  "previous_utterances": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 1,
+      "sentences": [
+        {
+          "sentence": "What is your earliest memory of encountering computing technology?",
+          "sentence_order": "1-1"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 2,
+      "sentences": [
+        {
+          "sentence": "I'm going to start with a pre-encountering of computer technology because I think it's important to my story.",
+          "sentence_order": "2-1"
+        },
+        {
+          "sentence": "My first job, after I graduated with a degree in English with a minor concentration in Art, was at the Library of Congress in Washington DC, where I worked as a searcher/editor for the Union Catalog.",
+          "sentence_order": "2-2"
+        },
+        {
+          "sentence": "Now, the Union Catalog is the Library of Congress' huge catalog that includes every book that it holds.",
+          "sentence_order": "2-3"
+        },
+        {
+          "sentence": "It contains millions and millions of records, and at that time in 1964, it wasn't computerised.",
+          "sentence_order": "2-4"
+        },
+        {
+          "sentence": "It was a year later that they hired Henriette D. Avram to come and begin computerising the library (see, for example, Avram et al. 1967).",
+          "sentence_order": "2-5"
+        },
+        {
+          "sentence": "I think that this was important to me because I certainly saw the need for it.",
+          "sentence_order": "2-6"
+        },
+        {
+          "sentence": "The catalog was in this huge room in the Navy Yard Annex and not in the Library of Congress building itself.",
+          "sentence_order": "2-7"
+        },
+        {
+          "sentence": "It was a huge, huge warehouse, full of card catalogs.",
+          "sentence_order": "2-8"
+        },
+        {
+          "sentence": "And to work on the cards, we rolled around on chairs.",
+          "sentence_order": "2-9"
+        },
+        {
+          "sentence": "It's important to me because card catalogs have pervaded my life and my work to a certain extent, not only due to the experience of seeing so many cards, but also due to knowing that the need to automate them was of interest.",
+          "sentence_order": "2-10"
+        }
+      ]
+    }
+  ],
+  "current_utterance": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 3,
+      "sentences": [
+        {
+          "sentence": "Whether in descriptions of preparing punched cards or of manually manipulating card catalogs and other earlier technologies it is the physicality of the operation that always strikes me.",
+          "sentence_order": "3-1"
+        },
+        {
+          "sentence": "That is something we have lost.",
+          "sentence_order": "3-2"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 4,
+      "sentences": [
+        {
+          "sentence": "Indeed, we have lost that.",
+          "sentence_order": "4-1"
+        },
+        {
+          "sentence": "A few years later, following an interval of camping around Europe and doing some writing, I went to work for, I think it was, the J. Walter Thompson Company, who had a contract with the Goddard Space Flight Center.",
+          "sentence_order": "4-2"
+        },
+        {
+          "sentence": "It was around 1967 and the Goddard Space Flight Center was computerising their library.",
+          "sentence_order": "4-3"
+        },
+        {
+          "sentence": "It was one of the earlier efforts to computerise libraries on a large scale.",
+          "sentence_order": "4-4"
+        },
+        {
+          "sentence": "My job there was to catalog the documents and books that were in their collection, and then, sometimes, I'd key punch them in myself or sometimes a key puncher offered to do that.",
+          "sentence_order": "4-5"
+        },
+        {
+          "sentence": "I never saw the computer at the Goddard Space Center.",
+          "sentence_order": "4-6"
+        },
+        {
+          "sentence": "When we were finished creating the records for the computer we took them and put them in the slot.",
+          "sentence_order": "4-7"
+        },
+        {
+          "sentence": "Now, I used to think that the slot accessed some long tunnel to the Goddard Space Flight Center, but when I was looking at the map I saw that the Space Center was actually not that close to where I was working.",
+          "sentence_order": "4-8"
+        },
+        {
+          "sentence": "They must have gone to a truck or something.",
+          "sentence_order": "4-9"
+        },
+        {
+          "sentence": "I remember very clearly punching the cards, or taking the punched cards from someone who punched them, and putting them in the slot, and then they went off to the computer.",
+          "sentence_order": "4-10"
+        },
+        {
+          "sentence": "But I'm not sure that this was a standard key punch card operation or precisely what the output was.",
+          "sentence_order": "4-11"
+        },
+        {
+          "sentence": "It may have been an interim step in the process because I don't think the output was the standard IBM keypunch card.",
+          "sentence_order": "4-12"
+        },
+        {
+          "sentence": "The other thing I remember clearly is problems with the machines.",
+          "sentence_order": "4-13"
+        },
+        {
+          "sentence": "Has operating key punch machines and how finicky they were come up in some of your other work with key punch people?",
+          "sentence_order": "4-14"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "previous_utterances": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 51,
+      "sentences": [
+        {
+          "sentence": "Do you regret that you didn't get a full professorial post?",
+          "sentence_order": "51-1"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 52,
+      "sentences": [
+        {
+          "sentence": "I would love be a full professor.",
+          "sentence_order": "52-1"
+        },
+        {
+          "sentence": "I would love to continue teaching.",
+          "sentence_order": "52-2"
+        },
+        {
+          "sentence": "I just had a wonderful 2 year visiting lecturer job at Princeton.",
+          "sentence_order": "52-3"
+        },
+        {
+          "sentence": "When I was younger, I actually accepted the dual-career situation with some happiness.",
+          "sentence_order": "52-4"
+        },
+        {
+          "sentence": "Plenty have done that.",
+          "sentence_order": "52-5"
+        },
+        {
+          "sentence": "TS Eliot, worked at a bank, Nathaniel Hawthorne worked at a customs house.",
+          "sentence_order": "52-6"
+        }
+      ]
+    }
+  ],
+  "current_utterance": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 53,
+      "sentences": [
+        {
+          "sentence": "Philip Larkin worked in a library, didn't he?",
+          "sentence_order": "53-1"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 54,
+      "sentences": [
+        {
+          "sentence": "Yes, I think so.",
+          "sentence_order": "54-1"
+        },
+        {
+          "sentence": "These are good jobs for poets and writers.",
+          "sentence_order": "54-2"
+        },
+        {
+          "sentence": "Libraries, particularly, are lovely, they are quiet and the work is interesting, I was not unhappy with that at all, you know, when I was in midcareer stage.",
+          "sentence_order": "54-3"
+        },
+        {
+          "sentence": "Although occasionally, as a single parent, I was juggling an awful lot between two careers, and being a parent.",
+          "sentence_order": "54-4"
+        },
+        {
+          "sentence": "Also, it wasn't until recently that I thought, and I think this is partially an age thing, \"I have so much to pass on to students, and I'm so thrilled to be working with students\".",
+          "sentence_order": "54-5"
+        },
+        {
+          "sentence": "I love the work they do and want to see it continue.",
+          "sentence_order": "54-6"
+        },
+        {
+          "sentence": "Now I feel that maybe I only have so many years left, and it's important to me to work with students, to essentially pass the small torch - we all have different torches in electronic literature - to pass on the knowledge that I have about how to make it work.",
+          "sentence_order": "54-7"
+        },
+        {
+          "sentence": "I think people with the knowledge of the history of the field that I have should teach.",
+          "sentence_order": "54-8"
+        },
+        {
+          "sentence": "We won't be around forever, and what we know is very valuable.",
+          "sentence_order": "54-9"
+        }
+      ]
+    }
+  ]
+}

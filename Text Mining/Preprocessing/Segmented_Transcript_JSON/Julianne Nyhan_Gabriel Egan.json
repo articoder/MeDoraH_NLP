@@ -1,0 +1,443 @@
+[
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nI want to begin by asking you about your earliest memory of encountering computer technology\n",
+    "order": 1
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nMy very earliest memory is from sometime in the 1970s and computers were in films and on television. I\u2019m the youngest of eight children and my elder siblings were mostly technologically mad and excited by computers especially. There were three boys older than me in my family. That\u2019s where I saw computers.\n\nThe first actual hands-on encounter was when I took Computer Science, as it used to be, when there were still O-levelsFootnote1 in the late 1970s. We had a Teletype machine with an acoustic coupler and a modem. You would call up the local polytechnic and when you got the connect tone you put the handset into this fur-lined box, which connected the Teletype to the mainframe. You would write your programs in BASIC and this was an interactive service. Before that it had all been batch-wise. That is, you wrote your program on a form and it was mailed to the computer centre at the polytechnic. It was run and you were sent the results as a paper printout. So it was a new leap forward to have Teletype as an interactive service and I used that throughout my O-level.\n\nAnd then, my O-level Physics teacher at school got hold of an Acorn System 1, a micro-processor kit, and he and his A-level studentsFootnote2 had to build the kit. They lost interest once they built it and it worked and it switched on. I wanted to do the programming and I learnt assembly language programing from the handbook that came with this little \u00a380 kit. It was a single 6502 microprocessor with a full 1 k of RAM and I taught myself programming that way.\n\nThen I went through the usual 1980s route of having a Sinclair Spectrum and Commodore 64 computer. I left school at 16 and did a TOPS (Training Opportunities Scheme) training course, which was a way of getting commercial training for young people in the early 1980s. I took a TOPS course in Computer Operating, so I ended up at the age of 17 as a Mainframe Computer Operator, which in those days really was about staying up all night and changing the tapes whenever the machine wanted a new tape at 330 am. Someone had to be there to put the correct tape up on the machine or to put the right deck of punch cards in to the hopper. It was still clunky punch cards, huge disc packs and exchangeable discs. The discs were old fashioned. You see them in the films, they look like a big washing machine someone lifts the lid, puts a disc pack in, closes the lid down, and that\u2019s another 70 MB of storage the machine\u2019s got.\n\nSo I worked as a Mainframe Computer Operator from 1982 to 1988 and by the end of the decade I could see this job disappearing. It was very clear that microprocessors were going to be taking over from mainframe operations. Large rooms full of servers that don\u2019t need much physical attention were taking over the old-fashioned mainframes that had exchangeable discs and tapes. I tried to get into helpdesk operations, into the more customer-orientated side of the work, but by the late 1980s I figured I\u2019d actually chosen the wrong career all together. So, I went back to school and got my A-levels, and then just carried on with a BA, MA, PhD and didn\u2019t stop for 9 years. Luckily I was funded all the way through, and came out, at the age of 32 with a PhD. But for all that time I was interested in computer applications for the work I was doing on literary texts.\n",
+    "order": 2
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nI thought it was interesting that you mentioned depictions of computers in the 1970s in films and literature. Can you reflect on that a little\n",
+    "order": 3
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nThe philosophical side of it was things like HAL in Kubrick\u2019s Space Odyssey, the whole question about machines becoming intelligent and then disobedient because they were intelligent. I remember that sort of recurring theme of some dystopian and science fiction films. Yeah, computers in Star Trek, computers in that sort of vaguely science fiction stuff appealed to me as a child, as it did to my elder brothers and sisters. That\u2019s how I got into to it. My family had a large science fiction collection of books in the house.\n",
+    "order": 4
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat about depictions of computers in the general media at the time, did they also have a sort of dystopian and foreboding element Or was it all revolutionary \u2026\n",
+    "order": 5
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nI\u2019m trying to remember actually. You\u2019d get the occasional piece on the TV program Nationwide, some talk about the newest computer installation somewhere. It would be something like, you know, all the traffic lights now in Reading are controlled by this new computer centre and there\u2019d be a picture of a room full of white boxes with flashing lights and people very smartly dressed.\n\nIn fact, I showed some slides on this to a group recently that got a huge laugh out of it. I was showing them adverts from the 1970s for why you should buy the new Honeywell or the new ICL computer. There was a picture of a new computer room, beautifully clean and white, with very smartly dressed people, usually women, who would be moving between the machines and doing the work. And then I cut to an actual picture that I\u2019d taken of the computer room that I worked in, which, of course, was extremely dirty and full of very scruffy people. It was overcrowded \u2013 in the advert the room was large and had white spaces between the boxes. There was the central processor here and 10 ft away was the disc drive, and it was all spacious and clean and white, it looked like a Scandinavian home. But cut to the computer rooms I worked in, which were basements, overcrowded with monitors and lots and lots of scraps of paper and dirt and boxes of pizza, and there\u2019s a large disjunction between the public perception of a computer room and the reality. I found this out quite early in my first job at the age of 17.\n",
+    "order": 6
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nSo your PhD, then, was English Literature\n",
+    "order": 7
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nYes, I did a BA. I\u2019d started but failed at A-levels aged 16\u201317, so at 23 I went back and got my A-levels in English Literature and History, did a BA in English Literature and an MA in Shakespeare Studies and a PhD in Shakespeare Studies.\n",
+    "order": 8
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWas it immediately obvious to you to apply computing to Shakespeare Studies\n",
+    "order": 9
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nAs soon as I started to do my A-levels I thought \u201cthis is ridiculous\u201d. I remember sitting there, I had some Chaucer homework so I needed to have open a dictionary, a guide to Middle English and my book. I had three books open on the bed and was trying to keep my place in all three of them. I remember thinking \u201cthis should be computerized, I should be able to look up these words.\u201d I was used to interrogating databases for work and it seemed the Humanities were miles, decades, behind. There was faffing around with all these books.\n\nSo I very quickly got computerized I mean I did my BA entirely on a computer. By which I mean I took no paper notes of any kind whatsoever. I had a thing called a Sinclair Z88. It\u2019s a thing about the size of an A4 sheet of paper, with a little six line display at the top and a rubber QWERTY keyboard and it ran for day on 4 double AA batteries. I could take notes on it and at the end of the day (you plug it in through a standard serial port) you could squirt the entire text down to your PC. So I sat in my lectures with this thing called a Z88.\n",
+    "order": 10
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat date was this roughly\n",
+    "order": 11
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\n1990. I remember people saying \u201cooh he is very rich because he\u2019s got a laptop\u201d. But I got this thing second-hand for \u00a350 and it was just for taking a day\u2019s worth of notes. When I worked on books I found other people would annotate the margins of the books and I never did that. I\u2019d have the book open, I\u2019d take notes and I\u2019d type into the computer. I still have those notes, I mean I still have everything I ever did for my BA in the early 1990s, because I kept no paper. I was paperless from the start. Well, the only paper I had was books. Back then, you still had to have the books. But I kept none of my own files on paper.\n\nWhat I found about 7 or 8 years ago was that I could actually transfer all my existing books to computer as well. So I digitised all of my several thousand books and destroyed them in the process, but that was okay. So it was possible, even then, to do all your BA all electronically.\n\nI found exams were part of my assessment requirements for the BA, and I did the first year exams writing by hand. But I do actually have a hand injury and I really can\u2019t write for very long. I had done very well in my essays but I did very poorly in the 3 hour exam and I asked if in future I could do my exam on a computer because of this disability. The university agreed and my grades shot up. I had no advantage \u2013 there wasn\u2019t even a spell check or anything. It was just a basic text editor. So it wasn\u2019t that I started Humanities and then applied the digital to it. They started simultaneously for me and I didn\u2019t think it was feasible to do a degree if it couldn\u2019t all be computerized.\n\nI think I\u2019ve had a phobia against paper right from the start. It\u2019s a diabolically bad medium for storing human knowledge in my view and I say that as a book historian. I\u2019m used to that technological revolution, the Gutenberg revolution, and our revolution. The bit in-between doesn\u2019t much interest me.\n",
+    "order": 12
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nHow, what was it that caused you to destroy the books when you were digitising them Did you use the sheet feeder\n",
+    "order": 13
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nYeah, the fast way to do it is to cut the spine off so you got a bundle of loose leaves and then put them through a sheet feeding scanner. I did try cutting a few spines myself and I still do. If I get a new book I just cut the spine off using an office guillotine, the old fashioned kind with the big arm that comes down (not those silly roller ones, they don\u2019t work) you need a big, powerful one. But for doing the 3000 books I found a local printing shop that had an electrically powered guillotine and they would machine the spines off for me for 50p a go. So, I would bring them a box of 100 and they\u2019d return them to me neatly wrapped up as a bundle of loose leaves and then into the sheet feeding scanner they went.\n",
+    "order": 14
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd do you feel no attachment or sentimentality for the materiality of the book or the book as artistic object\n",
+    "order": 15
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nWell I didn\u2019t have any rare books. So no, these were just functional. I have had one or two tricky cases. For example, I\u2019ve got a copy of the Norton facsimile of the First Folio of Shakespeare (Hinman 1968). Its only 1968 but the copy I\u2019ve got I was given by my PhD supervisor, Stanley Wells.Footnote3 It was the one he used when he was making the Oxford Shakespeare edition of 1986, which was a big-deal edition (he was the main Editor; see Wells et al. 1986). I felt a little bad chopping it up. But I thought \u201cI want this thing, I need it, and I want to have it with me! I want to have it everywhere I go\u201d. So, into the chopper it went.\n\nI haven\u2019t done that with anything sixteenth or seventeenth century; but, I think, on principle, I would be obliged to. I think our fetish for paper is terribly harmful.\n",
+    "order": 16
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nDo you feel any fetish for the digital Would you be just as willing to take the digitised forms and put them into, I don\u2019t know, whatever comes next Is the medium irrelevant to you\n",
+    "order": 17
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nYes! Yes that\u2019s important, thank you, medium is irrelevant. I think Martin McLuhan\u2019s had a lot to answer for with such old nonsense about the medium being the message. We read for the content mainly. And I say this as I actually teach students how to print on a sixteenth century hand press. The medium does shape but you\u2019ve always got to remember that it\u2019s not about the medium. The printers of Shakespeare\u2019s time didn\u2019t want to impose themselves upon the works. When they did their jobs to the best of their ability they disappeared from the picture. You don\u2019t feel you\u2019re reading a book when it\u2019s working properly. I think Book History is taking a detour into an intellectual dead-end where people think that the making of a book is somehow a collaborative act involving not only the author but the scribe and the compositor and the publisher and everyone else. I think, ideally, when that system works properly, everyone gets out of the way of the author essentially.\n\nWhat we really want is a totally transparent medium. Digital is much better for that than paper. Right now, I\u2019m looking at a piece of paper on the table. That\u2019s great if your eyesight can accommodate that size, but I might need to have it three times the size, and in digital I can just select the size of the type and I think that\u2019s very important. Or I may need to hear it, in digital I can just listen to the text being read. So, I\u2019ve got a bit of a bee in my bonnet about the limitations of the printed book. People always say \u201cooh, it\u2019s a wonderful technology, the printed book, you know, it doesn\u2019t need any power\u201d. And you realize, it\u2019s not a technology. The Egyptians had it down once they\u2019d got away from the scroll and turned to the codex. We\u2019ve moved on since then.\n",
+    "order": 18
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWere you unusual among your contemporaries (your fellow students or those who were teaching you)\n",
+    "order": 19
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nYou mean into digital stuff\n",
+    "order": 20
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nYes, to the extent that you were.\n",
+    "order": 21
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nYeah, yeah. When I was an undergraduate sitting in my first lecture, in 1990 with a Z88, I remember thinking \u201cin 5 years\u2019 time they\u2019ll all be doing this\u201d. And to my horror, in 5 years\u2019 time they weren\u2019t all doing this. In fact, even now, it is not common to go to a lecture hall, in my area at least, English Studies, and find students using laptops. They will be sitting there, with their phones in their hands, they may be updating their Facebook status or texting each other, but they are not using computers as a tool for their learning very much. Which really surprised me, because I figured I was 5 years ahead of the curve. But I was 20 years ahead. Compared to my contemporaries, yeah, I used computers much more than anybody else.\n\nSome made it quite clear they felt they resented the intrusion of computers into English Studies, some people still do actually, there is still a bit of that about. But I was just ahead of my fellow students and doing things like going into the library to find out what digital resources they had. My fellow students didn\u2019t know that in 1989 the Oxford English Dictionary (OED) was published for the first time on CD-ROM, so you could search for words by their meaning, which is the first time you could ever do that. Or that you could find indexes of the contents of journal articles that were available as databases, actually on CD-ROMS back then. So yeah, I was ahead of my fellow students just for that reason.\n\nI had a friend called Peter White when I was doing my Master\u2019s degree in Stratford-Upon-Avon. White had bought with him his printed concordance to Shakespeare. I had my digital text of, well, the Oxford edition digitised and my big desktop computer. We got into big debate, in front of other people, about the relative merits of the printed concordance and the computer version. He said he could beat me in any search for given words (where does the word \u2018blue\u2019 come within five words of \u2018box\u2019 in Shakespeare) and he raced me. We had a formally adjudicated race, him with the Bartlett concordance and me with my computer. We had to find 10 or 20 things in Shakespeare and come back immediately by saying \u201cthat\u2019s Julius line one, act 2, scene X\u201d. He won. He was very proud of having won but I pointed out to him that this machine I\u2019m sitting here with will be twice as fast next year, and twice as fast again the year after. So, you know, pretty soon I\u2019m going to beat you at this, and obviously the future is that these machines are going to get much, much faster and the printed book isn\u2019t.\n\nThe irony is actually Peter then went on to be ProQuest\u2019s person in charge of EEBO (Early English Books online).Footnote4 He became a digital convert a few years after that. I claim some credit for opening his eyes to the power of the computer in Humanities studies.\n",
+    "order": 22
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nYou mentioned those who felt that computing had no place in English Studies or the Humanities. Will you reflect further on this and also think about how that may have changed over the time\n",
+    "order": 23
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nWell, the first person who put it in to words for me actually was my wife, who I met about 20 years ago. She said that when she was doing her undergraduate degree in English at Queen\u2019s University Belfast she noted with disappointment that one by one, in different lecturer\u2019s and tutor\u2019s offices, the computer would appear on the desk. Basically, there had been a desk and papers and a typewriter and suddenly this new device started to appear, in the late 1980s early 1990s. Since then she has herself become an academic expert in the use of computers in Literary Studies and finds others\u2019 Ludditism as annoying as I do.\n\nI think it\u2019s largely because of people\u2019s abilities. People go into English Studies because they find particular things interesting and other things either not interesting or intimidating. People in English Studies do not tend to be into technology. By and large, they seem to be quite vocal about not being very good with computers and usually they say they\u2019re not very good with numbers. Those things tend to go together; they tend to think of computers as rather soulless beasts. This has all changed in the last, 15 years, 10 years I think, really. But back in the early 1990s, of course, most computers didn\u2019t have graphical user interfaces. They had a command line and green dots of phosphor. They were forbidding, formidable looking beasts; they weren\u2019t the very cuddly, round-edged devices we have now. They looked like they should be in a science fiction film and doing something super-technical in Engineering. They didn\u2019t look like artsy things; they didn\u2019t look like something a poet would want to engage with.\n",
+    "order": 24
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nEven if it\u2019s almost funny, in a way, because a command line is text-based so you would think that a poet would somehow like all the words\n",
+    "order": 25
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nWell, I\u2019d say that\u2019s it, isn\u2019t it People don\u2019t seem to know that they are largely text-based, but they are indeed. Computer languages are languages. Although, I learnt, as I say, machine code programming, which was 0s and 1s, although the short cut was you didn\u2019t have to put in 0s and 1s, you\u2019d use hexadecimals (base 16), but you were still putting in numbers. But, yes, by the 1990s we could have text-based machines. And that was the interesting thing to me these machines could store the very material that I worked on. You could have the poem in there, and what is more, the thing that really grabbed me was I could have all my notes. I was aware there was virtually no chance I could memorise everything I was learning as an undergraduate or a graduate student. I knew if it sat in a cabinet somewhere it would never really get used. There was no way anybody could build a reasonable concordance to my notes, so the point of computerizing everything was that everything I\u2019d ever thought was recoverable by me. And so the classic situation is, you know, you\u2019ve read a book in which someone says something about Heidegger and hammers, and you know they occurred in the same sentence but you can\u2019t find it. Well, I knew I could search my own notes and find those two words collocating. So, it is as a prostheses, that I was most interested in these computers. I never understood this feeling that they were unpoetical because they were an aid to intelligence and I knew that I needed every aid I could get.\n",
+    "order": 26
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhy do you think that has changed over the last 15 years\n",
+    "order": 27
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nRegarding the anxiety about the machines A lot of it is to do with Graphical User Interfaces, they just don\u2019t look quite as forbidding as they used to. They have got, I suppose, easier to use. It\u2019s also because they\u2019ve become unavoidable in other areas of life, so people have just got used to the fact that a computer is just a machine you have to engage with. You really can\u2019t go shopping or use the library these days \u2026 and libraries are an important one, actually. Once the library catalogues forced everyone to start using some aspect of computers I think the artsier people thought \u201cI\u2019m not too bad at this. I\u2019m able to use a keyboard and enter a search and get something meaningful back\u201d.\n\nIn English Studies I think it\u2019s the digitisation of the library catalogue that has been the big help. And the other thing is that all the machines just got nicer to use. I remember, when I was an undergraduate, I often used to go to Senate House, in Malet Street, in London, to use the library. I actually saw a very old scholar who was trying to key in an enquiry in to the library catalogue and had obviously no training at all and was told just to go and use it. He knew the thing that he wanted to search for, and he said to me \u201cI can see how to get those letters in, they\u2019re written on the keys, but how do I get the space in between\u201d I said \u201cwell that long bar across the bottom, that\u2019s the space bar.\u201d He had literally never used a keyboard, he\u2019d obviously given anything he wanted to publish to a secretary to type up and he actually had to be told what the spacebar was. But once he was told he said \u201cthere\u2019s nothing written on it, it makes sense that it\u2019s a blank. I see, thank you very much.\u201d And off he went and I\u2019m thinking \u201cwow, imagine getting to the end of your career and encountering the keyboard for the first time!\u201d That\u2019s something you have to use or no-one\u2019s going to do things for you. He also pointed out to me, which I thought was quite an insightful thing, that the letters on the screen do not match those on the keyboard. I said \u201cyes they do\u201d, he replied \u201clook\u201d. He pressed an upper case \u2018A\u2019 on the keyboard and said \u201cthat\u2019s a lower case a on the screen\u201d. I said \u201coh you\u2019re right!\u201d We\u2019ve written on the keyboard itself all the upper case letters but you have to hold the shift key down to get those. The ones that appear on the screen aren\u2019t the same letter \u2018a\u2019 at all, it\u2019s a totally different letter shape.\n",
+    "order": 28
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nI never noticed that.\n",
+    "order": 29
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nNo\u2026 I hadn\u2019t until he\u2019d pointed it out.\n",
+    "order": 30
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nThis question may be difficult for you to answer because you were already fully proficient in computing and programing, but if you had wanted to take, say, a programming language during any stage of your BA, MA, or PhD, within the English departments you were in, would that have been possible\n",
+    "order": 31
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nIt would have been for me, only in so much as I would\u2019ve known to go outside the English department to get that training. But I was a little older as a student because I spent 7 years straight after school working in computers. So I had that advantage that I felt more entitled to go straight into some part of the university and say \u201clook I\u2019m an English student but I\u2019d like to learn about something else, what can you do for me\u201d So I just had that slightly older person\u2019s confidence about presenting a lack in myself. And I did actually, there were actually things I needed to learn about. I took training courses in the library, as a student, so that did happen.\n",
+    "order": 32
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nSo what about your first encounter with a Humanities Computing stroke DH project.\n",
+    "order": 33
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nWell, there were resources I was starting to use, like the Modern Languages Association International Bibliography (MLA 2015), which were quite hard to access 10 to 15 years ago. So you have to go to the library \u2013 where they\u2019re usually only expecting researchers to want to know about these things \u2013 and say \u201clook I know the MLA IB is available digitally, how can I get to it\u201d You\u2019d have to get some librarian interested in your case and they\u2019d show you. So do you mean engagement in that way As a user Or do you mean in development\n",
+    "order": 34
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nYes, we could start thinking about your more hands on and research work with Computing in the Humanities and DH, that sort of an area, when did that begin When did you encounter that\n",
+    "order": 35
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nI haven\u2019t yet very much encountered that and what I mean by that is, I\u2019m still largely in the lone scholar model. I find the resources I want and I use them on my own. I haven\u2019t done a big DH research project that is specifically digital. What I mean is I\u2019ve done collaborative research projects that had a digital component, but we weren\u2019t really inventing anything or doing anything new. So I haven\u2019t yet reached \u2026 I got some plans for a few.\n",
+    "order": 36
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nOne might ask how much of DH has really invented something new. I mean, for the most part, a huge amount of the work is applied concepts and technologies, isn\u2019t it\n",
+    "order": 37
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nYes\n",
+    "order": 38
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nOr at least, that would be definitely my view.\n",
+    "order": 39
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nWell, my way into these things is to always try to be the expert speaking to those who are trying to do the project. For example, I mentioned Peter White from EEBO. Once EEBO became widely established across universities, I sort of made myself available to them and asked, if they were having events, would they be interested in having someone who is a very heavy user of the resource So, I ended up on a few committees, that\u2019s been my way in. I advise quite a few bodies on what the scholar needs. In fact, on the university website that I run at De Monfort University, which is the Centre for Textual Studies,Footnote5 I describe myself as a \u2018would-be Digital Humanist\u2019.Footnote6 I don\u2019t think I\u2019ve done it yet. I haven\u2019t actually come up with anything. I\u2018ve advised groups, I\u2019ve advised various libraries on their digitisation projects, I advise the AHRC on how to evaluate the attempts to do certain things. So, if someone says I\u2019m going to digitise this body of work, I help evaluate the technical side, but I haven\u2019t done my own project.\n",
+    "order": 40
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nSo, for that reason, you wouldn\u2019t necessarily see yourself as a Digital Humanist. Do you believe that a Digital Humanist must make \u2026\n",
+    "order": 41
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\n[Laughter] \u2013 good one! Do they have to make I\u2019ve had that question before and yes! When I grow up I wanna be Ray Siemens (see Siemens et al. 2012)! Ray finished his PhD in 1997, same as me. We were in contact all the time and I watched Ray\u2019s career shoot up. He got made Professor very, very quickly, by his brilliance, by his knowledge, but, in particular, he gets things made, he gets things done. So, I think there is a perception that you have got to get something made.\n\nThat\u2019s interesting because it bares directly on my work at the moment, I\u2019m Director of the Centre for Textual Studies at De Montfort University. I\u2019ve taken over the centre after about 10 years of its existence and its main work in the past has been making stuff \u201clet\u2019s make an edition of Chaucer, of Virginia Woolfe\u2019s so and so\u201d. The creation of new editions has been perceived to be what Textual Studies is. A lot of what I do with computers is to analyse and to study, to say \u201clook how we can use computers to address this particular research question\u201d. And the answer takes the form of something that is just a standard research answer, which comes out as a research paper, or maybe a book. What I do is about textual analysis rather than creation. So, I don\u2019t know, I would leave it to other people to decide whether a Digital Humanist has to create stuff, but I haven\u2019t created any stuff. And I still have a slight inferiority complex when I say Gabriel Egan is a would-be Digital Humanist cos he hasn\u2019t done that yet. You\u2019re not going to call that one You\u2019re not going to say \u201cYES Digital Humanists have to create stuff\u201d\n",
+    "order": 42
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nI don\u2019t think they do, personally. I think that exactly the kind of work that you do is as important as the pure making. I suppose it is because I\u2019m based in UCL\u2019s Information Studies Department that I believe the ability to communicate and understand needs and to translate between the domains is a crucial part of DH. I see that as DH too.\n",
+    "order": 43
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nI think if it can\u2019t be done other than by digital means and it\u2019s in the Humanities, then its DH. Let me give you an example of that when I used to work at the Globe Theatre in London. At the Globe it was commonly said, by all sorts of people, that theatre had changed a lot in 400 years. It was said that in Shakespeare\u2019s time people talked about going to hear a play whereas we talk about going to see a play. I started there in 2000 and I thought is that actually true I mean, can we actually just count how often they, in all their different writings from the period, used the different expressions \u2018hear a play\u2019, \u2018heard a play\u2019, \u2018hearing a play\u2019, \u2018hears a play\u2019 versus \u2018sees a play\u2019 \u2018seeing a play\u2019 \u2018saw a play\u2019, \u2018seeing a play\u2019 \n\nSo I went counting, just using Literature Online actually. I needed all the variant parts of speech amidst all the various possible verb-subject constructions, and I just did the counting. It took me a couple of weeks using Literature Online and it turned out that 92\u2009% of the time they would say \u201cgoing to see a play\u201d, exactly like us. They did not say what everyone said they said, which was they would have preferred to go \u2018hear a play\u2019. They do exactly what we do, \u2018we\u2019re gonna go and see a play tonight\u2019, or \u2018I saw a play yesterday\u2019. Actually, Shakespeare was the odd man out, Shakespeare spoke predominantly about hearing a play. So, what\u2019s happened is we\u2019ve taken his locution as our norm for the period even though he is, in fact, quite anomalous, he\u2019s in that 8 % minority.\n\nThat was only possible because of Literature Online being available and searchable (this was before EEBO was searchable because of TCP). So I published that piece of work (Egan 2001) that couldn\u2019t be done, other than digitally. I think as a project it would have taken possibly a lifetime to do it on paper.\n\nPersonally, I always think that it can be a limitation of DH if people only focus on the making and they never actually go beyond it. I mean, the TEI is wonderful as it is, yet how many projects do you know out there who really used those TEI-encoded editions to answer a research question There\u2019s a lot of moribund projects as well, things that were made for which no-one actually had a question that needed an answer.\n",
+    "order": 44
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nSo could you reflect on one or two more of those earlier DH encounters or projects say the committees that you advised on or the other early work that you did in that area\n",
+    "order": 45
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nI\u2019m trying to think of them, the recent ones are more in my head. What\u2019s the sort of advice that I gave I was on the JISC e-books project.Footnote7 When the E-Books working group started I was, I think, one of only two academics on it. This is maybe 7 years ago when journal articles had gone digital, by and large. But no-one could see what monographs would do and whether they ought to go digital. So the e-book committee was about looking into that and the only thing I was able to do really, my only expertise was simply I was a Humanist who was ahead of the curve, as it were, because I\u2019d gone digital with everything as soon as possible.\n\nPeople would say things like \u201coh! of course nobody wants to read a book, all of a book on the screen\u201d. I\u2019d say \u201cI\u2019ve been doing so for 15 years. In fact, I haven\u2019t read a book not on the screen for the last 10 years.\u201d Or, they would say \u201cno-one wants a Shakespeare play on the screen\u201d. Actually, this reminds me of back in the early 1990s, for my MA in Shakespeare Studies I wanted to read one of Ben Jonson\u2019s plays like Bartholomew Fair. I found that the Oxford Text ArchiveFootnote8 had a copy, but I had to ask the person who was curating the copy if I could have it. It was somebody called Hugh Craig (see Chap. 3), who I now know through the University of Newcastle, Australia. I emailed him, and he said what \u201cdo you want it for\u201d I said \u201cwell, I want to read it\u201d. And I think he thought I was kidding! I wanted to see the electronic text because I wanted to read the play. I didn\u2019t want to have to go into the library and have to get a book. I wanted to see it on the screen. And then I also knew that if I could have it that way I could search it or if I want to quote it I just copy and paste and it\u2019s quoted and accurate. It astounded him that this was an MA student that was asking for an electronic text because he wanted to read the thing!\n\nThrough committee work it is usually me saying, \u201cno, actually, don\u2019t accept that it is impossible to read for 12 hours a day on a computer\u201d. What I do now is project onto the wall and I don\u2019t look at the glowing screen. It\u2019s much easier on the middle-aged eye ball. But you asked me to reflect, sorry, on the early committee work. I didn\u2019t get into the advising stuff until quite recently. I\u2019ve been a Shakespeare Scholar, I worked at the Globe theatre, and I got a job at Loughborough University. Digital has always been how I\u2019d do it. But I haven\u2019t had that much engagement with many other people, except for the last 5 or 7 years.\n",
+    "order": 46
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nYes, but that is great. Did you ever feel that your engagement with the digital hindered you Or was it ever something that others may have looked upon and questioned to some extent\n",
+    "order": 47
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nYou get a bit of sniggering, and yeah, some colleagues at Loughborough then and now hand you something and say \u201cOh no, don\u2019t give him that bit of paper, no no, he won\u2019t like that, and you\u2019ve given him paper!\u201d It has not really hindered me. In working practices, once or twice I\u2019ve thought \u201cactually is this the very fastest way\u201d For some things it\u2019s probably just quicker to thumb things through. Or particularly when you\u2019re working with multiple documents, someone will say \u201clook, I\u2019d like to have one copy on paper in front of me and then I\u2019ll do my notes on the screen\u201d. They claim there\u2019s a speed advantage to having a paper copy of something and I have sometimes pondered \u201cam I doing this the fastest way\u201d But then I say, well, even if I\u2019m not, 99 % of the time I\u2019m doing it the fastest way, and I can\u2019t be bothered to carry that bit of paper with me. I want to be able to do this work whereever I am. Because then you don\u2019t have anything to worry about during your travels. These people who plan to go away and have to think about what paper to carry around with them \u2026 I don\u2019t understand. I know that I have a bunch of things that I have to do and they\u2019re all in my laptop. And as long as I\u2019m with my laptop I can do them. When I\u2019m in Amsterdam next week, I have those proofs to read, they\u2019re in there, I have an article to write, and it\u2019s all in there. That freedom from the constraint of carrying stuff is a large part of it. Ok, maybe one percent of the time I\u2019m actually not working in the very fastest way and it would be quicker to print something out. And because of the way memory works, you know how sometimes, when you\u2019re looking through a book you can remember where on the page what you want is You don\u2019t know why you know this, but you know it\u2019s near the top of the page and so you can flick back through. There are times when that medium seems to have a slight edge. But they are so few and far between that I ignore them.\n",
+    "order": 48
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat about your engagement with the conference community around Humanities ComputingDigital resources in the HumanitiesDH. The nomenclature is so varied that I\u2019m hesitant about using a particular term in case I then block out other ones.\n",
+    "order": 49
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nI\u2019m stuck because I don\u2019t go to that many DH conferences because I\u2019m really, really intent on not getting distracted from my main thing, which is Shakespeare and in my case, at the moment, Textual Studies or what\u2019s been done with the early editions of Shakespeare. The DH conferences tend to include a very wide range of subject disciplines. I don\u2019t know enough about any of them to really gain a lot from it. I still find that I mainly learn stuff from Shakespeare conferences and tend to concentrate on those.\n\nI\u2019ve actually been reading papers for the big DH conference and before that it was called the LLC. Since it changed its name to DH I\u2019ve read papers for them every year. It is great because the scoring system is all done online, but I\u2019ve never actually been.\n\nReally, in a conference, I want to learn stuff about my subject and it's a very specific kind of knowledge that I want to get. I go to the Shakespeare Association of America meeting and I know there\u2019s half a dozen people who, if I go to their paper and take good notes, I\u2019ll be a year ahead of publication. I\u2019ll know what they\u2019re going to say a year before they publish it. And that\u2019s why I go. And it really does thrill me and I think, you know, \u201cthat\u2019s a brilliant idea\u201d and because I was in that room I\u2019ll cite it a year ahead of time in my own work and build on it.\n",
+    "order": 50
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd do you notice more and more digital work coming into those conferences\n",
+    "order": 51
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nThere is a bit. There is very little in Shakespeare Studies, well under 5\u2009%; 10\u2009% maximum papers will be on a matter specifically digital. The Renaissance Society of America has a digital strand every year. I went to one and ran a session with a huge figure from DH and another huge figure in our subject of early printing and technology. But only one other person actually turned up to listen. It\u2019s like, I used to be in a band and you do some gigs where there are more of you on the stage than there are in the audience and that was the situation. And I was thinking \u201cmy god!\u201d The power in this room but there\u2019s only one person getting any benefit from it. The conference was in Venice, so there\u2019s no great hardship, I didn\u2019t feel hard done by. Wow! Most Renaissance scholars are not interested in this subject. Most Shakespearians aren\u2019t interested in it.\n\nThere is a certain amount of backlash at the moment and muttering \u2013 this is towards the back of the hall, where I often sit, where there\u2019s usually a power socket to plug your laptop in \u2013 you hear a kind of scoffing when someone says \u201clook the big thing emerging in Shakespeare Studies is counting stuff in Shakespeare. Counting different kinds of words, counting how often his book will be printed, counting the length of his plays compared to other people\u2019s plays, all sorts of things you can count with a computer\u201d. I do frequently hear from the back \u201coh \u2026 the accountants have taken over Shakespeare Studies\u201d. It\u2019s no longer \u2013 I\u2019m going back to that question about the poetical versus the engineering approach \u2013 the Arts versus the Sciences. You get \u2013 and I think it is just an anxiety of one\u2019s own limitations \u2013 people talking about how this is bad scholarship, it\u2019s just counting stuff and it\u2019s not sufficiently sensitive, so you get a lot more prejudices. So I\u2019m saying that there is a small group of digital work going on in my area of Shakespeare Studies, and English Studies in general, but it\u2019s still very marginal and is meeting a lot of resistance.\n",
+    "order": 52
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nThat\u2019s really interesting, because the next question I was going to ask was about those who don\u2019t use computing in their research and their sense of DH research.\n",
+    "order": 53
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nSome of them will say \u201cOh\u2026 it\u2019s all very interesting, it\u2019s all very well but I\u2019m not interested in that kind of work.\u201d There is a significant number who are just panicked and terrified because they never thought they were very good with computers and they don\u2019t understand the papers they\u2019re reading.\n\nOne problem is there\u2019s a bunch of stuff that\u2019s being published about \u2026 I\u2019ll give you a concrete case. We know pretty much the core of the Shakespeare cannon, we know what he wrote, the collected plays edition was published after his death and these are the plays of Shakespeare, all 36 of them. But there\u2019s a few other plays that are probably Shakespeare or partly by Shakespeare. And there\u2019s work being done to explore that boundary, did he, perhaps, write one scene in this other play Or when that play was expanded upon for a revival, did he write the editions For example Thomas Kyds\u2019 play the Spanish Tragedy got expanded at some point in its life and the latest thinking is that Shakespeare wrote the editions to that. You\u2019ve got these extra 500 lines, to make the revised version of the Spanish Tragedy.\n\nI go and listen to papers about this and the papers are highly technical. You need to understand the statistics being used to talk about the significance of certain phrases occurring in Shakespeare and in these unknown author chunks, and not occurring elsewhere. So you can say \u201clook at this word that every so often occurs next to this word in Shakespeare\u2019s known works and in these editions of the Spanish Tragedy but do not occur in all these other peoples\u2019 work\u201d. You can hear peoples\u2019 minds switching off \u2013 Shakespearians aren\u2019t generally very good with the Maths or the technology. So there is a definite reaction against this sort of research. One response is \u201cthat\u2019s all very well but none of my concern\u201d. Another is a kind of panicked rejection because people find it very difficult. Another is a kind of rather cynical response that the digitisation of the Humanities is part of a wider government and business-led instrumentalisation of the Humanities that is trying to drag us out of our academic work or into something that might have some commercial or wider societal impact. In other words, it\u2019s not a neutral or beneficial technology, its actually trying to find out what\u2019s exploitable about the Humanities. So they see it as being the nasty intrusion of business into Humanities.\n\nI think those fears are all unfounded and quite mistaken, but they\u2019re definitely there. The reason I think those fears are mistaken is that Humanists were at the forefront of the last technological revolution that mattered, which was the printing press. Humanists were right there. Thomas More and Erasmus understood the printing press, understood what it would do for textuality and the printing presses were aligned with this great movement of sixteenth century Humanism. So, for me it\u2019s happening again and Humanists need to be at the forefront of technology in the twenty-first century. I\u2019m an old fashioned Marxist, it\u2019s the march of progress, technological progess driving social change in a good way. I mean, I\u2019ve got quite a simple model of progress which is the sort of quaintly old fashioned left-wing idea that the world\u2019s getting better! And this is part of the process, I mean you factor in all the negative aspects as well.\n\nYour lovely digital machine is made by some near slave child worker in China or Taiwan, but factoring that in, that technology is, I think, ultimately liberating. The inherent quality of technology is that it liberates and therefore there is such a thing as human progress. Isn\u2019t that old fashioned of me I happen to think it\u2019s true but that might just be a leap of faith.\n",
+    "order": 54
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nOk, can you reflect on some of the key changes that you have seen in the digital resources that have been developed for your area\n",
+    "order": 55
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nIn my area, EEBO is a huge deal. Anybody who works for a university can have pictures of all the books published up to the Civil War, and then with Eighteenth Century Collections Online (ECCO), right up to 1800.Footnote9 That is utterly transformatory and levels the playing field between universities and between the researchers and everyone else. Students can get access to early books that they couldn\u2019t before. I can now teach using early printed text, I\u2019m about to give a lecture at De Montfort on Christopher Marlowe\u2019s poem Hero and Leander, and I quote in the lecture solely from the first edition of 1598. It is perfectly usable and I think the students should see how this poem was first confronted by its readers. I mean, ok, it\u2019s only a digitisation of a microfilm, it\u2019s not the book itself, but they can see what it looked like to its early readers. That\u2019s very important to me. So EEBO and ECCO is a big deal.\n\nBefore that Literature OnlineFootnote10 was a huge deal. We could essentially give everyone all the poetry, prose and plays and they could search them as well. The students could search and, say, research students could come up with their own questions. A friend of mine from Sheffield Hallam University called Matt Steggle told me that he did his entire PhD on questions about how Aristotle figures in early modern writing what is said about Aristotle, how do they think about him So just finding references to Aristotle was a huge project for him. Now, with these resources someone could just pull up all the occasions when Aristotle is mentioned in early print. So EEBO, ECCO and Literature Online, totally changed the whole subject and enabled work to proceed on certain particular things at a much faster rate. There were a bunch of things I couldn\u2019t have done without Literature Online such as that paper \u2018hearing a play, heard a play, saw a play\u2019 that I mentioned.\n\nOED, being online and digital, was a huge transformation. There\u2019s not much beyond that, the subject specific ones haven\u2019t made a big difference. Shakespeare Quartos Archive,Footnote11 I regret to say, hasn\u2019t made much difference. This is a digitisation of all the early quarto printings of Shakespeare at the British Library, the Bodleian, the Folger in Washington DC, [the National Library of Scotland] and the Huntington Library in California. Although I\u2019ve got plans for a project which involves those images, it hasn\u2019t had a great transformatory effect, yet.\n",
+    "order": 56
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nYou already mentioned text analysis applications like stylometry and authorship attribution in relation to Shakespeare. Are there any other techniques that you think have started to be taken up by English Studies\n",
+    "order": 57
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nYes, certain kinds of stylometric stuff is starting to be and it\u2019s leading to a big debate. Before I move on, I just wanted to mention what we haven\u2019t talked about, namely digital procedures that affect scholarship. Now we have free software, like Zotero, which is great.Footnote12 When I first started doing this with students they had to use EndNote, an awful bit of software. The point is, managing a database of your own references is something I teach research students to do. It transformed my work. I didn\u2019t actually buy bibliographical database software. I wanted to do exactly what I wanted to do, so I programmed my own one. Still the availability of these things makes a lot of difference to scholarship and a big difference to how fast people work.\n\nBack to stylometry etc., those techniques tend to be a bit closed, black-box-type things. In Shakespeare Studies people are looking at tools that will analyse language. They will take a page and categorise each word in it into, say, 100 different categories and say \u201clook! How interesting\u201d or \u201clook how the profile for this comedy is very different from the profile for this tragedy. You know, tragedies have much more words about night time and dark things whereas comedies have lots of words about lightness and happiness etc.\u201d\n\nThe tools are not open, that is one of my bugbears. People are publishing work saying \u201chere is what our tool does\u201d and they don\u2019t tell you how the categories work, they don\u2019t give you the algorithm and they don\u2019t show you the method, which is very dangerous, I think. We all got our fingers burnt with this about 16 years ago when a guy called Donald Foster at Vassar College had a new tool he called SHAXICON, which was doing those kind of analysis of Shakespeare\u2019s writing. He could tell you who\u2019d written what, \u201cthat isn\u2019t by Shakespeare because it doesn\u2019t have his profile\u201d. He never actually said how his profile was worked out, he never gave me the algorithm, never gave me the categories and he always promised the thing was going to be published any day now on the internet. He had huge articles, he had papers in world-class Shakespeare journals (see, for example, Foster 1996), and major newspapers claiming that a computer had solved certain mysteries of authorship but he never published the actual method, how it worked. He still hasn\u2019t, 16 years later.Footnote13\n\nSo what I\u2019m saying as well is that there\u2019s digital work going on but of a very low quality, not because it\u2019s inherently necessarily wrong but because we can\u2019t check it. That makes it low quality. If I can\u2019t validate your results because I haven\u2019t got access to your database or your algorithm then as far as I\u2019m concerned that isn\u2019t scholarship, its vanity publishing.\n",
+    "order": 58
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nIt is amazing, it seems almost like an aspect of digital literacy that is being missed.\n",
+    "order": 59
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nExactly, yes. It precedes that digital age actually, really my field is quite allergic to all kinds of technical approaches. When I was doing my PhD, I was working on attempts to reconstruct the Globe Theatre, including the one that was being built in London in the mid-1990s. One of the great books that was part of that project was by John Orrell (1983), in which he analysed a contemporary picture of the Globe. From the picture, because of the way the picture was made, with a very precise instrument, he was able to work out the size of the building it was showing. He reconstructed the entire construction of this picture with a thing called a topographical glass, a sort of surveyor\u2019s instrument. When you got to page 80 of his book about this, it was suddenly all equations, 7 and a half pages of trigonometry, it was A-Level trigonometry, which I didn\u2019t have but I wasn\u2019t just going to let this go and not check this.\n\nSo, first of all I went to one of my tutors and said, \u201cyou reviewed this book, didn\u2019t you\u201d, \u201coh yes\u201d, \u201cwhat did you do when you got to page 80 when it\u2019s all Maths\u201d He said, \u201cI just kept turning the pages until it wasn\u2019t Maths anymore.\u201d He didn\u2019t check it. I asked everyone I knew who had read the book and who was a theatre historian. No one had actually checked the maths, which astounded me because they then built this thing on the basis of this calculation, which none of them had actually verified was correct. Luckily, my sister is a maths teacher at A-Level, so she had to teach me the trigonometry, Actually in an appendix to my PhD thesis I take the same measurements and by a totally different trigonometrical method see if I come up with the same result or not as a validation of his method. It took me ages, but I did it, and I remember thinking, \u201cwow these people in my subject just take things on trust, they don\u2019t actually check for themselves that the numbers add up or that the equations are valid and sometimes they\u2019re not, it\u2019s quite extraordinary!\u201d\n",
+    "order": 60
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nYou used the metaphor of the prosthesis in connection with the computer. How has that metaphor changed or has it changed in those intervening years\n",
+    "order": 61
+  },
+  {
+    "speaker_name": "Gabriel Egan",
+    "speaker_raw": "GE",
+    "role": "Interviewee",
+    "utterance": "\nIt\u2019s just got lighter; I can just carry the thing now. It\u2019s still this amazing device that\u2019s got all my knowledge in it and it\u2019s searchable. So it\u2019s the same thing, just smaller and lighter and lasts for longer without a power supply, they are the only advantages! Funnily enough, I don\u2019t see the new technologies of mobile devices being of any use here; in fact, I\u2019m quite against them. The last thing we needed in the software industry is fragmentation. There\u2019s a great advantage in everyone having the same machine, so you have one piece of software that runs on everyone\u2019s machine. It was bad enough when it was PC versus Mac and 8\u2009% of the market was Mac so software writers had to write another version for the Mac but then to have another one for the Android operating system and another one for iOS \u2013 I think is a very backwards step.\n\nSo we\u2019ve recently seen a real backward step in the power to use the computer prosthetically because the market is fragmenting into four different markets. Apps can\u2019t do anything for us. The smartphones have one advantage over everything else, they know where you are on the surface of the earth and they know which way you are facing because they have a compass built in, sometimes that matters. I don\u2019t yet have a smart phone, I haven\u2019t yet found the need for it. I\u2019ve got to be careful though because at some point everyone says, you know, you\u2019re finally getting old when you don\u2019t want to have young person\u2019s technology and don\u2019t even understand why they want it!\n",
+    "order": 62
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nOk, well I think that was absolutely fascinating, thank you very much.",
+    "order": 63
+  }
+]

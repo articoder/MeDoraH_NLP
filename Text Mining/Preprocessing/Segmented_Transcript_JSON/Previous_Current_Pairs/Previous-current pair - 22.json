@@ -1,0 +1,118 @@
+{
+  "previous_utterances": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 41,
+      "sentences": [
+        {
+          "sentence": "Could you briefly outline what you think those skills are?",
+          "sentence_order": "41-1"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 42,
+      "sentences": [
+        {
+          "sentence": "That's a difficult question.",
+          "sentence_order": "42-1"
+        },
+        {
+          "sentence": "To begin with, for me composing electronic literature is like the Middle Ages when there were theory composers who wrote lengthy treatises on composing music.",
+          "sentence_order": "42-2"
+        },
+        {
+          "sentence": "Contemporary notation had not yet arrived, and there was a certain beauty in that you could compose in any way you wanted and score in any way you wanted.",
+          "sentence_order": "42-3"
+        },
+        {
+          "sentence": "But, returning to the basic question you were asking, I say you don't have to code and you can use an application.",
+          "sentence_order": "42-4"
+        },
+        {
+          "sentence": "It is still a different skill than writing poetry and print fiction.",
+          "sentence_order": "42-5"
+        },
+        {
+          "sentence": "I don't think it's necessarily an issue of difficulty.",
+          "sentence_order": "42-6"
+        },
+        {
+          "sentence": "You know, as children we grow up reading print literature.",
+          "sentence_order": "42-7"
+        },
+        {
+          "sentence": "If you step back and look at poetry, the novel and print literature, these are all constraint-based art forms to a certain extent but they are art forms that we are familiar with.",
+          "sentence_order": "42-8"
+        },
+        {
+          "sentence": "Now, at this point in time (this may change) to write electronic literature it is helpful to have writing skills and code skills and the ability to manipulate the words in the same way a composer manipulates notes.",
+          "sentence_order": "42-9"
+        },
+        {
+          "sentence": "I should also say that I'm talking here about hyperfiction, interactive fiction and generative poetry.",
+          "sentence_order": "42-10"
+        },
+        {
+          "sentence": "And they are not the only ways to write electronic literature.",
+          "sentence_order": "42-11"
+        }
+      ]
+    }
+  ],
+  "current_utterance": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 43,
+      "sentences": [
+        {
+          "sentence": "It's something that's incredibly difficult to answer anyhow, isn't it?",
+          "sentence_order": "43-1"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 44,
+      "sentences": [
+        {
+          "sentence": "Yes.",
+          "sentence_order": "44-1"
+        },
+        {
+          "sentence": "I think it's also because everyone in the field at the moment approaches it differently and I think that's good.",
+          "sentence_order": "44-2"
+        },
+        {
+          "sentence": "I don't like to see us in the electronic literature field saying that everything should be created with Twine or Inform 7 or that everything should be created in Processing; these are different authoring systems.",
+          "sentence_order": "44-3"
+        },
+        {
+          "sentence": "I like to urge students to step back from the process.",
+          "sentence_order": "44-4"
+        },
+        {
+          "sentence": "I tend to say to them \"what is your vision and what do you want to create?",
+          "sentence_order": "44-5"
+        },
+        {
+          "sentence": "Your vision - not where the software's going to take you\".",
+          "sentence_order": "44-6"
+        },
+        {
+          "sentence": "Then we can see whether there is an application to do that, or, if not, how to do it.",
+          "sentence_order": "44-7"
+        },
+        {
+          "sentence": "Some students can become very excited by that; others can say, \"you know, I don't think so\".",
+          "sentence_order": "44-8"
+        }
+      ]
+    }
+  ]
+}

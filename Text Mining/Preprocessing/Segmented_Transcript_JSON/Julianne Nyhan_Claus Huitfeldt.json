@@ -1,0 +1,268 @@
+[
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat is your earliest memory, in any context, of encountering computing or computing technology?\n",
+    "order": 1
+  },
+  {
+    "speaker_name": "Claus Huitfeldt",
+    "speaker_raw": "CH",
+    "role": "Interviewee",
+    "utterance": "\nI remember that very well, that was in the very early 1980s, \u201980 or \u201981, perhaps. I was a Philosophy student at the University of Trondheim, Norway and across the corridor was the Institute of Continental Shelf Research. They had computer terminals that were accessible to all students, thus also to us. Not many students of Humanities were very interested, but since it was across the corridor and I had learned from somewhere that you could use these things as typewriters, I sat down by a terminal and somebody came along and taught me how to use it. It was a DEC [Digital Equipment Corporation] machine with the VAX/VMS operating system which had a very good text editor. So I learned to use that. It had formatting commands in the old-fashioned way, where if you wanted to add some formatting to your document you put a line-break, a full-stop, and a code into it. For example, if you wanted to italicise a word, it was a line break, a full stop, an \u2018i\u2019, the word; then new line etc. I also learned to use macros, and had my first experience of writing a log-in script which contained the command \u2018log out\u2019, so that I was logged out immediately as soon as I logged on! Very useful experience. That was my first experience with computers.\n",
+    "order": 2
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd how did you encounter the use of computers in Philosophy then? How did you start having ideas about the use of computing in this context?\n",
+    "order": 3
+  },
+  {
+    "speaker_name": "Claus Huitfeldt",
+    "speaker_raw": "CH",
+    "role": "Interviewee",
+    "utterance": "\nWell, first of all I wrote my dissertation with computers, but that was not really computation in Philosophy. My first encounter was when I was hired to work on a project called the Norwegian Wittgenstein Project, which was a co-operation between the Philosophy Departments at the (then four) universities of Norway. They had acquired a microfilm copy of Wittgenstein\u2019s writings. Finding things on a microfilm is difficult, so they got the idea that they should index entries to the microfilm by keywords. It turned out to be so hard for them to agree on keywords that they realised, \u201cwe might as well try and transcribe the parts we\u2019re interested in\u201d. And I was hired to transcribe Wittgenstein\u2019s writings. At that time the transcription was done on a typewriter, and then it was OCR-read off site somewhere. But gradually, since I had learned to use text processing, we typed it directly into the machine, which was wonderful.\n",
+    "order": 4
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nIt\u2019s astonishing to think about those iterations that one almost takes for granted! What would have been your first encounter with the conference community we see here? How did you first encounter that wider picture?\n",
+    "order": 5
+  },
+  {
+    "speaker_name": "Claus Huitfeldt",
+    "speaker_raw": "CH",
+    "role": "Interviewee",
+    "utterance": "\nLater I was fortunate to get the job as the leader of the Norwegian Wittgenstein project. They had already started using some kind of text encoding and had written software for doing things with the stuff. It wasn\u2019t finished, so I had to learn programming languages. So I learned to program, and with good help from colleagues at the Norwegian Computing Center for the Humanities, I managed to get into the matter.\n",
+    "order": 6
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nDid you take formal training?\n",
+    "order": 7
+  },
+  {
+    "speaker_name": "Claus Huitfeldt",
+    "speaker_raw": "CH",
+    "role": "Interviewee",
+    "utterance": "\nNo formal training.\n",
+    "order": 8
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd how did you go about the process of learning programming?\n",
+    "order": 9
+  },
+  {
+    "speaker_name": "Claus Huitfeldt",
+    "speaker_raw": "CH",
+    "role": "Interviewee",
+    "utterance": "\nWell, by then I had moved to Bergen, and the project was situated in the Norwegian Computing Center for the Humanities, which had been established already in 1972 in Bergen (see Ore 2014). And they had a staff of people who were trained in applying computing to Humanities, for example. I never had any formal training but I was introduced to it by a colleague and then started trying to do things. In general I found that it was easy to learn these things if you knew exactly what you wanted to do. So, if you take formal training with many other students, you learn general stuff and you learn some specifics, but it\u2019s not targeted directly to your own needs. I was very clear about exactly what I wanted to do. I wanted to parse this encoding, I wanted to check errors, I wanted to be able to index and to do retrieval and all these things. I think it was the best way, back then at least, to learn programming.\n",
+    "order": 10
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nSo I guess now might be a good time to ask about the people who particularly influenced you, and how and why. And that can be from any of the academic fields.\n",
+    "order": 11
+  },
+  {
+    "speaker_name": "Claus Huitfeldt",
+    "speaker_raw": "CH",
+    "role": "Interviewee",
+    "utterance": "\nIn the beginning, that would be hard to say as so many people were involved. But the Director of the computing center, Lars H. Hauge, gave me the self-confidence I needed. Lars G. Johnsen (now at the National Library in Oslo), Espen S. Ore (now at the University of Oslo) and \u00d8ystein Reigem (now at Uni Computing, Bergen) were particularly helpful in introducing me to programming.\n\nLater in the 1980s, I got in touch with the Text Encoding Initiative, and started to take part in its working group meetings and conferences. There were lots of people I learned from there. Although it\u2019s hard to mention any one in particular at that time, encounters and discussions with people like Michael-Sperberg McQueen (see Chap. 12), Dino Buzzetti, Ellie Myllonas, Julia Flanders, Allen Renear, Manfred Thaller (see Chap. 13), Susan Hockey (see Chap. 6), David Durand, Steve DeRose, Peter Robinson and Lou Burnard are some of the names that stand out as particularly helpful.\n\nIt was also through the Text Encoding Initiative that I got to know Michael Sperberg-McQueen, with whom I have had a close cooperation ever since, later to be joined by Yves Marcoux from the University of Montreal.\n",
+    "order": 12
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd what about the Wittgenstein project? At what point did you move away from that?\n",
+    "order": 13
+  },
+  {
+    "speaker_name": "Claus Huitfeldt",
+    "speaker_raw": "CH",
+    "role": "Interviewee",
+    "utterance": "\nMuch later. This first project was closed because of lack of clarity about copyright and some other matters. So then I had to earn my living as a computing consultant of sorts at the Norwegian Centre for Computing in the Humanities. There I did all sorts of things such as travelling around the world and preaching the holy gospel of optical storage media, which many people thought to be the future of computing etc. That turned out not to be the case, but anyhow. At the same time I was unhappy about the fate of the Norwegian Wittgenstein Project that I had been working on because we had, after all, produced a lot of material and because of the situation with copyright etc, not only could we not continue the work, we were not even allowed to give access to the work to anyone else. I thought it was just too bad. So I worked very hard on establishing a new project, called the Wittgenstein Archives at the University of Bergen.Footnote1 That project started in 1990, based on an understanding with the Wittgenstein Trustees\n\nWittgenstein had assigned the copyright to his writings to colleagues in Philosophy in England and Finland. We had an agreement with them, and the agreement allowed us to produce what was called a machine-readable version of the Wittgenstein Nachlass, Footnote2 and to publish it in electronic form, but very clearly not to produce anything in book form. And then we got support from the University of Bergen and worked on that for 10 years. We spent exactly 10 years transcribing and finishing all the 20,000 pages of Wittgenstein\u2019s Nachlass and published them with Oxford University Press.Footnote3\n",
+    "order": 14
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhy was it that the Nachlass couldn\u2019t be published as a book but could be published online? What was the thinking there?\n",
+    "order": 15
+  },
+  {
+    "speaker_name": "Claus Huitfeldt",
+    "speaker_raw": "CH",
+    "role": "Interviewee",
+    "utterance": "\nIt was made very clear that we did not have the right to a book publication, partly because there was another project going on towards that aim, and partly because we did not want it. Personally, I didn\u2019t think that a book edition was a good idea anyhow, so I was not unhappy about that. But it was a lot of work because, you know, this was 1990, the World Wide Web did not exist and SGML had just been established as an ISO standard a few years before. The Text Encoding Initiative (TEI) had just begun working and there were no published TEI guidelines. We, or I, decided not to use SGML for a number of reasons. So I decided on a code system or markup language (A Multi-Element Code System (MECS)) especially for this (see Huitfeldt 1994), which meant that I had to develop all the software and this was a lot of work. You had to do everything, from programming to markup design and \u2026\n",
+    "order": 16
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWas it chiefly the overlapping hierarchiesFootnote4 issue that led you to reject SGML or were there other factors also?\n",
+    "order": 17
+  },
+  {
+    "speaker_name": "Claus Huitfeldt",
+    "speaker_raw": "CH",
+    "role": "Interviewee",
+    "utterance": "\nThat was one factor. Another factor was very simply a trivial factor, namely that no software that I knew of at that time existed for doing the things that we wanted to do with the transcriptions that we produced. SGML was a very complex system, much more complex than XML (which of course, didn\u2019t exist at all at that time). So it had to do with overlapping hierarchies and that kind of thing but it also had to do with the concern that I felt that developing software for SGML would be much more difficult than developing software for a system that I had designed myself and, you know, that I could adapt so I had it all in my own control, so to speak. That was also a reason. I think if I had started such a project today I would not have done it that way, I would have probably have used XML, but it was a very different situation. So we spent 10 years on this and then we published the entire collected works on CD at Oxford University Press. And I thought, by then, that this has been a very interesting and wonderful time. I was thankful that I had had the chance to do this work. But 15 years with Wittgenstein \u2013 it was time to do something else!\n\nBut the Wittgenstein Archive still exists, which is a little bit paradoxical, you might say. The whole reason for doing this work was to make the writings accessible so it would not be necessary for scholars to travel to see the originals in Cambridge, in the Austrian National Library and there are a couple of manuscripts in Canada as well, and now it is accessible electronically. But still people keep going to Bergen. I think it\u2019s simply because it has become a centre for Wittgenstein research and people travel there to see people, other people.\n\nAlso I should say, if we had done this today, well even then, we wanted to make the source material freely available on the internet. But it was out of the question because the copyright holders did not want to let that happen. Because of the contract restraints it is still not possible although parts of the Nachlass is now available on the web.Footnote5\n",
+    "order": 18
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd did Wittgenstein himself leave those instructions about copyright?\n",
+    "order": 19
+  },
+  {
+    "speaker_name": "Claus Huitfeldt",
+    "speaker_raw": "CH",
+    "role": "Interviewee",
+    "utterance": "\nNo, he left no real instructions. He said in his will that he gave the copyright of all his unpublished manuscripts to the four people mentioned to publish and dispose of as they think fit. That was 1951.\n",
+    "order": 20
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nDid MECS require a huge investment of your time?\n",
+    "order": 21
+  },
+  {
+    "speaker_name": "Claus Huitfeldt",
+    "speaker_raw": "CH",
+    "role": "Interviewee",
+    "utterance": "\nIt was a huge investment of my time, yes.\n",
+    "order": 22
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nHow was this funded and justified within the project? Were you quite free to use your time as you saw fit?\n",
+    "order": 23
+  },
+  {
+    "speaker_name": "Claus Huitfeldt",
+    "speaker_raw": "CH",
+    "role": "Interviewee",
+    "utterance": "\nYes, I was given a very free hand and that\u2019s one of the reasons why I\u2019m thankful. I mean it was a lot of work to establish the project, lots of formalities and all that, but once it got started I was given a very free hand. That was very good.\n",
+    "order": 24
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nSo when you then moved on from the Wittgenstein project did you go straight to a professorship?\n",
+    "order": 25
+  },
+  {
+    "speaker_name": "Claus Huitfeldt",
+    "speaker_raw": "CH",
+    "role": "Interviewee",
+    "utterance": "\nI became an Associate Professor of the Department of Philosophy in 1994 but, of course, I didn\u2019t really start working in a normal position in the Department until this project was finished in 2000. Actually, that\u2019s not true, for a couple of years after that I was Acting Director of the Humanities Computing Center in Bergen and that\u2019s when I decided that it was too much. That was fun too, lots of fun, but I had come to an age where I realised that if I continued with management work that I could never go back to do research. So I had to make a choice. In 2002 I picked up the position that I held at the Department of Philosophy since 1994. Since then I have been teaching Philosophy and been fortunate enough to be able to also teach Humanities Computing in Bergen.\n",
+    "order": 26
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat about the perceptions of other scholars and fellow Philosophers who weren\u2019t using computing or computers in their research? Could you reflect a bit on the types of reception that your work received from the broader community?\n",
+    "order": 27
+  },
+  {
+    "speaker_name": "Claus Huitfeldt",
+    "speaker_raw": "CH",
+    "role": "Interviewee",
+    "utterance": "\nWithin Philosophy, both locally, and as far as I could tell, globally, the application of computing to Philosophy was largely regarded with some scepticism. Sometimes you could encounter some hostility. But that was also at the time when there was a lot of talk about artificial intelligence in connection with computing (and I was not doing that kind of thing, of course). But Wittgenstein scholars regarded it with positive anticipation, at least those who wanted to have access to the material. There was a certain scepticism towards whether an electronic edition could ever substitute a real, critical publication in book form, but apart from that there was no problem.\n",
+    "order": 28
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nHow did you find the transition to the associate professor role?\n",
+    "order": 29
+  },
+  {
+    "speaker_name": "Claus Huitfeldt",
+    "speaker_raw": "CH",
+    "role": "Interviewee",
+    "utterance": "\nWell I found that quite stimulating because, as I said, I had been so focused on the Wittgenstein edition for so many years that it was nice to be able to do something different and it was also very good for me to do Philosophy properly again. And there was some interest from students and other colleagues in trying to integrate this. My interest \u2013 even after having worked with Wittgenstein for such a long time \u2013 was not primarily Wittgenstein\u2019s Philosophy, it was the philosophical problems that could arise from aspects of the work that we were doing. I was interested in the problems of trying to represent a document in another form; the semantics of the whole operation; the kinds of cognitive processes that are involved and the criteria for judging etc; and the role of technology in relation to the written word. These were issues that interested me a lot, so we organised some seminars along those lines and that was quite interesting.\n",
+    "order": 30
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nSo when I do these interviews, people often reflect to me about their first engagement with the conference community and the type of society that they found there. Would you talk about that?\n",
+    "order": 31
+  },
+  {
+    "speaker_name": "Claus Huitfeldt",
+    "speaker_raw": "CH",
+    "role": "Interviewee",
+    "utterance": "\nYes, I was very struck by the fact that philosophers, with exceptions, but in general, were so completely unconcerned about the status of the text as an object of study. And, of course, text is not the object of study in Philosophy, but what is it? Whatever it is it is transmitted through text. I mean Philosophy is a discipline which is performed almost entirely in language: you talk, you listen, you read, you write. That\u2019s what you do as a philosopher. And then when faced with the fact that what they had been working with for years (a published edition of Wittgenstein\u2019s writings) had a problematic status in relation to what Wittgenstein actually wrote, that it had been heavily edited, that editors had selected passages and suppressed others etc, that was something that was completely unknown to them. And it seemed to me that it didn\u2019t concern most people and that there really was little interest. So that struck me as very paradoxical.\n\nBut then I found that this has to do with philosophical traditions too, mainly the English/American Analytic Philosophy which, to a large extent, is a systematic, problem-oriented discipline. The attitude is that the author is not of interest, it\u2019s the problems. If what Wittgenstein wrote was in some details different from what is actually being published, well, we can look at it and see if it gives us some new and interesting philosophical ideas. But what we are working on is the basis of the published texts, that\u2019s an independent object. Whereas the continental, especially the German tradition, historically had a lot of editorial works. So that made me aware of things I hadn\u2019t known. That was useful. That is the role of text technology in Philosophy itself.\n\nBut apart from that it\u2019s been one of my hobby horses or concerns. I still find it very puzzling that the research communities who one would expect to have the highest expertise about ways of working with texts have almost no role to play in the development of modern text technology. So, one of my hobby horses has always been that we as Humanities scholars should not sit there at the end of the production line being passive recipients of tools like text analysis or text editors and things like that. But it doesn\u2019t seem to have changed much, I mean, of course, Humanities scholars develop their own tools for doing their own research. But I don\u2019t know that there are many or any commercially successful products in which experts from the field of Philology have had any leading hand in designing the basic representational structures, so that still puzzles me.\n",
+    "order": 32
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nI also wanted to ask about the nature of the community that you encountered. People often say to me that the Humanities Computing community tended to be very welcoming and very open (some have said excessively so), in contrast with their home discipline, which could be characterised by territorial behaviour at conferences and so on. Would you agree or disagree? What is your opinion on that?\n",
+    "order": 33
+  },
+  {
+    "speaker_name": "Claus Huitfeldt",
+    "speaker_raw": "CH",
+    "role": "Interviewee",
+    "utterance": "\nI haven\u2019t thought so much about that but yes, I think it\u2019s true. I mean the project that I worked on for so many years (the Wittgenstein Archives) wasn\u2019t there primarily as a result of the connected pressure from the Department of Philosophy, so to speak. It came into being because there were a few enthusiasts and some of them were very good at manoeuvring in the university. Yes, so I guess I have the same experience, you might say, but it\u2019s never really struck me as a problem, in part because I have never really been able to relate to the idea of DH or Humanities Computing as some kind of discipline. I mean, it\u2019s natural, in a way, to give practical help if you are using the same tools in your work. Perhaps also because DH has not been so established academically there is little of the kind of competition that you find within the established disciplines. You know, if you have a good idea about something then you\u2019d better write it up, lock it up in your drawers and don\u2019t mention it until you\u2019ve got it published. I\u2019m sure there\u2019s very little of that in this community.\n",
+    "order": 34
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nSo, it\u2019s fair to say that you don\u2019t see DH as a discipline but as a sort of convergence of interesting tools? In your time in the field, have you seen that change or go through different cycles of development?\n",
+    "order": 35
+  },
+  {
+    "speaker_name": "Claus Huitfeldt",
+    "speaker_raw": "CH",
+    "role": "Interviewee",
+    "utterance": "\nYes, and through the years there has been an ongoing and endless discussion about DH, its status and identity and all that. You know, that\u2019s not in a way so surprising because there is always also the endless debate of what the Humanities are and the crisis of the Humanities etc. When you\u2019ve been around for a while you get used to that. The crisis cannot be a crisis because it\u2019s been going on for at least the 30 years that I have been in the Humanities. But at the same time, in the last few years there seems to be a larger emphasis not so much on the tools and methods, but on studies of ethical aspects and the consequences for society and culture of the introduction of new technology. I\u2019m a little bit worried about that because, I mean, again it gives the Humanities a role in relation to technology as servants or as users. Very often, as soon as there is a question of involving Humanities in some kind of non-core Humanities activity we are set to look at the cultural consequences and the ethical aspects. Of course, as Humanists we can do that but we can do much more, we can contribute to the development of the technology itself and be there in the process of deciding what useful aims to work for etc are. I think that\u2019s going in the wrong direction now. That worries me a little bit.\n",
+    "order": 36
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nThe final question is about any disappointments you might have about the limitations of computing, either in relation to Wittgenstein or Philosophy in general, I guess, or your area of interest?\n",
+    "order": 37
+  },
+  {
+    "speaker_name": "Claus Huitfeldt",
+    "speaker_raw": "CH",
+    "role": "Interviewee",
+    "utterance": "\nDisappointments? No, I don\u2019t really think so because I have never had such high expectations. I mean, you used computers to collect data, to analyse data, to massage them in various ways. We have never, or at least I have never had high hopes in terms of computer-supported philosophical analysis. What would that be? No! So I\u2019m fortunate, not too high expectations and no disappointments!",
+    "order": 38
+  }
+]

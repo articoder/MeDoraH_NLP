@@ -1,0 +1,218 @@
+{
+  "previous_utterances": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 11,
+      "sentences": [
+        {
+          "sentence": "That was actually my second question.",
+          "sentence_order": "11-1"
+        },
+        {
+          "sentence": "In the Pathfinders interview you said something like \"you have no idea of what a different experience it was using computers then, compared to what it is now\" but the conversation went in a different direction and you didn't get a chance to develop that idea.",
+          "sentence_order": "11-2"
+        },
+        {
+          "sentence": "Would you say something about it now?",
+          "sentence_order": "11-3"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 12,
+      "sentences": [
+        {
+          "sentence": "Develop that idea?",
+          "sentence_order": "12-1"
+        },
+        {
+          "sentence": "I think the Pathfinders interviewers weren't so interested in that aspect.",
+          "sentence_order": "12-2"
+        },
+        {
+          "sentence": "Also, I don't talk about it too often, because in some ways it's so removed from where I work, and what I do.",
+          "sentence_order": "12-3"
+        },
+        {
+          "sentence": "I think I used a mainframe, I've been trying to research what computer I used.",
+          "sentence_order": "12-4"
+        },
+        {
+          "sentence": "I'm not positive it was a mainframe, I'm pretty sure it was an IBM.",
+          "sentence_order": "12-5"
+        },
+        {
+          "sentence": "I thought it was an IBM 1130 but those are smaller in the pictures from what I recollect.",
+          "sentence_order": "12-6"
+        },
+        {
+          "sentence": "My recollection is of a room, about the size of a smallish bedroom, in which the whole wall was covered with a computer.",
+          "sentence_order": "12-7"
+        },
+        {
+          "sentence": "Then there was a large, noisy printer.",
+          "sentence_order": "12-8"
+        },
+        {
+          "sentence": "That was all you got, and there was no monitor - this is important.",
+          "sentence_order": "12-9"
+        },
+        {
+          "sentence": "That there was no monitor is one reason that many people didn't think of using the computer to make interactive art or literature.",
+          "sentence_order": "12-10"
+        },
+        {
+          "sentence": "Of course, some people did (see, for example, Higgins and Kahn 2012), but I certainly didn't think of using it to create my work.",
+          "sentence_order": "12-11"
+        },
+        {
+          "sentence": "(Oh, we have a thunderstorm, can you hear it?",
+          "sentence_order": "12-12"
+        },
+        {
+          "sentence": "JN: Oh, yeah!)Data retrieval was inelegant.",
+          "sentence_order": "12-13"
+        },
+        {
+          "sentence": "If I wanted to do a search on the system with the application I was creating, I first of all had to load the programme on punched cards.",
+          "sentence_order": "12-14"
+        },
+        {
+          "sentence": "Every time you ran the programme you took the stack of punched cards into the computer room and put them on this conveyor belt, which ran across the room and took them into the computer.",
+          "sentence_order": "12-15"
+        },
+        {
+          "sentence": "If you did not have the correct start card on your stack of punched cards, you were in trouble as it wouldn't run.",
+          "sentence_order": "12-16"
+        },
+        {
+          "sentence": "Otherwise it ran the programme and printed out the results.",
+          "sentence_order": "12-17"
+        },
+        {
+          "sentence": "So, if somebody wanted to search for something (satellite guidance systems were the kind of things they looked for) they would give me what they wanted, I would have to create a punched card for that, and then I would integrate that punched card into the entire programme and feed it into the computer.",
+          "sentence_order": "12-18"
+        },
+        {
+          "sentence": "We would come out with a print out of the documents in the library on satellite guidance systems.",
+          "sentence_order": "12-19"
+        },
+        {
+          "sentence": "So, this was not an easy way to work; in fact, it is not my recollection that the database systems that we were creating were used a lot by the engineers.",
+          "sentence_order": "12-20"
+        },
+        {
+          "sentence": "They were still happier to come in and say \"can you just find this for us?\" It was not like now, when you can sit at your desk in your office or at home and search a library catalog - it wasn't wired for one thing. 1969 was the beginning of ARPANET (Naughton 2000) and this technology was not accessible.",
+          "sentence_order": "12-21"
+        },
+        {
+          "sentence": "A few people were connected, MIT's Compatible Time-Sharing System (CTSS) used MAIL to coordinate their research and exchange information, for instance.",
+          "sentence_order": "12-22"
+        },
+        {
+          "sentence": "But BBRC was not connected, as far as I know.",
+          "sentence_order": "12-23"
+        },
+        {
+          "sentence": "So, essentially the access was very different, the process was very different and it was finicky to a certain extent.",
+          "sentence_order": "12-24"
+        },
+        {
+          "sentence": "I told a story about this in the Pathfinders interview, but I can tell it again here if you'd like?",
+          "sentence_order": "12-25"
+        }
+      ]
+    }
+  ],
+  "current_utterance": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 13,
+      "sentences": [
+        {
+          "sentence": "Yes, because it's lovely.",
+          "sentence_order": "13-1"
+        },
+        {
+          "sentence": "Well, it is lovely now, but it probably wasn't so lovely then!",
+          "sentence_order": "13-2"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 14,
+      "sentences": [
+        {
+          "sentence": "This was a terrible moment.",
+          "sentence_order": "14-1"
+        },
+        {
+          "sentence": "I had the programme we created on a big stack of punched cards.",
+          "sentence_order": "14-2"
+        },
+        {
+          "sentence": "This was not a small stack of punched cards and they all had to be kept in order.",
+          "sentence_order": "14-3"
+        },
+        {
+          "sentence": "If you dropped them it was very bad, and putting them in order was not easy.",
+          "sentence_order": "14-4"
+        },
+        {
+          "sentence": "So, I took the punched cards in over lunch hour.",
+          "sentence_order": "14-5"
+        },
+        {
+          "sentence": "You had to sign up for access to the computer, and I had to use it over lunch hour so as not to interfere with important engineer tasks.",
+          "sentence_order": "14-6"
+        },
+        {
+          "sentence": "I took the card stack in and put it on the conveyor belt.",
+          "sentence_order": "14-7"
+        },
+        {
+          "sentence": "I'm standing there, and all of a sudden, all the cards fly into the air.",
+          "sentence_order": "14-8"
+        },
+        {
+          "sentence": "How this happened, I don't know, but when I was telling the story to Stuart Moulthrop during the Pathfinders interview, he told me the same thing had happened to Nancy Kaplan, who's his wife.",
+          "sentence_order": "14-9"
+        },
+        {
+          "sentence": "So I had to go find Dan Anderson (who ran the computer room), and tell him what happened and all those cards had to be put back in order.",
+          "sentence_order": "14-10"
+        },
+        {
+          "sentence": "It was not fun and it was also horrendously embarrassing because it was important to look professional when you were going into the computer room because not everybody was hugely in favour of somebody who wasn't a regular engineer using the equipment.",
+          "sentence_order": "14-11"
+        },
+        {
+          "sentence": "For years I didn't like to tell people that I had worked for BBRC, because they would go, \"you what?\" I didn't like to talk about that although it was germane.",
+          "sentence_order": "14-12"
+        },
+        {
+          "sentence": "I don't mind it now, because I'm going over an age hump and I've realised this was important.",
+          "sentence_order": "14-13"
+        },
+        {
+          "sentence": "The companies in that era (Bell Labs in New Jersey was like that also) were very open to whom they were hiring.",
+          "sentence_order": "14-14"
+        },
+        {
+          "sentence": "They didn't hesitate at BBRC to hire artists and writers, they didn't hesitate to hire someone who had just been bumming around Europe for a year.",
+          "sentence_order": "14-15"
+        },
+        {
+          "sentence": "Nowadays, that would never happen.",
+          "sentence_order": "14-16"
+        }
+      ]
+    }
+  ]
+}

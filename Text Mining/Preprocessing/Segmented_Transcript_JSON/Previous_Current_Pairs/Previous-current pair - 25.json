@@ -1,0 +1,286 @@
+{
+  "previous_utterances": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 47,
+      "sentences": [
+        {
+          "sentence": "I want to ask you about who particularly influenced you, and how.",
+          "sentence_order": "47-1"
+        },
+        {
+          "sentence": "And they can be from any sphere whatsoever.",
+          "sentence_order": "47-2"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 48,
+      "sentences": [
+        {
+          "sentence": "OK, I want to start with the librarians who worked in the early days with early library retrieval systems, because I think they aren't given enough attention.",
+          "sentence_order": "48-1"
+        },
+        {
+          "sentence": "There was Ralph H. Parker and Richard M. Dougherty, from whom I was lucky to take a systems analysis class, and women such as Henriette D Avram.",
+          "sentence_order": "48-2"
+        },
+        {
+          "sentence": "If you look at what they were doing, Ted Nelson (see, for example, Barnet 2013) essentially took it, romanticised it, and has gotten all the credit.",
+          "sentence_order": "48-3"
+        },
+        {
+          "sentence": "Now, I think he deserves a lot of credit.",
+          "sentence_order": "48-4"
+        },
+        {
+          "sentence": "At the same time, when you're looking at hidden histories, and particularly since there are quite a few women involved ...",
+          "sentence_order": "48-5"
+        },
+        {
+          "sentence": "It's not my subject, so I haven't been following the scholarship in this field, but it doesn't come up in newspaper articles and the kinds of literature that everybody reads.",
+          "sentence_order": "48-6"
+        },
+        {
+          "sentence": "It's an area that deserves more attention and what I mean is that I want to credit all those unsung librarians, who developed computational ways to automate libraries and retrieval, because that's deeply important to the culture, our culture, which runs beneath hypertextual systems.",
+          "sentence_order": "48-7"
+        },
+        {
+          "sentence": "There's not much difference between a keyword and a link, if you look at it in that way.",
+          "sentence_order": "48-8"
+        },
+        {
+          "sentence": "So I think that's important.",
+          "sentence_order": "48-9"
+        },
+        {
+          "sentence": "I've already talked about John Cage.",
+          "sentence_order": "48-10"
+        },
+        {
+          "sentence": "His work lies beneath everybody's work in experimental literature, I think.",
+          "sentence_order": "48-11"
+        },
+        {
+          "sentence": "Many of the works he's done have been influential on my work, I'm thinking of his Interdeterminacy.",
+          "sentence_order": "48-12"
+        },
+        {
+          "sentence": "But he created this work years ago.",
+          "sentence_order": "48-13"
+        },
+        {
+          "sentence": "Cage gave a lot of talks in interesting ways, and I think it happened that David Tudor suggested that he try just telling stories.",
+          "sentence_order": "48-14"
+        },
+        {
+          "sentence": "So he started telling very short stories, the way lexias look.",
+          "sentence_order": "48-15"
+        },
+        {
+          "sentence": "He numbered them and told them in different orders and they were all about his life and the people he worked with.",
+          "sentence_order": "48-16"
+        },
+        {
+          "sentence": "He and David Tudor created a work where Cage read those stories in one room, and in another room Tudor played one of Cage's piano concertos.",
+          "sentence_order": "48-17"
+        },
+        {
+          "sentence": "They did not hear each other, so Cage had to time his stories.",
+          "sentence_order": "48-18"
+        },
+        {
+          "sentence": "A recording was made by putting the two streams together, and this was the kind of thing that Cage did.",
+          "sentence_order": "48-19"
+        },
+        {
+          "sentence": "He did lectures where he created concentric circles and he put words in them.",
+          "sentence_order": "48-20"
+        },
+        {
+          "sentence": "So many of the things he did - we call them constraints in the electronic literature community - are so embedded in what we do nowadays and I think he's very important.",
+          "sentence_order": "48-21"
+        },
+        {
+          "sentence": "Also, important, of course, are Virginia Woolf, James Joyce and Dorothy Richardson, the three writers who tried to break the conventional narrative.",
+          "sentence_order": "48-22"
+        },
+        {
+          "sentence": "Personally, I also love Jane Austen.",
+          "sentence_order": "48-23"
+        },
+        {
+          "sentence": "And so once again, it's like looking at electronic literature and literature as parallel streams.",
+          "sentence_order": "48-24"
+        },
+        {
+          "sentence": "And different kinds of writing flow in each of these streams.",
+          "sentence_order": "48-25"
+        },
+        {
+          "sentence": "On a personal level, my friend of 35 years, Sonya Rapoport (1923-2015), who just died this June inspired me and many others.",
+          "sentence_order": "48-26"
+        }
+      ]
+    }
+  ],
+  "current_utterance": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 49,
+      "sentences": [
+        {
+          "sentence": "Oh, I'm sorry",
+          "sentence_order": "49-1"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 50,
+      "sentences": [
+        {
+          "sentence": "She was a visual artist who used information in her work (Rapoport et al. 1995).",
+          "sentence_order": "50-1"
+        },
+        {
+          "sentence": "She created scrolls and integrated computers into her work.",
+          "sentence_order": "50-2"
+        },
+        {
+          "sentence": "The first time I met her was, I think, in 1980 or 1981, when I went to an installation at 80 Langton Street called 'Objects on my Dresser'.",
+          "sentence_order": "50-3"
+        },
+        {
+          "sentence": "She had created a work where she had taken the objects on her dresser, I think, and written texts about each object.",
+          "sentence_order": "50-4"
+        },
+        {
+          "sentence": "Then, on the floor she had this huge plot called a netweb, this was basically a web, where the writing and the work she did with a psychiatrist were all laid out like a piece of information.",
+          "sentence_order": "50-5"
+        },
+        {
+          "sentence": "Then she did another work called Shoe Field, where she asked people to come in, take off their shoes, and input what they thought about their shoes to a computer.",
+          "sentence_order": "50-6"
+        },
+        {
+          "sentence": "She didn't programme, she worked with a programmer who created a programme to make an array out of each person's statement.",
+          "sentence_order": "50-7"
+        },
+        {
+          "sentence": "So you would take off your shoes, you would put in the information, and you would get a print out back, the kind of print out that people in your field make nowadays, these beautiful graphs.",
+          "sentence_order": "50-8"
+        },
+        {
+          "sentence": "And so we talked.",
+          "sentence_order": "50-9"
+        },
+        {
+          "sentence": "We had working with information in common.",
+          "sentence_order": "50-10"
+        },
+        {
+          "sentence": "We weren't in direct competition, which I think is helpful.",
+          "sentence_order": "50-11"
+        },
+        {
+          "sentence": "I worked more with narrative and she worked more with images, and for over 35 years, we used to talk all the time.",
+          "sentence_order": "50-12"
+        },
+        {
+          "sentence": "We would call each other up.",
+          "sentence_order": "50-13"
+        },
+        {
+          "sentence": "I still think, almost every week, \"I've got to talk to Sonya about that\".",
+          "sentence_order": "50-14"
+        },
+        {
+          "sentence": "You know, I'm working on this problem, I need to talk to Sonya.",
+          "sentence_order": "50-15"
+        },
+        {
+          "sentence": "I can't call her and it makes me so upset.",
+          "sentence_order": "50-16"
+        },
+        {
+          "sentence": "But she was 20 years older than me, more than that actually, a fair amount older than me.",
+          "sentence_order": "50-17"
+        },
+        {
+          "sentence": "She was kind of like an art mother.",
+          "sentence_order": "50-18"
+        },
+        {
+          "sentence": "I think everybody needs an art mother, so she was influential in my life.",
+          "sentence_order": "50-19"
+        },
+        {
+          "sentence": "We've already talked about Carl Loeffler.",
+          "sentence_order": "50-20"
+        },
+        {
+          "sentence": "I'd like to say a few words about Mark Bernstein (chief Scientist at Eastgate, one of the leading publishers of hypertext) because he's so important in the hypertext community.",
+          "sentence_order": "50-21"
+        },
+        {
+          "sentence": "He did something incredible.",
+          "sentence_order": "50-22"
+        },
+        {
+          "sentence": "He was working with the hypertext community, not the literary community.",
+          "sentence_order": "50-23"
+        },
+        {
+          "sentence": "He said people were asking \"where are the hypertexts?\" So, he answered that question by publishing hypertext literature.",
+          "sentence_order": "50-24"
+        },
+        {
+          "sentence": "You know, it's rare to have such an innovative publisher to work with.",
+          "sentence_order": "50-25"
+        },
+        {
+          "sentence": "He put out, oh, I don't know how many titles, but over 30 or 60.",
+          "sentence_order": "50-26"
+        },
+        {
+          "sentence": "I took a look recently when we were talking about representation of women and half of them were by women.",
+          "sentence_order": "50-27"
+        },
+        {
+          "sentence": "He worked with writers as people and was very good at seeing things in our works.",
+          "sentence_order": "50-28"
+        },
+        {
+          "sentence": "He picked up Storyspace from Michael Joyce, and the other people who worked on it, and made it publicly available.",
+          "sentence_order": "50-29"
+        },
+        {
+          "sentence": "He managed to attract attention.",
+          "sentence_order": "50-30"
+        },
+        {
+          "sentence": "I still think the works that came out of Eastgate, which is his company, are certainly among the best in the field.",
+          "sentence_order": "50-31"
+        },
+        {
+          "sentence": "So, I like to give Mark a lot of credit.",
+          "sentence_order": "50-32"
+        },
+        {
+          "sentence": "I'm sure I've left off a lot of people but that's a start.",
+          "sentence_order": "50-33"
+        },
+        {
+          "sentence": "People ask me this question, and sometimes I say something completely different because someone's work is on my mind.",
+          "sentence_order": "50-34"
+        }
+      ]
+    }
+  ]
+}

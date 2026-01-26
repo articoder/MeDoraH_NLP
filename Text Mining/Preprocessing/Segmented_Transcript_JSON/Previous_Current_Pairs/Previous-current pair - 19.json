@@ -1,0 +1,106 @@
+{
+  "previous_utterances": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 35,
+      "sentences": [
+        {
+          "sentence": "OK, so my next question would have been how you first got involved in what we now refer to as DH.",
+          "sentence_order": "35-1"
+        },
+        {
+          "sentence": "I think you've probably covered a lot of that.",
+          "sentence_order": "35-2"
+        },
+        {
+          "sentence": "Is there anything that you want to add?",
+          "sentence_order": "35-3"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 36,
+      "sentences": [
+        {
+          "sentence": "Well, here we have the issue, and it is something you're much more knowledgeable about than I am, of what DH means?",
+          "sentence_order": "36-1"
+        },
+        {
+          "sentence": "Is there a place for electronic literature in DH or not?",
+          "sentence_order": "36-2"
+        },
+        {
+          "sentence": "This is a question that I don't think there's one answer to...",
+          "sentence_order": "36-3"
+        }
+      ]
+    }
+  ],
+  "current_utterance": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 37,
+      "sentences": [
+        {
+          "sentence": "Not so long ago, my colleagues and I published a book called Defining Digital Humanities: a Reader (Terras et al. 2013).",
+          "sentence_order": "37-1"
+        },
+        {
+          "sentence": "It includes a couple of new chapters and otherwise is mostly reprints of some of the most highly-cited articles on this question.",
+          "sentence_order": "37-2"
+        },
+        {
+          "sentence": "Anyway, it comes as no great surprise that we concluded the book by writing that there is no one definition, and probably we shouldn't even have a definition, or that at this stage, a definition isn't useful.",
+          "sentence_order": "37-3"
+        },
+        {
+          "sentence": "So, another question that I was going to ask, related to that, is maybe equally impossible to answer - I wondered what you thought of the Humanities Computing/DH work that you encountered?",
+          "sentence_order": "37-4"
+        },
+        {
+          "sentence": "Did you think it was interesting?",
+          "sentence_order": "37-5"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 38,
+      "sentences": [
+        {
+          "sentence": "I found it very interesting.",
+          "sentence_order": "38-1"
+        },
+        {
+          "sentence": "One area that deserves more attention is systems for creating DH databases, the kinds of things you've worked on.",
+          "sentence_order": "38-2"
+        },
+        {
+          "sentence": "More attention should be given to how that software works; how it might be applied to creating electronic literature; how, in some ways, electronic literature is reversing the process (for instance, by teasing literary meaning out of vast databases; so, perhaps co-opting the process is a better way of putting it) and what the contingencies are.",
+          "sentence_order": "38-3"
+        },
+        {
+          "sentence": "I don't think enough has been enough done in that field.",
+          "sentence_order": "38-4"
+        },
+        {
+          "sentence": "I would like to spend more time looking at DH processes.",
+          "sentence_order": "38-5"
+        },
+        {
+          "sentence": "And so, it's on my list, and I actually have thought it quite wonderful that in some places, or at some conferences, electronic literature has been shown in conjunction with DH work.",
+          "sentence_order": "38-6"
+        },
+        {
+          "sentence": "I think we in electronic literature should be looking more closely at what you're doing also.",
+          "sentence_order": "38-7"
+        }
+      ]
+    }
+  ]
+}

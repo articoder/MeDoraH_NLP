@@ -1,0 +1,206 @@
+{
+  "previous_utterances": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 31,
+      "sentences": [
+        {
+          "sentence": "I don't really mean that.",
+          "sentence_order": "31-1"
+        },
+        {
+          "sentence": "I mean, did the computer also become a sort of - going back to Willard McCarty - an exploratory tool?",
+          "sentence_order": "31-2"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 32,
+      "sentences": [
+        {
+          "sentence": "Yes, but maybe I was coming at it a little differently because I already knew what I wanted to do, to a certain extent, because I'd been working with these card catalogs for so many years.",
+          "sentence_order": "32-1"
+        },
+        {
+          "sentence": "It was exploratory, so I had to find out how to make it work on the system.",
+          "sentence_order": "32-2"
+        },
+        {
+          "sentence": "But maybe I was in a slightly different position than other people coming to look at technology with the idea of making art.",
+          "sentence_order": "32-3"
+        },
+        {
+          "sentence": "I had a certain advantage of knowing what I was going to do and I also could put it into practice very quickly.",
+          "sentence_order": "32-4"
+        },
+        {
+          "sentence": "Essentially I was using the computer to fulfil a vision I already had.",
+          "sentence_order": "32-5"
+        },
+        {
+          "sentence": "Now I don't know...that's a little different than the way other people approached it I think.",
+          "sentence_order": "32-6"
+        }
+      ]
+    }
+  ],
+  "current_utterance": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 33,
+      "sentences": [
+        {
+          "sentence": "Yes and no.",
+          "sentence_order": "33-1"
+        },
+        {
+          "sentence": "I always think that this is something that's very important to bring out in these interviews, because sometimes it's said, whether of digital artists or digital humanists or whoever, that the technology drives what they're doing.",
+          "sentence_order": "33-2"
+        },
+        {
+          "sentence": "But as you've been so carefully explaining, no, that wasn't always the case at all and the ideas were there and being developed well before the means through which you could computerise them became available.",
+          "sentence_order": "33-3"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 34,
+      "sentences": [
+        {
+          "sentence": "I see what you're saying.",
+          "sentence_order": "34-1"
+        },
+        {
+          "sentence": "Also, I'm comparing my approach to the approach of other artists, but in DH you are probably more likely to work the way I do and less likely to just play with the technology.",
+          "sentence_order": "34-2"
+        },
+        {
+          "sentence": "In my case, I might also say that this may go back to the beginning of working with systems analysis.",
+          "sentence_order": "34-3"
+        },
+        {
+          "sentence": "In the case of the BBRC library, I already had the problem - there were so many documents and books in the library and I wanted the engineers and scientists in this country [the USA] to be able to access them.",
+          "sentence_order": "34-4"
+        },
+        {
+          "sentence": "That was the problem and I did not start out by playing with the technology, I started out solving a problem, and in most of my work I do that, even now.",
+          "sentence_order": "34-5"
+        },
+        {
+          "sentence": "In other words, when I start a new work, I know this is the narrative I'm going to do: I start with content.",
+          "sentence_order": "34-6"
+        },
+        {
+          "sentence": "Then I design the authoring software; I don't use a lot of application software.",
+          "sentence_order": "34-7"
+        },
+        {
+          "sentence": "If you use application software, you're limited to a certain extent by what it can do.",
+          "sentence_order": "34-8"
+        },
+        {
+          "sentence": "I also don't use a lot of multimedia.",
+          "sentence_order": "34-9"
+        },
+        {
+          "sentence": "I work with words, but I start with what I want to do.",
+          "sentence_order": "34-10"
+        },
+        {
+          "sentence": "I'm generally not using a programme, other than that I'm using HTML or JavaScript, or in the early days, I used BASIC or Unix shell scripts.",
+          "sentence_order": "34-11"
+        },
+        {
+          "sentence": "Then I try to fit the authoring system to the work itself.",
+          "sentence_order": "34-12"
+        },
+        {
+          "sentence": "Now, there's no doubt there are times I get stuck, and recently I've been stuck in a few places trying to force JavaScript to do what I want; I have various ways of doing that.",
+          "sentence_order": "34-13"
+        },
+        {
+          "sentence": "Sometimes I'll bang my head against the wall until it works, or nowadays, instead of having to go to the basement of Berkeley library, you can go to Google and search.",
+          "sentence_order": "34-14"
+        },
+        {
+          "sentence": "Other times, I'll think, well, there must be some other way to do that.",
+          "sentence_order": "34-15"
+        },
+        {
+          "sentence": "I mean this is a little difference again between how I and some digital artists work and how Computer Scientists might work.",
+          "sentence_order": "34-16"
+        },
+        {
+          "sentence": "I'm not sitting there thinking, \"I have to write a perfect programme\".",
+          "sentence_order": "34-17"
+        },
+        {
+          "sentence": "That is not my aim (although I do like elegant code).",
+          "sentence_order": "34-18"
+        },
+        {
+          "sentence": "My aim is to write a programme that displays what I want it to display, or does what I want it to do.",
+          "sentence_order": "34-19"
+        },
+        {
+          "sentence": "If I need a hack to get that happening, I'm not concerned.",
+          "sentence_order": "34-20"
+        },
+        {
+          "sentence": "So yes, I've run up against snags, some recently, and sooner or later I've managed to solve them.",
+          "sentence_order": "34-21"
+        },
+        {
+          "sentence": "Sometimes they can take a long time.",
+          "sentence_order": "34-22"
+        },
+        {
+          "sentence": "This is an issue that always comes up with students of electronic literature.",
+          "sentence_order": "34-23"
+        },
+        {
+          "sentence": "You have to be aware that you can't always take your idea and put it into practice in, you know, 2 days.",
+          "sentence_order": "34-24"
+        },
+        {
+          "sentence": "If you have a final project, you might be lucky and it might work, but it might not, and particularly at this stage in the field, where we are still exploring and experimenting, we're kind of like musicians in the Middle Ages, when music composition theory and practice was developed.",
+          "sentence_order": "34-25"
+        },
+        {
+          "sentence": "We are still developing those things.",
+          "sentence_order": "34-26"
+        },
+        {
+          "sentence": "So, we can't necessarily expect that something is going to happen and that we're going to get what we want overnight.",
+          "sentence_order": "34-27"
+        },
+        {
+          "sentence": "If we're using an application (Storyspace, for example, was a wonderful application) we still, to a certain extent, have to work within the application.",
+          "sentence_order": "34-28"
+        },
+        {
+          "sentence": "It's always been my contention that if you do that the person who designed the application is, to a certain extent, a co-author, because you are working within that system.",
+          "sentence_order": "34-29"
+        },
+        {
+          "sentence": "But I don't actually object to that at all.",
+          "sentence_order": "34-30"
+        },
+        {
+          "sentence": "I think a good application, like Inform 7 or Storyspace is really at the heart of the field.",
+          "sentence_order": "34-31"
+        },
+        {
+          "sentence": "It's just that for the work I want to do I generally prefer to come up with my own authoring systems.",
+          "sentence_order": "34-32"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "previous_utterances": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 45,
+      "sentences": [
+        {
+          "sentence": "Next I want to ask you for your impression of the conference community and the type of conference communities you encountered?",
+          "sentence_order": "45-1"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 46,
+      "sentences": [
+        {
+          "sentence": "Coming from an art background, I couldn't understand why anyone would want to go to a conference.",
+          "sentence_order": "46-1"
+        },
+        {
+          "sentence": "We went to openings that were free and you were never asked to pay a conference fee to talk.",
+          "sentence_order": "46-2"
+        },
+        {
+          "sentence": "It was either free or you were paid for being on a panel.",
+          "sentence_order": "46-3"
+        },
+        {
+          "sentence": "Also, I couldn't see why you would want to sit around a room, who would want to do that?",
+          "sentence_order": "46-4"
+        },
+        {
+          "sentence": "The first minute I went to a conference I completely changed my mind.",
+          "sentence_order": "46-5"
+        },
+        {
+          "sentence": "The first conference I went to was in 1989 and it was the NCGA Conference that took place in San Jose State University.",
+          "sentence_order": "46-6"
+        },
+        {
+          "sentence": "It was a conference on Computer Art and was hosted by the Computers in Art and Design, Research and Education Institute (CADRE) at San Jose State.",
+          "sentence_order": "46-7"
+        },
+        {
+          "sentence": "I was invited to be on the Art and Telecommunications panel, organized by Carl Loeffler, and including various other people connected with ACEN.",
+          "sentence_order": "46-8"
+        },
+        {
+          "sentence": "Let's see, there was Robert Edgar, Anna Couey, Jeanelle Hurst (from Australia) and, I think, Howard Besser was there also and he is actually connected more with the Museum Computer Network.",
+          "sentence_order": "46-9"
+        },
+        {
+          "sentence": "So it was a mix of people; I was amazed at the interaction, it was very different from going to an art opening or a reading, in that, you know, you're meeting people from all over the word, and there's a lot of very targeted information exchanged.",
+          "sentence_order": "46-10"
+        },
+        {
+          "sentence": "It was exciting, so I changed my mind about conferences.",
+          "sentence_order": "46-11"
+        },
+        {
+          "sentence": "But I was run down in 1994, and I've been on crutches ever since, so unless they are in my area I don't go to a lot of conferences any more, which I miss.",
+          "sentence_order": "46-12"
+        }
+      ]
+    }
+  ],
+  "current_utterance": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 47,
+      "sentences": [
+        {
+          "sentence": "I want to ask you about who particularly influenced you, and how.",
+          "sentence_order": "47-1"
+        },
+        {
+          "sentence": "And they can be from any sphere whatsoever.",
+          "sentence_order": "47-2"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 48,
+      "sentences": [
+        {
+          "sentence": "OK, I want to start with the librarians who worked in the early days with early library retrieval systems, because I think they aren't given enough attention.",
+          "sentence_order": "48-1"
+        },
+        {
+          "sentence": "There was Ralph H. Parker and Richard M. Dougherty, from whom I was lucky to take a systems analysis class, and women such as Henriette D Avram.",
+          "sentence_order": "48-2"
+        },
+        {
+          "sentence": "If you look at what they were doing, Ted Nelson (see, for example, Barnet 2013) essentially took it, romanticised it, and has gotten all the credit.",
+          "sentence_order": "48-3"
+        },
+        {
+          "sentence": "Now, I think he deserves a lot of credit.",
+          "sentence_order": "48-4"
+        },
+        {
+          "sentence": "At the same time, when you're looking at hidden histories, and particularly since there are quite a few women involved ...",
+          "sentence_order": "48-5"
+        },
+        {
+          "sentence": "It's not my subject, so I haven't been following the scholarship in this field, but it doesn't come up in newspaper articles and the kinds of literature that everybody reads.",
+          "sentence_order": "48-6"
+        },
+        {
+          "sentence": "It's an area that deserves more attention and what I mean is that I want to credit all those unsung librarians, who developed computational ways to automate libraries and retrieval, because that's deeply important to the culture, our culture, which runs beneath hypertextual systems.",
+          "sentence_order": "48-7"
+        },
+        {
+          "sentence": "There's not much difference between a keyword and a link, if you look at it in that way.",
+          "sentence_order": "48-8"
+        },
+        {
+          "sentence": "So I think that's important.",
+          "sentence_order": "48-9"
+        },
+        {
+          "sentence": "I've already talked about John Cage.",
+          "sentence_order": "48-10"
+        },
+        {
+          "sentence": "His work lies beneath everybody's work in experimental literature, I think.",
+          "sentence_order": "48-11"
+        },
+        {
+          "sentence": "Many of the works he's done have been influential on my work, I'm thinking of his Interdeterminacy.",
+          "sentence_order": "48-12"
+        },
+        {
+          "sentence": "But he created this work years ago.",
+          "sentence_order": "48-13"
+        },
+        {
+          "sentence": "Cage gave a lot of talks in interesting ways, and I think it happened that David Tudor suggested that he try just telling stories.",
+          "sentence_order": "48-14"
+        },
+        {
+          "sentence": "So he started telling very short stories, the way lexias look.",
+          "sentence_order": "48-15"
+        },
+        {
+          "sentence": "He numbered them and told them in different orders and they were all about his life and the people he worked with.",
+          "sentence_order": "48-16"
+        },
+        {
+          "sentence": "He and David Tudor created a work where Cage read those stories in one room, and in another room Tudor played one of Cage's piano concertos.",
+          "sentence_order": "48-17"
+        },
+        {
+          "sentence": "They did not hear each other, so Cage had to time his stories.",
+          "sentence_order": "48-18"
+        },
+        {
+          "sentence": "A recording was made by putting the two streams together, and this was the kind of thing that Cage did.",
+          "sentence_order": "48-19"
+        },
+        {
+          "sentence": "He did lectures where he created concentric circles and he put words in them.",
+          "sentence_order": "48-20"
+        },
+        {
+          "sentence": "So many of the things he did - we call them constraints in the electronic literature community - are so embedded in what we do nowadays and I think he's very important.",
+          "sentence_order": "48-21"
+        },
+        {
+          "sentence": "Also, important, of course, are Virginia Woolf, James Joyce and Dorothy Richardson, the three writers who tried to break the conventional narrative.",
+          "sentence_order": "48-22"
+        },
+        {
+          "sentence": "Personally, I also love Jane Austen.",
+          "sentence_order": "48-23"
+        },
+        {
+          "sentence": "And so once again, it's like looking at electronic literature and literature as parallel streams.",
+          "sentence_order": "48-24"
+        },
+        {
+          "sentence": "And different kinds of writing flow in each of these streams.",
+          "sentence_order": "48-25"
+        },
+        {
+          "sentence": "On a personal level, my friend of 35 years, Sonya Rapoport (1923-2015), who just died this June inspired me and many others.",
+          "sentence_order": "48-26"
+        }
+      ]
+    }
+  ]
+}

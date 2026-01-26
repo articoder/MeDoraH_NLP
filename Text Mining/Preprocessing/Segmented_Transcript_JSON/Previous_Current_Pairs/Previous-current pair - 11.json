@@ -1,0 +1,202 @@
+{
+  "previous_utterances": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 19,
+      "sentences": [
+        {
+          "sentence": "When you were telling the anecdote about the punched cards you mentioned how embarrassed you were because you were aware that you were supposed to act in a way that was considered professional.",
+          "sentence_order": "19-1"
+        },
+        {
+          "sentence": "Quite aside from your artistic vision, and quite aside from the resources and facilities that were available to you, I wonder, did those attitudes (those of the engineers and others) towards the computer, and the things that were done around the computer, feed into your thoughts?",
+          "sentence_order": "19-2"
+        },
+        {
+          "sentence": "Did you wonder whether computers could even be used in the artistic context?",
+          "sentence_order": "19-3"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 20,
+      "sentences": [
+        {
+          "sentence": "Well, I'm coming to your question from reading Willard McCarty's interview (McCarty et al. 2012).",
+          "sentence_order": "20-1"
+        },
+        {
+          "sentence": "I was so interested in his attitude to the computer and that of doing computer programming and the men in suits.",
+          "sentence_order": "20-2"
+        },
+        {
+          "sentence": "I don't know if you've seen the man in suits in Uncle Roger?",
+          "sentence_order": "20-3"
+        },
+        {
+          "sentence": "When I read Willard's interview I thought \"oh no, the man in tan suits\".",
+          "sentence_order": "20-4"
+        },
+        {
+          "sentence": "His attitude is was reminiscent of the narrator of Uncle Roger's attitude to the ubiquitous \"men in tan suits\".",
+          "sentence_order": "20-5"
+        },
+        {
+          "sentence": "My attitude was a little different than that of Jenny (the narrator of Uncle Roger), I was really interested in working with information systems, and I learned a lot from that experience.",
+          "sentence_order": "20-6"
+        },
+        {
+          "sentence": "I didn't mention that the Professor of the Systems Analysis course I took was Richard M Dougherty, who went on to be the Head Librarian at UC Berkeley and worked on computerising that catalog.",
+          "sentence_order": "20-7"
+        },
+        {
+          "sentence": "He also went to the University of Michigan and worked on computerising that catalog, again as Head of the Library System.",
+          "sentence_order": "20-8"
+        },
+        {
+          "sentence": "He was very good at showing the thinking, but I've gone off on a bit of a tangent here, a common Irish quality!",
+          "sentence_order": "20-9"
+        }
+      ]
+    }
+  ],
+  "current_utterance": [
+    {
+      "speaker_name": "Julianne Nyhan",
+      "role": "Interviewer",
+      "utterance_order": 21,
+      "sentences": [
+        {
+          "sentence": "It's good because you're making clear the many ways that you encountered the technologies and the many attitudes that existed towards it.",
+          "sentence_order": "21-1"
+        },
+        {
+          "sentence": "You're also making clear that it shouldn't only be seen in the context of sterile professionalism ...",
+          "sentence_order": "21-2"
+        }
+      ]
+    },
+    {
+      "speaker_name": "Judy Malloy",
+      "role": "Interviewee",
+      "utterance_order": 22,
+      "sentences": [
+        {
+          "sentence": "Well, I think that helps me answer your question a little bit.",
+          "sentence_order": "22-1"
+        },
+        {
+          "sentence": "Yes, there was a complete gap between my work as an artist and writer, and my work with information.",
+          "sentence_order": "22-2"
+        },
+        {
+          "sentence": "I noticed the same thing with José Antonio Villarreal.",
+          "sentence_order": "22-3"
+        },
+        {
+          "sentence": "I don't think he talked to too many people in the company about what he was doing, except maybe me.",
+          "sentence_order": "22-4"
+        },
+        {
+          "sentence": "He may have but I'm not sure the researchers would have known what José was writing because it was not what you were expected to convey on the surface.",
+          "sentence_order": "22-5"
+        },
+        {
+          "sentence": "For instance, if you were a woman you couldn't wear pants into the company and you couldn't have long hair at that time.",
+          "sentence_order": "22-6"
+        },
+        {
+          "sentence": "I had to buy a wig!",
+          "sentence_order": "22-7"
+        },
+        {
+          "sentence": "I had long hair, this was the late sixties, and you couldn't wear short skirts, you couldn't even wear your hair in a ponytail.",
+          "sentence_order": "22-8"
+        },
+        {
+          "sentence": "You could have a bun, but that's too library!",
+          "sentence_order": "22-9"
+        },
+        {
+          "sentence": "Initially, we were commuting from a tent (I say we because my then husband was also working in a technology company) and we had to get dressed and look professional.",
+          "sentence_order": "22-10"
+        },
+        {
+          "sentence": "The tent was up sort of about 5,000 ft in the Rocky Mountains.",
+          "sentence_order": "22-11"
+        },
+        {
+          "sentence": "There was a long drive down, so you'd have to take a shower at the camp-site, which was not a very convenient shower.",
+          "sentence_order": "22-12"
+        },
+        {
+          "sentence": "This illustrates the contrast and the two lives that I led.",
+          "sentence_order": "22-13"
+        },
+        {
+          "sentence": "And I don't think it's totally uncommon, I mean reading what Willard said in his interview (see McCarty et al. 2012), I could see that contrast again.",
+          "sentence_order": "22-14"
+        },
+        {
+          "sentence": "It's interesting that he picked that up pretty quickly and used it in his own work.",
+          "sentence_order": "22-15"
+        },
+        {
+          "sentence": "But yes, I think what you are saying is actually a part of why I didn't connect the technology with my work.",
+          "sentence_order": "22-16"
+        },
+        {
+          "sentence": "I connected the thinking with my work, I learned a lot from the thinking.",
+          "sentence_order": "22-17"
+        },
+        {
+          "sentence": "I was interested in information.",
+          "sentence_order": "22-18"
+        },
+        {
+          "sentence": "But in the idea of actually using computers some of that attitude may have lingered.",
+          "sentence_order": "22-19"
+        },
+        {
+          "sentence": "Using computers meant I had to go into a big room with a huge computer, I had better look nice and if all the cards go into the air ....",
+          "sentence_order": "22-20"
+        },
+        {
+          "sentence": "This was, perhaps, a gender issue.",
+          "sentence_order": "22-21"
+        },
+        {
+          "sentence": "My colleague, Jo Sanford and I were the only women using the computer room.",
+          "sentence_order": "22-22"
+        },
+        {
+          "sentence": "In some corners, we weren't completely welcome, and that was just the kind of thing that would happen to us.",
+          "sentence_order": "22-23"
+        },
+        {
+          "sentence": "So that was part of it.",
+          "sentence_order": "22-24"
+        },
+        {
+          "sentence": "The other part was access, I didn't have access to a large computer system.",
+          "sentence_order": "22-25"
+        },
+        {
+          "sentence": "It's not totally true that I wasn't thinking about my work in that way, because what I had learned about organising information systems and my focus on how information describes technology came from that experience (see Malloy 2014).",
+          "sentence_order": "22-26"
+        },
+        {
+          "sentence": "But no, it wasn't until we got the old Apple II running in my home that I touched a computer.",
+          "sentence_order": "22-27"
+        },
+        {
+          "sentence": "Occasionally in the 1970s and early 1980s I ran computer searches for companies that I was working for, so this is true only of my own creative work.",
+          "sentence_order": "22-28"
+        }
+      ]
+    }
+  ]
+}

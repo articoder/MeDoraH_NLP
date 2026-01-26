@@ -1,0 +1,422 @@
+[
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "Julianne ",
+    "role": "Interviewer",
+    "utterance": "My first question is about your earliest memories of encountering the computer or computing technology?\n",
+    "order": 1
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "John ",
+    "role": "Interviewee",
+    "utterance": "I thought I was going to be involved in computing from what was, for me, pretty darn early days actually. In the early 1960s, when I was in my early teens, I was already buying the few books on computing that were available to people like me. I started off with an interest in circuitry. So my earliest books about computing had little diagrams with transistors connecting together to make OR and AND gates. At one point I found a book about FORTRAN in what was then called \u2018programmed learning\u2019 style.Footnote1 I was absolutely captivated by it; I was absolutely fascinated. I remember reading it on the bus on the 100 mile trip going from Toronto to my home, which was in Gravenhurst Ontario. I was absolutely deeply engrossed. I became so excited that I started writing code on a piece of paper because there was no possibility (this was in the early 1960s) for someone like me to have access to a computer. Relatively early on, let\u2019s say about 1965 or so, I was sent by my high school to the University of Waterloo, which was very active in the early days of Computer Science. Computer Science was part of their Mathematics Faculty and so I got my hands on these large machines, like the 1000 other students who were sent to do some programming on cards. I was just over the top and desperately excited. I knew I wanted to go to the University of Waterloo and, at that time, I was quite convinced that that was going make my career. I began to fantasise about computing, even at that time. I remember walking home one night in the dead of winter, cold, cold, cold, and thinking about personal computing. I had this vision of a little suitcase-like box that the computer would be. You\u2019d open it up and the screen would be there and I was thinking at the time about animation on it. I had absolutely no idea how it would be done \u2013 in almost every level I had no conception of it. But I was excited about the potential for that kind of thing.\n",
+    "order": 2
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat was it about FORTRAN that excited you so much?\n",
+    "order": 3
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nNow that\u2019s an interesting question. I\u2019ve stayed interested in programming as an expression of my interest in computing. So, I think the ability to make the machine run to a certain extent independently of me, you know, the automaton side of it, must have been what really interested me. I wasn\u2019t that interested in the type of mathematical problems that it was traditionally being applied to: FORTRAN is a programming language for doing mathematical calculations. And, in the end, I wasn\u2019t actually that interested in Math, but I was definitely interested in the automaton nature of it.\n",
+    "order": 4
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nDid you go on to take formal training?\n",
+    "order": 5
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nYes I did. I did what was classified as a Bachelor of Mathematics degree at Waterloo but it was really in Computer Science. This was still in the days of the great big mainframe. You\u2019d walk into the faculty building and the first thing you saw was this lowered floor and this big IBM 360 mainframe sitting down there, with less computer power that what you have on your mobile phone today. But this monster machine was clearly a centre for how Waterloo thought of themselves in this field. I did an undergraduate degree and I expected to go on to do a Masters and perhaps a PhD. I was accepted onto the Masters programme in Computer Science at the University of Toronto. But suddenly there\u2019s a change and I decided I was going to do music instead. So, I went to a small music school and did an undergraduate degree. These 2 degrees didn\u2019t really fit well together. I didn\u2019t do any more education because, I think, I didn\u2019t know what to do at that point.\n",
+    "order": 6
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd how did you encounter Humanities Computing?\n",
+    "order": 7
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nI was in Waterloo\u2019s Co-op programme which alternated terms with work experience. You had to get a job for 4 months and then you studied for 4 months, and so on. It lasted for 5 years (ordinarily it was a 4 year degree but it included this extra time for work experience). I started off working for Ontario\u2019s Department of Highways, but after a few terms of that I decided to switch and I went to the University of Toronto to work. In the end, my computing degree was the route by which I got the permanent job. So, my first contact with the Humanities Computing community was in the late-ish 1970s. I was, by then, working at the University of Toronto in their Computer Services Department, the UTCS it was called.\n\nMy boss said \u201cwe have someone who\u2019s interested in generating a concordance\u201d. The text was by Diodorus Siculus. They had tried to set up the Oxford Concordance Programme (OCP; see Hockey interview, Chap. 6). I\u2019m sure it would have done a perfectly good job but for some reason or other they couldn\u2019t make it run adequately. It couldn\u2019t handle the amount of material. So they asked if I could just write something to do the job. So I did and it ran. I remember the occasion. It ran all day on the machine, it was time shared, so other people had to run their tasks at the same time. They had to dedicate a printer to this Key Word in Context (KWIC) concordance and they got so many boxes of paper that they filled up the back of a station wagon. Because they didn\u2019t ever want to run it again it was printed on paper with carbon copies attached, so you got two copies. They had this big machine to pull the paper all apart, so it was really an industrial-strength type of computing.\n",
+    "order": 8
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat year was that roughly?\n",
+    "order": 9
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nProbably the very late 1970s. I called the software Concordance Generating System (COGS)Footnote2 and it went on to do a number of similar jobs for other texts at the University of Toronto. That was the point that I became interested in this. I became involved in the Text Support Team because this was the time when the personal use of computers was starting (initially as time sharing applications and mainly on the big mainframes. This is still before there was any real availability for personal computers to do anything very serious). The department was therefore interested in time sharing rather than personal word processing. My group was given the job of preparing training for that and supporting people who were taking it up. It was called the Text Group. I could also do other stuff apart from just focusing on teaching people to type paragraphs and get them to appear properly on paper. Clearly there were faculty there who were interested in this [e.g. COGS] being provided, so it made some sense to continue it.\n",
+    "order": 10
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nDo you have a sense of how many there were of those faculty ?\n",
+    "order": 11
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nI don\u2019t think there was a vast number, probably six or seven. The University of Toronto is a large operation, but this was a tiny, tiny number. An important one was Ian Lancashire who you\u2019ve probably had mentioned to you before, and I think Ian\u2019s really important for DH in Canada. Among the English-speaking people (Quebec is also important and completely separate) many have had some connection with Ian at one time or another. I never worked for Ian. I was always in the computer centre. He managed to get an operation called the Centre for Computing in the Humanities (CCH) started (see, for example, Gouglas et al. 2013). He convinced IBM Canada to provide some funding in support of this and convinced the faculty to support it, which was quite an achievement in those days. So, he was one person and he became quite interested in teaching it to his students and we worked together to package up things like COGS, and so on, for students to explore.\n\nI was never really a Humanist you see. My music degree did give me some insight into the types of issues that were going on in the Humanities, but at this time I was very interested, as I think many people were, in the interactive potential of computing, I\u2019d been trained in a batch world, where there was virtually no interaction of any kind; yet, there\u2019s no other way to think about computing nowadays! But I became very interested in what interaction would mean and in what software to support that would be like. And so the natural application for me was really the text analysis work that I had done. Ian was also quite keen on this; by this point people like Willard [McCarty] were around at Toronto as well. And there was a group of people, mainly in the French Department, Russell Wooldridge comes to mind and Ed Heinemann, both of them quite interested in text, and what we now think of as text analysis approaches.\n\nThere were other people too whose names I can\u2019t remember at the moment. So there was a small group of people and there was some opportunity and the university made it possible for me to work in this area at that time. At a later point it became obvious that my department, the computer centre, began to think of themselves just as the provider of email services and cables and it became much more difficult to work in this way. But this was still a time when the work was thought of as a bit of a partnership between Computer Central Services and the academic.\n",
+    "order": 12
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nYou must also have encountered Humanities people who weren\u2019t using computers in their work but who were watching what was going on. Do you have a sense of what their views may have been of such developments?\n",
+    "order": 13
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nThere were several different groups, of course. At the beginning of this time no one used computers for word processing because the idea didn\u2019t yet really exist. When it came along it took a long time for people in the Humanities, in particular, to see why they should even be interested in word processing. I mean, you wrote something up on a piece of paper and you gave it to your secretary who typed it up. So why in the world would you want to do it yourself? That was part of an understandable position. In those days you could hardly imagine computing having any useful role in the day-to-day life of an academic, even for word processing. Email, of course, was still years in the future. So there was that group and they gradually began to understand the virtue of word processing. I remember the early days and people sitting in front of the computer. I was head of the Word Group and so we did courses on things like WordPerfect and, in time, Windows-oriented software. I remember people coming in and looking at the mouse and picking it up and pointing it at the screen and clicking the button, thinking that\u2019s how they interact with the mouse. They had no conception of any of this sort of stuff. So there was that group.\n\nThere was also the group of people who had a natural resistance to the whole approach that text analysis represented. I think that\u2019s still an important issue today because many scholars find the text analysis approach deeply uncomfortable. I\u2019ve often heard it labelled as a New Criticism approach. That\u2019s a damning comment. They also say that \u201cwe just don\u2019t think that way about our text anymore, we don\u2019t see a place for that type of work\u201d. So there was that resistance as well. As I said, I think that\u2019s understandable and it has continued even up until now.\n\nMost academics then, and still today, just have a rather benign indifference to it. They use technology all the time: they use word processing, email and the web but they don\u2019t really think of it as having much to do with what they\u2019re actually doing in their research. Sure, the web is terrific, they can get at material that otherwise would have been a real struggle to get to see. And email is terrific, you can contact someone quickly and easily and get their comments. Word processing is terrific but all that doesn\u2019t really matter to what they\u2019re doing. Whereas with text analysis, it is a more fundamental disturbance of how you look and think about the text you\u2019re working with and I think most people just don\u2019t see it as relevant to what they\u2019re trying to do.\n",
+    "order": 14
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nDid you feel that you were very much working at the cutting edge? Or how did you view your work?\n",
+    "order": 15
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nWell I was becoming aware of this. I mean, I wasn\u2019t an academic and I\u2019ve only recently actually been given an academic contract here at King\u2019s. For almost all of my professional life I\u2019ve not been an academic. So it took me a long time to grow into thinking in those terms at all.\n",
+    "order": 16
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nYou\u2019re now a Senior Lecturer, right?\n",
+    "order": 17
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nYes, I am now Senior Lecturer. I\u2019ll probably die a Senior Lecturer because I\u2019m getting up towards retirement. Before that, of course, I was more and more academic-like in the way I was thinking. King\u2019s and the Department made it possible for me to begin to put myself in those things. But in those days I don\u2019t think I was thinking in those terms particularly. Regarding COGS, for example, I didn\u2019t think of it so much as cutting edge as just a job that we could do. I guess I was interested in being on the edge of what was being thought about in terms of interactive computing, but I didn\u2019t think of myself as writing papers about it and publishing them in an academic journal. That was far from what I saw myself doing in those days. So I wrote things and had fun and tried out ideas there.\n\nI started to work on the TACT system in the mid-1980s. For me, TACT (Bradley 1989) was as much an interest in exploring what it meant for a piece of software to be interactive because I already had COGS and I played around with OCP. I looked at some other pieces of software like that. I knew roughly what their parameters were, what they did and how they understood text, but none of them were interactive. I thought, \u201cwell, what happens if you make it interactive? How does that world change?\u201d TACT was, more from my point of view, some thinking about the interactive side of it, what it meant for you to have the stuff on your own personal machine and to see things happen on the screen as you typed. That was mainly where my interest lay. I was thinking of myself then as maybe cutting edge, to use your expression, because I knew that there were other pieces of software around that were doing it. There was, for instance, WordCruncherFootnote3 from Brigham Young University. To be frank, I thought I could do something more interesting from an interactive point of view. I thought I could make the interaction more sophisticated and the connections between things more so that people could exploit the interactive nature rather more than what they had done. Of course they were first and I was second so it was a little easier to re-think it, perhaps. I was thinking about the new-ness of this for sure at that point.\n\nIt was a challenge, in a way, because the computers in those days were so tiny. It\u2019s hard for us to imagine nowadays. TACT was written for an original DOS-based IBM PC, my first box to come out of this partnership that Ian Lancashire had negotiated. Ian had provided me with my first personal computer because the computer centre didn\u2019t think I needed one in particular! So he provided me with one and I got involved very early.\n\nI purchased the Turbo Pascal programming language and I was forced to explore writing software in it because there was no more professional language available to people like me. Anyway, that was easily available on these tiny machines with 640 K memory, that\u2019s probably 10,000th the size of the memory available on a modern computer, probably substantially less than what you have on your phone. Everything had to be squeezed into that. There was no disk in the first place and then when disks first came out 20 MBs was a huge disk. I got one of those with great pride.\n\nI mean we can now be, as programmers, quite profligate with memory. There\u2019s always something there, you can load more data into memory and keep it there and play around with it without worrying. That was certainly not the case with this machine. I had to work very hard to figure out how to squeeze as much out of it as I could.\n",
+    "order": 18
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nHas that increase in memory meant that programming can be less of a puzzle?\n",
+    "order": 19
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nI think there\u2019s been several developments that have made programming more practical, such as Moore\u2019s Law, the simple increase in power of the machine. I\u2019m not quite sure I can bring Moore\u2019s Law properly to mind at the moment but I think it was mainly around computing speed but in addition it had some impact on memory and disk space. All these things have grown 1,000s-fold from these early personal computer days. And they have liberated you from having to fuss so much about the machine at that level.\n",
+    "order": 20
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nSo did you feel that you were free to explore ideas even though you were doing things like developing COGS, for example, for somebody with a particular purpose? What was that interplay between doing service work, to an extent, and the intellectual task of building text analysis software?\n",
+    "order": 21
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nWe had quite an enlightened management for many years at Computing Services. I said that eventually it was squeezed out and I would have thought it became difficult to manage. By the 1990s it became more difficult to do such work. To a certain extent, the vice-President of the university in charge of computing made a deliberate decision that work like TACT was no longer work that the computer centre was supposed to do. And so that was deeply discouraged and I had very little involvement in TACT in those later years.\n\nBut even then, if I may say, that was the time referred to in Geoffrey Rockwell\u2019s interview (Rockwell et al. 2012) when we used to push our chairs together and explore our ideas around text analysis. He came to us from Philosophy, he really was a Humanist. We did that partly in our lunch hour, so working conditions were not entirely free. But we also were in a position to think very freely about the training that we were offering to faculty at the University of Toronto. We developed a HyperCardFootnote4 course and that, as a service, gave us the freedom to think out of the box about what we were doing. My unit by that point became what was called the Centre for Academic Technology (CAT). This was a really grand name for what was a relatively modest operation but the name gave us the opportunity to think very freely because academic technology, what was that? It could be almost anything and we had a great deal of freedom then. I don\u2019t think we did a lot that interested our Science people because they had already launched off from academic technology on their own and they didn\u2019t need us particularly. But we were doing interesting things, I think, within the Humanities and with CCH, to some degree informally, to develop the agenda there.\n",
+    "order": 22
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nSo would it be fair to say that you felt a good deal of intellectual freedom?\n",
+    "order": 23
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nYes, I think I did at that time; it gradually was taken away. And it\u2019s probably the reason why eventually I left and took up my position at King\u2019s. Once again in this department, it was not quite the same, but there were similar elements of freedom here. So yeah, I think Toronto had a good environment then, partly between the CCH but UTCS also had an openness to that type of thinking for a time. So it was a good time to be engaged in the DH and I think part of the reason why Toronto became important was this possibility to work, from the perspective of our bosses, a little bit outside the box.\n",
+    "order": 24
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nHow did you encounter the Humanities Computing conference community?\n",
+    "order": 25
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nThe first conference that everyone thinks of these days is Toronto, the first joint conference between the ACH and the ALLC (see Hockey et al. 1991). CCH was the centre of it. I mean this again was Ian Lancashire\u2019s hard work to sell the idea that it should be in Toronto. It was a really exciting and interesting event. We had a substantial crowd and really interesting people came to speak.\n\nBut I had had some conference experience before that. As I said, before that I wasn\u2019t really thinking of myself as an academic. I was sent to the service-oriented conferences that IBM ran every year for a few years, but I didn\u2019t say anything at them for some time. Eventually it became evident that we had things to say. But my first experience of a more academic conference was in South Carolina, 1987, and it was part of what was called the International Conference on Computing in the Humanities (ICCH; see Oakman 1987). I vaguely remember that Ian Lancashire suggested that I go and speak about my thinking about TACT, this was before TACT really emerged. I remember giving a paper on that at the conference.Footnote5\n\nI don\u2019t think I gave a paper at the Toronto conference but I did run workshops on TACT. That was quite an experience. 100 people came to a couple of workshops, you\u2019d look way out and down into the distance and you could see people sitting right at the back playing around with their computers. It may not have been 100 but it seemed like a vast number of people to me at the time. I was a little overawed by the interest in it. And after that, starting with the Oxford conference in 1992 (see Hockey and Ide 1996), I began to go regularly and give my own papers. Shortly thereafter Geoffrey Rockwell and I did some joint papers at the Paris conference in 1994. We gave several papers there on topics ranging as far as visualisation (see, for example, Bradley and Rockwell 1994). So my conference involvement began probably then and I think I began to get to know people within the conference community more at the Paris conference than in Toronto because I \u2026\n",
+    "order": 26
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nDid you form an impression of the community, say at that Toronto one, did you find it changing as time went on?\n",
+    "order": 27
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nThe Toronto one was really an exciting experience. Everyone was really fired up about it. I mean, Ted Nelson was not invited but he came. He was an enormously influential and important figure in personal computing and Hypertext (see, for example, Barnet 2013). He was a key thinker in those days and he heard of the conference in Toronto and just came on his own and they found a slot for him to talk and the room was packed with people. So there was that type of excitement that I don\u2019t think I have ever seen at any of the other conferences, even though I think they were really good events. But we obviously felt that we were really into something quite extraordinary.\n\nOf course, the DH conferences were academic, so academics, or people who wanted to act academically were there. They were talking about the potential impact of technology on scholarship. They weren\u2019t all academics, it wasn\u2019t a pure academic field and still isn\u2019t today. The DH is an interesting mix of people, some academic, and some rather less so, because the agenda that\u2019s being worked on is not a purely academic one, I think. The other conferences I would go to really were service-oriented, it was the computer centres going and talking about how to run your IBM mainframe better or that kind of thing. Occasionally there would be an interesting talk. I remember I went to one by Douglas Engelbart who came and spoke about his work on Augment (see Engelbart 1962). This would have been way back, the mid-1970s I guess. So his main splash was in the very late 1960s (see Doug Engelbart Institute n.d.) but he was still working on this and still had an extraordinary set of ideas. He came and talked, and I was desperately excited. I went to his talk, it kept me awake at night I was so excited by what he was talking about. So the service conferences were not just about optimising the running of your IBM 360, but that was really what most people came for. Whereas the academic conference had much more of this type of excitement around new ideas and sometimes radically different ways of thinking about what computing may be doing.\n",
+    "order": 28
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWould you agree with this observation that one often hears about the community being friendly and welcoming?\n",
+    "order": 29
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nI\u2019ve always found it so. I don\u2019t know why that is exactly. I\u2019ve occasionally seen evidence of professional jealousies, and so on, in the community. I know a few places where that\u2019s an issue, but it certainly hasn\u2019t, in my opinion, dominated the business. I think to a certain extent, maybe less so in the last couple of years, we were all evangelists. We were out there selling this idea and in the same way as when someone comes up and knocks on your door from one of these cults, they\u2019re going to be friendly. I think there was some of that in what was going on! But that\u2019s only a part of the story. For many people there was less at stake. For the more senior people it could be fun, it was obviously a side track to their main research aims where they continued to develop their careers. They would give a paper but it wasn\u2019t necessarily on their main research (or a primary conference in their field where it was not necessarily so much fun to go and talk about their work on e.g. a particular writer to those in their community of people who were also studying that topic.) The DH was not like that and so you could be much more relaxed and it didn\u2019t affect your career so much if in the end it didn\u2019t amount to so much. So senior people could do that and there were a good number of people there who were like that. It\u2019s hard to explain why junior people were also, in my experience, very friendly. It\u2019s always been a very friendly group.\n",
+    "order": 30
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd what of people who especially influenced you?\n",
+    "order": 31
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nWell, because I was a developer I didn\u2019t have the same sort of stream of influence. Ian Lancashire was an important influence for me in terms of how he make things possible at Toronto in the way that he did. Of the well-known names, Susan Hockey and her writings were influential for me to a certain extent. I also met someone called Paul Bratley. I think he\u2019s disappeared out of the community, but he was important at the University of Montreal and an important player in some early thinking around text analysis. He was French, so he was working in French, with French texts and so on and some of his writings were important to me. I was gradually beginning to track research in interactive and personal computing and some of the important people there were important to me. But I didn\u2019t know them personally, I mean I was far too small fry to meet any of them. But nonetheless, well, Engelbart\u2019s an example. When Steve Jobs left Apple the first time and set up his own company and created the NeXT computing company, Toronto managed to get (they didn\u2019t pay for it) a free NeXT and it was plopped down in the computer centre, near my office. I got the chance to play with it and I got desperately excited about the way in which software development was thought of on the NeXT. So that was influential to my thinking at the time too and I don\u2019t know if that\u2019s quite the type of influence you\u2019re thinking of but it\u2019s what it was nonetheless.\n\nBut it wasn\u2019t so much direct person to person contact as it might have been if I had been more of a conventional academic and thought of myself as a substantial player in the field, the way that academics with careers do. Certainly that\u2019s very much a part of how we\u2019re groomed to think of ourselves these days here in King\u2019s. You\u2019re nothing if you\u2019re not up there with the big names, so it seems. But I certainly didn\u2019t have that view of myself at the time. However, I was starting to read fairly broadly, the journals that I was collecting go back a long way. I was a fairly avid reader of them all along and so I was at least aware of what the big names in the field were doing.\n",
+    "order": 32
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nGreat stuff. Would you say a little bit about Pliny?\n",
+    "order": 33
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nSure, thank you for asking because I don\u2019t think Pliny has had that much impact. I started off in the text analysis world and I thought I would be continuing to develop in that world. But when I started to talk to academics about TACT, I remember going and talking to some Sociologists at the University of Toronto, it became very evident that the whole text analysis agenda was just not what they were doing or interested in. Many academics were in a similar position. They became interested in computing and in thinking about how the computer might help them with their scholarly work in the Humanities. However, they\u2019d look at the text analysis stuff and they\u2019d say \u201cit\u2019s not a tool for me\u201d. I rarely talked to them but when I did it seemed that there was a fundamental disconnect between what they were doing with their materials and what TACT or other tools of its kind did. I think I can speak more broadly and say that\u2019s still true today.\n\nSo, this would have been the mid-1990s, and I began to think. Because I was an evangelist too, I was keen on getting computers into humanists thinking. What could I do that would actually be relevant to what they do? I faffed around with this for a long time because it was difficult to find out what Humanists actually did. Even today there\u2019s not a nice neat description, partly because I think it\u2019s in the nature of the Humanities that so many different approaches are possible. But even in these early days I began thinking about note taking and reading as key activities. This starts to appear in my own writings so I guess I was thinking about it around the early 1990s. I was invited to a few conferences on text analysis. That was when I had started to change my thinking; and my papers, I think, were big disappointments to them because I wasn\u2019t talking about text analysis anymore. I\u2019d already begun to shift in the direction of thinking about what traditional scholarship was like and how computing could help it.\n\nPliny was meant to be a response to this. It was about note taking, it was about juggling your notes once you\u2019d taken them to help you develop a richer understanding of the material and to help you formulate concepts. I like to think of it as Engelbartian software. Engelbart had a quite sophisticated understanding of how computing would support intellectual work as a tool that became almost invisible. The main work would still be done in your own head, it was still you, the person using the machine and doing the work that was the main driver. The machine just helped you do it better and more efficiently. And this was a key idea of his for computing. He wasn\u2019t so interested in splashy new visualisation systems, not that he resented that but he didn\u2019t think that was the way forward. And Pliny was meant to be (notice the tense) a tool that works that way. I\u2019m holding the notes I printed from Pliny for our talk today. My thinking was about taking notes as you read, juggling the notes until new ideas emerge, and then the process of codifying and organising that until you have enough to write a paper or do something with it. Pliny was meant to fit in that sort of world. It had a bit of a splash at the beginning, and I was delighted when the Mellon Foundation provided me with some funding to continue to support it. That was an acknowledgement that there was something interesting in it. But there\u2019s obviously something wrong with it too because it didn\u2019t get much attention in my view. I think it\u2019s largely disappeared out of people\u2019s thinking. But I still work away at it. The paper I\u2019m currently working on is trying to figure out what Pliny has to say on the connection between scholarship and the semantic web. I tend to explore the building of things inside the Pliny framework to help me understand these questions better.\n",
+    "order": 34
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nBut it is a perennial problem of DH, isn\u2019t it? These beautiful artefacts are built but then they tend to have a relatively limited take up outside of the community, and sometimes even within the community. And we don\u2019t seem to be coming so much closer to solving that really, do we?\n",
+    "order": 35
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nNo, we haven\u2019t. I mean you can certainly track papers back to the 1960s where people are saying, \u201coh it\u2019s going to transform scholarship!\u201d and it never has. I think it\u2019s darn hard to get people\u2019s attention. I think of how long it took for people to understand the virtue of word processing within the Humanities! I know because I was there and watching how long it took people to come around to the idea. It took 15 to 20 years or so.\n\nWell, we\u2019ve had even longer than that with our rather traditional DH thinking about the place of tools and it just hasn\u2019t had the impact. I think it\u2019s partly misdirected and although perhaps the path of Pliny is also misdirected I think it would be really useful for us to think more broadly about what the right direction might be. Do we still want to be an evangelical kind of community where we still think we have something? Is computing important? The digital world is important in a more fundamental way to what the Humanities programme is. Right now, the big push is big data and the various funding bodies have funded big data a couple of times now,Footnote6 I think we\u2019re now on the third round of it being funded. I have no objection, I think that some interesting work is being done, but I also think that it\u2019s just going to be a niche. It has to be a niche activity for most Humanists. Why these funding bodies can\u2019t try something else, as another big new thing and fund some exploratory work in other areas too, I haven\u2019t quite understood.\n",
+    "order": 36
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nSo you mentioned when you were a teenager that you had this fascination with automaton as a theme. Do you think that\u2019s been a theme that you have traced in your work?\n",
+    "order": 37
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nThat\u2019s an interesting question. Automation or algorithmic thinking was very much a part of the text analysis work that I did because, you know, you develop a new approach to having a machine transform some material. It\u2019s almost batch-like. You give the text to the computer, it does something to it and some new insight hopefully comes out as a result of it. But with modern computing you don\u2019t have that sense of your interaction with your machine. When you turn on your laptop it feels much more like Engelbart\u2019s perspective on the thing, where you don\u2019t really notice what the machine is doing and you keep it on rather a short leash. As you type it does things but after you stop typing it stops doing things. This batch idea is rather foreign to how much computing is now thought of and I think I\u2019ve moved there now too. The interactive interest that I had in the early days \u2013 I think the interactive side of things has continued to interest me more than anything \u2013 it was non-automaton-like. Instead, it\u2019s much more the machine as some type of partner to your own interests. I\u2019ve been much more interested in that and I think that interest started way back in the early days of word processing. So no, the automaton side of things, it\u2019s not an interest for me. I think robotics, for example, is fascinating but it\u2019s not something I\u2019ve taken up very much.\n",
+    "order": 38
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nSomething I also wondered about is why you wanted to be an evangelist for the use of this machine in the Humanities? What was it that you saw?\n",
+    "order": 39
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nWell, I\u2019m not a natural evangelist. I could never possibly go up and knock on people\u2019s doors and I find the equivalent of that in the academic world very difficult. But of course, I\u2019ve always had work that had this element in it. In the early days in the computer centre we were promoting the idea of using the machine in new places where it hadn\u2019t been used before. From the earliest days it was a brand new thing that had to find its place and is still working its way through society. To a certain extent, I\u2019m more comfortable with trying to say new things in papers and I\u2019m happy enough to give formal presentations if I have a script and I\u2019ve prepared it. Knocking on people\u2019s door though is not a natural thing for me, but it should be. I think it\u2019s still very much a part of where the DH community is and therefore where I am, to a certain extent.\n",
+    "order": 40
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd what was it about the computer that made you think \u201cI want this to be accepted, I want to help it to be accepted, I want to build some of the foundational software for this discipline\u201d?\n",
+    "order": 41
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nWell, perhaps it\u2019s as difficult to tell you why I decided computing was my thing as it would be for a violinist to tell you why a violin was their thing: it just caught the interest somehow. I mean I was older than most violinists start playing the violin. This just happened in my early teens but I was still vulnerable to this, if that\u2019s the right word. I simply discovered my thing and I don\u2019t think I\u2019ve ever really found a way of putting it into words. I mean, I mentioned automation, the thing you picked up. Well, even now that was a spur of the moment thought about what it was that appealed to me. So I got into computing just because it fascinated me and, no more than a violinist can tell you why it\u2019s the violin and not the oboe, or not working outside of music altogether, I think that\u2019s part of what happened to me.\n\nThe Humanities side of it was also serendipitous. I guess I was never such a wonderful mathematician but it was obvious for me to go into the mathematical side and therefore into the scientific side of computing. I might have managed reasonably well in the right Computer Science programme. I was quite into it but I never really got that into it beyond my undergraduate degree. So who knows what would have happened or not? The Humanities happened by accident, to a certain extent, but even then in the earliest days, as I said, we were already interested in exploring the potential of bringing the machine into that world. At Toronto we had, with the CCH and so on, a framework for exploring this and for trying things out. We really were explorers; we thought of ourselves as explorers there, we really were. You had Ian Lancashire, you had Willard McCarty, you had Geoffrey Rockwell involved, you had several really interesting people at the time and all sorts of interesting students too. It was quite an exciting business, as it was when I came here. I mean the aim of the Centre for Computing in the Humanities (now the Department of Digital Humanities (DDH) at King\u2019s in the beginning was to promote computing in the Humanities so I just had to be working in this area.\n",
+    "order": 42
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nDid you ever feel that working with computers was a disadvantage or held you back in some form or other? Did you ever have, let\u2019s say, negative experiences as a result of choosing this area?\n",
+    "order": 43
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nWell, sure, there have been some negative experiences. I think the answer to that question is related to how career-oriented you are. \u201cWere you held back in your career?\u201d is usually what the question means. I was struck by Willard McCarty\u2019s (2014) comments at the opening of his Busa award presentation where he said he never really thought of it in terms of a career, things just happened. He moved because opportunities turned up and I think I was more like that actually. I never really thought in a career-oriented way. I certainly never, for most of my time working in the university world, thought of myself as an academic. And so, it\u2019s probably true that trying to find my place as a non-academic in our field, which has a strong academic component, was sometimes a problem. You know it was very easy for people who weren\u2019t interested to dismiss the types of things that I could offer \u201cthat\u2019s just not relevant to the type of great work that I\u2019m doing\u201d. And you\u2019d see that sometimes.\n",
+    "order": 44
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAre you referring to fellow DH people or mainstream Humanities?\n",
+    "order": 45
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nI don\u2019t know what DH people think; I\u2019ve never had the feeling from them. Within the Department of Digital Humanities at King\u2019s we\u2019ve certainly had a few projects where clearly our supposed partners were not interested or engaged in significantly in re-thinking what they are doing because of what the computer enabled. They just clearly were not, but that was pretty rare among the people we worked with. Harold Short, of course, was very much interested in trying to find a way to develop a field that had an academic or a research agenda, but wasn\u2019t always run in the conventional academic fashion. The department started off trying to find ways to operate outside of the academic mainstream but connected with it too and I think it\u2019s been a real struggle. And we\u2019re now becoming normalised. The moment at which it became possible for me to become an academic was the moment when that vision began to obviously disappear because I could have continued doing most of what I do without being on an academic contract too. I mean, I\u2019ve done it for years after all. But the College wanted us to be official, nowadays it\u2019s the academics and the non-academics. That wasn\u2019t so clearly the case when I was first here.\n",
+    "order": 46
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nDo you think it\u2019s a missed opportunity?\n",
+    "order": 47
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nI think that it shuts off certain types of discourse and certain types of possibilities. The piece I wrote for Harold\u2019s Festschrift tries to describe how I thought CCH was operating under Harold\u2019s direction, how I thought non-academics like me were operating and the possibilities that existed for their intellectual development and how universities had to find some way of respecting and fostering intellectual work that wasn\u2019t conventionally academic. I think Harold was exploring that in how he ran King\u2019s CCH (see Bradley 2011). But that\u2019s no longer possible to do.\n",
+    "order": 48
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nNo, I suppose, not with the REFFootnote7 and \u2026\n",
+    "order": 49
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nExactly. I filed for the RAEFootnote8 as a developer last time but I wouldn\u2019t have been able to this time. So, there you are!\n",
+    "order": 50
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nThe final question from my side is about the participation of women in the field, your impression of how many women there have been or how well represented women have been and how that might have changed.\n",
+    "order": 51
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nIt\u2019s so obvious that academia in general has missed their potential for so long. I don\u2019t think we\u2019ve got it completely solved, even within our Department. Although I think there\u2019s still old white guys all over the place, many of our newer academic people are younger for one thing, that\u2019s bound to help, and I think we\u2019re much more gender balanced now, thank goodness. Long overdue!\n",
+    "order": 52
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAre there any points that I didn\u2019t bring up that you wanted to mention from your notes?\n",
+    "order": 53
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nWe didn\u2019t say a lot about the change when I came here and what a different sort of world it was.\n",
+    "order": 54
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nIt would be good if you would touch on that if you don\u2019t mind?\n",
+    "order": 55
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nSure. My post here was originally part of the computer centre. Harold Short\u2019s team was still part of the computer centre in those days at King\u2019s. Originally, my post was partly for the School of Law and partly for the Humanities School. It was very much a techie post, you know, setting up technology to serve the academic interests of Humanists and the academics in the Law School.\n\nSo I was much involved in building websites in the early days and there was not much scope for my own particular interests; but, Harold had a broader vision. He just had to take positions as they were. So it became evident that the way forward for me was to connect into the various types of project work that were going on. Much of that work had a quite different technical agenda to what I\u2019d worked on up until then. The earliest project I became significantly involved in was the Prosopography of the Byzantine Empire,Footnote9 which was already well-developed by the time I came to King\u2019s. It was being created on a mainframe and it was using relational databases for data storage. The design was already essentially finished and there was a change of technology shortly after I came but I was not significantly involved in that.\n\nWhat I was involved in for that project was thinking about how to publish the results. You had a very \u201cuser unfriendly\u201d interaction environment, non-web-based for the database and it clearly wasn\u2019t practical to publish the material that way. And so my original work was to think about how you could publish this. It became evident to me that you could take all the data and create a vast number of fixed webpages. A vast number for those days (they all fit on a CD now) but we managed to squeeze them all on to a CD and we took the data from the database and transformed them into a bunch of tightly interconnected webpages. And that\u2019s how the thing was published in the end, so my contribution was primarily thinking about that.Footnote10 From there I became clearly involved as the developer for the technical side of these various projects, so from there it was a relatively short step to think about the Clergy of the Church of England (CCEd)Footnote11 project and eventually the Prosopography of Anglo Saxon England (PASE) project.Footnote12 I became also involved partly when the design work was already done around the CRSBI (Romanesque Sculpture) project and CVMA (Corpus Vitrearum Medii Aevi), the Stained Glass project.Footnote13 I was involved in them technically in the early days and so my work was centred around web publishing and web application development. In those days it was very much a collaborative venture and my role was in developing the frameworks in which this stuff could be published. When I was first here I was keen on exploring the potential for Linux and so I was given a new desktop machine to work on, which was my official work machine. But the old one was still there, so I turned it into a Linux machine and set up a Linux web server on it and explored all that. I think I got Harold to see the potential of that because we really didn\u2019t have a place for looking at that sort of technology at the time. I thought I might be able to continue to work on TACT because I was still interested in TACT, but it became very obvious that, for a complicated set of reasons, some of them political, that was not going to be possible. So those sort of interests came back to me as personal interests later on as I gradually found that I had some liberty to explore them. But my early work was all heavily web application development really.\n",
+    "order": 56
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd what about the differences in the work cultures?\n",
+    "order": 57
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nBy the time I had left Toronto I had been given the responsibility of managing the media centre. So, I was responsible for the people who rolled the trolleys around and set up the overhead projectors in the rooms. This was deeply uninteresting to me. My job had been gradually dripping away into the management direction. The UTCS senior management couldn\u2019t figure out what I was actually good at and this was their best effort. So coming here was an enormous liberation. I wouldn\u2019t have come if my work in Toronto had not been continuing as it had. I was not interested in management and it was very obvious I was not going to be a manager and that\u2019s been confirmed over the years since.\n\nI saw the post at KCL over the internet. Willard McCarty had come the year before and I was deeply envious of his having left Toronto with, at that time, its lack of vision about what the potential of computing was. To come to a place where there was obviously potential and real interest in Humanities Computing \u2026 And I was obviously interested in that, at least from the text analysis perspective. I mean, I was really keen to get back to that and I thought I was going to when I came here first, and although it didn\u2019t turn out to be in my work here, this other work was really interesting too, as it turned out. So I felt enormously liberated and I was enormously thankful that I got the opportunity to do it. I applied to the post and Harold Short found a way of making it possible. I mean it was quite a thing, if you think about it. To hire someone from across the ocean for what was a non-academic junior post was quite extraordinary, I think!\n",
+    "order": 58
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd so you didn\u2019t look back since?\n",
+    "order": 59
+  },
+  {
+    "speaker_name": "John Bradley",
+    "speaker_raw": "JB",
+    "role": "Interviewee",
+    "utterance": "\nNo, I\u2019ve never regretted it. I mean Toronto had many good things and I\u2019m not by any means denigrating it as an academic institution or anything like that. But for me personally, it didn\u2019t know what to do at that time. I think it\u2019s part of the North American culture problem that there\u2019s the academics who the place is for and the non-academics who are just there to serve them and that\u2019s the only vision that there is. And I think we\u2019re going that way here in the UK too, to some extent. There was the loss of that third classification for posts, \u2018academic-related\u2019 about 10 years ago and its continuing still today. But at that time, when I came here that was not yet in place. King\u2019s didn\u2019t have such a clear-headed view of who was an academic and who wasn\u2019t, so I really was privileged to come here, I have no doubt about that.",
+    "order": 60
+  }
+]

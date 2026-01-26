@@ -1,0 +1,345 @@
+[
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nMy first question is about your earliest memory, in any context at all, of encountering computing or computing technology?\n",
+    "order": 1
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nMy first direct encounter with computing technology was in the Summer of 1967. I think I must have been 13, and some programme in the public schools offered, I think, a programming course. It was offered through some programme that I was involved with and a friend of mine and I said \u201cok, we\u2019ll go to this programming course\u201d. I went for a couple of weeks but then my friend didn\u2019t want to go anymore and I couldn\u2019t get a ride so I stopped. But I had 2 weeks of exposure to FORTRAN and they started by giving a test to distinguish people who had already learned a bit of programming from people who didn\u2019t.\n\nThey obviously hadn\u2019t instrumented it very well because they asked questions about what parenthesised expressions would mean, and whether in a+b*x the multiplication or the addition would bind more tightly. I\u2019d had no computing experience at all but just the sense of the expression was obvious and they said \u201coh, you must have had programming\u201d. So they put me in the advanced class and I couldn\u2019t figure out anything because I didn\u2019t know anything about computers or FORTRAN.\n\nAfter that, as they say \u201clange Zeit gar nichts\u201d [nothing for a long time]. The next contact would have been as a graduate student. Well, sorry, occasional things, computing, punch cards. One had periodically at that point in the 1960s, 1970s and 1980s, during my school and university time, encounters with organisations that used punch cards and so forth for organisation.\n",
+    "order": 2
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhy did you want to take the course in programming? That first course?\n",
+    "order": 3
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nIt sounded intellectually challenging, I think. I don\u2019t remember more than that.\n",
+    "order": 4
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nThat\u2019s very impressive for a 13 year old!\n",
+    "order": 5
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nI think I was in seventh or eighth grade. The next time I remember thinking at all seriously about computing was, I believe, as a graduate student. I was a Medievalist and I ran across a collection of essays, actually it was the Proceedings of a small conference held at the University of Toronto called \u2018Concordances and the Dictionary of Old English\u2019. It was a planning conference that the Dictionary of Old English (DOE) people had organised to talk about how computers might help them write a new DOE (see Cameron et al. 1970). As a Medievalist I had spent a lot of time, as everyone I knew in Medieval Studies or Classics did, transcribing glossary entries on to index cards and transcribing locations of occurrences of words on to index cards so I could sort them and re-sort them and analyse them and think \u201cwhat\u2019s the meaning of this word as opposed to that word? How many different words are used for \u2018King\u2019 in Beowulf? What are the nuances of the different words? What\u2019s their etymology? And so forth\u201d.\n\nSo you spent a lot of time leafing through Klaeber\u2019s glossary (1936) and the idea that you could generate a concordance automatically seemed like magic. I remember talking to other people about it and mentioning it to my advisers. One adviser said, \u201cI wouldn\u2019t get involved with that if I were you\u201d and I said, \u201cwhy not? It seems like the obvious thing to do, it seems like the way to build better tools for Medieval Studies\u201d. He said, \u201cyeah, but everybody who gets involved in computers are pretty soon spending all their time doing computer stuff and not Philology\u201d. I always thought that in later years he must have told his students the same thing and pointed to me as an awful example: \u201che\u2019s never gotten a job in Philology\u201d, as indeed was the case. The other adviser, on the other hand, handed me a shoe box and said \u201cthis is the bibliography of the Elder Edda [Old Norse poems that are primary sources for Scandinavian mythology and heroic legend] since 1953. The goal of this project is to computerise it and your job is to figure out what that would mean and then do it\u201d. I learned a lot, I made a lot of stupid, ignorant mistakes and I learned a lot from my stupid, ignorant mistakes.\n",
+    "order": 6
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nDid you have some access to formal training by that point?\n",
+    "order": 7
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nWhen he handed me that shoe box I went down to the computer center and signed up for their \u2018Introduction to the Computer Center\u2019 course and all the other courses that seemed relevant. Of course, as you go through one course you learn about other things that are relevant and so I had the kind of short course training (3 or 4 hours), that was offered by computer centers at that point. It may still be offered by some computer centers somewhere, although probably not so much anymore. But I have never had any formal academic training in computing.\n",
+    "order": 8
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd have you been for the most part self-taught? What sort of strategies did you use?\n",
+    "order": 9
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nAs a beginning user, first at Stanford, where I was at graduate school, and then at Johns Hopkins University, where my wife got a job and I had access to computing, I was still finishing my dissertation. I was using mainframes and because we didn\u2019t own a terminal or a modem, using a mainframe meant that you had to go to a terminal room on campus. And if you go to a terminal room often enough you see who\u2019s there all the time and you can get some notion, just by glancing at their screens as you walk past them to a free space, what kind of thing they\u2019re doing. And you overhear people talking and so forth and eventually you get some notion in a completely informal way of people who are sharp and who may help. And if you walk past somebody and they do something clever with the system editor, you can say, \u201cwait, how did you do that?\u201d They\u2019re often happy to show you. So, in fact, a lot of the practical interaction with computing seemed to me to be conveyed through a kind of oral tradition. You could learn parts of it by reading documentation but I spent a lot of time studying documentation and I found a lot of it completely impenetrable because it was not in my vocabulary. So I learned a lot by looking at other people and from that sort of informal helping. I often have wondered, how do people learn that kind of thing now, when they don\u2019t have to go to a terminal room? In some universities, I guess, PC pools still exist and presumably still have similar social effects but I don\u2019t know.\n",
+    "order": 10
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nI think it\u2019s an interesting question. I wonder, especially as DH gets more established and formalised, about the types of differences in modes of learning that will follow, and the implications of this.\n",
+    "order": 11
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nOf course, at some point I did set out to teach myself computing more seriously, in particular, in 1985 when I got my first job at the Princeton University Computing Service. I said \u201coh my God, I\u2019m in a computer center, I\u2019ve got to learn about computers, I\u2019m responsible for advising Humanists on the use of computers, I have to understand this.\u201d So I spent a lot of time going to the library and reading about databases and compilers and so forth. And compilers always seemed interesting, partly because they were magic and partly because they involved something called parsing and that sounded like language processing and that sounded interesting. So I have, I believe, many of the odd unevennesses in my knowledge that you find with some autodidacts because they go very deep in some areas and they are completely ignorant about some other things.\n",
+    "order": 12
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nSo, you seem to indicate that you didn\u2019t get a job in Philology because you had pursued computing to the extent that you did. Is that interpretation correct?\n",
+    "order": 13
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nThe causality could be, is probably, a far step. But it is true that, as I normally put it to myself, I never got a job. Certainly as I conceived of the world as a graduate student, no job I\u2019ve ever had has counted as a job. I never had a teaching job.\n",
+    "order": 14
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nBecause you were forced on this professional route?\n",
+    "order": 15
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nYes, yes, the only reason to study Old Norse as far as I could tell was to become a professor of Old Norse.\n",
+    "order": 16
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWill you talk a little bit about the process of looking for \u2018the job\u2019, so to speak, and how it was that you ended up in the Computer Center and your emotions and thoughts about that?\n",
+    "order": 17
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nSure. I was finishing my dissertation and starting to look for jobs. At the time I was finishing my dissertation or doing my dissertation universities in the US and Canada were producing probably, judging from Dissertation Abstracts, I think there were on average 10 Medieval Germanists a year, give or take, including Old Norse. And there were maybe two or three tenure track jobs that mentioned Medieval German as a potential area of specialisation. So I had friends in graduate school who applied to every position in English or the language that could possibly fit for them and they were sending out 200 applications. None of the Germanists could find 200 institutions to write to, so the chances were very great that the large majority of people getting PhDs in the kind of field that I was in were not going to get academic jobs.\n\nOf course, I always expected to be the exception. I was finishing working on my dissertation and a friend of ours who had done her degree at Johns Hopkins, where my wife was teaching, phoned us one Sunday. She said \u201chave you read the New York Times today? Have you looked at the Education Supplement?\u201d And we said \u201cno, we haven\u2019t got it today\u201d and she said, \u201cstop what you\u2019re doing, go out and get the Times, get the Education Supplement and turn to page 13. There is a job there with your name on it.\u201d I said \u201cok.\u201d We went out and got a copy of the New York Times and the Education Supplement had an ad from Princeton University Computer Center looking for a Humanist, someone with an advanced degree in the Humanities and knowledge of computing, and it did certainly sound interesting, so I applied (in the summer of 1984, I believe).\n\nI felt a little guilty about applying because I was very close to finishing my degree and I was applying for academic jobs. I knew that if they hired me and I started there at the computer center and then one of my academic jobs came through I would be there for 6 months and then I would leave. I felt a little bit guilty about that but I said if they ask me, maybe I\u2019ll tell them and maybe I won\u2019t, but if they don\u2019t ask I\u2019m not going to tell them. So I applied and got the job; they may have assumed more computing knowledge than I had, or I may have talked a good game, or they may have been perfectly clear that what they needed was somebody with an advanced degree in the Humanities who was willing to tolerate learning about computers and that they certainly found in me. I felt they were taking a risk but I was very grateful to them. And then, of course, the academic jobs didn\u2019t come through. I don\u2019t know who those people hired but that is probably just as well so I don\u2019t resent person X or person Y!\n\nSo I found myself at the Princeton Computing Service, actually when the woman who became my boss called to offer me the job she said, \u201cso you\u2019re finishing your dissertation, how close are you? How long is it going to take for you to finish if you don\u2019t come here?\u201d I estimated a time and she said, \u201cfine, we\u2019ll start you after that. It\u2019s important for me to get this decision made but it\u2019s not important that you start next week, you should finish before you come.\u201d She had long experience with people being almost done. Of course, I missed my self-imposed deadline. I was probably 2 weeks away from finishing my dissertation when, in fact, the time came for me to start work and so it took 6 months because I was starting a new job and I could only work nights and I was distracted. And, of course, I thought it was 2 weeks and it was probably a little more like a month. But I finished my degree.\n\nThen I applied for more jobs, feeling again a little guilty, but at some point your degree is old enough that the first question any research committee is going to ask (or at least this is what I thought) is \u201cwait, he got his degree this many years ago, he\u2019s never had an academic job, there must be something wrong with him\u201d. You begin to look like damaged goods. So at some point I stopped applying for teaching jobs and I made my career in computing. Of course, in 1985 and 1986, the years that I was at Princeton, I attended the predecessor of the DH conference, it was the International Conference on Computers and the Humanities, it wasn\u2019t even called ACH/ALLC yet.\n",
+    "order": 18
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWas that the first conference that you attended in this field?\n",
+    "order": 19
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nThe first that I attended was in 1985 in Provo, Utah. I heard a talk from the President of the ACH, Nancy Ide, who I think talked about teaching programming to Humanists. Since I was trying to learn programming that sounded like an interesting topic. She said she was writing a textbook and I asked if I could see the draft of the textbook. She said \u201csure, on one condition\u201d; I said, \u201cwhat\u2019s the condition?\u201d She said \u201cyou must send me comments on every chapter that you read\u201d and I promised to send her comments. In her book PASCAL for the Humanities (Ide 1987) she teaches students how to write PASCAL and the ongoing example is essentially an interactive concordance programme. And at some point she says \u201cnow, when you display the \u2018hits\u2019, the occurrences of a given word to the user, you probably want to tell them what chapter it\u2019s in, so you need some way to tell when a new chapter starts so that you can keep your counter\u201d. And I wrote in my comments \u201cis there a standard way to do that because if there is you should probably mention it\u201d (I had the importance of standardisation hammered into me at my job) \u201cif there\u2019s not a standard way, then isn\u2019t this one of the things that you were asking about in the ACH General Meeting? You said \u201cif there was anything the Association should be doing and we\u2019re not let me know\u201d- if there\u2019s not a standard way for people to keep track of where chapters begin then isn\u2019t that the kind of thing ACH should be doing?\u201d She wrote back and said, \u201cyou know, you\u2019re right, it is, and in fact there\u2019s a small group of us that\u2019s working towards some sort of text encoding format or guidelines. Would you like to be involved?\u201d And she and I started talking about this; I never saw any of these other alleged people. I don\u2019t think they were a fiction but I think they weren\u2019t actually getting any forwarder, whereas Nancy Ide and I, somehow we clicked. And so, beginning in 1987, we were working on the TEI and that essentially became my career.\n",
+    "order": 20
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nBefore I ask you about TEI, I want to ask you for your impressions of that first DH conference that you attended. People often say that the field was remarkably open and that there was very little animosity. Is that what you found?\n",
+    "order": 21
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nYes, and in fact, by and large, that was mostly my impression and I remember other people saying that as well. In fact, I remember thinking, being a little alarmed at how effusive the welcome from some people was at that conference in Provo. I remember thinking, this field must be very small if someone who\u2019s here for the very first time can seem so important or impressive; is there something wrong here? Of course, looking back, I realise it wasn\u2019t me that was impressive, it was having someone there from Princeton that was impressive, because they were mostly fanatics or people who felt that they had been through a long trip in the desert. Here was someone from Princeton interested in computing in the Humanities. I suspected that felt very good.\n\nSo it was, in fact, an open and welcoming community (the excessive level of interest and enthusiasm was from a few people who were clearly looking for people to later serve on the ACH Executive Committee and stuff like that, fill bureaucratic slots.) In general there were a lot of interesting people, there were a lot of helpful people and there was a lot less of the competitiveness that I was familiar with from the MLA and a great deal less of the kind of competitiveness and aggressiveness that I\u2019m familiar with from conferences in other fields like Computer Science or Linguistics. So, yes, I found it a very friendly, welcoming field. The fact that the President of the Association, Nancy Ide, was willing to talk to me as a complete stranger and to take my suggestions and comments on her book seriously, and to involve me in the planning for this idea that later became TEI: she was a very strong embodiment of that openness.\n",
+    "order": 22
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nGiven that we\u2019re at DH 2014, I should ask whether you think more competitiveness and \u2018typical conference behaviour\u2019, so to speak, is beginning to enter these meetings.\n",
+    "order": 23
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nI don\u2019t know. I hope not because I always liked the way the community interacted. It is true that at the final banquet of a conference, I guess it was a couple of years ago, I was in a small group and there was a sort of stranger there and it was her first DH and we said \u201coh how did you like it?\u201d She said, \u201cactually I hated it, I couldn\u2019t find anybody to talk to the entire time, I felt completely isolated.\u201d We felt stricken, but one of the things that can happen is, people who have been here for a long time have people that they only see at these and so it\u2019s easy for either cliqueishness or the appearance of cliqueishness to develop. If we care about making it not happen it\u2019s something that one has to watch out for. As regards professional competitiveness, I don\u2019t know. I haven\u2019t seen anything that looks like strong signs of that but I might not notice because of my professional situation. Some of the things that people compete for are not things I compete for so I wouldn\u2019t notice some forms of competitiveness.\n",
+    "order": 24
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nLet\u2019s go back to the beginnings of TEI. How did you set about this?\n",
+    "order": 25
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nWell, of course, any project as big and complicated as the TEI has many roots. I know some of them, I know the ones that I was involved with and I\u2019ve heard about a few others. I talked with Nancy Ide a little bit after that meeting in Provo in 1985, I guess, in possibly 1985 or 1986Footnote1 when the MLA was in Chicago and she came in to give a talk. I remember going downtown and listening to her talk and then chatting with her a bit before she headed for the airport and talking about how this should be done. She said \u201coh there should be some sort of advisory committee and then somebody should write up some guidelines, as a sort of style book or something\u201d. I don\u2019t remember exactly how she put it, but she had some notion of a project to produce some suitable result.\n\nThen in 1987, when I had just left Princeton and my wife and I were living in Chicago, I went to the ICCH Conference in Columbia, South Carolina as a sort of independent. Two things happened: I gave a talk (Sperberg-McQueen 1987) about support for Humanities Computing from central computer centers, because that was my experience and some group of people, Willard McCarty at its centre, organised an evening get-together for people in positions like the ones Willard and I were in, in some sort of centre supporting Humanists who wanted to use computers. It was out of those discussions that the idea of a mailing list and Humanist came (see Nyhan 2016), and one of the people who came to listen to that discussion was Helen Ag\u00fcera, the Programme Officer from NEH (see Chap. 10). As the discussion and as the evening wore on, and the discussion continued, at some point she got up to leave and she walked out. I ran out after her and I tapped her on the shoulder and said, \u201cI\u2019m sorry, I know this must happen to you all the time but I have to say you guys made a terrible mistake when you rejected so and so\u2019s project to catalogue machine-readable datasets in the Humanities\u201d. Helen, god bless her heart, was calm and polite and accepted the comment and didn\u2019t react as she would have had every right to react. That was my first encounter with Helen Ag\u00fcera.\n\nThere were several people from NEH there [in Columbia], and the next day or the day after, I fell into conversation with one of them during a coffee break. He said, as a way of making conversation \u201cso, what are the important things that need to happen next in computing in the Humanities?\u201d And I said, \u201cwell, for example, I think that there needs to be a standard way to represent text because so much of the work that people are doing is, in fact, textual analysis or involves electronic text. There is no standard way so you can\u2019t reuse texts and there are various problems\u201d. He seemed interested so we continued talking and the bell rang and the sessions began and I said \u201cexcuse me, please wait here for just a minute.\u201d I ran and I found Nancy Ide and I tapped her on the shoulder and I said, \u201cI don\u2019t care what you\u2019re doing, I don\u2019t care who you\u2019re talking to, you must come here now!\u201d And she came and we talked to this guy from NEH and developed the idea of actually moving forward an idea that had been kind of vague and nebulous before. On the way back, on the flight out of South Carolina, Nancy was seated next to Helen Ag\u00fcera and continued the conversation.\n\nWhen we got back to our respective institutions I found an email for me from Nancy saying \u201cget out your pen, we have an application to write\u201d. Helen had said \u201cwell, the next application deadline is the fall but we have a sort of special fund for emergency short-term situations that shouldn\u2019t wait, so make an application for that.\u201d So we wrote a quick application to fund a planning meeting and involved Lou Burnard and David BarnardFootnote2 and Nancy Ide and me. I think those were the four authors. And we made this off-cycle NEH application and NEH came through with funding to host a meeting in Poughkeepsie, at Vassar (where Nancy Ide was and still is) to plan the idea for some sort of text encoding standard. That was the beginning, in some sense, of the TEI (see N. M. Ide and Sperberg-McQueen 1995).\n",
+    "order": 26
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nHow much of your time did TEI take up? Did you have any problems with release from your job? How did the logistics of it work?\n",
+    "order": 27
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nDuring that planning phase, it was work that I snuck in, in the corners. After the planning meeting the idea took hold that ACH, ALLC and the Association for Computational Linguistics (ACL) should jointly co-sponsor this effort. We formed a Steering Committee with two people from each of the organisations. One of debts I owe to Paul Fortier is that although he was the vice-President of ACH and Nancy Ide was the President and they had seniority and I was firmly expecting that the two ACH representatives to the Steering Committee would be Nancy and Paul. Paul said, \u201cno, I think you\u2019ve done the work, you should be the second representative.\u201d Later, at the first TEI Steering Committee meeting in Pisa in December 1987, we realized we were going to need somebody to edit the material and it would take some time. Nancy said, \u201cI\u2019m coming up for tenure, I can\u2019t do this, how about you?\u201d And Susan Hockey said, \u201chow about you?\u201d\n\nSo, after the meeting in Pisa, I went back to my Computer Center and I told the Associate Director \u201cthere\u2019s a group putting together a grant proposal; if it\u2019s funded they are going to want to buy half of my time to do work on this grant project\u201d. He said \u201cyou know, you\u2019re responsible for maintaining the library information system, so from my point your job is to keep the library happy. If you think you can do that in 20 hours a week and use the rest of your time for this grant project, that\u2019s fine with me. If you can keep the library happy in 6 hours a week and use the rest for this grant project, that\u2019s fine with me too. And if you can keep the library happy by working 80 hours a week, and spend the rest of your time on this grant project, I\u2019m ok with that too. But the moment I get a call from the library, I\u2019m not ok. If they\u2019re not happy, I\u2019m not happy. If they\u2019re happy, I\u2019m happy, I don\u2019t care how you manage your time.\u201d So on paper it was half-half and then as the time went on and went on and went on, at some point the TEI Steering Committee said \u201cno, let\u2019s buy 100 % of your time\u201d, so for a while I was full time on the TEI, in the quixotic belief that that would make it go faster! One of the reasons that I ended up as the American EditorFootnote3 was that it was easier to buy my time because I was in a staff position and staff positions are, from an administrative point of view, fungible in that way. Faculty positions are much harder to handle that way, so it would have been harder from an administrative point of view for Nancy to do it, for example. So by not having a \u2018real\u2019 job, I managed to make myself available for what became my real job for 10\u201312 years of my life.\n",
+    "order": 28
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nDo you have regrets that you didn\u2019t get this so-called real job?\n",
+    "order": 29
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nSometimes, sometimes. My wife was appalled when she realised that as late as 10\u201312 years after I got my degree it still bothered me. She said, \u201cyou gotta let it go\u201d and I said, \u201cif someone loses their leg do you expect them to forget that they ever had a left foot?\u201d It doesn\u2019t bother me all the time, but I remember telling her at the time, this was probably the mid-1990s, \u201cno, there\u2019s not a day that I don\u2019t think about it\u201d.\n\nAn interesting thing happened in the early 1990s though, so it\u2019s no longer true that there\u2019s not a day but the thought crosses my mind that I would rather have had an academic job. Sometime in the early 1990s I taught a number of workshops in T\u00fcbingen with Winfried Bader, who worked for Wilhelm Ott (see Chap. 4) in the computer center there. Winfried had studied Theology, he did his doctorate and he was working at the computer center while looking for a real job or something. When his time at the computer center ended (he had the sort of time-bounded position that one sometimes ends up with) there were no academic jobs to be had. He ended up going to the German Bible Society, where he ran their electronic publishing programme for a time. And we were chatting, together with his successor in Ott\u2019s organisation, and she asked how it was going and he said \u201coh, you know, for a long time I was in mourning for my academic career but I\u2019m getting over that.\u201d His way of formulating it was \u201clangezeit habe ich der Universit\u00e4t nachgetrauert\u201d [I mourned the university for a long time]. This comment managed to click something in my mind and I recognised that the concept of mourning was a useful way to organise that part of my psychic experience, and, having identified it as mourning, it became easier to deal with. So I have had greater acceptance of the loss of that academic career.\n",
+    "order": 30
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nI don\u2019t want labour this point too much but I\u2019m just really interested to know what exactly it is that you feel that you lost by not having this academic position? You\u2019ve made a seminal contribution to DH. So by doing that what have you lost that was equivalent to losing a leg, a part of you?\n",
+    "order": 31
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nMy ambition, as a student of German Medieval languages and literatures, was to be a great Medievalist. And the shortest, punchiest formulation of it that I can think of, the kind of thing I used to tell myself, half as a joke but half in seriousness, is that my goal was to make the world forget about Andreas Heusler or Karl Lachmann, the way a student of Mathematics might have the goal of making the world forget about Galois. No one\u2019s going to make the world forget about Galois, even a new Galois will just be a second Galois. And no one is going to make the world forget about Karl Lachmann or Andreas Heusler, but the ambition to have that kind of position in the field and achieve that kind of work, to be able to do the kind of work on German verse history that Heusler did, or the kind of editions that Lachmann did.\n\nSo one concrete thing that I lost, that I have lost, yes, I guess that\u2019s the right tense, is the ability to devote my professional life to the problems that I spent those years preparing myself to work on. Of course, in many ways, it was a better than even trade because, as I say, no one is going to make the world forget about Andreas Heusler. You can be extremely good, and the times are not the same, so it\u2019s not really an option, because you can\u2019t now have the same influence on German Medieval Studies as Heusler once did. DH is young, you can have that kind of influence. It\u2019s a smaller field but the ability to be here as close to the beginning as I was (not at the beginning, the beginning was long before, but as close to the beginning as I was), the ability to serve in the TEI, in the development of XML, those are opportunities that were, well as I say I was lucky, they came to me in large part by accident. I was the one whose day job counted for least so it was easiest for me to do the editorial work that happened on the TEI.\n\nIt happened again on XML; the reason Tim Bray and I were the lead Editors on the XML Working Group was that he was a consultant and I was working in a Computer Center and both of us were willing to neglect our day jobs. There too, I had a different manager but we had an equally memorable conversation about this activity. I went to my manager and said, \u201coh, they\u2019re starting a Working Group at W3C and they\u2019ve asked me to participate, may I say yes?\u201d and he said \u201chow much time will that take?\u201d I said, \u201cwell, there\u2019s supposed to be a one hour call once a week and then there\u2019d be some email\u201d and he said, \u201cok\u201d. Now I know all that he said was ok because I remember thinking hard about it later. He didn\u2019t say \u201cok, if it\u2019s only 3 hours a week you can do it\u201d. He didn\u2019t say \u201cok, you can spend so and so many hours a week on it\u201d. He said \u201cok, you can do it\u201d. Of course, the little bit of email turned into something like 40 hours a week of reading and writing email in the development of XML.Footnote4 I fulfilled my obligations to the Computer Center, I keep detailed time logs and I know what time I spent on the university projects and I didn\u2019t cheat the university. But a lot of my colleagues were fairly unhappy with the amount of time I was spending on that project.\n",
+    "order": 32
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat were the main differences between working with the W3C on XML and working with the Humanities Computing community on TEI, even if that\u2019s probably an artificial distinction that I\u2019m making.\n",
+    "order": 33
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nSure, they were two projects that absorbed a lot of my effort and attention for a long time so it\u2019s a good question. As a project the TEI worked hard to draw in as many people, as many stakeholders as possible. We had a fairly broad Advisory Committee and fairly large Working Groups in the initial phase of the TEI to try and get as many different voices as possible and people to feel responsible for it. I think that helped a great deal with uptake, but one of the consequences of having so many different people from so many different directions involved, and so many of them being academics, was that it took quite a long time. I think we expected it to take 3 years and it was, in fact, seven before TEI P3 (Sperberg-McQueen and Burnard 1994) came out.\n\nThe XML work was much less exploratory, much less new, in some sense, and the group was much smaller and more cohesive. The chair of the XML Working Group, Jon Bosak, had had extensive experience in standardisation and he had developed a set of rules of procedure that had a number of unusual properties. One was that membership is limited, there will be 12 members of this Working Group and no more. Strictly speaking, for bureaucratic reasons within the W3C, the group of 12 was not the Working Group, it was the Editoral Review Council. Working Group membership was open to any member of the W3C but the Working Group was a much larger and very important discussion body. But the decisions were made by the Editorial Review Board. Membership of this was essentially controlled by Jon with the proviso in writing that any member of the Editorial Review Board could be removed by the unanimous vote of everyone else, the point being, as Jon put it more than once, that the reason to have such a clause was so that you don\u2019t need it. The interesting thing is that if you talk to people who were involved in some of the same earlier standardisation efforts as Jon, and you mention that clause, they\u2019ll say \u201coh that\u2019s the blank clause\u201d and they fill in a name and they all know who that was aimed at. And if you talk about that clause to later people who were in the XML Schema Working Group, which I co-chaired, they will say, \u201coh, that would be a clause to take care of blank\u201d and they will all name the same name. Interestingly enough, having that clause in the XML Working Group meant no one became so obstreperous as to unite everyone else against them.\n\nSo it was a very small group, it was very coherent, all of the people had years of experience using SGML and the whole goal was to make a sub-set of SGML that was small enough that anybody could implement. Anyone with a degree in Computer Science could write a parser in a week. And it would capture all of the stuff that we really cared about in SGML.\n\nIt was extremely difficult work but it was extremely compressed. We started our discussions at the beginning of September in 1996 and somewhere along the way we said \u201coh, you know what would be really nice? We should present the first draft of this at the big winter SGML conference, SGML \u201896 in Boston, which is at the end of November\u201d. Well, if we wanted to have 500 copies to distribute at SGML \u201896 in late November that meant we had to have the text locked by mid-November so that it could go to the printer. Boy does this feel dated now! John needed a couple of days to adjust the styling, so we had a date of mid-November. We started making actual design decisions around the first of October, and the first design had to be finished by the middle of November, so we had essentially 6 weeks and we went through the entire design space at a furious rate.\n\nWe started with a group of 6, later I think 7 and 8 different proposals to simplify SGML. Various people had said \u201cSGML is really complicated but if I define this subset it becomes easier to process.\u201d So we said \u201coh, ok, all of these people have essentially done first drafts of the kind of thing we want to do\u201d. I prepared for the discussions by comparing them and said \u201coh, some of them get rid of feature X, some of them keep it, some of them modify it in this way, some of them get rid of this\u201d. So every point at which those 6, later 8, proposals differed from each other and from the SGML spec was a design issue, and my idea was \u201cyou answer all those questions, you say what decision to make on all of these things and you have a design\u201d and that\u2019s the way we did XML. And so the design felt essentially complete within 6 weeks, which was much, much faster than the TEI. And then it took a year and a half to do the last 10 %. It was a well-spent year and a half, there were some things that were very useful and important that came out of it, including the xml:lang attribute [which indicates the natural language of the text it encodes] and case folding [unlike SGML, XML does not perform case folding on element names], and we cleaned up some other problems and so forth, but the speed dropped tremendously after those first 6 weeks. So, it was much more intensive work with a small group of people compared with a much larger group of people and somewhat slower work. But my relations with Tim Bray were in their way very similar to my relations with Lou Burnard. At the SGML \u201896 conference they were both there. We all three saw each other at the opening reception or something and I think I was standing talking with Tim and Lou came over and Tim said, \u201coh so this is the other editor you\u2019ve been spending your time with!\u201d\n",
+    "order": 34
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat about your relationship with TEI nowadays?\n",
+    "order": 35
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nI look on benevolently. When we first started the idea was this is a project, we\u2019ll produce it but then everybody goes home. And my mental model, at least, was very, very strongly influenced by the development of the Anglo American Cataloguing Rules (AACR).Footnote5 I knew about this because I hang around a lot with librarians, because I hang around in libraries whenever I get the chance, although I am not a librarian, I have no library training and so forth. But the first stage of the Anglo American Cataloging Rules were in use for a number of years and after a few years they did a revision project. I figured \u201coh, TEI could be something like that project, to make a version and then we\u2019ll use it for some years and at some point there\u2019ll need to be another one\u201d. As we were nearing completion of the original project plan with the publication of TEI P3 we had guidelines that were as good as we thought we could get them. Various people said \u201cno, it needs to be an ongoing institution\u201d and, to make a long story short, I thought \u201cthe one thing an ongoing institution has to do is survive the departure of the founding generation. If this is going to work, it can\u2019t be because Lou and I are working on forever to carry it.\u201d So I left, I thought that was the best thing I could do for the TEI. Partly purely organisational, the new consortium needed to be responsible, and as long as the guys who did the first edition were hanging around saying \u201cwell this is the way we did it in my day,\u201d the transfer of responsibility wasn\u2019t going to work. And in some ways whose details I no longer remember for sure, I remember thinking and saying when I announced to the Steering Committee that I was going to leave, \u201cI need something else to do, and the TEI needs somebody else to do what I\u2019ve been doing.\u201d And since the TEI is still alive, I think that it may have worked. At least I hope.\n",
+    "order": 36
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nIs there any other influences (people or systems) that you would care to mention?\n",
+    "order": 37
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nInfluences on me? Oh gosh. Well, in my work in DH, the biggest influences, the influences that come to mind are first of all the various people I worked with in the TEI: Lou Burnard, Nancy Ide, Susan Hockey and I haven\u2019t mentioned Don Walker but they were extremely influential in their ways. Hockey because it was from her book (1980) that I got the idea that there was a field of activity here, so I found her tremendously intimidating.\n",
+    "order": 38
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nYou would say Hockey\u2019s book was your first encounter with the field?\n",
+    "order": 39
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nYes. I remember encountering that book and reading it. I was in Baltimore in the basement of Johns Hopkins, the Eisenhower Library at Johns Hopkins, so that was after the encounter with the Toronto volume. But having gotten involved with computers I began to think, \u201cwell, okay, this is alright. I\u2019m learning to use the text editor, I\u2019m learning to use the computer in some sense for this bibliography of the Elder Edda. But in a sense all I\u2019m doing is using it as a typewriter. There has to be a way to apply it to more central notions of research that will make it a more interesting thing \u2013 because an electronic typewriter, well yeah, it\u2019s an improvement on an electric typewriter but at some level it\u2019s no big deal.\u201d So I read Susan Hockey\u2019s book as one of the many ways I used to avoid working on my dissertation. And then to be working with her I did find very intimidating. Exacerbated, I guess, by the difference in interactional style between Susan\u2019s rather reserved British \u2013 let\u2019s say English \u2013 personal style, and what I was used to. So that was an interesting challenge. But I owe Susan and Don a great deal. And of course as soon as we turn the tape off other names will come to me. Those will do for now!\n",
+    "order": 40
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nYou now have your own company, Black Mesa Technologies Ltd, so you\u2019ve worked in many different domains. I wondered, is it common for people of your generation in Humanities Computing to also have made the jump from the work that we do in Humanities Computing to the commercial sector.\n",
+    "order": 41
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nThere are at least some. Two examples come to mind that are probably worth mentioning for a Hidden Histories kind of project.\n\nThere was a man I never knew, named James Joyce. Not that James Joyce but another James Joyce, who I believe began as a teacher of English, and got involved with computers and ended up leaving the academic world. I believe he was doing Unix utilities of some sort. I heard about him and I learned about him because he died young and unexpectedly and I remember being at one of the conferences when Nancy Ide got word that he had died, and we sat and she talked about him. And he obviously had made the jump.\n\nI said there were two but more are coming to me as I go. The second example is John B Smith, who was Nancy Ide\u2019s, I believe he was her doctoral advisor, certainly one of her instructors. He was a Joyce specialist and he wrote a book on The Portrait of the Artist as a Young Man and in particular the thematic structure of The Portrait of the Artist as a Young Man (Smith 1980). In order to do the kind of close stylistic analysis that he wanted he wrote essentially an interactive concordance system called Arras (Archive Retrieval and Analysis System) (Smith 1984, 1985). One of the things Nancy Ide did as a graduate student was work on Arras, which was one of the ways she learned computing and programming. And Arras did the kinds of things you expect from an interactive concordance system. It was a mainframe system, command line driven and so forth, and it had a user interface that not many people would like today but it had some great facilities. Once Arras had parsed a text you could say \u201cI\u2019d like to see all the occurrences of the word fire with one sentence of context. Okay, now let\u2019s try the word fire with the sentence in which it occurs and two sentences following. Or one paragraph of context, or three words of context, or one word before and seven words after.\u201d So you could specify the context for display and for searching: \u201cI\u2019d like the word fire within two sentences of the word water, or within one sentence of the word ice and within two sentences of the word water\u201d. You could build up very complicated conceptual categories. Fire, flame hot, fiery, burning \u2013 all the things that appear that mark the occurrence of the theme you\u2019re interested in. And then you could say, \u201cnow show me the distribution of that over the text,\u201d and it would draw a little plot, a little ASCII art plot with pluses and dots, and segmenting the text into 2 % chunks because it had to fit on an 80-line terminal screen. By the time I met him, John B Smith had moved to the University of North Carolina, to the Computer Science Department, and had a sort of dual academic career from then on. He had a spin-off that did software development and Arras was commercialised, not terribly successfully, but we bought a copy at Princeton (it was the first time I ever said we should buy a piece of software and somebody actually laid out money based on my say-so.)\n\nAnd another example is an Anglo-Saxonist, I think of him as an Anglo-Saxonist, named David Megginson. That is to say, a man who did his doctoral work on Anglo-Saxon and has, I think, never worked academically since. He\u2019s been an XML consultant. Does a lot of work with newspapers and newspaper mark-up. I\u2019m not sure that\u2019s a majority, but it\u2019s a recognisable pattern.\n\nFourth example, again, someone I\u2019ve never known personally, but I encountered their work in the course of my own work. I believe he was a Slavicist at Cornell, or he did his dissertation at Cornell, and he, like me, was interested in the oral formulaic theory. And he, unlike me, was a computer programmer, or before me anyway. He wrote software to analyse Serbo-Croatian texts for formula content and estimate the formulaic density, which was a kind of study that A.B. Lord and Milman Parry had pioneered in the thirties through the sixties and so forth. They had applied this approach to a number of texts and used it as an argument that this or that text is transcribed from oral tradition. And this fellow, Rudy Spraycar, used computers to make an argument in that field. I think his argument was they\u2019re using the wrong measure, you know, \u201cif you define formulas that way, I can get a formulaic content of thus and such a percentage in something that we know was first written in writing [i.e., that we know is an instance of literate, not oral, composition].\u201d It was part of the long argument about whether the degree to which the presence of formulae indicate oral composition. An interesting technical topic but maybe I\u2019ll not go further into it now. But he left academic work and the last I heard of him he was working in an insurance company writing software for them. I\u2019m not sure, I never encountered him at one of these conferences, but the kind of work he was doing was certainly the kind of work that I would count as Computing and the Humanities or what we now call the DH.\n\nSo yes, a recognisable pattern. Some people managed, a minority in my experience, but some of the people who got involved with computers as graduate students managed to get jobs and go on and get tenure. Or people who got interested as assistant professors managed to get tenure. For a long time I had the impression that that didn\u2019t happen. For a long time my mental model was \u201cgee, there are two kinds of people here. There are people with tenure, all of whom got involved with computers after they had tenure, and there are people who don\u2019t have tenure.\u201d And after a while I began to think \u201cand nobody ever moves from one to the other because all the people who are here and have tenure had tenure before they got involved with computers.\u201d\n\nI think that\u2019s changing. I think that started changing some years ago when departments first started hiring people for their expertise in DH. But for a long time I had the impression that, I think the analysis is \u201coh, we\u2019ve got 200 applications, this person will be able to get a job outside of academia, so we don\u2019t have to feel guilty if we turn them away.\u201d And for that reason, if for no other, and of course there may have been others, like \u201ccomputers don\u2019t belong in our discipline,\u201d I always thought a visible affinity with computers was probably a kiss of death on a job application. I\u2019m glad to think that that is no longer the case necessarily, although I\u2019m still a little worried about the old mainline Humanities departments. It troubles me that all the people with computing expertise are in specially labelled DH programs. I think they ought to be in standard English and French and German departments too.\n",
+    "order": 42
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nThere is also the issue that you find people on very short-term contracts. I did this for a couple of years. It is really stressful and you start panicking already at 3 months in to the work and thinking \u201cwill I be able to pay for food, will I be able to pay my rent in a few months?\u201d\n",
+    "order": 43
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nThat was one of the things that worried me when the TEI Steering Committee said \u201cno, the TEI should be ongoing\u201d. That was one of the reasons that I said \u201cif the TEI is going to be ongoing, there will have to be a consortium to support it, because we can\u2019t live exclusively on grants forever, that\u2019s just not going to happen. Even if you write good grants, eventually the reviewers say \u2018they\u2019ve had their share, stop giving it to them.\u2019\u201d So I pushed for the formation of a consortium within the organisation.\n",
+    "order": 44
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nOkay, very final question. So had you secured this academic post, would you have used computing in your research?\n",
+    "order": 45
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nI believe so. But it\u2019s clear that I would not have been able to learn as much about computing. I would not have been able to use computers the way I now think they should be used, because I would have been too busy teaching my field. The huge luxury I had in my first job at Princeton was that I was at a computer center full of extremely bright, extremely knowledgeable people. They all loved to talk about what they did and how they did it. None of them took it amiss that I was such an ignorant git and they were all eager to help me learn and some of them flattered that I should be interested. So I was able to spend a lot of time reading about database theory and parsing and so forth and that\u2019s time that I would not have had as an assistant professor of German at any of the institutions that I applied for. So I think I would have been able to use computers with some effectiveness, but I don\u2019t see how I would have been able to learn as much as I have been able to learn, because eventually I realised that the application of computers to Humanistic research was the topic that had come and tapped me on the shoulder and said \u201cyou, pay attention to me.\u201d\n\nDorothy Sayers has a couple of her characters (Harriet Vane and Miss de Vine in Gaudy Night) have a conversation about recognising things that are of overmastering importance, that are of extreme importance, and have to be done right. And one of them says \u201cyes, but how do you know that something is of overmastering importance?\u201d And the other says, \u201cThat, I\u2019m afraid, is something you often know only when it has overmastered you.\u201d And Computers and the Humanities overmastered me.\n",
+    "order": 46
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nOkay, well I think that\u2019s a lovely point to end it on, unless there\u2019s anything that you want to add.\n",
+    "order": 47
+  },
+  {
+    "speaker_name": "Michael Sperberg-McQueen",
+    "speaker_raw": "MSMQ",
+    "role": "Interviewee",
+    "utterance": "\nThank you very, very much\n",
+    "order": 48
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nThank you.",
+    "order": 49
+  }
+]

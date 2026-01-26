@@ -1,0 +1,296 @@
+[
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWhat is your earliest memory, in any context whatsoever, of encountering computing or computing technology?\n",
+    "order": 1
+  },
+  {
+    "speaker_name": "Mary Dee Harris",
+    "speaker_raw": "MDH",
+    "role": "Interviewee",
+    "utterance": "\nWell, I go way back. I was in college in the early 1960s and I majored in Math. My mother at one point said, \u201cI guess you\u2019re going to be a Math teacher?\u201d meaning in high school. I said, \u201cNo, I don\u2019t think so\u201d and she said, \u201cWell, what are you going to do?\u201d I didn\u2019t have a good idea. So, I went to my adviser at the College and she gave me some books about careers in Mathematics and one of the things in one of the books was about computer programming. I didn\u2019t really know what that was. I\u2019d heard of computers but didn\u2019t know anything about them.\n\nLike I said, I was majoring in Math and the university where I was had no computer courses at all until my senior year. A friend of mine, who was in the Graduate School of Engineering, told me that there was a 1 hour course in FORTRAN 2 and because I was a senior I could take the graduate course. I signed up for that but didn\u2019t learn anything about the computer. All I knew was that you put cards in one side of this machine and you pushed a button and some more cards came out the other side of the machine. You ran them through another device to get the print out to see what had happened, and then you fixed the errors and went through that whole process again. But it was fascinating to me! I thought programming was kind of like playing a game or solving a puzzle, so I was excited about it.\n\nAt the end of my senior year I decided to go on to graduate school and get my masters in English Literature. With those tremendous credentials I got a job [1965\u20131966] working for IBM at the Jet Propulsion Lab (JPL) in Pasadena, California. I was trained for 6 weeks. The people they hired were smart, had logical ability and passed the programming aptitude test but none of them had any background in Computer Science because it wasn\u2019t taught anywhere. About 20 of us were in the class and we were then assigned to different places. I worked as an assembly language programmer out at the Jet Propulsion Lab on one of the early unmanned space shots to the moon.\n",
+    "order": 2
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWow!\n",
+    "order": 3
+  },
+  {
+    "speaker_name": "Mary Dee Harris",
+    "speaker_raw": "MDH",
+    "role": "Interviewee",
+    "utterance": "\n[Laughs] My background is a little different from most people in DH.\n",
+    "order": 4
+  },
+  {
+    "speaker_name": "Mary Dee Harris",
+    "speaker_raw": "MDH",
+    "role": "Interviewee",
+    "utterance": "\nWell, after I\u2019d worked for IBM for a while, my husband and I moved to Austin so he could go to graduate school. I continued to work for IBM for 1 year and then I went back to graduate school in English. I had had some uncomfortable experiences at IBM and I sort of swore to myself that \u201cI\u2019m never going to have anything to do with computers again\u201d.\n",
+    "order": 5
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nWill you say a little bit more about these bad experiences?\n",
+    "order": 6
+  },
+  {
+    "speaker_name": "Mary Dee Harris",
+    "speaker_raw": "MDH",
+    "role": "Interviewee",
+    "utterance": "\nAt IBM I worked as a Systems Engineer helping clients set up and maintain the software systems on their IBM computers. After a while, though, management wanted me to only teach classes, which I did. I would teach 6 week sessions starting with an Introduction to Computers, then Assembly Language Programming and finally Systems Programming. It wasn\u2019t anything terrible but it was not what I was interested in doing. It\u2019s kind of ironic that I ended up teaching Computer Science at the academic level, but that\u2019s very different from 6 hours a day for 6 weeks straight. Sometimes I would teach Computer Operations as well. I wasn\u2019t happy teaching and asked for more client work. My request wasn\u2019t granted so I decided to go back to graduate school.\n\nI went straight into an English Literature programme at the University of Texas at Austin (UT Austin) and concentrated on bibliographical methodology, among other things. My adviser took me over to the Humanities Research Center and we found about 200 pages of one of Dylan Thomas\u2019 manuscripts. The first thing that came to my mind after several years of saying I wasn\u2019t going to have anything to do with computers was \u201cif I put this on the computer, I can get it all sorted out\u201d. So that turned into my dissertation, Computer Collation of Manuscript Poetry: Dylan Thomas\u2019 \u2018Poem on his Birthday\u2019 (Harris Fosberg 1975). I got a lot of flack from the Department about my work. One of the graduate advisers swore that I was trying to destroy literature by using the computer.\n",
+    "order": 7
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nI found a note from you on Humanist (Harris 1990) where you discussed UT Austin and mentioned that you had taken a course there called \u2018Computers in the Humanities\u2019 led by Nell Dale.Footnote1 You mentioned that the English Department had no account with the computer centre and that you had to secure an additional grant to buy computing time. How do you think it came about that this class \u2018Computers in the Humanities\u2019 was taught in the Computer Science Department with no input from the English Department?\n",
+    "order": 8
+  },
+  {
+    "speaker_name": "Mary Dee Harris",
+    "speaker_raw": "MDH",
+    "role": "Interviewee",
+    "utterance": "\nI found out about the Computing in the Humanities class as I was working on my dissertation and trying to find out more about how to use the computer for this work. Nell Dale taught the class and became a lifelong friend. At that time she was in the Computer Science Department and working on her dissertation as a Computer Science graduate student. I don\u2019t remember the details of her dissertation but it had something to do with taking a text and trying to find the words that showed emotions of different sorts. In the class We used the SNOBOL language to do some programming. We learned about various things that were going on in Humanities Computing. Nell put me in touch with the field, and it gave me some confidence in what I was doing, that I wasn\u2019t the only person in the whole wide world who was trying to use a computer in literature.\n\nRegarding what I said about having trouble getting access to the computer, I ended up having to apply for a graduate student grant in order to get an account set up with the computer centre, because in those days the English Department had no account. I never knew why there was no contact between the English Department and the Computer Science Department back then. It had never occurred to any of them to think about using computers on campus. I\u2019m not even sure they used computers for keeping student rolls. So, I got a small grant that gave me enough money for the computer time (which was fairly minimal) and the computer paper. It all had to be charged to something, so that was how I handled that.\n\nLater, when I taught in Computer Science at UT Austin, the English Department had a program for combining English and Computer Science, but, of course, that was 30 years later.\n",
+    "order": 9
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd I noted you ended up paying for some of it out of your own pocket as well?\n",
+    "order": 10
+  },
+  {
+    "speaker_name": "Mary Dee Harris",
+    "speaker_raw": "MDH",
+    "role": "Interviewee",
+    "utterance": "\nI don\u2019t remember really, did I say that on Humanist?\n",
+    "order": 11
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nYes, you wrote, \u201cLater when I\u2019d left Austin and continued my work long distance from New Orleans, I had to haul two boxes of punch cards back to Austin, beg and borrow computer time from friends and acquaintances and then the final processing was accomplished by using some of the funding set aside for the computer processing of DH Lawrence and I later paid back the HRC out of my own pocket.\u201d (Harris 1990)\n",
+    "order": 12
+  },
+  {
+    "speaker_name": "Mary Dee Harris",
+    "speaker_raw": "MDH",
+    "role": "Interviewee",
+    "utterance": "\nI had forgotten about that. I think one of my advisers had a student who was working on the DH Lawrence manuscripts and had set up a fund after the initial grant that I had, we\u2019re talking a couple of years later. We had an interesting conversation about the fact that DH Lawrence gladly loans Dylan Thomas some computer funds, or something like that! It was all very scholarly but informal, I mean, it wasn\u2019t like anything was written down, I just remember the phrase. I don\u2019t think I was required to pay back the money that I\u2019d spent (it wasn\u2019t very much, probably wasn\u2019t more than $20) but I did just as a gesture of thanks for the help and because it had eliminated one more hurdle.\n\nAs I went along my goal became to change the world of Literary Analysis and research by showing people how to use the computer. Well, I got a lot of flak when I started publicising that. When I applied for jobs, I got mostly \u201cno\u201d. A couple of people said, \u201cThat\u2019s kind of interesting but we don\u2019t have a place for you\u201d. Now, you have to remember this was the early 1970s.\n",
+    "order": 13
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd when you talk about applying for jobs, do you mean academic jobs?\n",
+    "order": 14
+  },
+  {
+    "speaker_name": "Mary Dee Harris",
+    "speaker_raw": "MDH",
+    "role": "Interviewee",
+    "utterance": "\nAcademic jobs, yes, like as a professor of English Literature somewhere. But that didn\u2019t work out. In the meantime, while I was trying to finish my dissertation, I went to work for a small computer company in Massachusetts. I was living in New Orleans at the time. When I finally got my degree, in 1975, I got a job teaching Computer Science at a University in Oklahoma, so I was in Oklahoma for 4 years and then I moved back to New Orleans and most of my academic career was at Loyola University in New Orleans. That was when I did most of my publishing and made a name for myself. In Oklahoma (I was in the Department of Mathematics, Computer Science and Statistics) I discovered the journal CHum and then Joseph Raben and the Computers and the Humanities group.\n",
+    "order": 15
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nIs it fair for me to say that the opposition that you met with when you started applying for jobs was from Humanities departments rather than Computer Science departments?\n",
+    "order": 16
+  },
+  {
+    "speaker_name": "Mary Dee Harris",
+    "speaker_raw": "MDH",
+    "role": "Interviewee",
+    "utterance": "\nWell, I really got it from both sides and that continued throughout my career, for various reasons. If I applied for a job as a Computer Scientist a lot of people along the way assumed that because my PhD is in English Literature that I must not know much about Computer Science. But then, if they looked deeper, they saw that I was trained at IBM and had worked there and that I had taught practically every course on the Computer Science curriculum so I had a pretty strong background.\n\nLooking back to when I was still at work on my PhD (in Austin before I moved to New Orleans), I had to get approval for my two foreign languages and I had a minor in German as an undergraduate. I had to get the graduate adviser to sign a form that said, \u201cYes, this document shows that she passed the German exam\u201d, that\u2019s all I needed, for him to certify that I had passed the German exam. But he started asking me questions about what I was working on. I told him about the work I was doing with the manuscripts and putting it on the computer. I remember very clearly he sat there behind his desk and just glared at me. Then he said, \u201cYoung lady, you\u2019re trying to destroy literature\u201d. He used very dramatic terms and I was flabbergasted because I had no intention of doing that and thought that I was doing a great service for the field. Some of the other things were more subtle.\n\nMy direct advisers were very enthusiastic about the idea and were quite helpful in terms of working things out.\n",
+    "order": 17
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nI also want to ask about the training that you got in IBM, what it was that you did and the perspectives that it gave you because at that time you would have been, I think, even in the context of Humanities Computing, still quite unusual in that you had formal training and formal experience of computing.\n",
+    "order": 18
+  },
+  {
+    "speaker_name": "Mary Dee Harris",
+    "speaker_raw": "MDH",
+    "role": "Interviewee",
+    "utterance": "\nRight, it was unusual that I ended up in the Literature field and the Humanities field at all. Even though I was teaching Computer Science, my research focused on the Humanities initially and eventually I shifted into Natural Language Processing (NLP) and never really got back to the Humanities directly for various reasons.\n\nThe training I got was for what we called second generation IBM computers. The third generation at IBM was the 360, which was the basic architecture that is still the foundation for mainframe IBM computers now, after all these years. That was when they switched from octal to hexadecimal; in other words, they developed the 8-bit byte and combined bytes for various data structures. So I learned that a little later. I was initially trained on the IBM 7000 series, mainly. The system I ended up working on was a 7094 with 7040 and 7044 systems attached. Anyway, we were trained in assembly language because in those days if you didn\u2019t know the machine-level language, they just assumed you didn\u2019t know anything. The 1 hour course in FORTRAN from college was helpful but not of any use to what I was going to be doing. In the 6 week training class we learned from the very bottom. I remember that when I started actually programming at JPL they had several different computer systems on different floors. These were duplicates of the systems described above \u2013 I think there were six systems all together. The production system had its backup system and there were two development systems with their own backups.\n\nI\u2019m sure along the way you\u2019ve seen the big room where everybody\u2019s sitting at a device and something great happens and they all stand up and cheer? That was the main production area; we were not allowed in there. Only the JPL scientists worked in there. Our job was to develop diagnostic software that would essentially exercise the hardware and investigate whether or not it was functioning the way it was supposed to. This was very different from today where the hardware tests itself. Back then we actually felt that software was more reliable than hardware. Everything in the computer was wired together by hand and you could get a loose wire that would make everything go haywire. So, it was a very different world. I would think of myself as sitting inside the computer and moving things around in order to accomplish whatever the goal of my programming was. In those days, the computer had a great big front with lights blinking and you could actually set switches to change the value of a word in the computer memory and then restart your program with new values. That\u2019s how you could debug \u2013 I mean we\u2019re talking way back! But it was really interesting and a great background for teaching Computer Science. I\u2019ve never figured out for sure how it influenced my use of computers in the Humanities. But I\u2019m sure it did give me a very different perspective, particularly from people who were coming from the Humanities and then later learning computing.\n",
+    "order": 19
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd in your career you also have this movement from industry to academia and then you also did consultancy for a time?\n",
+    "order": 20
+  },
+  {
+    "speaker_name": "Mary Dee Harris",
+    "speaker_raw": "MDH",
+    "role": "Interviewee",
+    "utterance": "\nYes, I mentioned that I first taught Computer Science in Oklahoma. It really was a hard position because I taught so many different courses. But I taught everything so I learned a whole lot. Then I went to Loyola in New Orleans. I wrote several papers about some of the things that we did there to change the curriculum to fit a small liberal arts college while still teaching everything that a Computer Science student should know (See, for example Harris Fosberg 1981, 1982). I also wrote papers on teaching NLP at the undergraduate level. Based on that I wrote a book, the Introduction to Natural Language Processing (1985), which was the first college text book in the field. Other books had come out but they were mostly compilations of papers from various conference. I had already taught the NLP course so I thought, \u201cWell! You know what? I can do this!\u201d My book didn\u2019t stay in publication for very long, but I think it inspired some other people to write books in the field and I can always say mine was first.\n\nBased on that book, I was contacted by a company in the Washington DC area, SRA, which is now SRA International. They were setting up a Department of Artificial Intelligence and wanted to talk to me about going to work for them. I flew up there to talk to them about what they were doing and to meet the people they\u2019d already hired. I moved from New Orleans up to Washington DC in 1986, and I worked for that company for about 3 years. We did a variety of projects, mostly related to NLP. One was a project for the Air Force. The back end of it was an expert system that was related to flying sorties over Europe and the front end of it was a natural language interface so a person could ask questions about flying sorties by typing questions in English. It would output answers mostly in a kind of canned text. Although the Air Force never did anything with that project it actually was fairly successful in terms of what we were able to understand. There wasn\u2019t a lot of work available related to NLP at that point so the company kept trying to move me into different areas.\n\nI decided after 3 years that I would go to work for myself. I worked as an independent consultant for about 10 years and called my little venture \u2018Language Technology\u2019. I worked for almost 6 years with the Educational Testing Service (ETS), the GRE SATFootnote2 folks here in the US, and did a variety of projects for them including a project to automatically score essays that were part of the SATs or other exams. A computer and a human would score an essay. Then, if they didn\u2019t match, they would have a second human look at it, so the system wasn\u2019t totally dependent on the computer. It saved them a lot of money because they didn\u2019t have to pay two humans to mark all the essays.\n\nIn the meantime, I had moved back to Austin in 1997, and was finishing up one project with ETS when UT Austin contacted me about teaching for them. There was another computer boom shortly before Y2K when everybody was trying to hire programmers to fix things so they needed more faculty. I taught there for about 5 years, until 2002. I initially taught a course called \u2018Contemporary Issues in Computer Science\u2019, kind of like a \u2018Computers in Society\u2019 course but focused on the Computer Science part of it. I suggested teaching a NLP course since that was what I loved and ended up teaching that four or five times. I also worked with undergraduates doing research on a project with the AI Laboratory. I had a number of students who went on to do graduate work in NLP, based on the work we had done, so that was very rewarding. To add the final bit to it before we move off to something else, the last semester I was there, I knew I wasn\u2019t going to be teaching at UT anymore and wasn\u2019t sure what I would be doing. I found out from one of the professors in the Computer Science Department that there was a small start-up company looking for somebody to do natural language generation work for their system. It was an electronic medical records system that needed to produce a narrative based on the data that the doctor had input about the patient. I ended up working for them for 9 years and then I retired from there in 2010. And that\u2019s my career.\n",
+    "order": 21
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nIt\u2019s really a fascinating trajectory. Tell me about how it was that you met Joseph Raben and went on to become president of ACH?\n",
+    "order": 22
+  },
+  {
+    "speaker_name": "Mary Dee Harris",
+    "speaker_raw": "MDH",
+    "role": "Interviewee",
+    "utterance": "\nAlthough I was teaching Computer Science in Oklahoma I was still interested in English Literature. I had attended the Modern Language Association (MLA) conference in New York City in 1977 or 1978 and met Joe there.Footnote3 He had organized a session at MLA that was related to computers in the Humanities. He had already established the newsletter and founded the journal CHum [in 1966]. I initially worked with Joe and helped him to edit articles and I did book reviews of computer-related books. I was Software Editor. A year or so after I made that contact Joe organised a meeting of people who were interested in the field and formed the ACH. Joe was elected the first President and I was elected to the Executive Board. He was President for a 2 year term [1979\u20131980] and decided that we needed a different president. Everybody knew me, and I kind of volunteered to be the next President. Everybody thought that was a good idea and I was elected. When would that have been?\n",
+    "order": 23
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAccording to the ACH website that was from 1981 to 1985?\n",
+    "order": 24
+  },
+  {
+    "speaker_name": "Mary Dee Harris",
+    "speaker_raw": "MDH",
+    "role": "Interviewee",
+    "utterance": "\nOK, 81\u201385, that sounds good. That\u2019s a lot of water under the bridge! Anyway, that was very interesting and having been the President for 4 years, I decided it was time to switch and that\u2019s when Nancy Ide took over. I first met her when she was still a graduate student trying to find a job teaching English, without much luck. She had the same kind of degree I did, a background in English Literature and academic training in Computer Science. I suggested to her that she try to get a job in a Computer Science programme. That\u2019s when she took the job at Vassar where she has been since. It was just a conversation that she and I had saying, \u201cwhy don\u2019t you try this?\u201d and it really worked out well for her.\n",
+    "order": 25
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nI was reading the early newsletters of the ACH and some of the editorials that you wrote when you were president. In some of them you were talking about how you felt that the tide was turning, that the opposition to computing that had been encountered at an earlier stage was abating and that you really noticed an upsurge of interest in and acceptance of the subject (Harris 1984). I was wondering whether you would reflect on that development as you saw it over those years?\n",
+    "order": 26
+  },
+  {
+    "speaker_name": "Mary Dee Harris",
+    "speaker_raw": "MDH",
+    "role": "Interviewee",
+    "utterance": "\nI\u2019ll have to think back. I think I was referring to what I felt was making a difference. There was beginning to be a little bit of publicity about some of the projects that were coming out of the field. Some of the early projects were very time consuming. It was really tedious to deal with punch cards and magnetic tape and that level of technology and lots of the language work was restricted because of the limitations of computer speed and computer memory sizes. But a lot of us really hard-headed people who wanted to do computing on Humanities subjects just kept at it. Gradually the disciplines of Literature and History began to see areas where the computer could actually help research and that it wasn\u2019t going to destroy literature. It could help sort things out and help find patterns in novels or in plays and so on. It was very gradual and had a lot to do with the technology improving.\n\nAlso, those of us in Humanities Computing were learning more and more from each other as we organised and spread the word. There was still a fair amount of reluctance about people in say Computer Science teaching if their work was primarily in the Humanities and vice versa. I think that continued for a long time when people tried to get jobs. In fact, that may still be the case in some places, but the direct opposition became less over the years. One thing that would have made me write that was my change in jobs. In the position I had in Oklahoma, they were not at all helpful. When I moved to Loyola in New Orleans, they were very helpful and very encouraging. I was given a lot of financial support to do research and to travel to conferences and just publicise the field in general, so from my personal perspective, I think that helped.\n",
+    "order": 27
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nMaybe this question is slightly na\u00efve but I\u2019m very often struck by how brave and how determined people were who worked in the field at this earlier stage, not only in terms of the difficulties of finding acceptance and jobs but also in terms of the difficulties of just doing the work. What I sometimes wonder about is how the conviction came about, or where it came from, that the computer really would allow something new to be achieved within the context of, let\u2019s say, literature. Where do you think that belief came from? Was it based on observations of successes in other domains that were then transferred to the Humanities? What do you think about the roots of it?\n",
+    "order": 28
+  },
+  {
+    "speaker_name": "Mary Dee Harris",
+    "speaker_raw": "MDH",
+    "role": "Interviewee",
+    "utterance": "\nI think there were a lot of different paths to the conclusion and the conviction that it was possible and that each individual should be the one doing it. It was a struggle, and it was a struggle for most of us, I think that was why we were so happy to form the ACH and to find people in other parts of the country who were working on similar problems and had the same kinds of struggles.\n\nAnd why? I was such an exceptional person for my generation because I knew I wanted to go into Science and Math from an early age. That was usual for a woman back then. I\u2019ve always said I wasn\u2019t very well socialised because I don\u2019t remember anybody telling me that girls don\u2019t do Math and Science! I mean nobody told me I couldn\u2019t until I actually got into college! Then some people discouraged me. They weren\u2019t saying I couldn\u2019t but, for example, a Physics professor patted me on the knee and said, \u201cSo, are you going to be my little girl?\u201d This was my freshman year in college and I thought \u201cNo, that\u2019s not the way this is supposed to work\u201d. So there were obstacles.\n\nI had always intended to have a career. Most of my school friends and family got college degrees, they got a job, met somebody and got married. They worked until they had children and then stayed home with the children. I didn\u2019t stay home, even after my son was born. I always felt that if I had stayed home with my son, we both would have been crazy! I mean it was obvious to me that I needed to be working, so if I was going to be working then I needed to be doing something that I really enjoyed. I could never see any reason not to combine the fields. And like I said, when I saw those manuscripts, I mean 200 pages of handwritten manuscripts is lot of material and what would you do? Write it out on index cards and try to sort it that way? That was basically the way people had been doing things. That was the option!\n\nSo the idea of putting it on the computer, of typing in all the words and all the lines from the written manuscripts and seeing how they would work together just seemed logical to me. Why wouldn\u2019t you do it? I think because I had training in more than one field that I could make those connections, that synergy that comes from seeing how things work in more than one field of study. Over the years, I have found many, many people who were interested in more than one thing. Maybe they were attracted to me because of my background, but I used to say to my undergraduate Computer Science students, \u201cIf you\u2019re interested in Journalism as well as Computer Science, take some courses; there\u2019s going to be a need for people in Journalism (or in History etc.) who know computers\u201d. Back then it was unusual to combine fields but I think there\u2019s been more acceptance of interdisciplinary studies over the years. And I think some of the studies of creativity have really backed up the notion that when you\u2019ve been trained to think in more than one way you have more than just that combination. It is that whole idea of synergy, that one plus one makes more than two, if you will.\n",
+    "order": 29
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nPeople often remark to me that when they got involved with the Humanities Computing community that they found it to be very welcoming and open; indeed, some found it more welcoming than the other disciplines they worked in. Do you agree with that?\n",
+    "order": 30
+  },
+  {
+    "speaker_name": "Mary Dee Harris",
+    "speaker_raw": "MDH",
+    "role": "Interviewee",
+    "utterance": "\nOh, absolutely. When I first met the group who knew Joseph Raben and attended the various meetings at the MLA it felt like we were all old friends because we had been doing these oddball projects off on our own, for the most part. Here I was, in Oklahoma of all places; there wasn\u2019t another person in the whole state who was doing anything similar. But gradually, as more and more people discovered us, it got better. I think we were all very encouraging to anybody new because we felt like we just wanted to increase our ranks so that we wouldn\u2019t be quite as alone. I remember some of the early meetings. I can\u2019t remember everybody\u2019s name but a good friend was Donald Ross, at the University of Minnesota and there was a fellow Jim Joyce out in San Francisco. Also Jeffrey Huntsman at Indiana. And other people from across the country who were mostly working independently and had come together. It was sort of like if you\u2019re shipwrecked and you find one more person who\u2019s shipwrecked, you say \u201chere, come join the club!\u201d\n",
+    "order": 31
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nI found references to papers you gave at the Humanities Computing Conferences up to at least the 1990s. Did you move away from the field after that point?\n",
+    "order": 32
+  },
+  {
+    "speaker_name": "Mary Dee Harris",
+    "speaker_raw": "MDH",
+    "role": "Interviewee",
+    "utterance": "\nWell, as long as I was in the academic world, I had financial support to attend conferences. After I went out on my own, it was harder. But the biggest problem was that I got sick in 1993. I came down with Chronic Fatigue Syndrome (CFS), which in Europe is called Myalgic Encephalomyelitis (ME) and was quite ill for several years. I was basically bed-ridden for a couple of years, and then house-bound for a couple more and that\u2019s the reason I moved back to Texas. The cold weather in Washington DC was very hard on my health and gradually I have been able to recover more of my ability and energy here in the warmer climate. But that really slowed me down and I never really got back into doing research or making contacts. I didn\u2019t totally lose contact with people, but since I wasn\u2019t attending conferences and got out of the loop, I just wasn\u2019t able to keep up with it.\n",
+    "order": 33
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nRegarding this really fascinating trajectory that you were on that involved moving between all these different areas, did it make you quite unusual among your Humanities Computing colleagues?\n",
+    "order": 34
+  },
+  {
+    "speaker_name": "Mary Dee Harris",
+    "speaker_raw": "MDH",
+    "role": "Interviewee",
+    "utterance": "\nBecause I started in computing? Is that what you mean?\n",
+    "order": 35
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nI think also because you were moving between Academia, Industry and Consulting. Of course, the thing about Humanities Computing is that it can be done in Industry, it can be done in Academia, and it can be done in, say, heritage contexts like museums and libraries. But what I often see is that many people seem to follow one path through. I\u2019d love to get a better handle on how common it is for people to move seamlessly, it seems, between these different spheres but I don\u2019t really have a sense of that. I was wondering if maybe you do?\n",
+    "order": 36
+  },
+  {
+    "speaker_name": "Mary Dee Harris",
+    "speaker_raw": "MDH",
+    "role": "Interviewee",
+    "utterance": "\nYou know, I\u2019m not sure. A lot of it happened to me \u2013 it wasn\u2019t always my choice to move from one place to another when I was married. I\u2019ve been married twice. The first was a fairly traditional marriage, and my husband expected me to go where he was, which I did. That\u2019s the way we did things then. There was not the agreement of \u201cwe are in this together\u201d. Even at one point, when I had a very strong opportunity and he didn\u2019t have a job at all, he didn\u2019t want to go because it was my opportunity and not his, so we didn\u2019t.\n\nWhen I was married the second time, it was kind of the opposite. I basically told him from the beginning, \u201cI have a career and I intend to keep working at it and if you are willing to come along with me we can work this out\u201d and that worked. But part of the reason for moving around so much was because I was in this oddball field and having trouble finding an academic job. When I was trying to finish my dissertation, I did a number of things just to support myself. I worked as a typist for about 6 months and then I got a job working in New Orleans for a little computer company in Massachusetts (early telecommuting). Later I took a job as a bartender in the French quarter for about a year just to pay the bills while I finished my dissertation. Then I taught at Loyola in the Computer Science Department where I later came back in a tenure track position. It wasn\u2019t a straight path.\n\nIf you get a job straight out of getting your PhD, you may stay in that job forever. But since we didn\u2019t have easy access to academic positions I think that some of us moved around. Not everybody, I mean a lot of people stayed in the same field. My split field was a positive in many ways because of the work I did but it was a negative in terms of what people thought of me and thought of my ability, without looking at what I had done. I can\u2019t say I ever got used to it, but I certainly got to the point where I wasn\u2019t surprised by it. Even in the last job I had, people would say, \u201cOh, I know you know about language,\u201d but they just assumed I didn\u2019t know anything about computers and it\u2019s sort of like, \u201cHow do you think I got here if I didn\u2019t know anything about computers?\u201d\n",
+    "order": 37
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nThe other question that I want to ask you is about the people, from any sphere (it doesn\u2019t necessarily have to be DH) or the books or ideas that particularly inspired you?\n",
+    "order": 38
+  },
+  {
+    "speaker_name": "Mary Dee Harris",
+    "speaker_raw": "MDH",
+    "role": "Interviewee",
+    "utterance": "\nWell, obviously one of the people who inspired me was Nell Dale. She got me started, even though she didn\u2019t continue in the field. And there was another woman called Patricia K. Galloway. She\u2019s teaching in the School of Information at UT Austin now but she was in Mississippi for quite a while in the Department of Archives and History. She was the person who put me in touch with NLP and showed me where to look things up and who were the people that were working in that field and so on. Those were pivotal points.\n\nI had a couple of Professors, the two thesis advisers here at UT, Warner Barnes and William B. Todd, who supported me emotionally, if you will, as well as academically and intellectually, in terms of following up on this idea because it just was so off the wall. To get back to your previous question on that, one of the things that I found when I came back to graduate school after having worked at IBM in the computer industry, was that I felt kind of like a fish out of water because most of the other graduate students had always been in school. You know, they might have had a summer job or worked at a camp somewhere or have done something to support themselves, but they had never been in the business world for any length of time. I remember in one of the poetry classes, we were analysing some poem by Wallace Stevens and the images that I came up with were so off the wall compared to these other students. I remember finding out later that he was an insurance agent who wrote poetry on the side, so I was possibly closer in terms of seeing the world the way that he did than these people with all their academic experience in literature. I think moving back and forth like that did give me a different perspective at each point.\n",
+    "order": 39
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nI must ask you when you look back at when you were president of ACH, what\u2019s the action you are most proud of or that sticks out the most in your mind?\n",
+    "order": 40
+  },
+  {
+    "speaker_name": "Mary Dee Harris",
+    "speaker_raw": "MDH",
+    "role": "Interviewee",
+    "utterance": "\nI think the fact that we opened the field up. One of the things I really tried to concentrate on was broadening and expanding the definition of Humanities. So, we accepted any comers in those days whether you would officially be defined as in the Humanities or not. Initially the group was almost entirely literature and then we started expanding into History and Archaeology and various other non-technical fields. I think that was one thing that made a difference. Because of the academic support that I got from Loyola, I was able to travel and really make connections. Of course, at that point the ALLC and Susan Hockey (see Chap. 6) and her colleagues were doing quite well in Europe. But bridging that gap was another part of it, I think, and one of the contributions that I started and that Nancy Ide certainly continued.\n\nThis has been very entertaining to me because I don\u2019t spend a lot of time thinking back on those days. Most of the people I know nowadays have only a vague idea that I did something in the computer field and they don\u2019t have a clue about the details of what I did. So, talking about my personal history and how we got that whole thing going, I think, has been very entertaining to me, so I thank you.\n",
+    "order": 41
+  },
+  {
+    "speaker_name": "Julianne Nyhan",
+    "speaker_raw": "JN",
+    "role": "Interviewer",
+    "utterance": "\nAnd thanks so much for giving me so much of your time and for such a fascinating interview.",
+    "order": 42
+  }
+]
