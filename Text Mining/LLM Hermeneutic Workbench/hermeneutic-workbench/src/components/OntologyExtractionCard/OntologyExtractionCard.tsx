@@ -25,7 +25,7 @@ function MappingBadge({ status, label }: MappingBadgeProps) {
     return (
         <span
             className={`mapping-badge mapping-${status}`}
-            style={{ backgroundColor: badgeColor }}
+            style={{ color: badgeColor }}
         >
             {label}
         </span>
@@ -69,25 +69,48 @@ function SingleExtraction({ extraction }: SingleExtractionProps) {
         <div className="ontology-extraction">
 
 
-            {/* Triple Visualization */}
-            <div className="ontology-triple">
-                <div className="entity-box">
-                    <span className="entity-name">{extraction.subject.canonical_name}</span>
-                    <MappingBadge status={subjectStatus} label={subjectClass} />
-                </div>
+            {/* Triple Visualization - Unified Premium Card */}
+            <div className="unified-triple-box">
+                <span className="id-tag-floating">{extraction.extraction_id}</span>
 
-                <div className="relation-connector">
-                    <span className="surface-text-inline">"{extraction.relation.surface_form}"</span>
-                    <span className="relation-arrow">→</span>
-                    <span className="relation-property">
-                        {extraction.relation.is_negated && <span className="negation-indicator">¬</span>}
-                        {relationProperty}
-                    </span>
-                </div>
+                <div className="triple-grid-container">
+                    {/* Top Row: Surface/Entity Names */}
+                    <div className="grid-cell top-left subject-cell">
+                        <span className="entity-name" title={extraction.subject.canonical_name}>
+                            {extraction.subject.canonical_name}
+                        </span>
+                    </div>
 
-                <div className="entity-box">
-                    <span className="entity-name">{extraction.object.canonical_name}</span>
-                    <MappingBadge status={objectStatus} label={objectClass} />
+                    <div className="grid-cell top-center relation-cell">
+                        <span className="surface-text-inline">"{extraction.relation.surface_form}"</span>
+                    </div>
+
+                    <div className="grid-cell top-right object-cell">
+                        <span className="entity-name" title={extraction.object.canonical_name}>
+                            {extraction.object.canonical_name}
+                        </span>
+                    </div>
+
+                    {/* Middle Row: Visual Connector with Arrows */}
+                    <div className="grid-cell middle-left connector-arrow-horizontal">⟶</div>
+                    <div className="grid-cell middle-center connector-arrow">▼</div>
+                    <div className="grid-cell middle-right connector-arrow-horizontal">⟶</div>
+
+                    {/* Bottom Row: Ontology Mappings */}
+                    <div className="grid-cell bottom-left subject-cell">
+                        <MappingBadge status={subjectStatus} label={subjectClass} />
+                    </div>
+
+                    <div className="grid-cell bottom-center relation-cell">
+                        <span className="relation-property">
+                            {extraction.relation.is_negated && <span className="negation-indicator">¬</span>}
+                            {relationProperty}
+                        </span>
+                    </div>
+
+                    <div className="grid-cell bottom-right object-cell">
+                        <MappingBadge status={objectStatus} label={objectClass} />
+                    </div>
                 </div>
             </div>
 
@@ -130,7 +153,6 @@ function SingleExtraction({ extraction }: SingleExtractionProps) {
                         <span key={i} className="source-id-tag">{id}</span>
                     ))}
                     <span className="source-separator">|</span>
-                    <span className="extraction-id-footer">ID: {extraction.extraction_id}</span>
                 </div>
             </div>
 

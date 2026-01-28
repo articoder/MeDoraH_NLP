@@ -4,15 +4,16 @@
  */
 
 // Color constants for Top-level Classes
+// Inspired by Linear, Notion, Figma color systems - refined, harmonious tones
 export const ONTOLOGY_COLORS = {
-    Actor: '#3931F9',
-    Event: '#FDD650',
-    Artefact: '#10A37F',
-    ConceptualItem: '#6D4EA1',
-    SpatialEntity: '#8DAB99',
-    TemporalEntity: '#8DAB99',
-    Property: '#888887',
-    Unspecified: '#C75D10'
+    Actor: '#364afeff',        // Indigo - trustworthy, professional (people/orgs)
+    Event: '#F5A524',        // Amber - warm, dynamic (activities/happenings)
+    Artefact: '#0EA77A',     // Teal - fresh, constructive (created things)
+    ConceptualItem: '#a04beaff', // Violet - intellectual, creative (abstract ideas)
+    SpatialEntity: '#64B5A0', // Sage - grounded, natural (places)
+    TemporalEntity: '#7C8DB5', // Slate Blue - timeless, neutral (time concepts)
+    Property: '#6B7280',     // Cool Gray - subtle, supporting (attributes)
+    Unspecified: '#E07A5F'   // Terracotta - warm accent, attention-drawing (unknown)
 } as const;
 
 // Top-level category keys
@@ -63,10 +64,12 @@ const CLASS_HIERARCHY: Record<string, OntologyCategory> = {
     'AcademicDiscipline': 'ConceptualItem',
     'FieldOfStudy': 'ConceptualItem',
     'ResearchArea': 'ConceptualItem',
+    'ConceptualFramework': 'ConceptualItem',
     'ConceptualItem': 'ConceptualItem',
 
     // Spatial & Temporal
     'SpatialEntity': 'SpatialEntity',
+    'Place': 'SpatialEntity',
     'TemporalEntity': 'TemporalEntity',
 
     // Property
@@ -76,19 +79,28 @@ const CLASS_HIERARCHY: Record<string, OntologyCategory> = {
 };
 
 /**
- * Get the color for a given ontology class name based on its hierarchy
- * @param className The name of the ontology class (e.g. "Person", "Software")
- * @returns The hex color code string
+ * Get the top-level category for a given ontology class name
+ * @param className The name of the ontology class
+ * @returns The OntologyCategory key (e.g. 'Actor', 'Event')
  */
-export function getOntologyColor(className: string | undefined | null): string {
-    if (!className) return ONTOLOGY_COLORS.Unspecified;
+export function getOntologyCategory(className: string | undefined | null): OntologyCategory {
+    if (!className) return 'Unspecified';
 
-    // Normalize string: strip < > if present (e.g. "<entity>")
+    // Normalize string: strip < > if present
     const cleanName = className.replace(/[<>]/g, '');
 
     // Look up parent category
     const parentCategory = CLASS_HIERARCHY[cleanName];
 
-    // Return mapped color or fallback to Unspecified
-    return parentCategory ? ONTOLOGY_COLORS[parentCategory] : ONTOLOGY_COLORS.Unspecified;
+    return parentCategory || 'Unspecified';
+}
+
+/**
+ * Get the color for a given ontology class name based on its hierarchy
+ * @param className The name of the ontology class (e.g. "Person", "Software")
+ * @returns The hex color code string
+ */
+export function getOntologyColor(className: string | undefined | null): string {
+    const category = getOntologyCategory(className);
+    return ONTOLOGY_COLORS[category];
 }

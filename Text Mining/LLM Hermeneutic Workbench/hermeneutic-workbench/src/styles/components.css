@@ -522,24 +522,33 @@ hr.triple-divider {
 
 .entity-type-badge {
     display: inline-block;
-    color: var(--fg-on-accent);
     padding: calc(var(--sp-1) - 1px) var(--sp-2);
     border-radius: var(--radius-pill);
     font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 600;
     white-space: nowrap;
+    background-color: #FFFFFF;
+    border: 1px solid #b9c0d1;
+    /* Color is set dynamically via inline style for ontology classes */
 }
 
+/* Legacy frequency-based colors - kept for bottom-up view compatibility */
 .badge-freq-high {
     background-color: var(--accent);
+    color: var(--fg-on-accent);
+    border-color: var(--accent);
 }
 
 .badge-freq-medium {
     background-color: var(--accent-secondary);
+    color: var(--fg-on-accent);
+    border-color: var(--accent-secondary);
 }
 
 .badge-freq-low {
     background-color: var(--accent-tertiary);
+    color: var(--fg-on-accent);
+    border-color: var(--accent-tertiary);
 }
 
 /* =====================================================

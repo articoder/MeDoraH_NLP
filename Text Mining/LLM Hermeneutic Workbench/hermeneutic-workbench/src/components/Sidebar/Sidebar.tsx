@@ -13,7 +13,7 @@ import {
     exportPatternAnalyticsJSON,
     exportFilteredTriplesJSON
 } from '../../lib/exportUtils';
-import { getOntologyColor } from '../../lib/ontologyUtils';
+import { getOntologyColor, getOntologyCategory, OntologyCategory } from '../../lib/ontologyUtils';
 import AnimatedPanel from '../AnimatedPanel/AnimatedPanel';
 import type { SpeakerTurn } from '../../types/data';
 import './Sidebar.css';
@@ -290,59 +290,31 @@ export function Sidebar({ filteredTurns }: SidebarProps) {
                     >
                         <h2>Ontology Classes <span style={{ fontWeight: 400, fontSize: 'var(--fs-sm)', color: 'var(--fg-secondary)' }}>(Click to Filter)</span></h2>
 
-                        {ontologyClasses.filter(c => c.role === 'both').length > 0 && (
-                            <div className="entity-type-section">
-                                <h4>Subject & Object ({ontologyClasses.filter(c => c.role === 'both').length})</h4>
-                                <div className="badge-container">
-                                    {ontologyClasses.filter(c => c.role === 'both').map(cls => (
-                                        <span
-                                            key={cls.name}
-                                            className={`entity-type-badge filterable-badge badge-freq-high ${activeClassFilters.has(cls.name) ? 'selected' : ''}`}
-                                            style={{ backgroundColor: getOntologyColor(cls.name) }}
-                                            onClick={() => toggleClassFilter(cls.name)}
-                                        >
-                                            {cls.name} [{cls.count}]
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
+                        {/* Hierarchy Sections */}
+                        {(['Actor', 'Event', 'Artefact', 'ConceptualItem', 'SpatialEntity', 'TemporalEntity', 'Property', 'Unspecified'] as OntologyCategory[]).map(category => {
+                            const categoryClasses = ontologyClasses.filter(c => getOntologyCategory(c.name) === category);
+                            if (categoryClasses.length === 0) return null;
 
-                        {ontologyClasses.filter(c => c.role === 'subject').length > 0 && (
-                            <div className="entity-type-section">
-                                <h4>Subject Only ({ontologyClasses.filter(c => c.role === 'subject').length})</h4>
-                                <div className="badge-container">
-                                    {ontologyClasses.filter(c => c.role === 'subject').map(cls => (
-                                        <span
-                                            key={cls.name}
-                                            className={`entity-type-badge filterable-badge badge-freq-medium ${activeClassFilters.has(cls.name) ? 'selected' : ''}`}
-                                            style={{ backgroundColor: getOntologyColor(cls.name) }}
-                                            onClick={() => toggleClassFilter(cls.name)}
-                                        >
-                                            {cls.name} [{cls.count}]
-                                        </span>
-                                    ))}
+                            return (
+                                <div className="entity-type-section" key={category}>
+                                    <h4>{category} ({categoryClasses.length})</h4>
+                                    <div className="badge-container">
+                                        {categoryClasses.map(cls => (
+                                            <span
+                                                key={cls.name}
+                                                className={`entity-type-badge filterable-badge ${activeClassFilters.has(cls.name) ? 'selected' : ''}`}
+                                                style={{ color: getOntologyColor(cls.name) }}
+                                                onClick={() => toggleClassFilter(cls.name)}
+                                            >
+                                                {cls.name} [{cls.count}]
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                        )}
+                            );
+                        })}
 
-                        {ontologyClasses.filter(c => c.role === 'object').length > 0 && (
-                            <div className="entity-type-section">
-                                <h4>Object Only ({ontologyClasses.filter(c => c.role === 'object').length})</h4>
-                                <div className="badge-container">
-                                    {ontologyClasses.filter(c => c.role === 'object').map(cls => (
-                                        <span
-                                            key={cls.name}
-                                            className={`entity-type-badge filterable-badge badge-freq-low ${activeClassFilters.has(cls.name) ? 'selected' : ''}`}
-                                            style={{ backgroundColor: getOntologyColor(cls.name) }}
-                                            onClick={() => toggleClassFilter(cls.name)}
-                                        >
-                                            {cls.name} [{cls.count}]
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
+
                     </AnimatedPanel>
 
                     {/* Ontology Properties Panel */}
