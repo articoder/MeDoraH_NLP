@@ -1,6 +1,8 @@
 //! Data models for Semantic Triple analysis
 //! These structures match the JSON schema used by the LLM Hermeneutic Workbench
 
+pub mod ontology_models;
+
 use serde::{Deserialize, Serialize};
 use std::collections::{HashMap, HashSet};
 

@@ -1,5 +1,7 @@
 //! Tauri commands for data loading and processing
 
+pub mod ontology_commands;
+
 use crate::models::{AnalysisResult, SpeakerTurn};
 use std::fs;
 use thiserror::Error;

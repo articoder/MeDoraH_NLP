@@ -1,0 +1,53 @@
+/**
+ * AnimatedPanel - Smooth enter/exit animations for sidebar panels
+ * Uses spring-like pop-in and pop-out effects
+ */
+
+.animated-panel {
+    /* Base styles - inherits from sidebar-panel */
+    transform-origin: top center;
+}
+
+/* Enter animation - spring pop in */
+.animated-panel.panel-enter {
+    animation: panelPopIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Exit animation - smooth pop out */
+.animated-panel.panel-exit {
+    animation: panelPopOut 0.3s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+}
+
+@keyframes panelPopIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.92) translateY(-16px);
+        filter: blur(3px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.015) translateY(2px);
+        filter: blur(0px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: blur(0px);
+    }
+}
+
+@keyframes panelPopOut {
+    0% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: blur(0px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.94) translateY(-12px);
+        filter: blur(2px);
+    }
+}

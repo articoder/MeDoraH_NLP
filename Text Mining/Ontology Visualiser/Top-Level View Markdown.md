@@ -1,0 +1,63 @@
+## Top-Level Nodes
+- ACTOR [group=actor, size=42]
+- Person [group=actor, size=25]
+- Organisation [group=actor, size=25]
+- EVENT [group=process, size=42]
+- Project [group=process, size=25]
+- ARTEFACTS [group=info, size=42]
+- Technology [group=info, size=25]
+- Works [group=info, size=25]
+- CONCEPTUAL_ITEM [group=conceptual, size=42]
+- Discipline [group=conceptual, size=25]
+- Definition [group=conceptual, size=25]
+- SPATIAL [group=SPATIAL, size=42]
+- TEMPORAL [group=TEMPORAL, size=42]
+- Role & Position [group=type, size=25]
+
+## Top-Level Relations
+- ACTOR -> ACTOR: hasSocioInstitutionalRelationWith
+- Person -> Organisation: hasEmploymentAt
+- Person -> Organisation: studiedAt
+- Person -> Organisation: founded
+- Person -> Person: collaboratedWith
+- Person -> Person: mentorsOrSupervises
+- ACTOR -> ACTOR: provideResource
+- Person -> Person: influences
+- Person -> Organisation: hasEducationIn
+- Person -> Organisation: chairOf
+- Person -> Organisation: represent
+- Person -> Organisation: affiliatedWith
+- Organisation -> Organisation: mergedWith
+- ACTOR -> ARTEFACTS: createsItem
+- ARTEFACTS -> ACTOR: createdBy
+- ACTOR -> Works: authorsWork
+- ACTOR -> Works: publishesWork
+- ACTOR -> ARTEFACTS: createsArtefact
+- ACTOR -> Technology: developsTech
+- ARTEFACTS -> ACTOR: usedBy
+- ACTOR -> Technology: usesTechnology
+- Person -> Works: usesCorpusOrResource
+- ACTOR -> CONCEPTUAL_ITEM: engagesWithConcept
+- ACTOR -> Discipline: workInField
+- ACTOR -> Discipline: studies_field
+- Person -> Definition: coinsOrDefinesTerm
+- ACTOR -> EVENT: engagesIn
+- EVENT -> ACTOR: isEngagedInBy
+- ACTOR -> Project: participatesIn
+- ACTOR -> EVENT: organise
+- ACTOR -> EVENT: presented
+- ACTOR -> EVENT: funds
+- ACTOR -> PROPERTY: hasProperty
+- ACTOR -> Role & Position: hasRoleOrPosition
+- EVENT -> SPATIAL | Organisation: takesPlaceAt
+- EVENT -> TEMPORAL: hasTimeExtent
+- CONCEPTUAL_ITEM -> CONCEPTUAL_ITEM: conceptuallyInfluences
+- Technology -> Technology: runsOn
+- ARTEFACTS -> CONCEPTUAL_ITEM: about
+- Works -> Discipline: hasTopic
+- ARTEFACTS -> CONCEPTUAL_ITEM: implementConcept
+- ACTOR -> SPATIAL: hasResidence
+- Person -> SPATIAL: residesIn
+- Person -> SPATIAL: growUpIn
+- Person -> SPATIAL: workedIn
+- Organisation -> SPATIAL: locatedIn

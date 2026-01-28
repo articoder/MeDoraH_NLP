@@ -1,0 +1,2215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ontology Network Visualization</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #FAF9F5;
+            overflow: hidden;
+        }
+
+        #container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+            background: #FAF9F5;
+        }
+
+        /* Grid pattern for better layout perception */
+        .grid-pattern {
+            stroke: #E0DFD5;
+            stroke-width: 0.5;
+            opacity: 0.3;
+        }
+
+        /* Node Styles */
+        .node {
+            cursor: move;
+            transition: all 0.3s ease;
+        }
+
+        .node.fixed circle {
+            stroke-width: 3px;
+            stroke: #8B4513;
+        }
+
+        .node circle {
+            stroke-width: 2px;
+            stroke: #333;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+            transition: all 0.3s ease;
+        }
+
+        .node:hover circle {
+            stroke-width: 3px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+        }
+
+        .node text {
+            font-size: 12px;
+            font-weight: 600;
+            fill: #2C2C2C;
+            text-anchor: middle;
+            pointer-events: none;
+            text-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Link Styles */
+        .link {
+            fill: none;
+            stroke: #666;
+            stroke-width: 1.5px;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .link:hover {
+            stroke-width: 2.5px;
+            opacity: 1;
+        }
+
+        .link-label {
+            font-size: 10px;
+            fill: #555;
+            pointer-events: none;
+            background: #FAF9F5;
+        }
+
+        .link-label-bg {
+            fill: #FAF9F5;
+            opacity: 0.8;
+        }
+
+        /* Arrow markers */
+        marker {
+            overflow: visible;
+        }
+
+        /* Control Panel */
+        .controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #E0DFD5;
+            min-width: 280px;
+        }
+
+        .controls h3 {
+            color: #2C2C2C;
+            margin-bottom: 15px;
+            font-size: 18px;
+            border-bottom: 2px solid #E0DFD5;
+            padding-bottom: 10px;
+        }
+
+        .legend {
+            margin-bottom: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 1px solid #333;
+        }
+
+        .legend-label {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Interactive controls */
+        .control-buttons {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #E0DFD5;
+        }
+
+        button {
+            background: #4A4A4A;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        button:hover {
+            background: #333;
+            transform: translateY(-1px);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button.active {
+            background: #FF6347;
+            box-shadow: 0 2px 4px rgba(255, 99, 71, 0.3);
+        }
+
+        /* Search */
+        .search-box {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #E0DFD5;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #D0CFC5;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            background: #FEFEFE;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #8B4513;
+            box-shadow: 0 0 0 2px rgba(139, 69, 19, 0.1);
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: absolute;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.98);
+            border: 1px solid #D0CFC5;
+            color: #333;
+            border-radius: 8px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1000;
+            max-width: 300px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .tooltip.show {
+            opacity: 1;
+        }
+
+        .tooltip strong {
+            color: #2C2C2C;
+        }
+
+        .tooltip hr {
+            border: none;
+            border-top: 1px solid #E0DFD5;
+            margin: 8px 0;
+        }
+
+        /* Detail card for Top-Level node click */
+        .detail-card {
+            position: absolute;
+            max-width: 360px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #D0CFC5;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            padding: 12px 14px;
+            z-index: 1100;
+            display: none;
+            backdrop-filter: blur(2px);
+        }
+
+        .detail-card h4 {
+            margin: 0 0 8px 0;
+            font-size: 14px;
+            color: #2C2C2C;
+        }
+
+        .detail-card .detail-body {
+            font-size: 12px;
+            color: #444;
+            max-height: 45vh;
+            overflow: auto;
+        }
+
+        .detail-card .close-btn {
+            position: absolute;
+            top: 6px;
+            right: 8px;
+            border: none;
+            background: transparent;
+            font-size: 18px;
+            line-height: 1;
+            cursor: pointer;
+            color: #777;
+        }
+
+        /* Loading animation */
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #4A4A4A;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Status message */
+        .status-message {
+            margin-top: 15px;
+            padding: 10px;
+            background: #FFF3E0;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #5D4037;
+            display: none;
+        }
+
+        .status-message.show {
+            display: block;
+        }
+
+        /* Panel toggle button (pill style) */
+        .panel-toggle {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background: #FF6347;
+            color: #fff;
+            border-radius: 20px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Edit panel */
+        .edit-panel {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px dashed #E0DFD5;
+            display: none;
+        }
+
+        .edit-panel h4 {
+            font-size: 14px;
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .form-row>* {
+            flex: 1;
+        }
+
+        .small-input {
+            max-width: 90px;
+        }
+
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #D0CFC5;
+            border-radius: 6px;
+            font-size: 13px;
+            background: #FEFEFE;
+        }
+
+        textarea.code {
+            font-family: ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .list {
+            border: 1px solid #E0DFD5;
+            border-radius: 8px;
+            padding: 8px;
+            max-height: 220px;
+            overflow: auto;
+            background: #fff;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6px 8px;
+            border-bottom: 1px dashed #EEE;
+            font-size: 12px;
+            color: #444;
+        }
+
+        .list-item:last-child {
+            border-bottom: none;
+        }
+
+        .muted {
+            color: #777;
+        }
+
+        .icon-btn {
+            background: transparent;
+            color: #333;
+            border: 1px solid #D0CFC5;
+            padding: 4px 8px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .danger {
+            border-color: #f3c5bf;
+            color: #b6311d;
+        }
+
+        .success {
+            border-color: #c7e7c9;
+            color: #2e7d32;
+        }
+
+        .inline-help {
+            font-size: 11px;
+            color: #777;
+            margin-bottom: 6px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 11px;
+            background: #F3F2EE;
+            color: #555;
+        }
+
+        .edit-section {
+            margin-top: 10px;
+        }
+
+        .section-toggle {
+            width: 100%;
+            text-align: left;
+            background: #f7f6f2;
+            border: 1px solid #E0DFD5;
+            color: #333;
+            padding: 8px 10px;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-toggle:hover {
+            background: #efece3;
+        }
+
+        .section-toggle.active {
+            background: #fff;
+            border-color: #D0CFC5;
+        }
+
+        .section-toggle .chev {
+            transition: transform 0.2s ease;
+            opacity: 0.7;
+        }
+
+        .section-toggle.active .chev {
+            transform: rotate(90deg);
+            opacity: 1;
+        }
+
+        .section-content {
+            display: none;
+            padding: 8px 2px 0 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="loading">Loading Ontology...</div>
+        <svg id="graph"></svg>
+
+        <div class="controls">
+            <h3>Ontology Info</h3>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #E57373;"></div>
+                    <span class="legend-label">Actor (Person, Organisation, Group)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #FFD54F;"></div>
+                    <span class="legend-label">Event (Project, Conference, Activity)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #81C784;"></div>
+                    <span class="legend-label">Artefact (Technology, Work)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #BA68C8;"></div>
+                    <span class="legend-label">ConceptualItem (Framework, Methodology, Discipline)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #4DB6AC;"></div>
+                    <span class="legend-label">SpatialEntity (Place)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #64B5F6;"></div>
+                    <span class="legend-label">TemporalEntity (Time)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #FF8A65;"></div>
+                    <span class="legend-label">Property (Role, Qualification)</span>
+                </div>
+            </div>
+
+            <div class="control-buttons">
+                <button onclick="togglePinMode()" id="pinModeBtn">Pin Mode</button>
+                <button onclick="resetZoom()">Reset View</button>
+                <button onclick="toggleLabels()" id="labelsBtn">Labels</button>
+                <button onclick="toggleForce()" id="forceBtn">Physics</button>
+                <button onclick="toggleView()" id="viewModeBtn">Top-Level View</button>
+                <button onclick="toggleAggregate()" id="aggBtn">Group Relations</button>
+                <button onclick="toggleEditMode()" id="editModeBtn">Edit Mode</button>
+                <button onclick="togglePanel()" id="panelHideBtn">Hide Panel</button>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="search" placeholder="🔍 Search nodes..." onkeyup="searchNodes(event)">
+            </div>
+
+            <div class="edit-panel" id="editPanel">
+                <h4>Top-Level Editor <span class="badge" id="editViewBadge">Top-Level</span></h4>
+                <div class="inline-help">Add, delete, or modify Top-Level nodes and relations. Export/Import structure
+                    via Markdown.</div>
+
+                <div class="edit-section">
+                    <button type="button" class="section-toggle" id="nodeSectionToggle"
+                        onclick="toggleEditSection('node')">
+                        Node <span class="chev">▸</span>
+                    </button>
+                    <div class="section-content" id="nodeSection">
+                        <div class="form-row" style="margin-top:8px;">
+                            <input type="text" id="nodeIdInput" placeholder="Node ID e.g., ACTOR">
+                            <select id="nodeGroupSelect" title="Group">
+                                <option value="actor">actor</option>
+                                <option value="event">event</option>
+                                <option value="artefact">artefact</option>
+                                <option value="conceptual">conceptual</option>
+                                <option value="spatial">spatial</option>
+                                <option value="temporal">temporal</option>
+                                <option value="property" selected>property</option>
+                            </select>
+                            <input type="number" id="nodeSizeInput" class="small-input" min="10" max="80" step="1"
+                                value="38" title="Size">
+                        </div>
+                        <div class="form-row">
+                            <button class="icon-btn success" onclick="saveTopNode()" id="saveNodeBtn">Save Node</button>
+                            <button class="icon-btn" onclick="resetNodeForm()">Reset</button>
+                        </div>
+                        <div class="list" id="nodeList"></div>
+                    </div>
+                </div>
+
+                <div class="edit-section">
+                    <button type="button" class="section-toggle" id="relationSectionToggle"
+                        onclick="toggleEditSection('relation')">
+                        Relation <span class="chev">▸</span>
+                    </button>
+                    <div class="section-content" id="relationSection">
+                        <div class="form-row" style="margin-top:8px;">
+                            <input list="nodeIdDatalist" type="text" id="relSourceInput" placeholder="Source ID">
+                            <input list="nodeIdDatalist" type="text" id="relTargetInput" placeholder="Target ID">
+                        </div>
+                        <div class="form-row">
+                            <input type="text" id="relLabelInput" placeholder="Label e.g., influences">
+                        </div>
+                        <datalist id="nodeIdDatalist"></datalist>
+                        <div class="form-row">
+                            <button class="icon-btn success" onclick="saveTopRelation()" id="saveRelBtn">Save
+                                Relation</button>
+                            <button class="icon-btn" onclick="resetRelationForm()">Reset</button>
+                        </div>
+                        <div class="list" id="relationList"></div>
+                    </div>
+                </div>
+
+                <h4 style="margin-top:12px">Import / Export</h4>
+                <div class="form-row">
+                    <button class="icon-btn" onclick="exportTopLevelToMarkdown()">Export Markdown</button>
+                    <button class="icon-btn" onclick="toggleMarkdownArea(true)">Import Markdown</button>
+                </div>
+                <div id="markdownAreaWrap" style="display:none; margin-top:8px;">
+                    <textarea class="code" id="markdownArea"
+                        placeholder="## Top-Level Nodes\n- ACTOR [group=actor, size=38]\n- PROCESS [group=process]\n\n## Top-Level Relations\n- ACTOR -> PROCESS: participatesIn, initiates\n- ACTOR -> ACTOR: influences"></textarea>
+                    <div class="form-row" style="margin-top:6px;">
+                        <button class="icon-btn success" onclick="applyMarkdownImport()">Apply Import</button>
+                        <button class="icon-btn" onclick="toggleMarkdownArea(false)">Close</button>
+                        <button class="icon-btn" onclick="copyMarkdown()">Copy</button>
+                        <button class="icon-btn" onclick="downloadMarkdown()">Download</button>
+                    </div>
+                </div>
+                <div class="inline-help" id="editStatus" style="display:none"></div>
+            </div>
+        </div>
+
+        <div class="tooltip" id="tooltip"></div>
+        <div class="detail-card" id="detailCard">
+            <button class="close-btn" id="detailCardClose">×</button>
+            <h4 id="detailCardTitle">Details</h4>
+            <div class="detail-body" id="detailCardBody"></div>
+        </div>
+        <button class="panel-toggle" id="panelToggle" onclick="togglePanel()" style="display:none">Show
+            Explorer</button>
+    </div>
+
+    <script>
+        // Ontology Data Structure
+        let nodes = [
+            // Actor subtypes
+            { id: "PERSON", group: "actor", size: 28 },
+            { id: "ORGANISATION", group: "actor", size: 25 },
+            { id: "GROUP", group: "actor", size: 22 },
+            // Event subtypes
+            { id: "PROJECT", group: "event", size: 25 },
+            { id: "CONFERENCE", group: "event", size: 22 },
+            { id: "COURSE_AND_PROGRAMME", group: "event", size: 20 },
+            { id: "EVENT_SERIES", group: "event", size: 18 },
+            { id: "ACTIVITY", group: "event", size: 20 },
+            // Artefact → Technology subtypes
+            { id: "SOFTWARE", group: "artefact", size: 22 },
+            { id: "HARDWARE", group: "artefact", size: 20 },
+            { id: "STANDARD", group: "artefact", size: 18 },
+            { id: "INFRASTRUCTURE", group: "artefact", size: 20 },
+            // Artefact → Work subtypes
+            { id: "PUBLICATION", group: "artefact", size: 22 },
+            { id: "CORPUS", group: "artefact", size: 20 },
+            { id: "DATABASE", group: "artefact", size: 20 },
+            { id: "DATASET", group: "artefact", size: 18 },
+            { id: "WEBSITE", group: "artefact", size: 18 },
+            // ConceptualItem subtypes
+            { id: "THEORY", group: "conceptual", size: 20 },
+            { id: "PARADIGM", group: "conceptual", size: 18 },
+            { id: "METHOD", group: "conceptual", size: 20 },
+            { id: "PRACTICE", group: "conceptual", size: 18 },
+            { id: "DISCIPLINE", group: "conceptual", size: 22 },
+            { id: "FIELD_OF_STUDY", group: "conceptual", size: 18 },
+            // SpatialEntity & TemporalEntity
+            { id: "SPATIAL_ENTITY", group: "spatial", size: 22 },
+            { id: "TEMPORAL_ENTITY", group: "temporal", size: 22 },
+            // Property subtypes
+            { id: "ROLE_OR_POSITION", group: "property", size: 20 },
+            { id: "QUALIFICATION", group: "property", size: 18 },
+        ];
+
+        let links = [
+            // 1. Actor → Actor: hasSocioInstitutionalRelationWith
+            { source: "PERSON", target: "ORGANISATION", label: "hasEmploymentAt" },
+            { source: "PERSON", target: "ORGANISATION", label: "studiedAt" },
+            { source: "PERSON", target: "ORGANISATION", label: "affiliatedWith" },
+            { source: "PERSON", target: "ORGANISATION", label: "founded" },
+            { source: "PERSON", target: "ORGANISATION", label: "chairOf" },
+            { source: "PERSON", target: "PERSON", label: "collaboratedWith" },
+            { source: "PERSON", target: "PERSON", label: "mentorsOrSupervises" },
+            { source: "PERSON", target: "PERSON", label: "influences" },
+            { source: "ORGANISATION", target: "ORGANISATION", label: "mergedWith" },
+            { source: "GROUP", target: "ORGANISATION", label: "affiliatedWith" },
+
+            // 2. Actor → Artefact: createsItem, uses
+            { source: "PERSON", target: "PUBLICATION", label: "authorsWork" },
+            { source: "ORGANISATION", target: "PUBLICATION", label: "publishesWork" },
+            { source: "PERSON", target: "SOFTWARE", label: "developsTech" },
+            { source: "ORGANISATION", target: "SOFTWARE", label: "developsTech" },
+            { source: "PERSON", target: "SOFTWARE", label: "usesTechnology" },
+            { source: "PERSON", target: "DATABASE", label: "usesCorpusOrResource" },
+            { source: "PROJECT", target: "SOFTWARE", label: "usesTechnology" },
+            { source: "PROJECT", target: "CORPUS", label: "usesCorpusOrResource" },
+            { source: "PROJECT", target: "DATABASE", label: "usesCorpusOrResource" },
+            { source: "PROJECT", target: "INFRASTRUCTURE", label: "usesTechnology" },
+
+            // 4. Actor → ConceptualItem: engagesWithConcept
+            { source: "PERSON", target: "DISCIPLINE", label: "workInField" },
+            { source: "PERSON", target: "DISCIPLINE", label: "studiesField" },
+            { source: "PERSON", target: "FIELD_OF_STUDY", label: "workInField" },
+            { source: "PERSON", target: "THEORY", label: "coinsOrDefinesTerm" },
+            { source: "ORGANISATION", target: "DISCIPLINE", label: "workInField" },
+
+            // 5. Actor → Event: engagesIn
+            { source: "PERSON", target: "PROJECT", label: "participatesIn" },
+            { source: "PERSON", target: "CONFERENCE", label: "participatesIn" },
+            { source: "PERSON", target: "CONFERENCE", label: "presentedAt" },
+            { source: "PERSON", target: "ACTIVITY", label: "participatesIn" },
+            { source: "ORGANISATION", target: "CONFERENCE", label: "organises" },
+            { source: "ORGANISATION", target: "PROJECT", label: "funds" },
+            { source: "GROUP", target: "PROJECT", label: "participatesIn" },
+
+            // 6. Actor → Property: hasProperty
+            { source: "PERSON", target: "ROLE_OR_POSITION", label: "hasRoleOrPosition" },
+            { source: "PERSON", target: "QUALIFICATION", label: "hasQualification" },
+            { source: "ORGANISATION", target: "ROLE_OR_POSITION", label: "hasRoleOrPosition" },
+
+            // 7. Event → SpatialEntity: takesPlaceAt
+            { source: "CONFERENCE", target: "SPATIAL_ENTITY", label: "takesPlaceAt" },
+            { source: "PROJECT", target: "SPATIAL_ENTITY", label: "takesPlaceAt" },
+            { source: "ACTIVITY", target: "SPATIAL_ENTITY", label: "takesPlaceAt" },
+
+            // 8. Event → TemporalEntity: hasTimeExtent
+            { source: "PROJECT", target: "TEMPORAL_ENTITY", label: "hasTimeExtent" },
+            { source: "CONFERENCE", target: "TEMPORAL_ENTITY", label: "hasTimeExtent" },
+            { source: "ACTIVITY", target: "TEMPORAL_ENTITY", label: "hasTimeExtent" },
+            { source: "EVENT_SERIES", target: "TEMPORAL_ENTITY", label: "hasTimeExtent" },
+
+            // 9. Entity → Entity: dependency (isPartOf, runsOn, conceptuallyInfluences)
+            { source: "SOFTWARE", target: "HARDWARE", label: "runsOn" },
+            { source: "ACTIVITY", target: "PROJECT", label: "isPartOf" },
+            { source: "CONFERENCE", target: "EVENT_SERIES", label: "isPartOf" },
+            { source: "DATASET", target: "DATABASE", label: "isPartOf" },
+            { source: "THEORY", target: "PARADIGM", label: "conceptuallyInfluences" },
+            { source: "METHOD", target: "PRACTICE", label: "conceptuallyInfluences" },
+
+            // 10. Artefact → ConceptualItem: about
+            { source: "PUBLICATION", target: "DISCIPLINE", label: "hasTopic" },
+            { source: "PUBLICATION", target: "FIELD_OF_STUDY", label: "hasTopic" },
+            { source: "SOFTWARE", target: "METHOD", label: "implementsConcept" },
+            { source: "DATABASE", target: "DISCIPLINE", label: "hasTopic" },
+            { source: "CORPUS", target: "DISCIPLINE", label: "hasTopic" },
+
+            // 11. Actor → SpatialEntity: hasResidence
+            { source: "PERSON", target: "SPATIAL_ENTITY", label: "residesIn" },
+            { source: "PERSON", target: "SPATIAL_ENTITY", label: "grewUpIn" },
+            { source: "PERSON", target: "SPATIAL_ENTITY", label: "workedIn" },
+            { source: "ORGANISATION", target: "SPATIAL_ENTITY", label: "locatedIn" },
+        ];
+
+        // Process links to identify multiple edges between same nodes
+        function computeCurves(linkArray) {
+            const linkMap = {};
+            const curvedLinks = [];
+            linkArray.forEach(link => {
+                const key = `${link.source}-${link.target}`;
+                const reverseKey = `${link.target}-${link.source}`;
+                if (linkMap[key]) {
+                    link.linknum = linkMap[key]++;
+                    link.curved = true;
+                    curvedLinks.push(link);
+                } else if (linkMap[reverseKey]) {
+                    link.linknum = linkMap[reverseKey]++;
+                    link.curved = true;
+                    curvedLinks.push(link);
+                } else {
+                    linkMap[key] = 1;
+                    link.linknum = 0;
+                    link.curved = false;
+                }
+            });
+            return curvedLinks;
+        }
+        computeCurves(links);
+
+        // Top-level view data (MeDoraH V0.2 Entity types)
+        let topNodes = [
+            { id: 'ACTOR', group: 'actor', size: 38 },
+            { id: 'EVENT', group: 'event', size: 38 },
+            { id: 'ARTEFACT', group: 'artefact', size: 38 },
+            { id: 'CONCEPTUAL_ITEM', group: 'conceptual', size: 38 },
+            { id: 'SPATIAL_ENTITY', group: 'spatial', size: 38 },
+            { id: 'TEMPORAL_ENTITY', group: 'temporal', size: 38 },
+            { id: 'PROPERTY', group: 'property', size: 38 },
+        ];
+
+        let topLinks = [
+            // 1. Actor → Actor: hasSocioInstitutionalRelationWith
+            { source: 'ACTOR', target: 'ACTOR', label: 'hasSocioInstitutionalRelationWith' },
+            { source: 'ACTOR', target: 'ACTOR', label: 'collaboratedWith' },
+            { source: 'ACTOR', target: 'ACTOR', label: 'mentorsOrSupervises' },
+            { source: 'ACTOR', target: 'ACTOR', label: 'influences' },
+
+            // 2. Actor → Artefact: createsItem, uses
+            { source: 'ACTOR', target: 'ARTEFACT', label: 'createsItem' },
+            { source: 'ACTOR', target: 'ARTEFACT', label: 'authorsWork' },
+            { source: 'ACTOR', target: 'ARTEFACT', label: 'developsTech' },
+            { source: 'ACTOR', target: 'ARTEFACT', label: 'uses' },
+            { source: 'ACTOR', target: 'ARTEFACT', label: 'usesTechnology' },
+            { source: 'EVENT', target: 'ARTEFACT', label: 'uses' },
+
+            // 4. Actor → ConceptualItem: engagesWithConcept
+            { source: 'ACTOR', target: 'CONCEPTUAL_ITEM', label: 'engagesWithConcept' },
+            { source: 'ACTOR', target: 'CONCEPTUAL_ITEM', label: 'workInField' },
+            { source: 'ACTOR', target: 'CONCEPTUAL_ITEM', label: 'studiesField' },
+            { source: 'ACTOR', target: 'CONCEPTUAL_ITEM', label: 'coinsOrDefinesTerm' },
+
+            // 5. Actor → Event: engagesIn
+            { source: 'ACTOR', target: 'EVENT', label: 'engagesIn' },
+            { source: 'ACTOR', target: 'EVENT', label: 'participatesIn' },
+            { source: 'ACTOR', target: 'EVENT', label: 'organises' },
+            { source: 'ACTOR', target: 'EVENT', label: 'presentedAt' },
+            { source: 'ACTOR', target: 'EVENT', label: 'funds' },
+
+            // 6. Actor → Property: hasProperty
+            { source: 'ACTOR', target: 'PROPERTY', label: 'hasProperty' },
+            { source: 'ACTOR', target: 'PROPERTY', label: 'hasRoleOrPosition' },
+            { source: 'ACTOR', target: 'PROPERTY', label: 'hasQualification' },
+
+            // 7. Event → SpatialEntity: takesPlaceAt
+            { source: 'EVENT', target: 'SPATIAL_ENTITY', label: 'takesPlaceAt' },
+
+            // 8. Event → TemporalEntity: hasTimeExtent
+            { source: 'EVENT', target: 'TEMPORAL_ENTITY', label: 'hasTimeExtent' },
+
+            // 9. Entity → Entity: dependency
+            { source: 'ARTEFACT', target: 'ARTEFACT', label: 'dependency' },
+            { source: 'ARTEFACT', target: 'ARTEFACT', label: 'isPartOf' },
+            { source: 'ARTEFACT', target: 'ARTEFACT', label: 'runsOn' },
+            { source: 'EVENT', target: 'EVENT', label: 'isPartOf' },
+            { source: 'CONCEPTUAL_ITEM', target: 'CONCEPTUAL_ITEM', label: 'conceptuallyInfluences' },
+
+            // 10. Artefact → ConceptualItem: about
+            { source: 'ARTEFACT', target: 'CONCEPTUAL_ITEM', label: 'about' },
+            { source: 'ARTEFACT', target: 'CONCEPTUAL_ITEM', label: 'hasTopic' },
+            { source: 'ARTEFACT', target: 'CONCEPTUAL_ITEM', label: 'implementsConcept' },
+
+            // 11. Actor → SpatialEntity: hasResidence
+            { source: 'ACTOR', target: 'SPATIAL_ENTITY', label: 'hasResidence' },
+            { source: 'ACTOR', target: 'SPATIAL_ENTITY', label: 'residesIn' },
+            { source: 'ACTOR', target: 'SPATIAL_ENTITY', label: 'locatedIn' },
+        ];
+
+        // Aggregate multiple relations between same pair for Top-Level clarity
+        let aggregateTop = true;
+        function aggregateLinksForTop(raw) {
+            if (!aggregateTop) return raw.map(d => ({ ...d }));
+            const map = new Map();
+            for (const l of raw) {
+                const key = `${l.source}__${l.target}`;
+                if (!map.has(key)) {
+                    map.set(key, { source: l.source, target: l.target, labelsArr: [l.label] });
+                } else {
+                    const obj = map.get(key);
+                    if (!obj.labelsArr.includes(l.label)) obj.labelsArr.push(l.label);
+                }
+            }
+            // Build compact label like "3 relations" to reduce clutter; full list on hover
+            const result = Array.from(map.values()).map(o => ({
+                source: o.source,
+                target: o.target,
+                label: `${o.labelsArr.length} relations`,
+                labelsArr: o.labelsArr
+            }));
+            return result;
+        }
+
+        // Ontology-driven category and color scheme (MeDoraH V0.2)
+        function getCategory(id) {
+            switch (id) {
+                // Actor
+                case "PERSON":
+                case "ORGANISATION":
+                case "GROUP":
+                case "ACTOR":
+                    return "actor";
+                // Event
+                case "PROJECT":
+                case "CONFERENCE":
+                case "COURSE_AND_PROGRAMME":
+                case "EVENT_SERIES":
+                case "ACTIVITY":
+                case "EVENT":
+                    return "event";
+                // Artefact (Technology + Work)
+                case "SOFTWARE":
+                case "HARDWARE":
+                case "STANDARD":
+                case "INFRASTRUCTURE":
+                case "PUBLICATION":
+                case "CORPUS":
+                case "DATABASE":
+                case "DATASET":
+                case "WEBSITE":
+                case "ARTEFACT":
+                    return "artefact";
+                // ConceptualItem
+                case "THEORY":
+                case "PARADIGM":
+                case "METHOD":
+                case "PRACTICE":
+                case "DISCIPLINE":
+                case "FIELD_OF_STUDY":
+                case "CONCEPTUAL_ITEM":
+                    return "conceptual";
+                // SpatialEntity
+                case "SPATIAL_ENTITY":
+                    return "spatial";
+                // TemporalEntity
+                case "TEMPORAL_ENTITY":
+                    return "temporal";
+                // Property
+                case "ROLE_OR_POSITION":
+                case "QUALIFICATION":
+                case "PROPERTY":
+                    return "property";
+                default:
+                    return "property"; // fallback
+            }
+        }
+
+        const categoryColor = {
+            actor: "#E57373",
+            event: "#FFD54F",
+            artefact: "#81C784",
+            conceptual: "#BA68C8",
+            spatial: "#4DB6AC",
+            temporal: "#64B5F6",
+            property: "#FF8A65"
+        };
+
+        // All nodes are circles; symbol mapping removed per user request
+
+        // State variables
+        let pinMode = true;   // default ON
+        let showGrid = true;  // default ON
+        let forceActive = true; // default ON
+
+        // Initialize D3
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        const svg = d3.select("#graph");
+        const containerEl = document.getElementById('container');
+
+        // Add grid pattern
+        const gridSize = 50;
+        const gridGroup = svg.append("g").attr("class", "grid-group").style("display", "block");
+
+        // Vertical lines
+        for (let x = 0; x <= width; x += gridSize) {
+            gridGroup.append("line")
+                .attr("class", "grid-pattern")
+                .attr("x1", x)
+                .attr("y1", 0)
+                .attr("x2", x)
+                .attr("y2", height);
+        }
+
+        // Horizontal lines
+        for (let y = 0; y <= height; y += gridSize) {
+            gridGroup.append("line")
+                .attr("class", "grid-pattern")
+                .attr("x1", 0)
+                .attr("y1", y)
+                .attr("x2", width)
+                .attr("y2", y);
+        }
+
+        const g = svg.append("g");
+
+        // Add zoom behavior
+        const zoom = d3.zoom()
+            .scaleExtent([0.1, 10])
+            .on("zoom", (event) => {
+                g.attr("transform", event.transform);
+                if (detailNode) {
+                    positionDetailCard(detailNode);
+                }
+            });
+
+        svg.call(zoom);
+
+        // Arrow markers: build per-target-radius so arrow tips sit outside circles
+        const defs = svg.append("defs");
+        function refreshMarkers() {
+            const radii = Array.from(new Set(nodes.map(n => n.size))).sort((a, b) => a - b);
+            const sel = defs.selectAll('marker').data(radii, d => `end-${d}`);
+            sel.exit().remove();
+            const enter = sel.enter().append('marker')
+                .attr('id', d => `end-${d}`)
+                .attr('viewBox', '0 -5 10 10')
+                .attr('markerUnits', 'userSpaceOnUse')
+                .attr('refY', 0)
+                .attr('markerWidth', 10)
+                .attr('markerHeight', 10)
+                .attr('orient', 'auto');
+            enter.append('path')
+                .attr('d', 'M0,-5L10,0L0,5')
+                .attr('fill', '#666');
+            // Update refX based on radius so the arrow tip is outside the circle
+            defs.selectAll('marker')
+                .attr('refX', d => (d + 12)); // arrowTip(10) + 2px margin
+        }
+
+        // Force parameter presets
+        const defaultForces = {
+            linkDistance: 150,
+            charge: -500,
+            collidePadding: 0,
+            xStrength: 0.05,
+            yStrength: 0.05
+        };
+        const expandedForces = {
+            linkDistance: 240,
+            charge: -1200,
+            collidePadding: 18,
+            xStrength: 0.02,
+            yStrength: 0.02
+        };
+
+        // Create force simulation with adjustable forces
+        let linkForce = d3.forceLink(links).id(d => d.id).distance(defaultForces.linkDistance);
+        let simulation = d3.forceSimulation(nodes)
+            .force("link", linkForce)
+            .force("charge", d3.forceManyBody().strength(defaultForces.charge))
+            .force("center", d3.forceCenter(width / 2, height / 2))
+            .force("x", d3.forceX(width / 2).strength(defaultForces.xStrength))
+            .force("y", d3.forceY(height / 2).strength(defaultForces.yStrength));
+
+        // Default to expanded readable layout
+        applyForceParams(expandedForces);
+
+        function applyForceParams(params) {
+            linkForce.distance(params.linkDistance);
+            simulation.force("charge").strength(params.charge);
+            simulation.force("x").strength(params.xStrength);
+            simulation.force("y").strength(params.yStrength);
+            if (params.collidePadding > 0) {
+                simulation.force("collide", d3.forceCollide(d => d.size + params.collidePadding));
+            } else {
+                simulation.force("collide", null);
+            }
+            simulation.alpha(1).restart();
+        }
+
+        // Function to calculate curved path
+        function linkArc(d) {
+            const dx = d.target.x - d.source.x;
+            const dy = d.target.y - d.source.y;
+            const dr = Math.sqrt(dx * dx + dy * dy);
+
+            if (!d.curved) {
+                return `M${d.source.x},${d.source.y}L${d.target.x},${d.target.y}`;
+            }
+
+            // Calculate offset for multiple curves
+            const offset = d.linknum * 30;
+            const sweep = d.linknum % 2 === 0 ? 0 : 1;
+
+            return `M${d.source.x},${d.source.y}A${dr + offset},${dr + offset} 0 0,${sweep} ${d.target.x},${d.target.y}`;
+        }
+
+        // Anchor layout for Top-Level nodes to minimize crossings (MeDoraH V0.2)
+        function applyTopAnchors(nodeArray) {
+            const cx = width / 2, cy = height / 2;
+            const anchors = {
+                'ACTOR': [cx, cy],
+                'EVENT': [width * 0.2, height * 0.55],
+                'ARTEFACT': [width * 0.8, height * 0.55],
+                'CONCEPTUAL_ITEM': [width * 0.65, height * 0.2],
+                'SPATIAL_ENTITY': [width * 0.2, height * 0.25],
+                'TEMPORAL_ENTITY': [width * 0.35, height * 0.82],
+                'PROPERTY': [width * 0.65, height * 0.82],
+            };
+            nodeArray.forEach(n => {
+                if (anchors[n.id]) {
+                    const [x, y] = anchors[n.id];
+                    n.fx = x;
+                    n.fy = y;
+                }
+            });
+        }
+
+        function releaseAnchors(nodeArray) {
+            nodeArray.forEach(n => { n.fx = null; n.fy = null; });
+        }
+
+        function positionDetailCard(d) {
+            if (!detailCard || !d) return;
+            const svgNode = svg.node();
+            const gNode = g.node();
+            if (!svgNode || !gNode) return;
+
+            const point = svgNode.createSVGPoint();
+            point.x = (d.x !== undefined ? d.x : d.fx || 0);
+            point.y = (d.y !== undefined ? d.y : d.fy || 0);
+            const ctm = gNode.getCTM();
+            if (!ctm) return;
+            const screenPoint = point.matrixTransform(ctm);
+
+            const containerRect = containerEl.getBoundingClientRect();
+
+            detailCard.style.left = '0px';
+            detailCard.style.top = '0px';
+            const cardRect = detailCard.getBoundingClientRect();
+            const cardWidth = cardRect.width;
+            const cardHeight = cardRect.height;
+
+            let left = screenPoint.x - containerRect.left + 24;
+            if (left + cardWidth > containerRect.width - 10) {
+                left = screenPoint.x - containerRect.left - cardWidth - 24;
+            }
+            left = Math.max(10, Math.min(containerRect.width - cardWidth - 10, left));
+
+            let top = screenPoint.y - containerRect.top - cardHeight / 2;
+            if (top < 10) top = 10;
+            if (top + cardHeight > containerRect.height - 10) {
+                top = containerRect.height - cardHeight - 10;
+            }
+
+            detailCard.style.left = `${left}px`;
+            detailCard.style.top = `${top}px`;
+        }
+
+        function hideDetailCard() {
+            detailNode = null;
+            if (detailCard) detailCard.style.display = 'none';
+            tooltipPinned = false;
+            if (tooltip) tooltip.classed('show', false);
+            clearHighlight();
+        }
+
+        let link, linkLabelGroup, node;
+        let tooltipPinned = false;
+        let detailNode = null;
+        let tooltip;
+        const detailCard = document.getElementById('detailCard');
+        const dcTitle = document.getElementById('detailCardTitle');
+        const dcBody = document.getElementById('detailCardBody');
+
+        function buildGraph() {
+            // Clear existing
+            g.selectAll('.link').remove();
+            g.selectAll('.link-label-group').remove();
+            g.selectAll('.node').remove();
+
+            // Links
+            link = g.append("g")
+                .selectAll("path")
+                .data(links)
+                .enter().append("path")
+                .attr("class", "link")
+                .attr("id", (d, i) => `link-${i}`)
+                .each(function (d) {
+                    const s = getLinkStyle(d);
+                    d3.select(this)
+                        .attr("stroke", s.stroke)
+                        .attr("stroke-width", s.width)
+                        .attr("stroke-dasharray", s.dasharray || null);
+                });
+
+            // Ensure markers exist for current node radii
+            refreshMarkers();
+
+            // Map for quick node lookup
+            const nodeIndex = new Map(nodes.map(n => [n.id, n]));
+            link.attr('marker-end', d => {
+                const tgt = (d.target && d.target.id) ? d.target : nodeIndex.get(d.target);
+                const r = (tgt && tgt.size) ? tgt.size : 0;
+                return `url(#end-${r})`;
+            });
+
+            // Link labels
+            linkLabelGroup = g.append("g")
+                .selectAll(".link-label-group")
+                .data(links)
+                .enter().append("g")
+                .attr("class", "link-label-group");
+
+            linkLabelGroup.append("rect")
+                .attr("class", "link-label-bg")
+                .attr("rx", 2)
+                .attr("ry", 2);
+
+            linkLabelGroup.append("text")
+                .attr("class", "link-label")
+                .text(d => d.label);
+
+            // Interactions for grouped relation labels
+            linkLabelGroup
+                .on('mouseover', function (event, d) {
+                    const labels = Array.isArray(d.labelsArr) ? d.labelsArr : [d.label];
+                    const html = `
+                        <strong>${d.source.id || d.source} → ${d.target.id || d.target}</strong><br>
+                        ${labels.map(l => `• ${l}`).join('<br>')}
+                    `;
+                    tooltip.html(html)
+                        .style('left', (event.pageX + 10) + 'px')
+                        .style('top', (event.pageY - 10) + 'px')
+                        .classed('show', true);
+                    if (!tooltipPinned && !detailNode) {
+                        // Highlight this link and its nodes
+                        link.style('opacity', l => l === d ? 1 : 0.1);
+                        linkLabelGroup.style('opacity', l => l === d ? 1 : 0);
+                    }
+                })
+                .on('mouseout', function () {
+                    if (!tooltipPinned && !detailNode) {
+                        tooltip.classed('show', false);
+                        link.style('opacity', 0.6);
+                        linkLabelGroup.style('opacity', labelsVisible ? 1 : 0);
+                    } else if (detailNode) {
+                        tooltip.classed('show', false);
+                        highlightNeighborhood(detailNode);
+                    }
+                })
+                .on('click', function (event, d) {
+                    if (detailNode) return;
+                    event.stopPropagation();
+                    tooltipPinned = !tooltipPinned;
+                    if (!tooltipPinned) {
+                        tooltip.classed('show', false);
+                        link.style('opacity', 0.6);
+                        linkLabelGroup.style('opacity', labelsVisible ? 1 : 0);
+                    }
+                });
+
+            // Nodes
+            node = g.append("g")
+                .selectAll(".node")
+                .data(nodes)
+                .enter().append("g")
+                .attr("class", "node")
+                .call(d3.drag()
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                    .on("end", dragended));
+
+            node.append("circle")
+                .attr("r", d => d.size)
+                .attr("fill", d => categoryColor[d.group || getCategory(d.id)] || "#FF8A65")
+                .attr("stroke", "#333");
+
+            node.append("text")
+                .text(d => d.id)
+                .attr("dy", 4);
+
+            // If in Top view, apply anchors to reduce edge crossings
+            const viewBtn = document.getElementById('viewModeBtn');
+            const isTop = viewBtn && viewBtn.textContent.includes('Lower');
+            if (isTop) {
+                applyTopAnchors(nodes);
+            }
+
+            // Tick handler
+            simulation.on("tick", () => {
+                link.attr("d", linkArc);
+                linkLabelGroup.each(function (d) {
+                    const path = link.filter(l => l === d).node();
+                    if (!path) return;
+                    const pathLength = path.getTotalLength();
+                    const midPoint = path.getPointAtLength(pathLength / 2);
+                    const group = d3.select(this);
+                    const text = group.select("text");
+                    const bg = group.select("rect");
+                    text.attr("x", midPoint.x).attr("y", midPoint.y);
+                    const bbox = text.node().getBBox();
+                    bg.attr("x", bbox.x - 2).attr("y", bbox.y - 1)
+                        .attr("width", bbox.width + 4).attr("height", bbox.height + 2);
+                });
+                node.attr("transform", d => `translate(${d.x},${d.y})`);
+                node.classed("fixed", d => d.fx !== null);
+            });
+
+            // Bind node interactions every build so they persist across rebuilds
+            bindNodeEvents();
+        }
+
+        buildGraph();
+
+        // Tooltip
+        tooltip = d3.select("#tooltip");
+
+        function isTopView() {
+            const btn = document.getElementById('viewModeBtn');
+            return btn && btn.textContent.includes('Lower');
+        }
+
+        function highlightNeighborhood(d) {
+            const nb = new Set([d.id]);
+            links.forEach(l => {
+                const s = l.source.id, t = l.target.id;
+                if (s === d.id) nb.add(t);
+                if (t === d.id) nb.add(s);
+            });
+            node.style('opacity', n => nb.has(n.id) ? 1 : 0.15);
+            link.style('opacity', l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.1);
+            const showLabels = labelsVisible || !!detailNode;
+            linkLabelGroup.style('opacity', l => (l.source.id === d.id || l.target.id === d.id) ? (showLabels ? 1 : 0) : 0);
+        }
+
+        function clearHighlight() {
+            if (!node || !link || !linkLabelGroup) return;
+            node.style('opacity', 1);
+            link.style('opacity', 0.6);
+            linkLabelGroup.style('opacity', labelsVisible ? 1 : 0);
+        }
+
+        function showDetailCardForNode(d, event) {
+            // Build per-neighbor relation listing
+            const related = links.filter(l => l.source.id === d.id || l.target.id === d.id);
+            const byNeighbor = new Map();
+            for (const r of related) {
+                const neighbor = r.source.id === d.id ? r.target.id : r.source.id;
+                const names = Array.isArray(r.labelsArr) ? r.labelsArr : [r.label];
+                if (!byNeighbor.has(neighbor)) byNeighbor.set(neighbor, new Set());
+                const set = byNeighbor.get(neighbor);
+                names.forEach(n => set.add(n));
+            }
+            const rows = Array.from(byNeighbor.entries()).map(([nb, set]) =>
+                `<div style='margin-bottom:8px'><strong>${nb}</strong><br>${Array.from(set).map(n => '• ' + n).join('<br>')}</div>`
+            ).join('');
+            dcTitle.textContent = d.id;
+            dcBody.innerHTML = rows || 'No relations';
+            detailNode = d;
+            detailCard.style.display = 'block';
+            positionDetailCard(d);
+        }
+
+        function bindNodeEvents() {
+            if (!node) return;
+            node.on("mouseover", function (event, d) {
+                if (detailNode && detailNode.id !== d.id) return;
+                const relationships = links.filter(l => l.source.id === d.id || l.target.id === d.id);
+                const relText = relationships.map(r => {
+                    const labelDetail = Array.isArray(r.labelsArr) ? r.labelsArr.join(' · ') : r.label;
+                    return r.source.id === d.id ?
+                        `➡️ ${labelDetail} → ${r.target.id}` :
+                        `⬅️ ${r.source.id} → ${labelDetail}`;
+                }).join("<br>");
+                const fixedStatus = d.fx !== null ? "<br><strong style='color: #FF6347;'>📌 FIXED</strong>" : "";
+                tooltip.html(`
+                    <strong>${d.id}</strong><br>
+                    <small>Category: ${d.group || getCategory(d.id)}</small>
+                    ${fixedStatus}
+                    <hr>
+                    ${relText || "No direct relationships"}
+                `)
+                    .style("left", (event.pageX + 10) + "px")
+                    .style("top", (event.pageY - 10) + "px")
+                    .classed("show", true);
+                try {
+                    link.style('opacity', l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.1);
+                    linkLabelGroup.style('opacity', l => (l.source.id === d.id || l.target.id === d.id) ? (labelsVisible ? 1 : 0) : 0);
+                } catch (e) { }
+            })
+                .on("mouseout", function (event, d) {
+                    if (detailNode && detailNode.id !== d.id) return;
+                    if (!tooltipPinned && !detailNode) {
+                        tooltip.classed("show", false);
+                        try {
+                            link.style('opacity', 0.6);
+                            linkLabelGroup.style('opacity', labelsVisible ? 1 : 0);
+                        } catch (e) { }
+                    } else if (detailNode) {
+                        tooltip.classed('show', false);
+                        highlightNeighborhood(detailNode);
+                    }
+                })
+                .on('click', function (event, d) {
+                    event.stopPropagation();
+                    // Always support card + dimming on click
+                    tooltipPinned = false;
+                    tooltip.classed('show', false);
+                    showDetailCardForNode(d, event);
+                    highlightNeighborhood(d);
+                });
+        }
+
+        // Unpin tooltip when clicking empty space
+        svg.on('click', function (event) {
+            if (tooltipPinned) {
+                tooltipPinned = false;
+                tooltip.classed('show', false);
+                try {
+                    link.style('opacity', 0.6);
+                    linkLabelGroup.style('opacity', labelsVisible ? 1 : 0);
+                } catch (e) { }
+            }
+            hideDetailCard();
+        });
+
+        // Close button on detail card
+        document.getElementById('detailCardClose').addEventListener('click', function (e) {
+            e.stopPropagation();
+            hideDetailCard();
+        });
+
+        // Prevent clicking inside card from bubbling to SVG
+        detailCard.addEventListener('click', function (e) { e.stopPropagation(); });
+
+        window.addEventListener('resize', () => {
+            if (detailNode) positionDetailCard(detailNode);
+        });
+
+        // Tick handler moved into buildGraph()
+
+        function getLinkStyle(d) {
+            const style = { stroke: '#666', width: 1.5, dasharray: null };
+            switch (d.label) {
+                // 1. Actor → Actor: socio-institutional
+                case 'hasSocioInstitutionalRelationWith':
+                case 'hasEmploymentAt':
+                case 'studiedAt':
+                case 'affiliatedWith':
+                    style.stroke = '#1565C0';
+                    style.width = 1.8;
+                    break;
+                case 'founded':
+                case 'chairOf':
+                    style.stroke = '#EF6C00';
+                    style.width = 1.8;
+                    break;
+                case 'collaboratedWith':
+                    style.stroke = '#00897B';
+                    style.width = 1.8;
+                    break;
+                case 'mentorsOrSupervises':
+                    style.stroke = '#7B1FA2';
+                    style.width = 1.8;
+                    break;
+                case 'influences':
+                case 'conceptuallyInfluences':
+                    style.stroke = '#7B1FA2';
+                    style.width = 1.8;
+                    break;
+                case 'mergedWith':
+                    style.stroke = '#616161';
+                    style.dasharray = '4,2';
+                    style.width = 1.8;
+                    break;
+                // 2. Actor → Artefact: creates, uses
+                case 'createsItem':
+                case 'authorsWork':
+                case 'publishesWork':
+                case 'developsTech':
+                    style.stroke = '#8E24AA';
+                    style.width = 2.0;
+                    break;
+                case 'uses':
+                case 'usesTechnology':
+                case 'usesCorpusOrResource':
+                    style.stroke = '#1565C0';
+                    style.width = 1.8;
+                    break;
+                // 4. Actor → ConceptualItem
+                case 'engagesWithConcept':
+                case 'workInField':
+                case 'studiesField':
+                    style.stroke = '#5E35B1';
+                    style.width = 1.8;
+                    break;
+                case 'coinsOrDefinesTerm':
+                    style.stroke = '#EF6C00';
+                    style.width = 2.0;
+                    break;
+                // 5. Actor → Event
+                case 'engagesIn':
+                case 'participatesIn':
+                    style.stroke = '#00897B';
+                    style.width = 1.8;
+                    break;
+                case 'organises':
+                case 'funds':
+                    style.stroke = '#EF6C00';
+                    style.width = 1.8;
+                    break;
+                case 'presentedAt':
+                    style.stroke = '#00897B';
+                    style.width = 1.6;
+                    break;
+                // 6. Actor → Property
+                case 'hasProperty':
+                case 'hasRoleOrPosition':
+                case 'hasQualification':
+                    style.stroke = '#FF8A65';
+                    style.width = 1.8;
+                    break;
+                // 7. Event → SpatialEntity
+                case 'takesPlaceAt':
+                    style.stroke = '#4DB6AC';
+                    style.width = 1.8;
+                    break;
+                // 8. Event → TemporalEntity
+                case 'hasTimeExtent':
+                    style.stroke = '#64B5F6';
+                    style.width = 1.8;
+                    break;
+                // 9. Entity → Entity: dependency
+                case 'dependency':
+                case 'isPartOf':
+                    style.stroke = '#616161';
+                    style.dasharray = '4,2';
+                    style.width = 1.8;
+                    break;
+                case 'runsOn':
+                    style.stroke = '#546E7A';
+                    style.width = 1.8;
+                    break;
+                // 10. Artefact → ConceptualItem
+                case 'about':
+                case 'hasTopic':
+                    style.stroke = '#5E35B1';
+                    style.width = 1.8;
+                    break;
+                case 'implementsConcept':
+                    style.stroke = '#7B1FA2';
+                    style.width = 2.0;
+                    break;
+                // 11. Actor → SpatialEntity
+                case 'hasResidence':
+                case 'residesIn':
+                case 'grewUpIn':
+                case 'workedIn':
+                case 'locatedIn':
+                    style.stroke = '#4DB6AC';
+                    style.width = 1.8;
+                    break;
+            }
+            return style;
+        }
+
+        // Drag functions
+        function dragstarted(event, d) {
+            if (!event.active && forceActive) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active && forceActive) simulation.alphaTarget(0);
+
+            // In pin mode, keep the node fixed after dragging
+            if (!pinMode) {
+                d.fx = null;
+                d.fy = null;
+            }
+            // If pin mode is on, node stays fixed (fx and fy remain set)
+        }
+
+        // Control functions
+        function togglePinMode() {
+            pinMode = !pinMode;
+            const btn = document.getElementById('pinModeBtn');
+            const statusMsg = document.getElementById('statusMessage');
+            btn.classList.toggle('active');
+            statusMsg.classList.toggle('show');
+        }
+
+        function unfixAll() {
+            nodes.forEach(d => {
+                d.fx = null;
+                d.fy = null;
+            });
+            if (forceActive) {
+                simulation.alpha(0.3).restart();
+            }
+        }
+
+        function resetZoom() {
+            svg.transition()
+                .duration(750)
+                .call(zoom.transform, d3.zoomIdentity);
+        }
+
+        let labelsVisible = true;
+        function toggleLabels() {
+            labelsVisible = !labelsVisible;
+            linkLabelGroup.style("opacity", labelsVisible ? 1 : 0);
+            const labelBtn = document.getElementById('labelsBtn');
+            if (labelBtn) labelBtn.classList.toggle('active', labelsVisible);
+        }
+
+        function toggleForce() {
+            forceActive = !forceActive;
+            const btn = document.getElementById('forceBtn');
+            btn.classList.toggle('active', forceActive);
+            // On enable, expand layout for readability
+            if (forceActive) {
+                applyForceParams(expandedForces);
+            } else {
+                // Revert to default params and pause physics
+                applyForceParams(defaultForces);
+                simulation.stop();
+            }
+        }
+
+        function toggleView() {
+            // Switch mode label
+            const btn = document.getElementById('viewModeBtn');
+            const toTop = btn.textContent.includes('Top');
+            btn.textContent = toTop ? 'Lower-Level View' : 'Top-Level View';
+            // If leaving Top-Level while in edit mode, auto-disable editor
+            if (!toTop) {
+                const editPanel = document.getElementById('editPanel');
+                const editBtn = document.getElementById('editModeBtn');
+                if (typeof editMode !== 'undefined' && editMode) {
+                    editMode = false;
+                    if (editPanel) editPanel.style.display = 'none';
+                    if (editBtn) editBtn.classList.remove('active');
+                }
+            }
+
+            // Swap datasets
+            if (toTop) {
+                nodes = topNodes.map(d => ({ ...d }));
+                links = aggregateLinksForTop(topLinks);
+                applyTopAnchors(nodes);
+                // During top view, default show labels per request
+                labelsVisible = true;
+                const labelBtn = document.getElementById('labelsBtn');
+                if (labelBtn) labelBtn.classList.toggle('active', labelsVisible);
+            } else {
+                nodes = [
+                    // Actor subtypes
+                    { id: "PERSON", group: "actor", size: 28 },
+                    { id: "ORGANISATION", group: "actor", size: 25 },
+                    { id: "GROUP", group: "actor", size: 22 },
+                    // Event subtypes
+                    { id: "PROJECT", group: "event", size: 25 },
+                    { id: "CONFERENCE", group: "event", size: 22 },
+                    { id: "COURSE_AND_PROGRAMME", group: "event", size: 20 },
+                    { id: "EVENT_SERIES", group: "event", size: 18 },
+                    { id: "ACTIVITY", group: "event", size: 20 },
+                    // Artefact → Technology subtypes
+                    { id: "SOFTWARE", group: "artefact", size: 22 },
+                    { id: "HARDWARE", group: "artefact", size: 20 },
+                    { id: "STANDARD", group: "artefact", size: 18 },
+                    { id: "INFRASTRUCTURE", group: "artefact", size: 20 },
+                    // Artefact → Work subtypes
+                    { id: "PUBLICATION", group: "artefact", size: 22 },
+                    { id: "CORPUS", group: "artefact", size: 20 },
+                    { id: "DATABASE", group: "artefact", size: 20 },
+                    { id: "DATASET", group: "artefact", size: 18 },
+                    { id: "WEBSITE", group: "artefact", size: 18 },
+                    // ConceptualItem subtypes
+                    { id: "THEORY", group: "conceptual", size: 20 },
+                    { id: "PARADIGM", group: "conceptual", size: 18 },
+                    { id: "METHOD", group: "conceptual", size: 20 },
+                    { id: "PRACTICE", group: "conceptual", size: 18 },
+                    { id: "DISCIPLINE", group: "conceptual", size: 22 },
+                    { id: "FIELD_OF_STUDY", group: "conceptual", size: 18 },
+                    // SpatialEntity & TemporalEntity
+                    { id: "SPATIAL_ENTITY", group: "spatial", size: 22 },
+                    { id: "TEMPORAL_ENTITY", group: "temporal", size: 22 },
+                    // Property subtypes
+                    { id: "ROLE_OR_POSITION", group: "property", size: 20 },
+                    { id: "QUALIFICATION", group: "property", size: 18 },
+                ];
+                links = [
+                    // 1. Actor → Actor
+                    { source: "PERSON", target: "ORGANISATION", label: "hasEmploymentAt" },
+                    { source: "PERSON", target: "ORGANISATION", label: "studiedAt" },
+                    { source: "PERSON", target: "ORGANISATION", label: "affiliatedWith" },
+                    { source: "PERSON", target: "ORGANISATION", label: "founded" },
+                    { source: "PERSON", target: "ORGANISATION", label: "chairOf" },
+                    { source: "PERSON", target: "PERSON", label: "collaboratedWith" },
+                    { source: "PERSON", target: "PERSON", label: "mentorsOrSupervises" },
+                    { source: "PERSON", target: "PERSON", label: "influences" },
+                    { source: "ORGANISATION", target: "ORGANISATION", label: "mergedWith" },
+                    { source: "GROUP", target: "ORGANISATION", label: "affiliatedWith" },
+                    // 2. Actor → Artefact
+                    { source: "PERSON", target: "PUBLICATION", label: "authorsWork" },
+                    { source: "ORGANISATION", target: "PUBLICATION", label: "publishesWork" },
+                    { source: "PERSON", target: "SOFTWARE", label: "developsTech" },
+                    { source: "ORGANISATION", target: "SOFTWARE", label: "developsTech" },
+                    { source: "PERSON", target: "SOFTWARE", label: "usesTechnology" },
+                    { source: "PERSON", target: "DATABASE", label: "usesCorpusOrResource" },
+                    { source: "PROJECT", target: "SOFTWARE", label: "usesTechnology" },
+                    { source: "PROJECT", target: "CORPUS", label: "usesCorpusOrResource" },
+                    { source: "PROJECT", target: "DATABASE", label: "usesCorpusOrResource" },
+                    { source: "PROJECT", target: "INFRASTRUCTURE", label: "usesTechnology" },
+                    // 4. Actor → ConceptualItem
+                    { source: "PERSON", target: "DISCIPLINE", label: "workInField" },
+                    { source: "PERSON", target: "DISCIPLINE", label: "studiesField" },
+                    { source: "PERSON", target: "FIELD_OF_STUDY", label: "workInField" },
+                    { source: "PERSON", target: "THEORY", label: "coinsOrDefinesTerm" },
+                    { source: "ORGANISATION", target: "DISCIPLINE", label: "workInField" },
+                    // 5. Actor → Event
+                    { source: "PERSON", target: "PROJECT", label: "participatesIn" },
+                    { source: "PERSON", target: "CONFERENCE", label: "participatesIn" },
+                    { source: "PERSON", target: "CONFERENCE", label: "presentedAt" },
+                    { source: "PERSON", target: "ACTIVITY", label: "participatesIn" },
+                    { source: "ORGANISATION", target: "CONFERENCE", label: "organises" },
+                    { source: "ORGANISATION", target: "PROJECT", label: "funds" },
+                    { source: "GROUP", target: "PROJECT", label: "participatesIn" },
+                    // 6. Actor → Property
+                    { source: "PERSON", target: "ROLE_OR_POSITION", label: "hasRoleOrPosition" },
+                    { source: "PERSON", target: "QUALIFICATION", label: "hasQualification" },
+                    { source: "ORGANISATION", target: "ROLE_OR_POSITION", label: "hasRoleOrPosition" },
+                    // 7. Event → SpatialEntity
+                    { source: "CONFERENCE", target: "SPATIAL_ENTITY", label: "takesPlaceAt" },
+                    { source: "PROJECT", target: "SPATIAL_ENTITY", label: "takesPlaceAt" },
+                    { source: "ACTIVITY", target: "SPATIAL_ENTITY", label: "takesPlaceAt" },
+                    // 8. Event → TemporalEntity
+                    { source: "PROJECT", target: "TEMPORAL_ENTITY", label: "hasTimeExtent" },
+                    { source: "CONFERENCE", target: "TEMPORAL_ENTITY", label: "hasTimeExtent" },
+                    { source: "ACTIVITY", target: "TEMPORAL_ENTITY", label: "hasTimeExtent" },
+                    { source: "EVENT_SERIES", target: "TEMPORAL_ENTITY", label: "hasTimeExtent" },
+                    // 9. Entity → Entity (dependency)
+                    { source: "SOFTWARE", target: "HARDWARE", label: "runsOn" },
+                    { source: "ACTIVITY", target: "PROJECT", label: "isPartOf" },
+                    { source: "CONFERENCE", target: "EVENT_SERIES", label: "isPartOf" },
+                    { source: "DATASET", target: "DATABASE", label: "isPartOf" },
+                    { source: "THEORY", target: "PARADIGM", label: "conceptuallyInfluences" },
+                    { source: "METHOD", target: "PRACTICE", label: "conceptuallyInfluences" },
+                    // 10. Artefact → ConceptualItem
+                    { source: "PUBLICATION", target: "DISCIPLINE", label: "hasTopic" },
+                    { source: "PUBLICATION", target: "FIELD_OF_STUDY", label: "hasTopic" },
+                    { source: "SOFTWARE", target: "METHOD", label: "implementsConcept" },
+                    { source: "DATABASE", target: "DISCIPLINE", label: "hasTopic" },
+                    { source: "CORPUS", target: "DISCIPLINE", label: "hasTopic" },
+                    // 11. Actor → SpatialEntity
+                    { source: "PERSON", target: "SPATIAL_ENTITY", label: "residesIn" },
+                    { source: "PERSON", target: "SPATIAL_ENTITY", label: "grewUpIn" },
+                    { source: "PERSON", target: "SPATIAL_ENTITY", label: "workedIn" },
+                    { source: "ORGANISATION", target: "SPATIAL_ENTITY", label: "locatedIn" },
+                ];
+                releaseAnchors(nodes);
+                labelsVisible = true;
+                const labelBtn = document.getElementById('labelsBtn');
+                if (labelBtn) labelBtn.classList.toggle('active', labelsVisible);
+            }
+
+            // Recompute curves for new links
+            computeCurves(links);
+
+            // Re-init simulation
+            linkForce = d3.forceLink(links).id(d => d.id).distance(defaultForces.linkDistance);
+            simulation = d3.forceSimulation(nodes)
+                .force("link", linkForce)
+                .force("charge", d3.forceManyBody().strength(defaultForces.charge))
+                .force("center", d3.forceCenter(width / 2, height / 2))
+                .force("x", d3.forceX(width / 2).strength(defaultForces.xStrength))
+                .force("y", d3.forceY(height / 2).strength(defaultForces.yStrength));
+
+            // Rebuild visuals
+            buildGraph();
+            // Apply label visibility
+            try { linkLabelGroup.style("opacity", labelsVisible ? 1 : 0); } catch (e) { }
+            applyForceParams(expandedForces);
+            hideDetailCard();
+            // Update editor badge
+            try {
+                const badge = document.getElementById('editViewBadge');
+                if (badge) badge.textContent = isTopView() ? 'Top-Level' : 'Lower-Level';
+            } catch (e) { }
+        }
+
+        // Grouping toggle for Top-Level
+        function toggleAggregate() {
+            const btn = document.getElementById('aggBtn');
+            aggregateTop = !aggregateTop;
+            btn.classList.toggle('active', aggregateTop);
+            // Only rebuild when in top view
+            const viewBtn = document.getElementById('viewModeBtn');
+            const isTop = viewBtn.textContent.includes('Lower');
+            if (isTop) {
+                links = aggregateLinksForTop(topLinks);
+                computeCurves(links);
+                // Re-init sim with same nodes
+                linkForce = d3.forceLink(links).id(d => d.id).distance(defaultForces.linkDistance);
+                simulation = d3.forceSimulation(nodes)
+                    .force("link", linkForce)
+                    .force("charge", d3.forceManyBody().strength(defaultForces.charge))
+                    .force("center", d3.forceCenter(width / 2, height / 2))
+                    .force("x", d3.forceX(width / 2).strength(defaultForces.xStrength))
+                    .force("y", d3.forceY(height / 2).strength(defaultForces.yStrength));
+                buildGraph();
+                try { linkLabelGroup.style("opacity", labelsVisible ? 1 : 0); } catch (e) { }
+                applyForceParams(expandedForces);
+                hideDetailCard();
+            }
+        }
+
+        function toggleGrid() {
+            showGrid = !showGrid;
+            gridGroup.style("display", showGrid ? "block" : "none");
+        }
+
+        // Show/Hide Explorer panel
+        let panelVisible = true;
+        function togglePanel() {
+            const panel = document.querySelector('.controls');
+            const floater = document.getElementById('panelToggle');
+            const hideBtn = document.getElementById('panelHideBtn');
+            panelVisible = !panelVisible;
+            panel.style.display = panelVisible ? 'block' : 'none';
+            floater.style.display = panelVisible ? 'none' : 'inline-flex';
+            if (hideBtn) hideBtn.textContent = panelVisible ? 'Hide Panel' : 'Show Panel';
+        }
+
+        function searchNodes(event) {
+            const searchTerm = event.target.value.toLowerCase();
+
+            node.style("opacity", d => {
+                if (searchTerm === "") return 1;
+                return d.id.toLowerCase().includes(searchTerm) ? 1 : 0.2;
+            });
+
+            link.style("opacity", d => {
+                if (searchTerm === "") return 1;
+                return d.source.id.toLowerCase().includes(searchTerm) ||
+                    d.target.id.toLowerCase().includes(searchTerm) ? 1 : 0.1;
+            });
+
+            linkLabelGroup.style("opacity", d => {
+                if (searchTerm === "") return labelsVisible ? 1 : 0;
+                return (d.source.id.toLowerCase().includes(searchTerm) ||
+                    d.target.id.toLowerCase().includes(searchTerm)) ?
+                    (labelsVisible ? 1 : 0) : 0.1;
+            });
+        }
+
+        // Remove loading message
+        setTimeout(() => {
+            document.querySelector('.loading').style.display = 'none';
+        }, 1000);
+
+        // Initialize UI defaults: pin mode ON, physics ON, grid ON
+        try {
+            document.getElementById('pinModeBtn').classList.add('active');
+            document.getElementById('statusMessage').classList.add('show');
+            document.getElementById('forceBtn').classList.add('active');
+            // Labels default ON
+            const labelsBtn = document.getElementById('labelsBtn');
+            if (labelsBtn) labelsBtn.classList.toggle('active', labelsVisible);
+            // Apply expanded force layout by default for readability
+            applyForceParams(expandedForces);
+            // Default group toggle style state
+            document.getElementById('aggBtn').classList.toggle('active', true);
+        } catch (e) { }
+
+        // Initial zoom to fit
+        setTimeout(() => {
+            const bounds = g.node().getBBox();
+            const fullWidth = width;
+            const fullHeight = height;
+            const widthScale = fullWidth / bounds.width;
+            const heightScale = fullHeight / bounds.height;
+            const scale = 0.8 * Math.min(widthScale, heightScale);
+
+            const translate = [
+                fullWidth / 2 - scale * (bounds.x + bounds.width / 2),
+                fullHeight / 2 - scale * (bounds.y + bounds.height / 2)
+            ];
+
+            svg.transition()
+                .duration(1500)
+                .call(zoom.transform, d3.zoomIdentity
+                    .translate(translate[0], translate[1])
+                    .scale(scale));
+        }, 2000);
+
+        // ===== Top-Level Edit Mode =====
+        let editMode = false;
+        let editingNodeId = null;   // original ID when editing
+        let editingRelIndex = null; // index in topLinks when editing
+        const allowedGroups = ['actor', 'event', 'artefact', 'conceptual', 'spatial', 'temporal', 'property'];
+        const editSectionState = { node: false, relation: false }; // collapsed by default
+
+        function toggleEditMode() {
+            const btn = document.getElementById('editModeBtn');
+            const panel = document.getElementById('editPanel');
+            // Ensure Top-Level view
+            if (!isTopView()) {
+                // switch to top view first
+                const viewBtn = document.getElementById('viewModeBtn');
+                if (viewBtn && viewBtn.textContent.includes('Top')) {
+                    toggleView();
+                }
+            }
+            editMode = !editMode;
+            if (btn) btn.classList.toggle('active', editMode);
+            if (panel) panel.style.display = editMode ? 'block' : 'none';
+            if (editMode) {
+                // Default collapsed sections
+                setSectionCollapsed('node', true);
+                setSectionCollapsed('relation', true);
+                refreshNodeDatalist();
+                refreshEditorLists();
+                setEditStatus('Edit mode enabled. Editing Top-Level data.');
+            } else {
+                setEditStatus('Edit mode disabled.');
+            }
+        }
+
+        function setSectionCollapsed(which, collapsed) {
+            const toggleId = which === 'node' ? 'nodeSectionToggle' : 'relationSectionToggle';
+            const sectionId = which === 'node' ? 'nodeSection' : 'relationSection';
+            const btn = document.getElementById(toggleId);
+            const sec = document.getElementById(sectionId);
+            const chev = btn ? btn.querySelector('.chev') : null;
+            editSectionState[which] = !collapsed;
+            if (sec) sec.style.display = collapsed ? 'none' : 'block';
+            if (btn) btn.classList.toggle('active', !collapsed);
+            if (chev) chev.textContent = collapsed ? '▸' : '▾';
+        }
+
+        function toggleEditSection(which) {
+            // If currently expanded (true), pass true to collapse; if collapsed (false), pass false to expand
+            setSectionCollapsed(which, editSectionState[which]);
+        }
+
+        function setEditStatus(msg, isError = false) {
+            const el = document.getElementById('editStatus');
+            if (!el) return;
+            el.textContent = msg;
+            el.style.display = msg ? 'block' : 'none';
+            el.style.color = isError ? '#b6311d' : '#555';
+        }
+
+        function clamp(n, min, max) { return Math.max(min, Math.min(max, n)); }
+
+        function applyTopDataAndRebuild() {
+            // Use canonical topNodes/topLinks to rebuild current view to Top
+            nodes = topNodes.map(d => ({ ...d }));
+            links = aggregateLinksForTop(topLinks);
+            computeCurves(links);
+            // Re-init simulation
+            linkForce = d3.forceLink(links).id(d => d.id).distance(defaultForces.linkDistance);
+            simulation = d3.forceSimulation(nodes)
+                .force('link', linkForce)
+                .force('charge', d3.forceManyBody().strength(defaultForces.charge))
+                .force('center', d3.forceCenter(width / 2, height / 2))
+                .force('x', d3.forceX(width / 2).strength(defaultForces.xStrength))
+                .force('y', d3.forceY(height / 2).strength(defaultForces.yStrength));
+            buildGraph();
+            try { linkLabelGroup.style('opacity', labelsVisible ? 1 : 0); } catch (e) { }
+            applyForceParams(expandedForces);
+            hideDetailCard();
+            refreshNodeDatalist();
+            refreshEditorLists();
+        }
+
+        function refreshNodeDatalist() {
+            const dl = document.getElementById('nodeIdDatalist');
+            if (!dl) return;
+            dl.innerHTML = '';
+            topNodes.forEach(n => {
+                const opt = document.createElement('option');
+                opt.value = n.id;
+                dl.appendChild(opt);
+            });
+        }
+
+        function resetNodeForm() {
+            const id = document.getElementById('nodeIdInput');
+            const group = document.getElementById('nodeGroupSelect');
+            const size = document.getElementById('nodeSizeInput');
+            const btn = document.getElementById('saveNodeBtn');
+            if (id) id.value = '';
+            if (group) group.value = 'type';
+            if (size) size.value = 38;
+            editingNodeId = null;
+            if (btn) btn.textContent = 'Save Node';
+        }
+
+        function startEditTopNode(nodeId) {
+            const n = topNodes.find(x => x.id === nodeId);
+            if (!n) return;
+            document.getElementById('nodeIdInput').value = n.id;
+            document.getElementById('nodeGroupSelect').value = (n.group && allowedGroups.includes(n.group)) ? n.group : (getCategory(n.id) || 'type');
+            document.getElementById('nodeSizeInput').value = n.size || 38;
+            editingNodeId = n.id;
+            document.getElementById('saveNodeBtn').textContent = 'Update Node';
+        }
+
+        function saveTopNode() {
+            const idEl = document.getElementById('nodeIdInput');
+            const groupEl = document.getElementById('nodeGroupSelect');
+            const sizeEl = document.getElementById('nodeSizeInput');
+            const newId = (idEl.value || '').trim();
+            let group = (groupEl.value || 'type').trim();
+            let size = parseInt(sizeEl.value || '38', 10);
+            size = isNaN(size) ? 38 : clamp(size, 10, 80);
+            if (!newId) return setEditStatus('Node ID cannot be empty.', true);
+            if (!allowedGroups.includes(group)) group = 'type';
+            const existing = topNodes.find(n => n.id === newId);
+            if (editingNodeId) {
+                // Update existing node (rename if needed)
+                const node = topNodes.find(n => n.id === editingNodeId);
+                if (!node) return setEditStatus('Original node not found.', true);
+                const idChanged = editingNodeId !== newId;
+                if (idChanged && existing) return setEditStatus('Another node with this ID already exists.', true);
+                node.id = newId;
+                node.group = group;
+                node.size = size;
+                if (idChanged) {
+                    // Update links referencing this node
+                    topLinks.forEach(l => {
+                        if (l.source === editingNodeId) l.source = newId;
+                        if (l.target === editingNodeId) l.target = newId;
+                    });
+                }
+                setEditStatus(`Node updated: ${newId}`);
+            } else {
+                if (existing) return setEditStatus('Node ID already exists.', true);
+                topNodes.push({ id: newId, group, size });
+                setEditStatus(`Node added: ${newId}`);
+            }
+            resetNodeForm();
+            applyTopDataAndRebuild();
+        }
+
+        function deleteTopNode(nodeId) {
+            if (!confirm(`Delete node "${nodeId}" and its relations?`)) return;
+            const before = topNodes.length;
+            topNodes = topNodes.filter(n => n.id !== nodeId);
+            const beforeLinks = topLinks.length;
+            topLinks = topLinks.filter(l => l.source !== nodeId && l.target !== nodeId);
+            setEditStatus(`Deleted node ${nodeId}. Removed ${before - topNodes.length} node(s), ${beforeLinks - topLinks.length} relation(s).`);
+            if (editingNodeId === nodeId) resetNodeForm();
+            applyTopDataAndRebuild();
+        }
+
+        function resetRelationForm() {
+            document.getElementById('relSourceInput').value = '';
+            document.getElementById('relTargetInput').value = '';
+            document.getElementById('relLabelInput').value = '';
+            editingRelIndex = null;
+            document.getElementById('saveRelBtn').textContent = 'Save Relation';
+        }
+
+        function startEditTopRelation(idx) {
+            const r = topLinks[idx];
+            if (!r) return;
+            document.getElementById('relSourceInput').value = r.source;
+            document.getElementById('relTargetInput').value = r.target;
+            document.getElementById('relLabelInput').value = r.label || '';
+            editingRelIndex = idx;
+            document.getElementById('saveRelBtn').textContent = 'Update Relation';
+        }
+
+        function saveTopRelation() {
+            const s = (document.getElementById('relSourceInput').value || '').trim();
+            const t = (document.getElementById('relTargetInput').value || '').trim();
+            const label = (document.getElementById('relLabelInput').value || 'relatedTo').trim();
+            if (!s || !t) return setEditStatus('Source and Target are required.', true);
+            // Auto-create missing nodes
+            let created = 0;
+            if (!topNodes.find(n => n.id === s)) { topNodes.push({ id: s, group: 'type', size: 38 }); created++; }
+            if (!topNodes.find(n => n.id === t)) { topNodes.push({ id: t, group: 'type', size: 38 }); created++; }
+            const exists = topLinks.findIndex(l => l.source === s && l.target === t && (l.label || '') === label);
+            if (editingRelIndex !== null) {
+                // if duplicate exists at a different index, block
+                if (exists !== -1 && exists !== editingRelIndex) return setEditStatus('Duplicate relation exists.', true);
+                topLinks[editingRelIndex] = { source: s, target: t, label };
+                setEditStatus(`Relation updated: ${s} -> ${t}: ${label}${created ? ` (+${created} node${created > 1 ? 's' : ''})` : ''}`);
+            } else {
+                if (exists !== -1) return setEditStatus('Duplicate relation ignored.', true);
+                topLinks.push({ source: s, target: t, label });
+                setEditStatus(`Relation added: ${s} -> ${t}: ${label}${created ? ` (+${created} node${created > 1 ? 's' : ''})` : ''}`);
+            }
+            resetRelationForm();
+            applyTopDataAndRebuild();
+        }
+
+        function deleteTopRelation(idx) {
+            const r = topLinks[idx];
+            if (!r) return;
+            if (!confirm(`Delete relation: ${r.source} -> ${r.target}: ${r.label}?`)) return;
+            topLinks.splice(idx, 1);
+            setEditStatus('Relation deleted.');
+            if (editingRelIndex === idx) resetRelationForm();
+            applyTopDataAndRebuild();
+        }
+
+        function refreshEditorLists() {
+            const nodeList = document.getElementById('nodeList');
+            const relList = document.getElementById('relationList');
+            if (!nodeList || !relList) return;
+            nodeList.innerHTML = '';
+            // Sort nodes by id for stable view
+            const nodesSorted = [...topNodes].sort((a, b) => a.id.localeCompare(b.id));
+            nodesSorted.forEach(n => {
+                const div = document.createElement('div');
+                div.className = 'list-item';
+                const left = document.createElement('div');
+                left.innerHTML = `<strong>${n.id}</strong> <span class="muted">[${(n.group || getCategory(n.id))}, ${n.size || 38}]</span>`;
+                const right = document.createElement('div');
+                const e = document.createElement('button'); e.className = 'icon-btn'; e.textContent = '✏️'; e.title = 'Edit'; e.onclick = () => startEditTopNode(n.id);
+                const d = document.createElement('button'); d.className = 'icon-btn danger'; d.textContent = '🗑'; d.title = 'Delete'; d.onclick = () => deleteTopNode(n.id);
+                right.appendChild(e); right.appendChild(d);
+                div.appendChild(left); div.appendChild(right);
+                nodeList.appendChild(div);
+            });
+            // Relations
+            relList.innerHTML = '';
+            topLinks.forEach((r, idx) => {
+                const div = document.createElement('div');
+                div.className = 'list-item';
+                const left = document.createElement('div');
+                left.innerHTML = `<strong>${r.source}</strong> → <strong>${r.target}</strong> <span class="muted">: ${r.label || ''}</span>`;
+                const right = document.createElement('div');
+                const e = document.createElement('button'); e.className = 'icon-btn'; e.textContent = '✏️'; e.title = 'Edit'; e.onclick = () => startEditTopRelation(idx);
+                const d = document.createElement('button'); d.className = 'icon-btn danger'; d.textContent = '🗑'; d.title = 'Delete'; d.onclick = () => deleteTopRelation(idx);
+                right.appendChild(e); right.appendChild(d);
+                div.appendChild(left); div.appendChild(right);
+                relList.appendChild(div);
+            });
+        }
+
+        // Markdown Export/Import
+        function exportTopLevelToMarkdown() {
+            const lines = [];
+            lines.push('## Top-Level Nodes');
+            topNodes.forEach(n => {
+                const group = (n.group || getCategory(n.id));
+                const size = n.size || 38;
+                lines.push(`- ${n.id} [group=${group}, size=${size}]`);
+            });
+            lines.push('');
+            lines.push('## Top-Level Relations');
+            topLinks.forEach(r => {
+                lines.push(`- ${r.source} -> ${r.target}: ${r.label || ''}`.trim());
+            });
+            const text = lines.join('\n');
+            const ta = document.getElementById('markdownArea');
+            const wrap = document.getElementById('markdownAreaWrap');
+            if (ta) ta.value = text;
+            if (wrap) wrap.style.display = 'block';
+            setEditStatus('Exported current Top-Level view to Markdown.');
+        }
+
+        function toggleMarkdownArea(show) {
+            const wrap = document.getElementById('markdownAreaWrap');
+            if (wrap) wrap.style.display = show ? 'block' : 'none';
+        }
+
+        function copyMarkdown() {
+            const ta = document.getElementById('markdownArea');
+            if (!ta) return;
+            ta.select(); ta.setSelectionRange(0, ta.value.length);
+            try { document.execCommand('copy'); setEditStatus('Markdown copied to clipboard.'); } catch (e) { setEditStatus('Copy failed.', true); }
+        }
+
+        function downloadMarkdown() {
+            const ta = document.getElementById('markdownArea');
+            if (!ta) return;
+            const blob = new Blob([ta.value], { type: 'text/markdown' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url; a.download = 'top-level.md';
+            document.body.appendChild(a); a.click(); document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function applyMarkdownImport() {
+            const ta = document.getElementById('markdownArea');
+            if (!ta) return;
+            const text = ta.value || '';
+            const lines = text.split(/\r?\n/);
+            let section = null; // 'nodes' | 'relations'
+            const nodeMap = new Map();
+            const newNodes = [];
+            const newLinks = [];
+
+            function ensureNode(id) {
+                if (!nodeMap.has(id)) {
+                    const node = { id, group: 'type', size: 38 };
+                    nodeMap.set(id, node); newNodes.push(node);
+                }
+            }
+
+            for (let raw of lines) {
+                const line = raw.trim();
+                if (!line || line.startsWith('//') || line.startsWith('# ')) continue;
+                if (/^##/i.test(line)) {
+                    if (/node/i.test(line)) section = 'nodes';
+                    else if (/relation/i.test(line)) section = 'relations';
+                    else section = null;
+                    continue;
+                }
+                if (!line.startsWith('-')) continue;
+                if (section === 'nodes') {
+                    // - ID [group=actor, size=38]
+                    const m = /^-\s*([^\[]+?)(?:\s*\[(.+)\])?\s*$/i.exec(line);
+                    if (!m) continue;
+                    const id = m[1].trim(); if (!id) continue;
+                    let group = 'type'; let size = 38;
+                    if (m[2]) {
+                        const parts = m[2].split(',').map(s => s.trim());
+                        for (const p of parts) {
+                            const kv = p.split('=');
+                            if (kv.length === 2) {
+                                const k = kv[0].trim().toLowerCase();
+                                const v = kv[1].trim();
+                                if (k === 'group' && allowedGroups.includes(v)) group = v;
+                                if (k === 'size') {
+                                    const num = parseInt(v, 10); if (!isNaN(num)) size = clamp(num, 10, 80);
+                                }
+                            }
+                        }
+                    }
+                    const node = { id, group, size };
+                    nodeMap.set(id, node);
+                    newNodes.push(node);
+                } else if (section === 'relations') {
+                    // - SOURCE -> TARGET: label1, label2
+                    const m = /^-\s*(.+?)\s*->\s*(.+?)(?::\s*(.+))?\s*$/i.exec(line);
+                    if (!m) continue;
+                    const src = m[1].trim();
+                    const tgt = m[2].trim();
+                    const labelsStr = (m[3] || '').trim();
+                    const labels = labelsStr ? labelsStr.split(',').map(s => s.trim()).filter(Boolean) : ['relatedTo'];
+                    ensureNode(src); ensureNode(tgt);
+                    for (const lab of labels) {
+                        if (!newLinks.find(l => l.source === src && l.target === tgt && l.label === lab)) {
+                            newLinks.push({ source: src, target: tgt, label: lab });
+                        }
+                    }
+                }
+            }
+
+            if (!newNodes.length) return setEditStatus('No nodes found in Markdown. Import aborted.', true);
+            // Replace canonical data
+            topNodes = newNodes;
+            topLinks = newLinks;
+            setEditStatus(`Imported ${newNodes.length} node(s), ${newLinks.length} relation(s) from Markdown.`);
+            const wrap = document.getElementById('markdownAreaWrap'); if (wrap) wrap.style.display = 'none';
+            applyTopDataAndRebuild();
+        }
+    </script>
+</body>
+
+</html>

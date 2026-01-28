@@ -6,13 +6,19 @@ import { useState, useRef, useEffect } from 'react';
 import { useDataStore } from '../../stores/useDataStore';
 import { useFilterStore } from '../../stores/useFilterStore';
 import { useUIStore } from '../../stores/useUIStore';
+import { useOntologyStore } from '../../stores/useOntologyStore';
 import { open } from '@tauri-apps/plugin-dialog';
 import './AppBar.css';
 
 export function AppBar() {
     const { loadJsonFile, isLoading, loadedFilePath } = useDataStore();
+    const {
+        loadOntologyFile,
+        isLoading: isOntologyLoading,
+        loadedFilePath: ontologyFilePath
+    } = useOntologyStore();
     const { searchTerm, setSearchTerm } = useFilterStore();
-    const { openNetworkModal } = useUIStore();
+    const { openNetworkModal, activeView, setActiveView, showExportPanel, showAdvancedFilter, toggleExportPanel, toggleAdvancedFilter } = useUIStore();
 
     // Search expansion state
     const [isSearchExpanded, setIsSearchExpanded] = useState(false);
@@ -21,7 +27,14 @@ export function AppBar() {
     // Scroll state for title animation
     const [isScrolled, setIsScrolled] = useState(false);
 
-    const handleOpenFile = async () => {
+    const handleBottomUpClick = async () => {
+        // If file already loaded and we're NOT on bottom-up view, just switch view
+        if (loadedFilePath && activeView !== 'bottom-up') {
+            setActiveView('bottom-up');
+            return;
+        }
+
+        // Otherwise (no file loaded OR already on bottom-up view), open file dialog
         try {
             const selected = await open({
                 multiple: false,
@@ -33,9 +46,36 @@ export function AppBar() {
 
             if (selected) {
                 await loadJsonFile(selected as string);
+                setActiveView('bottom-up');
             }
         } catch (err) {
             console.error('Failed to open file:', err);
+        }
+    };
+
+    const handleOntologyClick = async () => {
+        // If file already loaded and we're NOT on ontology view, just switch view
+        if (ontologyFilePath && activeView !== 'ontology') {
+            setActiveView('ontology');
+            return;
+        }
+
+        // Otherwise (no file loaded OR already on ontology view), open file dialog
+        try {
+            const selected = await open({
+                multiple: false,
+                filters: [{
+                    name: 'JSON',
+                    extensions: ['json']
+                }]
+            });
+
+            if (selected) {
+                await loadOntologyFile(selected as string);
+                setActiveView('ontology');
+            }
+        } catch (err) {
+            console.error('Failed to open ontology file:', err);
         }
     };
 
@@ -82,6 +122,10 @@ export function AppBar() {
         };
     }, []);
 
+    // Determine button states
+    const isBottomUpActive = activeView === 'bottom-up';
+    const isOntologyActive = activeView === 'ontology';
+
     return (
         <header className={`app-bar ${isScrolled ? 'scrolled' : ''}`}>
             {/* Single-Row Layout with aligned content */}
@@ -96,8 +140,8 @@ export function AppBar() {
                     {/* Action Buttons - Next to layer indicator */}
                     <div className="action-buttons-group">
                         <button
-                            className="app-bar-btn app-bar-btn-secondary"
-                            onClick={handleOpenFile}
+                            className={`app-bar-btn app-bar-btn-secondary ${isBottomUpActive ? 'active-glow' : ''}`}
+                            onClick={handleBottomUpClick}
                             disabled={isLoading}
                             title={loadedFilePath ? loadedFilePath.split('/').pop() : 'Bottom-up Extraction'}
                         >
@@ -110,9 +154,10 @@ export function AppBar() {
                         </button>
 
                         <button
-                            className="app-bar-btn app-bar-btn-secondary"
-                            onClick={() => console.log('Ontology Population clicked')}
-                            title="Ontology Population"
+                            className={`app-bar-btn app-bar-btn-secondary ${isOntologyActive ? 'active-glow' : ''}`}
+                            onClick={handleOntologyClick}
+                            disabled={isOntologyLoading}
+                            title={ontologyFilePath ? ontologyFilePath.split('/').pop() : 'Ontology Population'}
                         >
                             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2">
                                 <circle cx="12" cy="5" r="3" />
@@ -122,7 +167,7 @@ export function AppBar() {
                                 <line x1="12" y1="12" x2="6" y2="14" />
                                 <line x1="12" y1="12" x2="18" y2="14" />
                             </svg>
-                            Ontology Population
+                            {isOntologyLoading ? 'Loading...' : (ontologyFilePath ? 'Populated' : 'Ontology Population')}
                         </button>
 
                         <button
@@ -160,6 +205,7 @@ export function AppBar() {
                     </div>
                 </div>
 
+
                 {/* Right Group: Navigation - Aligned with Sidebar */}
                 <div className="app-bar-right-group">
                     <nav className={`main-nav ${isSearchExpanded ? 'search-expanded' : ''}`} id="main-nav">
@@ -189,9 +235,28 @@ export function AppBar() {
                             </div>
                         </div>
 
-                        {/* Statistics */}
-                        <div className="nav-item" id="nav-statistics">
+                        {/* Statistics with Dropdown */}
+                        <div className="nav-item has-dropdown" id="nav-statistics">
                             <span>Statistics</span>
+                            <svg className="dropdown-arrow" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                            <div className="nav-dropdown">
+                                <div
+                                    className={`nav-dropdown-item nav-toggle-item ${showExportPanel ? 'toggle-enabled' : ''}`}
+                                    onClick={(e) => { e.stopPropagation(); toggleExportPanel(); }}
+                                >
+                                    <span className={`toggle-dot ${showExportPanel ? 'active' : ''}`}></span>
+                                    Export
+                                </div>
+                                <div
+                                    className={`nav-dropdown-item nav-toggle-item ${showAdvancedFilter ? 'toggle-enabled' : ''}`}
+                                    onClick={(e) => { e.stopPropagation(); toggleAdvancedFilter(); }}
+                                >
+                                    <span className={`toggle-dot ${showAdvancedFilter ? 'active' : ''}`}></span>
+                                    Advanced Filter
+                                </div>
+                            </div>
                         </div>
 
                         {/* Models & API */}
@@ -230,6 +295,6 @@ export function AppBar() {
                 </div>
             </div>
 
-        </header>
+        </header >
     );
 }
