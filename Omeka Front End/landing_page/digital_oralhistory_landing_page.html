@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>
+<title>International Digital Oral History Lab</title>
 <link href="https://fonts.googleapis.com" rel="preconnect" />
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
 <link
@@ -635,6 +635,13 @@
         display: none !important;
         content: none !important;
     }
+
+    /* Focus States for Accessibility */
+    *:focus-visible {
+        outline: 3px solid var(--color-accent-coral) !important;
+        outline-offset: 4px !important;
+        transition: outline-offset 0.2s ease !important;
+    }
 </style>
 <section class="hero">
     <div class="container">
@@ -648,11 +655,11 @@
             </p>
 
             <div class="button-group flex gap-4 flex-wrap"><a
-                    class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-semibold bg-[#2d2d2d] !text-white h-12 px-8 py-2 shadow-[0_4px_14px_0_rgba(26,26,26,0.3)] hover:bg-[#444444] hover:scale-[1.02] hover:-translate-y-1 hover:shadow-[0_10px_30px_0_rgba(26,26,26,0.4)] transition-all duration-300 ease-out cursor-pointer [&amp;::after]:hidden"
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-semibold bg-[#2d2d2d] !text-white h-12 px-8 py-2 shadow-[0_4px_14px_0_rgba(26,26,26,0.3)] hover:bg-[#444444] hover:scale-[1.02] hover:-translate-y-1 hover:shadow-[0_10px_30px_0_rgba(26,26,26,0.4)] focus-visible:scale-[1.02] focus-visible:-translate-y-1 transition-all duration-300 ease-out cursor-pointer [&amp;::after]:hidden"
                     draggable="false"
                     href="https://hiddenhistories.net/s/digital-oral-history-lab/page/resources-publications">Explore
                     our work</a> <a
-                    class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-semibold bg-white text-[#1A1A1A] border-2 border-[#E5E5E5] h-12 px-8 py-2 shadow-sm hover:border-[#E4725B] hover:text-[#E4725B] hover:bg-[#FFF8F6] hover:scale-[1.02] hover:-translate-y-1 hover:shadow-[0_8px_20px_0_rgba(228,114,91,0.2)] transition-all duration-300 ease-out cursor-pointer [&amp;::after]:hidden"
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-semibold bg-white text-[#1A1A1A] border-2 border-[#E5E5E5] h-12 px-8 py-2 shadow-sm hover:border-[#E4725B] hover:text-[#E4725B] hover:bg-[#FFF8F6] hover:scale-[1.02] hover:-translate-y-1 hover:shadow-[0_8px_20px_0_rgba(228,114,91,0.2)] focus-visible:scale-[1.02] focus-visible:-translate-y-1 transition-all duration-300 ease-out cursor-pointer [&amp;::after]:hidden"
                     draggable="false"
                     href="https://hiddenhistories.net/s/digital-oral-history-lab/page/IDOHL_Projects">Learn more</a>
             </div>
@@ -685,10 +692,10 @@
                     draggable="false" href="https://hiddenhistories.net/s/digital-oral-history-lab/page/IDOHL_Projects"
                     onmouseout="this.style.color='#1A1A1A'; this.querySelector('span').style.transform='translateX(0)';"
                     onmouseover="this.style.color='#E4725B'; this.querySelector('span').style.transform='translateX(6px)';"
-                    style="text-decoration: none !important; border-bottom: none !important;">View projects <span
+                    style="text-decoration: none !important; border-bottom: none !important;">View projects <span aria-hidden="true"
                         style="transition: transform 0.3s ease; display: inline-block;">&rarr;</span></a>
 
-                <div class="card-visual visual-research"><svg height="40" viewbox="0 0 40 40" width="40">
+                <div class="card-visual visual-research"><svg aria-hidden="true" height="40" viewbox="0 0 40 40" width="40">
                         <circle cx="20" cy="20" fill="#E4725B" opacity="0.1" r="18"></circle>
                         <g opacity="0.8" stroke="#E4725B" stroke-width="0.5">
                             <line x1="12" x2="20" y1="15" y2="10"></line>
@@ -721,10 +728,10 @@
                     href="https://hiddenhistories.net/s/digital-oral-history-lab/page/resources-publications#workshops"
                     onmouseout="this.style.color='#1A1A1A'; this.querySelector('span').style.transform='translateX(0)';"
                     onmouseover="this.style.color='#E4725B'; this.querySelector('span').style.transform='translateX(6px)';"
-                    style="text-decoration: none !important; border-bottom: none !important;">Learn with us <span
+                    style="text-decoration: none !important; border-bottom: none !important;">Learn with us <span aria-hidden="true"
                         style="transition: transform 0.3s ease; display: inline-block;">&rarr;</span></a>
 
-                <div class="card-visual visual-teaching"><svg height="40" viewbox="0 0 40 40" width="40">
+                <div class="card-visual visual-teaching"><svg aria-hidden="true" height="40" viewbox="0 0 40 40" width="40">
                         <!-- Certificate Paper -->
                         <path
                             d="M12 6 H28 A1 1 0 0 1 29 7 V33 A1 1 0 0 1 28 34 H12 A1 1 0 0 1 11 33 V7 A1 1 0 0 1 12 6 Z"
@@ -750,10 +757,10 @@
                     draggable="false" href="https://hdsm.hypotheses.org/category/digital_oral_history_lab"
                     onmouseout="this.style.color='#1A1A1A'; this.querySelector('span').style.transform='translateX(0)';"
                     onmouseover="this.style.color='#E4725B'; this.querySelector('span').style.transform='translateX(6px)';"
-                    style="text-decoration: none !important; border-bottom: none !important;">Join us <span
+                    style="text-decoration: none !important; border-bottom: none !important;">Join us <span aria-hidden="true"
                         style="transition: transform 0.3s ease; display: inline-block;">&rarr;</span></a>
 
-                <div class="card-visual visual-events"><svg height="40" viewbox="0 0 40 40" width="40">
+                <div class="card-visual visual-events"><svg aria-hidden="true" height="40" viewbox="0 0 40 40" width="40">
                         <!-- Screen Frame -->
                         <rect x="5" y="7" width="30" height="21" rx="2" stroke="#4A5568" stroke-width="1.5" fill="none">
                         </rect>
@@ -802,7 +809,7 @@
         <h2>Shape the future of memory</h2>
 
         <p>We invite students, researchers, and practitioners to explore with us.</p>
-        <a class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-semibold bg-[#2d2d2d] !text-white h-12 px-8 py-2 shadow-[0_4px_14px_0_rgba(26,26,26,0.3)] hover:bg-[#444444] hover:scale-[1.02] hover:-translate-y-1 hover:shadow-[0_10px_30px_0_rgba(26,26,26,0.4)] transition-all duration-300 ease-out cursor-pointer [&amp;::after]:hidden"
+        <a class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-semibold bg-[#2d2d2d] !text-white h-12 px-8 py-2 shadow-[0_4px_14px_0_rgba(26,26,26,0.3)] hover:bg-[#444444] hover:scale-[1.02] hover:-translate-y-1 hover:shadow-[0_10px_30px_0_rgba(26,26,26,0.4)] focus-visible:scale-[1.02] focus-visible:-translate-y-1 transition-all duration-300 ease-out cursor-pointer [&amp;::after]:hidden"
             draggable="false" href="https://hiddenhistories.net/s/digital-oral-history-lab/page/research-team">Contact
             the Lab</a>
     </div>
