@@ -53,7 +53,7 @@ export function Sidebar({ filteredTurns }: SidebarProps) {
     // Ontology data and filters
     const {
         ontologyClasses,
-        ontologyProperties,
+        ontologyPropertyPatterns,
         claimTypeDistribution,
         certaintyLevelDistribution
     } = useOntologyStore();
@@ -317,28 +317,56 @@ export function Sidebar({ filteredTurns }: SidebarProps) {
 
                     </AnimatedPanel>
 
-                    {/* Ontology Properties Panel */}
+                    {/* Ontology Properties Panel - Hierarchical Pattern Display */}
                     <AnimatedPanel
                         isVisible={showAdvancedFilter}
                         className="sidebar-panel"
                         id="ontology-properties-panel"
                         delay={100}
                     >
-                        <h2>Ontology Properties <span style={{ fontWeight: 400, fontSize: 'var(--fs-sm)', color: 'var(--fg-secondary)' }}>(Click to Filter)</span></h2>
-                        <div className="badge-container">
-                            {ontologyProperties.map(prop => (
-                                <span
-                                    key={prop.name}
-                                    className={`entity-type-badge filterable-badge badge-freq-high ${activePropertyFilters.has(prop.name) ? 'selected' : ''}`}
-                                    onClick={() => togglePropertyFilter(prop.name)}
+                        <h2>Relation Patterns <span style={{ fontWeight: 400, fontSize: 'var(--fs-sm)', color: 'var(--fg-secondary)' }}>(Click to Filter)</span></h2>
+
+                        {ontologyPropertyPatterns.map(pattern => (
+                            <div
+                                key={pattern.patternName}
+                                className={`relation-pattern-section collapsible ${collapsedSections.has(`pattern-${pattern.patternName}`) ? 'collapsed' : ''}`}
+                            >
+                                <div
+                                    className="collapsible-header relation-pattern-header"
+                                    onClick={() => toggleSection(`pattern-${pattern.patternName}`)}
                                 >
-                                    {prop.name} [{prop.count}]
-                                </span>
-                            ))}
-                            {ontologyProperties.length === 0 && (
-                                <span className="empty-state">No properties found.</span>
-                            )}
-                        </div>
+                                    <span className="relation-pattern-label">
+                                        <span className="domain-badge" style={{ color: getOntologyColor(pattern.domainCategory) }}>
+                                            {pattern.domainCategory}
+                                        </span>
+                                        <span className="relation-arrow">→</span>
+                                        <span className="range-badge" style={{ color: getOntologyColor(pattern.rangeCategory) }}>
+                                            {pattern.rangeCategory}
+                                        </span>
+                                    </span>
+                                    <span className="relation-pattern-count">{pattern.totalCount}</span>
+                                    <span className="chevron"></span>
+                                </div>
+
+                                <div className="collapsible-content">
+                                    <div className="badge-container">
+                                        {pattern.childRelations.map(rel => (
+                                            <span
+                                                key={rel.name}
+                                                className={`entity-type-badge filterable-badge ${activePropertyFilters.has(rel.name) ? 'selected' : ''}`}
+                                                onClick={() => togglePropertyFilter(rel.name)}
+                                            >
+                                                {rel.name} [{rel.count}]
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+
+                        {ontologyPropertyPatterns.length === 0 && (
+                            <span className="empty-state">No properties found.</span>
+                        )}
                     </AnimatedPanel>
 
                     {/* Epistemic Stance Panel */}

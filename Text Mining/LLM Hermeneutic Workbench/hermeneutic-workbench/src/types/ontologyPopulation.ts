@@ -105,4 +105,15 @@ export interface OntologyPropertyInfo {
     name: string;
     count: number;
     mapping_status: MappingStatus;
+    parentPattern?: string;  // Reference to parent pattern name (computed on frontend)
+}
+
+// Top-level relation pattern grouping
+export interface RelationPatternInfo {
+    patternName: string;        // e.g., "hasSocioInstitutionalRelationWith"
+    displayName: string;        // e.g., "Actor → Actor"
+    domainCategory: string;     // e.g., "Actor"
+    rangeCategory: string;      // e.g., "Actor" (can be union like "SpatialEntity|Organisation")
+    totalCount: number;         // Sum of all child relation counts
+    childRelations: OntologyPropertyInfo[];  // The specializations
 }

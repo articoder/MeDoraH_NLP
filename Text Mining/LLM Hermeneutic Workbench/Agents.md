@@ -33,19 +33,30 @@ LLM Hermeneutic Workbench/
 │   │   │   ├── Sidebar/                # Entity filters and analytics panel
 │   │   │   ├── GlobalSummary/          # Statistics dashboard cards
 │   │   │   ├── ExtractionCard/         # Semantic triple display cards
-│   │   │   ├── NetworkModal/           # Graph visualization modal
-│   │   │   └── AnimatedNumber/         # Counting animation component
+│   │   │   ├── NetworksModal/          # Graph visualization modal
+│   │   │   ├── AnimatedNumber/         # Counting animation component
+│   │   │   ├── AnimatedPanel/          # Animation wrapper component
+│   │   │   ├── OntologyGlobalSummary/  # Ontology statistics dashboard
+│   │   │   └── OntologyExtractionCard/ # Ontology triple display cards
 │   │   ├── stores/                     # Zustand state management
 │   │   │   ├── useDataStore.ts         # Data loading and computed analytics
 │   │   │   ├── useFilterStore.ts       # Filter state management
-│   │   │   └── useUIStore.ts           # UI state (modals, sidebars, sections)
+│   │   │   ├── useUIStore.ts           # UI state (modals, sidebars, sections)
+│   │   │   ├── useOntologyStore.ts     # Ontology data management
+│   │   │   ├── useOntologyFilterStore.ts # Ontology specific filtering
+│   │   │   └── useExportStore.ts       # Export state management
 │   │   ├── types/                      # TypeScript type definitions
-│   │   │   └── data.ts                 # Semantic triple interfaces
-│   │   └── styles/                     # CSS stylesheets
-│   │       ├── design-tokens.css       # CSS variables, colors, typography
-│   │       ├── components.css          # Component-specific styles
-│   │       ├── network-modal.css       # Graph visualization styles
-│   │       └── app.css                 # Layout and global styles
+│   │   │   ├── data.ts                 # Semantic triple interfaces
+│   │   │   └── ontologyPopulation.ts   # Ontology data interfaces
+│   │   ├── styles/                     # CSS stylesheets
+│   │   │   ├── design-tokens.css       # CSS variables, colors, typography
+│   │   │   ├── components.css          # Component-specific styles
+│   │   │   ├── network-modal.css       # Graph visualization styles
+│   │   │   └── app.css                 # Layout and global styles
+│   │   ├── lib/                        # Utility functions
+│   │   │   ├── exportUtils.ts          # Data export utilities
+│   │   │   ├── ontologyUtils.ts        # Ontology processing helpers
+│   │   │   └── relationPatterns.ts     # Relation hierarchy definitions
 │   ├── src-tauri/                      # Rust backend source
 │   │   ├── src/
 │   │   │   ├── lib.rs                  # Tauri plugin registration
@@ -56,6 +67,10 @@ LLM Hermeneutic Workbench/
 │   │   └── tauri.conf.json             # Tauri configuration
 │   ├── package.json                    # Node.js dependencies and scripts
 │   └── vite.config.ts                  # Vite build configuration
+├── .agent/                             # Agent configuration
+│   ├── rules/                          # Cursor rules
+│   ├── skills/                         # Agent skill definitions
+│   └── workflows/                      # Defined workflows
 ├── generate_report_modern.py           # Legacy: Static HTML report generator
 ├── template_modern.html.j2             # Legacy: Jinja2 HTML template
 └── *.json                              # Input data files
@@ -142,6 +157,26 @@ interface Relation {
   surface_form: string;
   semantic_form: string;
 }
+
+### Ontology Data Schema (New)
+See `src/types/ontologyPopulation.ts` for full definitions.
+
+```typescript
+interface OntologyExtraction {
+  subject: OntologyEntity;      // Entity with ontology mapping
+  relation: OntologyRelation;   // Relation with mapping & negation
+  object: OntologyEntity;
+  epistemic_stance: EpistemicStance; // Claim type, certainty, etc.
+  reasons: Reasons;             // LLM decision justification
+  provenance: Provenance;       // Source evidence
+}
+
+interface OntologyGlobalStats {
+  total_extractions: number;
+  mapping_status_counts: Record<'mapped'|'unmapped'|'uncertain', number>;
+  // ... other stats
+}
+```
 ```
 
 ### Computed Analytics (from Rust backend)
@@ -166,6 +201,8 @@ interface Relation {
 | `useDataStore` | Data loading & analytics | `speakerTurns`, `entityTypes`, `globalStats`, `isLoading`, `error` |
 | `useFilterStore` | Filter coordination | `activeTypeFilters`, `activePatternFilter`, `searchTerm` |
 | `useUIStore` | UI state management | `isNetworkModalOpen`, `collapsedSections`, `patternsDisplayCount` |
+| `useOntologyStore` | Ontology data & analytics | `speakerTurns`, `ontologyProperties`, `ontologyPropertyPatterns` |
+| `useOntologyFilterStore` | Ontology filtering | `activeClassFilters`, `activePropertyFilters`, `activeClaimTypeFilters` |
 
 ### Filter Logic
 Filtering is reactive and computed in `App.tsx` using `useMemo`:
@@ -184,6 +221,9 @@ Filtering is reactive and computed in `App.tsx` using `useMemo`:
 | `Sidebar` | Filter panel | Entity type badges (3 tiers), pattern analytics, export buttons |
 | `NetworkModal` | Graph visualization | vis-network integration, physics controls, hop distance, clustering |
 | `AnimatedNumber` | Counting animation | Smooth value transitions for statistics |
+| `OntologyGlobalSummary` | Ontology dashboard | Displays statistics specific to ontology population (claims, certainty) |
+| `OntologyExtractionCard`| Ontology Triple Card | Displays rich triple data including epistemic stance and reasoning |
+| `AnimatedPanel` | Animation wrapper | Generic entrance/exit animations for panels |
 
 ## Rust Backend
 
@@ -273,3 +313,9 @@ The following files are from the original static HTML report generator and are r
 - Added Zustand state management for reactive data flow
 - Created Rust backend for JSON parsing and analytics computation
 - Integrated vis-network for interactive graph visualization
+
+### Ontology Population Features (2026-01-28)
+- Added specialized `OntologyExtractionCard` and `OntologyGlobalSummary`
+- Implemented hierarchical mapping for relation patterns
+- Added new Zustand stores for ontology data and filtering logic
+- Introduced rigorous typing for ontology claims, certainty, and provenance
