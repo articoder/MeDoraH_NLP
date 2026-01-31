@@ -154,7 +154,8 @@
         }
 
         /* Hover Effect: Show Email - faster expand on enter */
-        .contact-btn:hover {
+        .contact-btn:hover,
+        .contact-btn:focus-visible {
             min-width: 220px;
             background: var(--color-text-primary);
             color: white;
@@ -484,18 +485,28 @@
                     }, 150); // Match CSS transition timing
                 }
 
-                // Hover effect: Show email
-                btn.addEventListener('mouseenter', () => {
+                // Accessibility: Set descriptive aria-label and live region
+                const memberName = btn.closest('.member-card').querySelector('.member-name').textContent.trim();
+                btn.setAttribute('aria-label', `Contact ${memberName}`);
+                textSpan.setAttribute('aria-live', 'polite');
+
+                // Hover and Focus effect: Show email
+                const showEmail = () => {
                     if (!btn.classList.contains('copied') && !isLocked) {
                         updateText(email);
                     }
-                });
+                };
 
-                btn.addEventListener('mouseleave', () => {
+                const hideEmail = () => {
                     if (!btn.classList.contains('copied') && !isLocked) {
                         updateText(originalText);
                     }
-                });
+                };
+
+                btn.addEventListener('mouseenter', showEmail);
+                btn.addEventListener('focus', showEmail);
+                btn.addEventListener('mouseleave', hideEmail);
+                btn.addEventListener('blur', hideEmail);
 
                 // Click effect: Copy to clipboard
                 btn.addEventListener('click', async (e) => {
