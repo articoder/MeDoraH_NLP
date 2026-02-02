@@ -87,7 +87,10 @@ Download the appropriate installer for your operating system from the [Releases]
 | Windows  | `.msi` |
 | Linux    | `.AppImage` |
 
-Sample data files are provided in `Text Mining/LLM Hermeneutic Workbench/` for testing and demonstration.
+90: Sample data files are provided in `Text Mining/LLM Hermeneutic Workbench/` for testing and demonstration.
+91: 
+92: For step-by-step installation instructions, please refer to the [Installation Guide](Text%20Mining/LLM%20Hermeneutic%20Workbench/UseInstruction/README.md).
+
 
 ### Preprocessing Scripts
 
