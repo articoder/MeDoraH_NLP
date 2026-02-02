@@ -14,14 +14,16 @@ This repository houses the natural language processing pipeline and visualisatio
 
 ### LLM Hermeneutic Workbench
 
-A Tauri-based desktop application for interactive semantic analysis and knowledge extraction. The workbench enables researchers to:
+A cross-platform desktop application for interactive semantic analysis and knowledge extraction. Pre-compiled binaries are available for **macOS**, **Windows**, and **Linux**.
+
+The workbench enables researchers to:
 
 - **Bottom-up Extraction** — Explore entity mentions, relations, and semantic claims extracted via large language models
 - **Ontology Population** — Map extracted triples onto formal MeDoraH ontology classes and properties
 - **Network Visualisation** — Inspect knowledge graphs with interactive, physics-enabled layouts
 - **Multi-source Analysis** — Compare and aggregate findings across multiple interview transcripts
 
-Built with React, TypeScript, and Rust for a responsive, native experience.
+> **Download:** See [Releases](../../releases) for the latest builds.
 
 ---
 
@@ -61,7 +63,7 @@ Semantic clustering tools for grouping related claims and predicates:
 ```
 MeDoraH_NLP/
 ├── Text Mining/
-│   ├── LLM Hermeneutic Workbench/   # Desktop semantic analysis app
+│   ├── LLM Hermeneutic Workbench/   # Sample data & templates
 │   ├── Preprocessing/                # Transcript preparation scripts
 │   ├── Ontology Visualiser/          # Interactive ontology diagrams
 │   ├── Clustering/                   # Claim and predicate clustering
@@ -77,11 +79,15 @@ MeDoraH_NLP/
 
 ### LLM Hermeneutic Workbench
 
-```bash
-cd "Text Mining/LLM Hermeneutic Workbench/hermeneutic-workbench"
-npm install
-npm run tauri dev
-```
+Download the appropriate installer for your operating system from the [Releases](../../releases) page:
+
+| Platform | Format |
+|----------|--------|
+| macOS    | `.dmg` |
+| Windows  | `.msi` |
+| Linux    | `.AppImage` |
+
+Sample data files are provided in `Text Mining/LLM Hermeneutic Workbench/` for testing and demonstration.
 
 ### Preprocessing Scripts
 
@@ -94,7 +100,6 @@ python transform_utterance_to_sentences.py
 
 ## 📖 Documentation
 
-- [LLM Hermeneutic Workbench Manual](Text%20Mining/LLM%20Hermeneutic%20Workbench/Manual.md)
 - [Ontology Documentation](Text%20Mining/Ontology%20Visualiser/MeDoraH%20Ontology%20Documentation%20V0.2%20Short.md)
 - [KG Construction Workflows](Workflows/README.md)
 

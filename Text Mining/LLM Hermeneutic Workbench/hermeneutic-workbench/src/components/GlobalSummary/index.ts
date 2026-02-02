@@ -1,1 +1,0 @@
-export { GlobalSummary } from './GlobalSummary';

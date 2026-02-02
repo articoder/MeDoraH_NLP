@@ -1,1 +1,0 @@
-export { OntologyExtractionCard } from './OntologyExtractionCard';

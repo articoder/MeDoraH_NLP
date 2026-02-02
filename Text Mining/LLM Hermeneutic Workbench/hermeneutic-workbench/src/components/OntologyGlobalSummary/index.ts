@@ -1,1 +1,0 @@
-export { OntologyGlobalSummary } from './OntologyGlobalSummary';
