@@ -1,0 +1,3 @@
+## 2025-05-14 - [Accessible Reveal & Skip Links]
+**Learning:** Interactive "reveal" patterns (e.g., email obfuscation) commonly rely only on hover, which excludes keyboard users. Implementing these with focus/blur listeners and providing screen reader feedback via aria-live regions ensures accessibility. Additionally, "Skip to Content" links require high z-index and fixed/absolute positioning that accounts for the site's header structure to be truly visible.
+**Action:** Always pair mouseover/mouseout with focus/blur for reveal interactions. Ensure skip links use `position: fixed` or `absolute` with a high `z-index` to guarantee visibility on focus.

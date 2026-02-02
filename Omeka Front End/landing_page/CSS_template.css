@@ -801,22 +801,37 @@ img.rounded-profile:hover {
 
 /* Skip to Content Link */
 .skip-to-content {
-    position: absolute;
-    top: -40px;
-    left: var(--side-space-mobile);
-    background: var(--color-text-primary);
+    position: fixed;
+    top: -100px;
+    left: 20px;
+    background: var(--color-accent-coral);
     color: white;
-    padding: var(--space-sm) var(--space-md);
+    padding: 10px 20px;
     text-decoration: none;
-    border-radius: 0 0 var(--radius-md) 0;
-    transition: top var(--animation-fast) ease;
+    border-radius: 0 0 8px 8px;
+    transition: top 0.2s ease;
+    z-index: 9999;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .skip-to-content:focus {
-    top: 0;
+    top: 0 !important;
 }
 
 /* Utility Classes */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
 .text-center {
     text-align: center;
 }

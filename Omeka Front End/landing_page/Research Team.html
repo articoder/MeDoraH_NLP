@@ -137,11 +137,8 @@
             padding: 0.5rem 1.5rem;
             font-size: 0.9rem;
             min-height: 36px;
-            /* Slower, smoother transition for leaving hover state */
             transition: min-width 0.35s cubic-bezier(0.4, 0, 0.2, 1) 0.1s,
-                background-color 0.25s ease,
-                color 0.25s ease,
-                border-color 0.25s ease;
+                background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
             position: relative;
             overflow: hidden;
             white-space: nowrap;
@@ -149,35 +146,26 @@
 
         .contact-btn span {
             display: inline-block;
-            /* Smooth text transition */
             transition: opacity 0.15s ease, transform 0.15s ease;
         }
 
-        /* Hover Effect: Show Email - faster expand on enter */
-        .contact-btn:hover {
+        .contact-btn:hover, .contact-btn:focus-visible {
             min-width: 220px;
             background: var(--color-text-primary);
             color: white;
             border-color: var(--color-text-primary);
-            /* Faster transition when entering hover */
             transition: min-width 0.25s cubic-bezier(0.25, 1, 0.5, 1),
-                background-color 0.2s ease,
-                color 0.2s ease,
-                border-color 0.2s ease;
+                background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
         }
 
-        /* Success State - stays expanded regardless of hover */
         .contact-btn.copied {
-            background-color: #4CAF50 !important;
-            border-color: #4CAF50 !important;
+            background-color: #15803d !important;
+            border-color: #15803d !important;
             color: white !important;
             min-width: 200px !important;
             cursor: default;
-            /* Smooth transition for copied state */
             transition: min-width 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.15s,
-                background-color 0.25s ease,
-                color 0.25s ease,
-                border-color 0.25s ease;
+                background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
         }
 
         /* Section dividers */
@@ -221,9 +209,10 @@
 </head>
 
 <body>
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <div id="a11y-announcer" class="sr-only" aria-live="polite"></div>
 
-    <main>
-        <!-- Hero Section -->
+    <main id="main-content">
         <section class="hero" style="padding-bottom: var(--space-xl);">
             <div class="container">
                 <h1>Research <span style="color: var(--color-text-muted);">Team</span></h1>
@@ -232,231 +221,123 @@
         </section>
 
         <div class="container">
-
-            <!-- Principal Investigators -->
-            <div class="section-title">
-                <h2>Principal Investigators & Directors</h2>
-            </div>
-
+            <div class="section-title"><h2>Principal Investigators & Directors</h2></div>
             <div class="cards-grid-3">
-                <!-- Andrew Flinn -->
                 <div class="card member-card">
-                    <div class="profile-wrapper">
-                        <img src="https://profiles.ucl.ac.uk/9621-andrew-flinn/thumbnail" alt="Prof Andrew Flinn"
-                            class="profile-image" />
-                    </div>
+                    <div class="profile-wrapper"><img src="https://profiles.ucl.ac.uk/9621-andrew-flinn/thumbnail" alt="Prof Andrew Flinn" class="profile-image" /></div>
                     <div class="member-info">
-                        <a href="https://profiles.ucl.ac.uk/9621-andrew-flinn/about" class="member-name">Prof Andrew
-                            Flinn</a>
+                        <a href="https://profiles.ucl.ac.uk/9621-andrew-flinn/about" class="member-name">Prof Andrew Flinn</a>
                         <p class="member-role">Professor of Archival Studies and Oral History</p>
                         <p class="member-affiliation">UCL Faculty of Arts and Humanities</p>
-
-                        <div class="tags-container">
-                            <span class="tag tag-Hidden">Hidden Histories</span>
-                            <span class="tag tag-MDOH">MDOH</span>
-                            <span class="tag tag-MeDoraH">MeDoraH</span>
-                        </div>
+                        <div class="tags-container"><span class="tag tag-Hidden">Hidden Histories</span><span class="tag tag-MDOH">MDOH</span><span class="tag tag-MeDoraH">MeDoraH</span></div>
                     </div>
-                    <a href="mailto:a.flinn@ucl.ac.uk" class="btn btn-secondary contact-btn"
-                        data-email="a.flinn@ucl.ac.uk"><span>Contact</span></a>
+                    <a href="mailto:a.flinn@ucl.ac.uk" class="btn btn-secondary contact-btn" data-email="a.flinn@ucl.ac.uk"><span>Contact</span></a>
                 </div>
 
-                <!-- Julianne Nyhan -->
                 <div class="card member-card">
-                    <div class="profile-wrapper">
-                        <img src="https://hiddenhistories.net/files/asset/c7b60362b7b6af5ec0f8aab8e5210a7734a22bd3.jpg"
-                            alt="Prof Dr Julianne Nyhan" class="profile-image" />
-                    </div>
+                    <div class="profile-wrapper"><img src="https://hiddenhistories.net/files/asset/c7b60362b7b6af5ec0f8aab8e5210a7734a22bd3.jpg" alt="Prof Dr Julianne Nyhan" class="profile-image" /></div>
                     <div class="member-info">
-                        <a href="https://profiles.ucl.ac.uk/29443-julianne-nyhan" class="member-name">Prof Dr Julianne
-                            Nyhan</a>
+                        <a href="https://profiles.ucl.ac.uk/29443-julianne-nyhan" class="member-name">Prof Dr Julianne Nyhan</a>
                         <p class="member-role">Chair of Humanities Data Science and Methodology</p>
                         <p class="member-affiliation">TU Darmstadt & UCL</p>
-
-                        <div class="tags-container">
-                            <span class="tag tag-Hidden">Hidden Histories</span>
-                            <span class="tag tag-MDOH">MDOH</span>
-                            <span class="tag tag-MeDoraH">MeDoraH</span>
-                        </div>
+                        <div class="tags-container"><span class="tag tag-Hidden">Hidden Histories</span><span class="tag tag-MDOH">MDOH</span><span class="tag tag-MeDoraH">MeDoraH</span></div>
                     </div>
-                    <a href="mailto:j.nyhan@ucl.ac.uk" class="btn btn-secondary contact-btn"
-                        data-email="j.nyhan@ucl.ac.uk"><span>Contact</span></a>
+                    <a href="mailto:j.nyhan@ucl.ac.uk" class="btn btn-secondary contact-btn" data-email="j.nyhan@ucl.ac.uk"><span>Contact</span></a>
                 </div>
 
-                <!-- Andreas Vlachidis -->
                 <div class="card member-card">
-                    <div class="profile-wrapper">
-                        <img src="https://profiles.ucl.ac.uk/57279-andreas-vlachidis/thumbnail"
-                            alt="Dr Andreas Vlachidis" class="profile-image" />
-                    </div>
+                    <div class="profile-wrapper"><img src="https://profiles.ucl.ac.uk/57279-andreas-vlachidis/thumbnail" alt="Dr Andreas Vlachidis" class="profile-image" /></div>
                     <div class="member-info">
-                        <a href="https://profiles.ucl.ac.uk/57279-andreas-vlachidis/about" class="member-name">Dr
-                            Andreas Vlachidis</a>
+                        <a href="https://profiles.ucl.ac.uk/57279-andreas-vlachidis/about" class="member-name">Dr Andreas Vlachidis</a>
                         <p class="member-role">Associate Professor of Information Science</p>
                         <p class="member-affiliation">UCL</p>
-
-                        <div class="tags-container">
-                            <span class="tag tag-MDOH">MDOH</span>
-                            <span class="tag tag-MeDoraH">MeDoraH</span>
-                        </div>
+                        <div class="tags-container"><span class="tag tag-MDOH">MDOH</span><span class="tag tag-MeDoraH">MeDoraH</span></div>
                     </div>
-                    <a href="mailto:a.vlachidis@ucl.ac.uk" class="btn btn-secondary contact-btn"
-                        data-email="a.vlachidis@ucl.ac.uk"><span>Contact</span></a>
+                    <a href="mailto:a.vlachidis@ucl.ac.uk" class="btn btn-secondary contact-btn" data-email="a.vlachidis@ucl.ac.uk"><span>Contact</span></a>
                 </div>
             </div>
 
-            <!-- Research Staff -->
-            <div class="section-title">
-                <h2>Research Staff</h2>
-            </div>
-
+            <div class="section-title"><h2>Research Staff</h2></div>
             <div class="cards-grid-3">
-                <!-- Frieda Schmidt -->
                 <div class="card member-card">
-                    <div class="profile-wrapper">
-                        <img src="https://www.geschichte.tu-darmstadt.de/media/geschichte/ifg/medien_hds/veranstaltungen_1/FS_Schmidt_Frieda_page-0001-768x432_0x415.jpg"
-                            alt="Dr Frieda Schmidt" class="profile-image" />
-                    </div>
+                    <div class="profile-wrapper"><img src="https://www.geschichte.tu-darmstadt.de/media/geschichte/ifg/medien_hds/veranstaltungen_1/FS_Schmidt_Frieda_page-0001-768x432_0x415.jpg" alt="Dr Frieda Schmidt" class="profile-image" /></div>
                     <div class="member-info">
-                        <a href="https://www.geschichte.tu-darmstadt.de/institut_fuer_geschichte_1/ifg_kontaktdetails_67520.en.jsp"
-                            class="member-name">Dr Frieda Schmidt</a>
+                        <a href="https://www.geschichte.tu-darmstadt.de/institut_fuer_geschichte_1/ifg_kontaktdetails_67520.en.jsp" class="member-name">Dr Frieda Schmidt</a>
                         <p class="member-role">Postdoctoral Researcher</p>
                         <p class="member-affiliation">TU Darmstadt</p>
-
-                        <div class="tags-container">
-                            <span class="tag tag-MeDoraH">MeDoraH</span>
-                        </div>
+                        <div class="tags-container"><span class="tag tag-MeDoraH">MeDoraH</span></div>
                     </div>
-                    <a href="mailto:schmidt@pg.tu-darmstadt.de" class="btn btn-secondary contact-btn"
-                        data-email="schmidt@pg.tu-darmstadt.de"><span>Contact</span></a>
+                    <a href="mailto:schmidt@pg.tu-darmstadt.de" class="btn btn-secondary contact-btn" data-email="schmidt@pg.tu-darmstadt.de"><span>Contact</span></a>
                 </div>
 
-                <!-- Aleksey Varfolomeyev -->
                 <div class="card member-card">
-                    <div class="profile-wrapper">
-                        <img src="https://www.geschichte.tu-darmstadt.de/media/geschichte/ifg/medien_hds/personal_1/Foto_Aleksey_Varfolomeyev_890x890_415x415.jpg"
-                            alt="Dr Aleksey Varfolomeyev" class="profile-image" />
-                    </div>
+                    <div class="profile-wrapper"><img src="https://www.geschichte.tu-darmstadt.de/media/geschichte/ifg/medien_hds/personal_1/Foto_Aleksey_Varfolomeyev_890x890_415x415.jpg" alt="Dr Aleksey Varfolomeyev" class="profile-image" /></div>
                     <div class="member-info">
-                        <a href="https://www.geschichte.tu-darmstadt.de/institut_fuer_geschichte_1/ifg_kontaktdetails_69504.en.jsp"
-                            class="member-name">Dr Aleksey Varfolomeyev</a>
+                        <a href="https://www.geschichte.tu-darmstadt.de/institut_fuer_geschichte_1/ifg_kontaktdetails_69504.en.jsp" class="member-name">Dr Aleksey Varfolomeyev</a>
                         <p class="member-role">Postdoctoral Researcher</p>
                         <p class="member-affiliation">TU Darmstadt</p>
-
-                        <div class="tags-container">
-                            <span class="tag tag-MDOH">MDOH</span>
-                            <span class="tag tag-MeDoraH">MeDoraH</span>
-                        </div>
+                        <div class="tags-container"><span class="tag tag-MDOH">MDOH</span><span class="tag tag-MeDoraH">MeDoraH</span></div>
                     </div>
-                    <a href="mailto:varfolomeyev@pg.tu-darmstadt.de" class="btn btn-secondary contact-btn"
-                        data-email="varfolomeyev@pg.tu-darmstadt.de"><span>Contact</span></a>
+                    <a href="mailto:varfolomeyev@pg.tu-darmstadt.de" class="btn btn-secondary contact-btn" data-email="varfolomeyev@pg.tu-darmstadt.de"><span>Contact</span></a>
                 </div>
 
-                <!-- Jiajie Zhang -->
                 <div class="card member-card">
-                    <div class="profile-wrapper">
-                        <img src="https://profiles.ucl.ac.uk/99799-jiajie-zhang/thumbnail" alt="Dr Jiajie Zhang"
-                            class="profile-image" />
-                    </div>
+                    <div class="profile-wrapper"><img src="https://profiles.ucl.ac.uk/99799-jiajie-zhang/thumbnail" alt="Dr Jiajie Zhang" class="profile-image" /></div>
                     <div class="member-info">
-                        <a href="https://profiles.ucl.ac.uk/99799-jiajie-zhang/about" class="member-name">Dr Jiajie
-                            Zhang</a>
+                        <a href="https://profiles.ucl.ac.uk/99799-jiajie-zhang/about" class="member-name">Dr Jiajie Zhang</a>
                         <p class="member-role">Research Associate</p>
                         <p class="member-affiliation">UCL</p>
-
-                        <div class="tags-container">
-                            <span class="tag tag-MeDoraH">MeDoraH</span>
-                        </div>
+                        <div class="tags-container"><span class="tag tag-MeDoraH">MeDoraH</span></div>
                     </div>
-                    <a href="mailto:jiajie.zhang@ucl.ac.uk" class="btn btn-secondary contact-btn"
-                        data-email="jiajie.zhang@ucl.ac.uk"><span>Contact</span></a>
+                    <a href="mailto:jiajie.zhang@ucl.ac.uk" class="btn btn-secondary contact-btn" data-email="jiajie.zhang@ucl.ac.uk"><span>Contact</span></a>
                 </div>
             </div>
 
-            <!-- Affiliates & Students (Grouped for layout balance, or separate) -->
-            <!-- Affiliates -->
-            <div class="section-title">
-                <h2>Affiliates</h2>
-            </div>
-
+            <div class="section-title"><h2>Affiliates</h2></div>
             <div class="cards-grid-3">
-                <!-- Marco Humbel -->
                 <div class="card member-card">
-                    <div class="profile-wrapper">
-                        <img src="https://profiles.ucl.ac.uk/67801-marco-humbel/thumbnail" alt="Dr Marco Humbel"
-                            class="profile-image" />
-                    </div>
+                    <div class="profile-wrapper"><img src="https://profiles.ucl.ac.uk/67801-marco-humbel/thumbnail" alt="Dr Marco Humbel" class="profile-image" /></div>
                     <div class="member-info">
                         <a href="https://profiles.ucl.ac.uk/67801-marco-humbel" class="member-name">Dr Marco Humbel</a>
                         <p class="member-role">The National Archives, UK</p>
                         <p class="member-affiliation">Honorary Research Fellow, UCL</p>
-
-                        <div class="tags-container">
-                            <span class="tag tag-MeDoraH">MeDoraH</span>
-                        </div>
+                        <div class="tags-container"><span class="tag tag-MeDoraH">MeDoraH</span></div>
                     </div>
-                    <a href="mailto:marco.humbel.17@ucl.ac.uk" class="btn btn-secondary contact-btn"
-                        data-email="marco.humbel.17@ucl.ac.uk"><span>Contact</span></a>
+                    <a href="mailto:marco.humbel.17@ucl.ac.uk" class="btn btn-secondary contact-btn" data-email="marco.humbel.17@ucl.ac.uk"><span>Contact</span></a>
                 </div>
             </div>
 
-            <!-- Student Assistants -->
-            <div class="section-title">
-                <h2>Student Assistants</h2>
-            </div>
-
+            <div class="section-title"><h2>Student Assistants</h2></div>
             <div class="cards-grid-3">
-                <!-- Valentina Prishchepova -->
                 <div class="card member-card">
-                    <div class="profile-wrapper">
-                        <img src="https://hiddenhistories.net/files/asset/61f24a8c8ab409ac86e60735e0be86ac67b30e12.jpg"
-                            alt="Valentina Prishchepova" class="profile-image" />
-                    </div>
+                    <div class="profile-wrapper"><img src="https://hiddenhistories.net/files/asset/61f24a8c8ab409ac86e60735e0be86ac67b30e12.jpg" alt="Valentina Prishchepova" class="profile-image" /></div>
                     <div class="member-info">
                         <h3 class="member-name">Valentina Prishchepova</h3>
                         <p class="member-role">Student Assistant</p>
                         <p class="member-affiliation">TU Darmstadt</p>
-
-                        <div class="tags-container">
-                            <span class="tag tag-MeDoraH">MeDoraH</span>
-                        </div>
+                        <div class="tags-container"><span class="tag tag-MeDoraH">MeDoraH</span></div>
                     </div>
-                    <a href="mailto:valentina.prishchepova@stud.tu-darmstadt.de" class="btn btn-secondary contact-btn"
-                        data-email="valentina.prishchepova@stud.tu-darmstadt.de"><span>Contact</span></a>
+                    <a href="mailto:valentina.prishchepova@stud.tu-darmstadt.de" class="btn btn-secondary contact-btn" data-email="valentina.prishchepova@stud.tu-darmstadt.de"><span>Contact</span></a>
                 </div>
 
-                <!-- Florian Elleringmann -->
                 <div class="card member-card">
-                    <div class="profile-wrapper">
-                        <img src="https://hiddenhistories.net/files/asset/ff984c6ca305347521db82b2901dec81196bb5b2.jpg"
-                            alt="Florian Elleringmann" class="profile-image" />
-                    </div>
+                    <div class="profile-wrapper"><img src="https://hiddenhistories.net/files/asset/ff984c6ca305347521db82b2901dec81196bb5b2.jpg" alt="Florian Elleringmann" class="profile-image" /></div>
                     <div class="member-info">
                         <h3 class="member-name">Florian Elleringmann</h3>
                         <p class="member-role">Student Assistant</p>
                         <p class="member-affiliation">TU Darmstadt</p>
-
-                        <div class="tags-container">
-                            <span class="tag tag-MDOH">MDOH</span>
-                            <span class="tag tag-MeDoraH">MeDoraH</span>
-                        </div>
+                        <div class="tags-container"><span class="tag tag-MDOH">MDOH</span><span class="tag tag-MeDoraH">MeDoraH</span></div>
                     </div>
-                    <a href="mailto:florian.elleringmann@stud.tu-darmstadt.de" class="btn btn-secondary contact-btn"
-                        data-email="florian.elleringmann@stud.tu-darmstadt.de"><span>Contact</span></a>
+                    <a href="mailto:florian.elleringmann@stud.tu-darmstadt.de" class="btn btn-secondary contact-btn" data-email="florian.elleringmann@stud.tu-darmstadt.de"><span>Contact</span></a>
                 </div>
             </div>
-
         </div>
 
-        <!-- Footer -->
         <section class="footer-cta">
             <div class="container">
                 <h2 style="font-size: 2rem; margin-bottom: 1rem;">Join our community</h2>
-                <p style="font-size: 1.125rem; color: var(--color-text-secondary); margin-bottom: 2rem;">We invite
-                    students, researchers, and practitioners to explore with us.</p>
-                <div class="button-group" style="justify-content: center;">
-                    <a href="mailto:j.nyhan@ucl.ac.uk" class="btn btn-primary">Contact the Lab</a>
-                </div>
+                <p style="font-size: 1.125rem; color: var(--color-text-secondary); margin-bottom: 2rem;">We invite students, researchers, and practitioners to explore with us.</p>
+                <div class="button-group" style="justify-content: center;"><a href="mailto:j.nyhan@ucl.ac.uk" class="btn btn-primary">Contact the Lab</a></div>
             </div>
         </section>
     </main>
@@ -464,86 +345,56 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const contactBtns = document.querySelectorAll('.contact-btn[data-email]');
+            const announcer = document.getElementById('a11y-announcer');
 
             contactBtns.forEach(btn => {
+                const name = btn.closest('.card').querySelector('.member-name').textContent.trim();
+                btn.setAttribute('aria-label', `Contact ${name}`);
+
                 const textSpan = btn.querySelector('span');
                 const originalText = "Contact";
                 const email = btn.getAttribute('data-email');
-                let isLocked = false; // Prevent interactions during cooldown
+                let isLocked = false;
 
-                // Helper to change text smoothly
-                function updateText(newText, callback) {
+                const updateText = (newText, callback) => {
                     textSpan.style.opacity = '0';
                     textSpan.style.transform = 'translateY(5px)';
-
                     setTimeout(() => {
                         textSpan.textContent = newText;
                         textSpan.style.opacity = '1';
                         textSpan.style.transform = 'translateY(0)';
                         if (callback) callback();
-                    }, 150); // Match CSS transition timing
-                }
+                    }, 150);
+                };
 
-                // Hover effect: Show email
-                btn.addEventListener('mouseenter', () => {
-                    if (!btn.classList.contains('copied') && !isLocked) {
-                        updateText(email);
-                    }
-                });
+                const showEmail = () => { if (!btn.classList.contains('copied') && !isLocked) updateText(email); };
+                const hideEmail = () => { if (!btn.classList.contains('copied') && !isLocked) updateText(originalText); };
 
-                btn.addEventListener('mouseleave', () => {
-                    if (!btn.classList.contains('copied') && !isLocked) {
-                        updateText(originalText);
-                    }
-                });
+                ['mouseenter', 'focus'].forEach(e => btn.addEventListener(e, showEmail));
+                ['mouseleave', 'blur'].forEach(e => btn.addEventListener(e, hideEmail));
 
-                // Click effect: Copy to clipboard
                 btn.addEventListener('click', async (e) => {
                     e.preventDefault();
-
-                    // Ignore clicks during locked/cooldown period
                     if (isLocked) return;
-
-                    // Lock the button IMMEDIATELY to prevent any hover interactions
                     isLocked = true;
-
                     try {
                         await navigator.clipboard.writeText(email);
-
-                        // Show feedback
                         updateText("Copied Email Address");
                         btn.classList.add('copied');
-
-                        // Reset after 2 seconds
+                        if (announcer) announcer.textContent = `Email for ${name} copied to clipboard: ${email}`;
                         setTimeout(() => {
-                            // Determine target state based on hover
-                            const isHovering = btn.matches(':hover');
-                            const targetText = isHovering ? email : originalText;
-
-                            // Remove copied class first to start width transition
+                            const isInteracting = btn.matches(':hover') || btn.matches(':focus');
                             btn.classList.remove('copied');
-
-                            // Update text with slight delay to ensure smooth visual
                             setTimeout(() => {
-                                updateText(targetText, () => {
-                                    // Unlock after text transition completes
-                                    setTimeout(() => {
-                                        isLocked = false;
-                                    }, 200);
+                                updateText(isInteracting ? email : originalText, () => {
+                                    setTimeout(() => { isLocked = false; if (announcer) announcer.textContent = ''; }, 200);
                                 });
                             }, 50);
-
                         }, 2000);
-
-                    } catch (err) {
-                        console.error('Failed to copy text: ', err);
-                        isLocked = false; // Unlock on error
-                        window.location.href = btn.getAttribute('href');
-                    }
+                    } catch (err) { isLocked = false; window.location.href = btn.getAttribute('href'); }
                 });
             });
         });
     </script>
 </body>
-
 </html>
