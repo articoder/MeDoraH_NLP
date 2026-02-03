@@ -221,8 +221,9 @@
 </head>
 
 <body>
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
 
-    <main>
+    <main id="main-content">
         <!-- Hero Section -->
         <section class="hero" style="padding-bottom: var(--space-xl);">
             <div class="container">
@@ -463,6 +464,12 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Create aria-live region for screen reader feedback
+            const liveRegion = document.createElement('div');
+            liveRegion.setAttribute('aria-live', 'polite');
+            liveRegion.className = 'sr-only';
+            document.body.appendChild(liveRegion);
+
             const contactBtns = document.querySelectorAll('.contact-btn[data-email]');
 
             contactBtns.forEach(btn => {
@@ -471,10 +478,21 @@
                 const email = btn.getAttribute('data-email');
                 let isLocked = false; // Prevent interactions during cooldown
 
+                // Set initial accessible label
+                const memberName = btn.closest('.card').querySelector('.member-name').textContent.trim().replace(/\s+/g, ' ');
+                btn.setAttribute('aria-label', `Contact ${memberName}`);
+
                 // Helper to change text smoothly
                 function updateText(newText, callback) {
                     textSpan.style.opacity = '0';
                     textSpan.style.transform = 'translateY(5px)';
+
+                    // Update aria-label when showing email
+                    if (newText === email) {
+                        btn.setAttribute('aria-label', `Contact ${memberName} (Email: ${email})`);
+                    } else if (newText === originalText) {
+                        btn.setAttribute('aria-label', `Contact ${memberName}`);
+                    }
 
                     setTimeout(() => {
                         textSpan.textContent = newText;
@@ -484,17 +502,21 @@
                     }, 150); // Match CSS transition timing
                 }
 
-                // Hover effect: Show email
-                btn.addEventListener('mouseenter', () => {
-                    if (!btn.classList.contains('copied') && !isLocked) {
-                        updateText(email);
-                    }
+                // Interaction effects: Show email on hover or focus
+                ['mouseenter', 'focus'].forEach(evt => {
+                    btn.addEventListener(evt, () => {
+                        if (!btn.classList.contains('copied') && !isLocked) {
+                            updateText(email);
+                        }
+                    });
                 });
 
-                btn.addEventListener('mouseleave', () => {
-                    if (!btn.classList.contains('copied') && !isLocked) {
-                        updateText(originalText);
-                    }
+                ['mouseleave', 'blur'].forEach(evt => {
+                    btn.addEventListener(evt, () => {
+                        if (!btn.classList.contains('copied') && !isLocked) {
+                            updateText(originalText);
+                        }
+                    });
                 });
 
                 // Click effect: Copy to clipboard
@@ -513,12 +535,13 @@
                         // Show feedback
                         updateText("Copied Email Address");
                         btn.classList.add('copied');
+                        liveRegion.textContent = `Email address for ${memberName} copied to clipboard`;
 
                         // Reset after 2 seconds
                         setTimeout(() => {
-                            // Determine target state based on hover
-                            const isHovering = btn.matches(':hover');
-                            const targetText = isHovering ? email : originalText;
+                            // Determine target state based on hover or focus
+                            const isActive = btn.matches(':hover') || btn.matches(':focus');
+                            const targetText = isActive ? email : originalText;
 
                             // Remove copied class first to start width transition
                             btn.classList.remove('copied');
