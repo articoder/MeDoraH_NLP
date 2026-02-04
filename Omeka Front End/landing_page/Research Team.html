@@ -153,8 +153,9 @@
             transition: opacity 0.15s ease, transform 0.15s ease;
         }
 
-        /* Hover Effect: Show Email - faster expand on enter */
-        .contact-btn:hover {
+        /* Hover & Focus Effect: Show Email - faster expand on enter */
+        .contact-btn:hover,
+        .contact-btn:focus-visible {
             min-width: 220px;
             background: var(--color-text-primary);
             color: white;
@@ -164,6 +165,19 @@
                 background-color 0.2s ease,
                 color 0.2s ease,
                 border-color 0.2s ease;
+        }
+
+        /* Screen Reader Only utility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
         }
 
         /* Success State - stays expanded regardless of hover */
@@ -221,6 +235,8 @@
 </head>
 
 <body>
+    <!-- Screen reader announcer for dynamic feedback -->
+    <div id="a11y-announcer" class="sr-only" aria-live="polite"></div>
 
     <main>
         <!-- Hero Section -->
@@ -484,18 +500,23 @@
                     }, 150); // Match CSS transition timing
                 }
 
-                // Hover effect: Show email
-                btn.addEventListener('mouseenter', () => {
+                // Combined hover and focus reveal logic
+                const handleReveal = () => {
                     if (!btn.classList.contains('copied') && !isLocked) {
                         updateText(email);
                     }
-                });
+                };
 
-                btn.addEventListener('mouseleave', () => {
+                const handleHide = () => {
                     if (!btn.classList.contains('copied') && !isLocked) {
                         updateText(originalText);
                     }
-                });
+                };
+
+                btn.addEventListener('mouseenter', handleReveal);
+                btn.addEventListener('focus', handleReveal);
+                btn.addEventListener('mouseleave', handleHide);
+                btn.addEventListener('blur', handleHide);
 
                 // Click effect: Copy to clipboard
                 btn.addEventListener('click', async (e) => {
@@ -510,15 +531,21 @@
                     try {
                         await navigator.clipboard.writeText(email);
 
-                        // Show feedback
+                        // Show visual feedback
                         updateText("Copied Email Address");
                         btn.classList.add('copied');
 
+                        // Update screen reader announcer
+                        const announcer = document.getElementById('a11y-announcer');
+                        if (announcer) {
+                            announcer.textContent = `Email address ${email} copied to clipboard`;
+                        }
+
                         // Reset after 2 seconds
                         setTimeout(() => {
-                            // Determine target state based on hover
-                            const isHovering = btn.matches(':hover');
-                            const targetText = isHovering ? email : originalText;
+                            // Determine target state based on current interaction
+                            const isInteracting = btn.matches(':hover') || btn.matches(':focus');
+                            const targetText = isInteracting ? email : originalText;
 
                             // Remove copied class first to start width transition
                             btn.classList.remove('copied');
