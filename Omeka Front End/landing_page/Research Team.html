@@ -153,8 +153,8 @@
             transition: opacity 0.15s ease, transform 0.15s ease;
         }
 
-        /* Hover Effect: Show Email - faster expand on enter */
-        .contact-btn:hover {
+        /* Hover/Focus Effect: Show Email - faster expand on enter */
+        .contact-btn:hover, .contact-btn:focus-visible {
             min-width: 220px;
             background: var(--color-text-primary);
             color: white;
@@ -467,9 +467,18 @@
 
             contactBtns.forEach(btn => {
                 const textSpan = btn.querySelector('span');
+                if (!textSpan) return;
+
                 const originalText = "Contact";
                 const email = btn.getAttribute('data-email');
+                const memberCard = btn.closest('.member-card');
+                const nameEl = memberCard ? memberCard.querySelector('.member-name') : null;
+                const memberName = nameEl ? nameEl.textContent.trim().replace(/\s+/g, ' ') : "Team Member";
+
                 let isLocked = false; // Prevent interactions during cooldown
+
+                // Initial accessibility
+                btn.setAttribute('aria-label', `Contact ${memberName} via email`);
 
                 // Helper to change text smoothly
                 function updateText(newText, callback) {
@@ -484,18 +493,23 @@
                     }, 150); // Match CSS transition timing
                 }
 
-                // Hover effect: Show email
-                btn.addEventListener('mouseenter', () => {
+                // Hover/Focus effect: Show email
+                const showEmail = () => {
                     if (!btn.classList.contains('copied') && !isLocked) {
                         updateText(email);
                     }
-                });
+                };
 
-                btn.addEventListener('mouseleave', () => {
+                const hideEmail = () => {
                     if (!btn.classList.contains('copied') && !isLocked) {
                         updateText(originalText);
                     }
-                });
+                };
+
+                btn.addEventListener('mouseenter', showEmail);
+                btn.addEventListener('focus', showEmail);
+                btn.addEventListener('mouseleave', hideEmail);
+                btn.addEventListener('blur', hideEmail);
 
                 // Click effect: Copy to clipboard
                 btn.addEventListener('click', async (e) => {
@@ -513,15 +527,17 @@
                         // Show feedback
                         updateText("Copied Email Address");
                         btn.classList.add('copied');
+                        btn.setAttribute('aria-label', `Email address for ${memberName} copied to clipboard`);
 
                         // Reset after 2 seconds
                         setTimeout(() => {
-                            // Determine target state based on hover
-                            const isHovering = btn.matches(':hover');
-                            const targetText = isHovering ? email : originalText;
+                            // Determine target state based on hover/focus
+                            const isActive = btn.matches(':hover') || btn.matches(':focus-visible');
+                            const targetText = isActive ? email : originalText;
 
                             // Remove copied class first to start width transition
                             btn.classList.remove('copied');
+                            btn.setAttribute('aria-label', `Contact ${memberName} via email`);
 
                             // Update text with slight delay to ensure smooth visual
                             setTimeout(() => {
