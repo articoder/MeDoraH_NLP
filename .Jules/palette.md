@@ -1,0 +1,3 @@
+## 2026-02-07 - Accessibility Foundations for Omeka-S Fragments
+**Learning:** Static HTML fragments designed for CMS injection often lack basic accessibility scaffolding like valid `<title>` tags and skip-to-content links, and frequently rely on brittle inline JavaScript for interactions.
+**Action:** Always check for empty `<title>` tags and missing skip links in Omeka-S landing pages. Prioritize refactoring inline event handlers to CSS `:hover`/`:focus-visible` to improve both accessibility and defensive resilience.
