@@ -1,0 +1,3 @@
+## 2025-05-14 - Accessibility & Defensive Programming for CMS Injection
+**Learning:** Landing pages designed for injection into a CMS like Omeka-S often lack basic document metadata (like `<title>`) and keyboard navigation aids (like "Skip to Content"). Additionally, inline JavaScript event handlers for UI interactions (e.g., hover effects) can conflict with the host environment's scripts or be stripped by HTML filters.
+**Action:** Always verify the presence of a `<title>` and a "Skip to Content" link. Implement interactive states using CSS `:hover` and `:focus` selectors instead of inline JavaScript to ensure resilience and accessibility in managed environments.
