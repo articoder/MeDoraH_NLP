@@ -1,0 +1,3 @@
+## 2026-02-09 - Accessible Interactive Reveal Patterns
+**Learning:** When implementing interactive 'reveal' patterns (e.g., showing emails or text on hover), keyboard users are often neglected. Using focus/blur listeners in addition to mouseenter/mouseleave, and providing dynamic aria-label updates instead of just visual text changes, ensures the feature is accessible to all users. Also, textContent from HTML should be sanitized of extra whitespace/newlines when used in ARIA labels.
+**Action:** Always pair hover-based reveal logic with focus/blur listeners, and sanitize extracted text using .trim().replace(/\s+/g, ' ') for use in ARIA attributes.
