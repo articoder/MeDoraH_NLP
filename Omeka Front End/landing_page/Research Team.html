@@ -70,6 +70,13 @@
             color: var(--color-accent-coral);
         }
 
+        .member-name:focus-visible {
+            color: var(--color-accent-coral);
+            outline: 2px solid var(--color-accent-coral);
+            outline-offset: 4px;
+            border-radius: var(--radius-sm);
+        }
+
         .member-role {
             font-family: var(--font-primary);
             font-size: 0.95rem;
@@ -178,6 +185,13 @@
                 background-color 0.25s ease,
                 color 0.25s ease,
                 border-color 0.25s ease;
+        }
+
+        .contact-btn:focus-visible,
+        .btn-primary:focus-visible {
+            outline: 2px solid var(--color-accent-coral);
+            outline-offset: 4px;
+            box-shadow: 0 0 0 2px white, 0 0 0 4px var(--color-accent-coral);
         }
 
         /* Section dividers */
@@ -471,6 +485,12 @@
                 const email = btn.getAttribute('data-email');
                 let isLocked = false; // Prevent interactions during cooldown
 
+                // Accessibility: Get researcher name and set descriptive labels
+                const memberCard = btn.closest('.member-card');
+                const memberName = memberCard ? (memberCard.querySelector('.member-name').textContent.trim()) : "Researcher";
+                const defaultLabel = `Contact ${memberName} (copies email to clipboard)`;
+                btn.setAttribute('aria-label', defaultLabel);
+
                 // Helper to change text smoothly
                 function updateText(newText, callback) {
                     textSpan.style.opacity = '0';
@@ -484,18 +504,23 @@
                     }, 150); // Match CSS transition timing
                 }
 
-                // Hover effect: Show email
-                btn.addEventListener('mouseenter', () => {
+                // Hover & Focus effects: Show email
+                const showEmail = () => {
                     if (!btn.classList.contains('copied') && !isLocked) {
                         updateText(email);
                     }
-                });
+                };
 
-                btn.addEventListener('mouseleave', () => {
+                const hideEmail = () => {
                     if (!btn.classList.contains('copied') && !isLocked) {
                         updateText(originalText);
                     }
-                });
+                };
+
+                btn.addEventListener('mouseenter', showEmail);
+                btn.addEventListener('focus', showEmail);
+                btn.addEventListener('mouseleave', hideEmail);
+                btn.addEventListener('blur', hideEmail);
 
                 // Click effect: Copy to clipboard
                 btn.addEventListener('click', async (e) => {
@@ -512,16 +537,18 @@
 
                         // Show feedback
                         updateText("Copied Email Address");
+                        btn.setAttribute('aria-label', `Email for ${memberName} copied to clipboard`);
                         btn.classList.add('copied');
 
                         // Reset after 2 seconds
                         setTimeout(() => {
-                            // Determine target state based on hover
-                            const isHovering = btn.matches(':hover');
-                            const targetText = isHovering ? email : originalText;
+                            // Determine target state based on hover/focus
+                            const isActive = btn.matches(':hover') || btn.matches(':focus');
+                            const targetText = isActive ? email : originalText;
 
                             // Remove copied class first to start width transition
                             btn.classList.remove('copied');
+                            btn.setAttribute('aria-label', defaultLabel);
 
                             // Update text with slight delay to ensure smooth visual
                             setTimeout(() => {
