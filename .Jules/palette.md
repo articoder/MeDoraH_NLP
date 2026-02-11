@@ -1,0 +1,3 @@
+## 2026-02-11 - Improving Keyboard Accessibility for Reveal-on-Hover Elements
+**Learning:** Elements that reveal information on hover (like email addresses) are often inaccessible to keyboard users unless explicitly handled with focus/blur listeners and aria-live regions. Additionally, "Skip to Content" links need a high z-index and clear focus styles to be effective in complex layouts.
+**Action:** Always add focus/blur event listeners to mirror hover interactions and use aria-live to announce dynamic content changes to screen readers. Ensure skip links are the first body element and have an explicit high z-index.

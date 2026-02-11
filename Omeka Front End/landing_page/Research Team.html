@@ -66,8 +66,15 @@
             transition: color 0.2s ease;
         }
 
-        .member-card:hover .member-name {
+        .member-card:hover .member-name,
+        .member-name:focus-visible {
             color: var(--color-accent-coral);
+        }
+
+        .member-name:focus-visible {
+            outline: 2px solid var(--color-accent-coral);
+            outline-offset: 4px;
+            border-radius: var(--radius-sm);
         }
 
         .member-role {
@@ -153,8 +160,9 @@
             transition: opacity 0.15s ease, transform 0.15s ease;
         }
 
-        /* Hover Effect: Show Email - faster expand on enter */
-        .contact-btn:hover {
+        /* Hover & Focus Effect: Show Email - faster expand on enter */
+        .contact-btn:hover,
+        .contact-btn:focus-visible {
             min-width: 220px;
             background: var(--color-text-primary);
             color: white;
@@ -217,12 +225,24 @@
             margin-top: var(--space-4xl);
             border-top: 1px solid var(--color-border);
         }
+
+        /* Skip Link Overrides */
+        .skip-to-content {
+            z-index: 9999;
+        }
+
+        .skip-to-content:focus {
+            background-color: var(--color-accent-coral) !important;
+            outline: 2px solid white;
+            outline-offset: -4px;
+        }
     </style>
 </head>
 
 <body>
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
-    <main>
+    <main id="main-content">
         <!-- Hero Section -->
         <section class="hero" style="padding-bottom: var(--space-xl);">
             <div class="container">
@@ -467,6 +487,9 @@
 
             contactBtns.forEach(btn => {
                 const textSpan = btn.querySelector('span');
+                // Ensure screen readers announce text changes (like "Copied")
+                textSpan.setAttribute('aria-live', 'polite');
+
                 const originalText = "Contact";
                 const email = btn.getAttribute('data-email');
                 let isLocked = false; // Prevent interactions during cooldown
@@ -484,18 +507,23 @@
                     }, 150); // Match CSS transition timing
                 }
 
-                // Hover effect: Show email
-                btn.addEventListener('mouseenter', () => {
+                // Hover and Focus effects: Show email
+                const showEmail = () => {
                     if (!btn.classList.contains('copied') && !isLocked) {
                         updateText(email);
                     }
-                });
+                };
 
-                btn.addEventListener('mouseleave', () => {
+                const hideEmail = () => {
                     if (!btn.classList.contains('copied') && !isLocked) {
                         updateText(originalText);
                     }
-                });
+                };
+
+                btn.addEventListener('mouseenter', showEmail);
+                btn.addEventListener('focus', showEmail);
+                btn.addEventListener('mouseleave', hideEmail);
+                btn.addEventListener('blur', hideEmail);
 
                 // Click effect: Copy to clipboard
                 btn.addEventListener('click', async (e) => {
