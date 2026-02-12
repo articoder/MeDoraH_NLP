@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>
+<title>International Digital Oral History Lab</title>
 <link href="https://fonts.googleapis.com" rel="preconnect" />
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
 <link
@@ -584,6 +584,24 @@
         animation-delay: 1.3s;
     }
 
+    /* Skip to Content Link */
+    .skip-to-content {
+        position: absolute;
+        top: -40px;
+        left: 1rem;
+        background: #1A1A1A;
+        color: white;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        border-radius: 0 0 0.5rem 0.5rem;
+        transition: top 0.2s ease;
+        z-index: 9999;
+    }
+
+    .skip-to-content:focus {
+        top: 0;
+    }
+
     /* Text styling */
     .text-grey {
         color: #6B6B6B;
@@ -636,7 +654,8 @@
         content: none !important;
     }
 </style>
-<section class="hero">
+<a class="skip-to-content" href="#main-content">Skip to content</a>
+<section class="hero" id="main-content">
     <div class="container">
         <div class="hero-content">
             <h1>Preserved <span class="text-grey">Voices</span>,<br />
@@ -654,6 +673,7 @@
                     our work</a> <a
                     class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-semibold bg-white text-[#1A1A1A] border-2 border-[#E5E5E5] h-12 px-8 py-2 shadow-sm hover:border-[#E4725B] hover:text-[#E4725B] hover:bg-[#FFF8F6] hover:scale-[1.02] hover:-translate-y-1 hover:shadow-[0_8px_20px_0_rgba(228,114,91,0.2)] transition-all duration-300 ease-out cursor-pointer [&amp;::after]:hidden"
                     draggable="false"
+                    aria-label="Learn more about IDOHL Projects"
                     href="https://hiddenhistories.net/s/digital-oral-history-lab/page/IDOHL_Projects">Learn more</a>
             </div>
         </div>
@@ -718,6 +738,7 @@
                     history.</p>
                 <a class="card-link inline-flex items-center gap-2 !text-[#1A1A1A] !no-underline font-semibold text-sm hover:!text-[#E4725B] hover:gap-3 transition-all duration-300 [&amp;::after]:hidden [&amp;::before]:hidden"
                     draggable="false"
+                    aria-label="Learn with us: Workshops and Training"
                     href="https://hiddenhistories.net/s/digital-oral-history-lab/page/resources-publications#workshops"
                     onmouseout="this.style.color='#1A1A1A'; this.querySelector('span').style.transform='translateX(0)';"
                     onmouseover="this.style.color='#E4725B'; this.querySelector('span').style.transform='translateX(6px)';"
@@ -747,7 +768,9 @@
 
                 <p>Online seminars featuring international experts and open events connecting researchers worldwide.</p>
                 <a class="card-link inline-flex items-center gap-2 !text-[#1A1A1A] !no-underline font-semibold text-sm hover:!text-[#E4725B] hover:gap-3 transition-all duration-300 [&amp;::after]:hidden [&amp;::before]:hidden"
-                    draggable="false" href="https://hdsm.hypotheses.org/category/digital_oral_history_lab"
+                    draggable="false"
+                    aria-label="Join us: Events and Engagement"
+                    href="https://hdsm.hypotheses.org/category/digital_oral_history_lab"
                     onmouseout="this.style.color='#1A1A1A'; this.querySelector('span').style.transform='translateX(0)';"
                     onmouseover="this.style.color='#E4725B'; this.querySelector('span').style.transform='translateX(6px)';"
                     style="text-decoration: none !important; border-bottom: none !important;">Join us <span
